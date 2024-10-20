@@ -10,8 +10,13 @@ namespace Game
     {
         public GameLaunchFlow(IBootstrap bootstrap)
         {
-            this.AddNext(action: () => bootstrap.Agents.Get<IAppLaunchAgent>().AppLaunch())
-            .AddNext(() => { Debug.Log("Started"); });
+             AddNext(action: () => bootstrap.Agents.Get<IAppLaunchAgent>().AppLaunch())
+            .AddNext(() => { bootstrap.Features.Get<ILoadingScreen>().Show(); })
+            .AddNext(() => { Debug.Log("Started"); })
+            .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(2f)); })
+            .AddNext(() => { bootstrap.Features.Get<IField>().Show(); })
+            ;
+            
         }
     }
 }

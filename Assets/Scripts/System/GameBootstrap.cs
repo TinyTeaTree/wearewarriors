@@ -22,6 +22,8 @@ namespace Game
 
         protected override void AddFeatures()
         {
+            _features.Add<ILoadingScreen>(new LoadingScreen());
+            _features.Add<IField>(new Field());
             //<New Feature>
         }
 
@@ -39,6 +41,7 @@ namespace Game
 
         protected override void AddRecords()
         {
+            _records.Add(typeof(LoadingScreenRecord), new LoadingScreenRecord());
             //<New Record>
         }
 
