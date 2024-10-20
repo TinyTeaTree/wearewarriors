@@ -6,3 +6,5 @@
 *.sln
 .vsconfig
 /Temp
+/.vs
+/obj
