@@ -13,8 +13,8 @@ namespace Game
              AddNext(action: () => bootstrap.Agents.Get<IAppLaunchAgent>().AppLaunch())
             .AddNext(() => { bootstrap.Features.Get<ILoadingScreen>().Show(); })
             .AddNext(() => { Debug.Log("Started"); })
-            .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(2f)); })
-            .AddNext(() => { bootstrap.Features.Get<IField>().Show(); })
+            /*.AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(2f)); })
+            .AddNext(() => { bootstrap.Features.Get<IField>().Show(); })*/
             ;
             
         }

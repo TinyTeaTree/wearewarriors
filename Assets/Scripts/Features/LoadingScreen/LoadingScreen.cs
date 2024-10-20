@@ -22,8 +22,13 @@ namespace Game
 
         public void Show()
         {
-            Record.loadingScreenVisual = Object.Instantiate(Resources.Load("Loading Screen"), GameObject.Find("Canvas").transform) as GameObject;
+            var canvas = GameObject.Find("Canvas").transform;
+            var resource = Resources.Load<LoadingScreenVisual>("Loading Screen");
+
+            Record.loadingScreenVisual = Object.Instantiate(resource,canvas);
             Debug.Log("Show Called");
+
+            Record.loadingScreenVisual.RotatingLoadingImage();
         }
     }
 }

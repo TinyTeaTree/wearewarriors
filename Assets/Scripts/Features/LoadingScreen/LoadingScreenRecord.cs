@@ -5,6 +5,6 @@ namespace Game
 {
     public class LoadingScreenRecord : BaseRecord
     {
-       public GameObject loadingScreenVisual;
+       public LoadingScreenVisual loadingScreenVisual;
     }
 }

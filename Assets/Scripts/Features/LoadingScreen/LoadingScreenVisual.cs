@@ -10,7 +10,7 @@ namespace Game
 
         public void RotatingLoadingImage()
         {
-            
+            loadingImage.transform.Rotate(new Vector3(0, 0 ,5), 180f);
         }
     }
 }
