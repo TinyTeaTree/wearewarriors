@@ -9,7 +9,7 @@ namespace Game
     public class Garden : BaseVisualFeature<GardenVisual>, IGarden, IAppLaunchAgent
     {
         [Inject] public GardenRecord Record { get; set; }
-        [Inject] public LocalConfigService ConfigService { get; set; }
+        [Inject] public ILocalConfigService ConfigService { get; set; }
 
         private GardenConfig _config;
         
