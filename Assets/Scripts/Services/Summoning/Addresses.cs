@@ -4,7 +4,7 @@ namespace Services
     {
         //<Resource Path Start>
         public const string LocalConfigs = "Configs/LocalConfigs";
-        public const string GardenVisual = "Visuals/Garden Visual";
+        public const string Garden = "Visuals/Garden";
         public const string LoadingScreen = "Visuals/Loading Screen";
         //<Resource Path End>
     }
