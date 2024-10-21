@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Agents;
 using Core;
@@ -6,20 +7,23 @@ using Services;
 
 namespace Game
 {
-    public class Garden : BaseVisualFeature<GardenVisual>, IGarden, IAppLaunchAgent
+    public class Garden : BaseVisualFeature<GardenVisual>, IGarden
     {
         [Inject] public GardenRecord Record { get; set; }
         [Inject] public ILocalConfigService ConfigService { get; set; }
 
         private GardenConfig _config;
-        
-        public async Task AppLaunch()
+
+        public void Dispose()
+        {
+            _visual.SelfDestroy();
+        }
+
+        public async Task Load()
         {
             _config = ConfigService.GetConfig<GardenConfig>();
-            
-            await CreateVisual();
 
-            _visual.AddTomatoGarden();
+            await Task.WhenAll(Task.Delay(TimeSpan.FromSeconds(3f)), CreateVisual());
         }
     }
 }
