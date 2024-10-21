@@ -5,7 +5,6 @@ namespace Game
 {
     public class GardenVisual : BaseVisual<Garden>
     {
-        
         public void AddTomatoGarden()
         {
             

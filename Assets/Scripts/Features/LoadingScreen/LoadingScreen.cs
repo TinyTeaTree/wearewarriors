@@ -12,7 +12,7 @@ namespace Game
 
         public Task AppLaunch()
         {
-            Debug.Log("App Has Lanched");
+            Debug.Log("Loading Screen Has Lanched");
             return Task.CompletedTask;
         }
 
