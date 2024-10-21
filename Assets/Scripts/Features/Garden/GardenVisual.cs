@@ -5,9 +5,8 @@ namespace Game
 {
     public class GardenVisual : BaseVisual<Garden>
     {
-        public void AddTomatoGarden()
-        {
-            
-        }
+
+        [SerializeField] private Camera _camera;
+    
     }
 }

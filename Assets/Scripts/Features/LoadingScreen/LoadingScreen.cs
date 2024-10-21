@@ -18,7 +18,7 @@ namespace Game
 
         public void Close()
         {
-            Object.Destroy(Record.loadingScreenVisual);
+            Record.loadingScreenVisual.SelfDestroy();
         }
 
         public void Show()

@@ -23,14 +23,13 @@ namespace Game
         protected override void AddFeatures()
         {
             _features.Add<ILoadingScreen>(new LoadingScreen());
-            _features.Add<IField>(new Field());
             _features.Add<IGarden>(new Garden());
             //<New Feature>
         }
 
         protected override void AddFactories()
         {
-            _factories.Add(typeof(GardenVisual), new ResourceFactory(Addresses.GardenVisual));
+            _factories.Add(typeof(GardenVisual), new AsyncResourceFactory(Addresses.Garden));
         }
 
         protected override void AddAgents()
