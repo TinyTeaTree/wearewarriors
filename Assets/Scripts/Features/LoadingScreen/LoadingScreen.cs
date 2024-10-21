@@ -1,6 +1,7 @@
 using Agents;
 using Core;
 using System.Threading.Tasks;
+using Services;
 using UnityEngine;
 
 namespace Game
@@ -23,7 +24,7 @@ namespace Game
         public void Show()
         {
             var canvas = GameObject.Find("Canvas").transform;
-            var resource = Resources.Load<LoadingScreenVisual>("Loading Screen");
+            var resource = Resources.Load<LoadingScreenVisual>(Addresses.LoadingScreen);
 
             Record.loadingScreenVisual = Object.Instantiate(resource,canvas);
             Debug.Log("Show Called");

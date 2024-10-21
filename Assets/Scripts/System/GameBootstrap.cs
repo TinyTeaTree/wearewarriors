@@ -24,12 +24,13 @@ namespace Game
         {
             _features.Add<ILoadingScreen>(new LoadingScreen());
             _features.Add<IField>(new Field());
+            _features.Add<IGarden>(new Garden());
             //<New Feature>
         }
 
         protected override void AddFactories()
         {
-            
+            _factories.Add(typeof(GardenVisual), new ResourceFactory(Addresses.GardenVisual));
         }
 
         protected override void AddAgents()
@@ -42,6 +43,7 @@ namespace Game
         protected override void AddRecords()
         {
             _records.Add(typeof(LoadingScreenRecord), new LoadingScreenRecord());
+            _records.Add(typeof(GardenRecord), new GardenRecord());
             //<New Record>
         }
 
