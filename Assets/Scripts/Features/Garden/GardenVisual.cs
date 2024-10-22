@@ -7,6 +7,14 @@ namespace Game
     {
 
         [SerializeField] private Camera _camera;
+
     
+
+
+        [SerializeField] private Transform _avatarStartSpot;
+
+        public Transform AvatarStartSpot => _avatarStartSpot;
+
+
     }
 }

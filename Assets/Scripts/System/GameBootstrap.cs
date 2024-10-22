@@ -24,12 +24,16 @@ namespace Game
         {
             _features.Add<ILoadingScreen>(new LoadingScreen());
             _features.Add<IGarden>(new Garden());
+            _features.Add<IAvatar>(new Avatar());
+            _features.Add<IJoystick>(new Joystick());
             //<New Feature>
         }
 
         protected override void AddFactories()
         {
             _factories.Add(typeof(GardenVisual), new AsyncResourceFactory(Addresses.Garden));
+            _factories.Add(typeof(AvatarVisual), new AsyncResourceFactory(Addresses.Avatar));
+            _factories.Add(typeof(JoystickVisual), new AsyncResourceFactory(Addresses.JostickCanvas));
         }
 
         protected override void AddAgents()
@@ -43,6 +47,8 @@ namespace Game
         {
             _records.Add(typeof(LoadingScreenRecord), new LoadingScreenRecord());
             _records.Add(typeof(GardenRecord), new GardenRecord());
+            _records.Add(typeof(AvatarRecord), new AvatarRecord());
+            _records.Add(typeof(JoystickRecord), new JoystickRecord());
             //<New Record>
         }
 
