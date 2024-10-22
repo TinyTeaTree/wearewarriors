@@ -19,17 +19,24 @@ namespace Game
         public void Close()
         {
             Record.loadingScreenVisual.SelfDestroy();
+            Record.IsShowing = false;
         }
 
-        public void Show()
+        public void ProgressControl(float progress)
+        {
+            Record.LoadingPercentage = progress * 100;
+            Record.loadingScreenVisual.UpdateProgress(progress);
+        }
+
+        public void Show(bool toggleTips)
         {
             var canvas = GameObject.Find("Canvas").transform;
             var resource = Resources.Load<LoadingScreenVisual>(Addresses.LoadingScreen);
 
             Record.loadingScreenVisual = Object.Instantiate(resource,canvas);
+            Record.loadingScreenVisual.SetFeature(this);
+            Record.IsShowing = true;
             Debug.Log("Show Called");
-
-            Record.loadingScreenVisual.RotatingLoadingImage();
         }
     }
 }

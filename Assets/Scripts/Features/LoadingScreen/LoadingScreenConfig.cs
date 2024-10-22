@@ -6,6 +6,6 @@ namespace Game
     [System.Serializable]
     public class LoadingScreenConfig : BaseConfig
     {
-
+        
     }
 }
