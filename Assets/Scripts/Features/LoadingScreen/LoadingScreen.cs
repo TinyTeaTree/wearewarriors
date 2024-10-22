@@ -9,6 +9,9 @@ namespace Game
     public class LoadingScreen : BaseVisualFeature<LoadingScreenVisual>, ILoadingScreen, IAppLaunchAgent
     {
         [Inject] public LoadingScreenRecord Record { get; set; }
+        [Inject] public ILocalConfigService ConfigService { get; set; }
+
+        private LoadingScreenConfig _config;
 
         public Task AppLaunch()
         {
@@ -30,12 +33,18 @@ namespace Game
 
         public void Show(bool toggleTips)
         {
-            var canvas = GameObject.Find("Canvas").transform;
-            var resource = Resources.Load<LoadingScreenVisual>(Addresses.LoadingScreen);
+            _config = ConfigService.GetConfig<LoadingScreenConfig>();
+            string randomTip = _config.proTips[Random.Range(0, _config.proTips.Count)];
+
+            Transform canvas = GameObject.Find("Canvas").transform;
+            LoadingScreenVisual resource = Resources.Load<LoadingScreenVisual>(Addresses.LoadingScreen);
 
             Record.loadingScreenVisual = Object.Instantiate(resource,canvas);
             Record.loadingScreenVisual.SetFeature(this);
             Record.IsShowing = true;
+
+            Record.loadingScreenVisual.InitLoadingScreen(toggleTips, randomTip);
+
             Debug.Log("Show Called");
         }
     }

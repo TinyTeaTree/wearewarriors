@@ -1,6 +1,8 @@
 using Core;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting.YamlDotNet.Core;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +13,21 @@ namespace Game
         [SerializeField] TextMeshProUGUI proTip;
         [SerializeField] TextMeshProUGUI loadingBarPercentage;
         [SerializeField] Image loadingBar;
+
+        public void InitLoadingScreen(bool toggleTip, string massage)
+        {
+            
+            SetProTip(massage);
+            proTip.gameObject.SetActive(toggleTip);
+
+            if (toggleTip)
+            {
+                StartCoroutine(TipTimer());
+            }
+
+            loadingBarPercentage.text = "0%";
+            Feature.Record.LoadingPercentage = 0;
+        }
 
         public void SetProTip(string massage)
         {
@@ -32,6 +49,14 @@ namespace Game
             loadingBar.fillAmount = progressNormlized;
             UpdateLoadingBarPercentage();
         }
-      
+
+        IEnumerator TipTimer()
+        {
+            while (Feature.Record.IsShowing)
+            {
+                Feature.Record.TipDisplayDuration += Time.deltaTime;
+                yield return null;
+            }
+        }
     }
 }
