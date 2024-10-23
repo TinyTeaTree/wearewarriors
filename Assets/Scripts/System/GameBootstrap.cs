@@ -34,6 +34,7 @@ namespace Game
             _factories.Add(typeof(GardenVisual), new AsyncResourceFactory(Addresses.Garden));
             _factories.Add(typeof(AvatarVisual), new AsyncResourceFactory(Addresses.Avatar));
             _factories.Add(typeof(JoystickVisual), new AsyncResourceFactory(Addresses.JostickCanvas));
+            _factories.Add(typeof(LoadingScreenVisual), new ResourceFactory(Addresses.LoadingScreen));
         }
 
         protected override void AddAgents()

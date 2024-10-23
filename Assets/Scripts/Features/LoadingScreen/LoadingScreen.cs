@@ -1,7 +1,7 @@
 using Agents;
 using Core;
-using System.Threading.Tasks;
 using Services;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Game
@@ -9,27 +9,41 @@ namespace Game
     public class LoadingScreen : BaseVisualFeature<LoadingScreenVisual>, ILoadingScreen, IAppLaunchAgent
     {
         [Inject] public LoadingScreenRecord Record { get; set; }
+        [Inject] public ILocalConfigService ConfigService { get; set; }
+
+        private LoadingScreenConfig _config;
 
         public Task AppLaunch()
         {
-            Debug.Log("App Has Lanched");
+            _config = ConfigService.GetConfig<LoadingScreenConfig>();
+            Debug.Log("Loading Screen Has Lanched");
             return Task.CompletedTask;
         }
 
         public void Close()
         {
-            Record.loadingScreenVisual.SelfDestroy();
+            _visual.SelfDestroy();
+            Record.IsShowing = false;
         }
 
-        public void Show()
+        public void ProgressControl(float progress)
         {
-            var canvas = GameObject.Find("Canvas").transform;
-            var resource = Resources.Load<LoadingScreenVisual>(Addresses.LoadingScreen);
+            Record.LoadingPercentage = progress * 100;
+            _visual.UpdateProgress(progress);
+        }
 
-            Record.loadingScreenVisual = Object.Instantiate(resource,canvas);
+        public async void Show(bool toggleTips)
+        {
+            string randomTip = _config.proTips.GetRandom();
+
+            Transform canvas = GameObject.Find("Canvas").transform;
+            await CreateVisual(canvas);
+
+            Record.IsShowing = true;
+
+            _visual.InitLoadingScreen(toggleTips, randomTip);
+
             Debug.Log("Show Called");
-
-            Record.loadingScreenVisual.RotatingLoadingImage();
         }
     }
 }
