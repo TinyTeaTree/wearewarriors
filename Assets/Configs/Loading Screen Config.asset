@@ -15,5 +15,5 @@ MonoBehaviour:
   _config:
     proTips:
     - 'Stop moving to interact with the enviroment '
-    - You can pickup diffrent tools by standing near it
+    - You can pickup diffrent tool by standing near it
     - Search for nearby water source to fill your bucket

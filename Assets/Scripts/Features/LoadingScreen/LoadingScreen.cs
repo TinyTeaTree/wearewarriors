@@ -1,7 +1,7 @@
 using Agents;
 using Core;
-using System.Threading.Tasks;
 using Services;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Game
@@ -15,35 +15,33 @@ namespace Game
 
         public Task AppLaunch()
         {
+            _config = ConfigService.GetConfig<LoadingScreenConfig>();
             Debug.Log("Loading Screen Has Lanched");
             return Task.CompletedTask;
         }
 
         public void Close()
         {
-            Record.loadingScreenVisual.SelfDestroy();
+            _visual.SelfDestroy();
             Record.IsShowing = false;
         }
 
         public void ProgressControl(float progress)
         {
             Record.LoadingPercentage = progress * 100;
-            Record.loadingScreenVisual.UpdateProgress(progress);
+            _visual.UpdateProgress(progress);
         }
 
-        public void Show(bool toggleTips)
+        public async void Show(bool toggleTips)
         {
-            _config = ConfigService.GetConfig<LoadingScreenConfig>();
-            string randomTip = _config.proTips[Random.Range(0, _config.proTips.Count)];
+            string randomTip = _config.proTips.GetRandom();
 
             Transform canvas = GameObject.Find("Canvas").transform;
-            LoadingScreenVisual resource = Resources.Load<LoadingScreenVisual>(Addresses.LoadingScreen);
+            await CreateVisual(canvas);
 
-            Record.loadingScreenVisual = Object.Instantiate(resource,canvas);
-            Record.loadingScreenVisual.SetFeature(this);
             Record.IsShowing = true;
 
-            Record.loadingScreenVisual.InitLoadingScreen(toggleTips, randomTip);
+            _visual.InitLoadingScreen(toggleTips, randomTip);
 
             Debug.Log("Show Called");
         }

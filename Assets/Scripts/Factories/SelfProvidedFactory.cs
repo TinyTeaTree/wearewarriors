@@ -1,3 +1,4 @@
+using UnityEngine;
 using System.Threading.Tasks;
 using Core;
 
@@ -12,7 +13,7 @@ namespace Factories
             _providedVisual = visual;
         }
         
-        public override Task<TypeVisual> Create<TypeVisual>()
+        public override Task<TypeVisual> Create<TypeVisual>(Transform parent = null)
         {
             return Task.FromResult((TypeVisual)_providedVisual);
         }

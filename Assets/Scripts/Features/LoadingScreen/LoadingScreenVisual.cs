@@ -1,8 +1,6 @@
 using Core;
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting.YamlDotNet.Core;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,10 +12,10 @@ namespace Game
         [SerializeField] TextMeshProUGUI loadingBarPercentage;
         [SerializeField] Image loadingBar;
 
-        public void InitLoadingScreen(bool toggleTip, string massage)
+        public void InitLoadingScreen(bool toggleTip, string message)
         {
             
-            SetProTip(massage);
+            SetProTip(message);
             proTip.gameObject.SetActive(toggleTip);
 
             if (toggleTip)
@@ -43,7 +41,7 @@ namespace Game
         {
             if(progressNormlized > 1 || progressNormlized < 0)
             {
-                Debug.LogError("Enter a float betweem 0 to 1");
+                Notebook.NoteError("Unsupported float, insert a number between 0 to 1");
             }
 
             loadingBar.fillAmount = progressNormlized;
