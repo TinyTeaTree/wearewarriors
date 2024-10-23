@@ -76,11 +76,6 @@ namespace CoreEditor.FeatureMaker
                 GUILayout.EndVertical();
             }
             GUILayout.EndHorizontal();
-
-            // if (GUILayout.Button("Collect Addresses"))
-            // {
-            //     UpdateAddresses();
-            // }
         }
 
         private void CreateAgent()
@@ -259,14 +254,13 @@ namespace CoreEditor.FeatureMaker
             var files = Directory.GetFiles(path);
             foreach (var filePath in files)
             {
+                if (filePath.Contains("Plugins"))
+                    continue;
+
                 if (Path.GetExtension(filePath) == ".meta")
-                {
-                    //skip
-                }
-                else
-                {
-                    filePaths.Add(filePath);
-                }
+                    continue;
+                
+                filePaths.Add(filePath);
             }
 
             var dirs = Directory.GetDirectories(path);
