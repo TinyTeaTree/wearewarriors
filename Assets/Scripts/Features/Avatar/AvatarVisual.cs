@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Core;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 namespace Game
 {
@@ -39,9 +40,11 @@ namespace Game
 
                 var strength = direction.magnitude;
 
-                if (strength > 0.03f)
+                var clampedStrength = Mathf.Clamp01(strength);
+
+                if (clampedStrength > 0.03f)
                 {
-                    var translation = new Vector3(direction.x, 0f, direction.y) * (_speed * strength * Time.deltaTime);
+                    var translation = new Vector3(direction.x, 0f, direction.y).normalized * (_speed * clampedStrength * Time.deltaTime);
 
                     transform.LookAt(transform.position + translation);
 
