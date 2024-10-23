@@ -1,3 +1,4 @@
+using UnityEngine;
 using System.Threading.Tasks;
 
 namespace Core
@@ -19,7 +20,7 @@ namespace Core
             }
         }
 
-        protected async Task CreateVisual()
+        protected async Task CreateVisual(Transform parent = null)
         {
             if (_factory == null)
             {
@@ -33,7 +34,7 @@ namespace Core
                 return;
             }
             
-            _visual = await _factory.Create<VisualType>();
+            _visual = await _factory.Create<VisualType>(parent);
             
             _visual.SetFeature(this);
         }

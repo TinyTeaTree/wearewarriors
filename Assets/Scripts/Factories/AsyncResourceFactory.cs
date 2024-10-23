@@ -13,12 +13,12 @@ namespace Factories
             _loadPath = path;
         }
         
-        public override async Task<TypeVisual> Create<TypeVisual>()
+        public override async Task<TypeVisual> Create<TypeVisual>(Transform parent = null)
         {
             var loadedVisualAsync = Resources.LoadAsync<TypeVisual>(_loadPath);
             await TaskUtils.WaitUntil(() => loadedVisualAsync.isDone);
             var loadedVisual = (TypeVisual)loadedVisualAsync.asset;
-            var visual = Object.Instantiate(loadedVisual);
+            var visual = Object.Instantiate(loadedVisual, parent);
             return visual;
         }
     }

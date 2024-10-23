@@ -27,5 +27,7 @@ namespace Game
 
             await Task.WhenAll(Task.Delay(TimeSpan.FromSeconds(3f)), CreateVisual());
         }
+
+        public Vector3 AvatarStartSpot => _visual.AvatarStartSpot.position;
     }
 }
