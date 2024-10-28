@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _config:
     CreateNewPlayerAutomatically: 1
-    NewPlayerRecords: {fileID: 0}
+    NewPlayerRecords: {fileID: 4900000, guid: 8a6bc681c795c4260b01fb24f552a763, type: 3}
