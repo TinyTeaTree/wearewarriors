@@ -26,7 +26,9 @@ namespace Game
             _features.Add<IGarden>(new Garden());
             _features.Add<IAvatar>(new Avatar());
             _features.Add<IJoystick>(new Joystick());
+            _features.Add<ITools>(new Tools());
             _features.Add<IPlayerAccount>(new PlayerAccount());
+
             //<New Feature>
         }
 
@@ -52,6 +54,7 @@ namespace Game
             _records.Add(typeof(GardenRecord), new GardenRecord());
             _records.Add(typeof(AvatarRecord), new AvatarRecord());
             _records.Add(typeof(JoystickRecord), new JoystickRecord());
+            _records.Add(typeof(ToolsRecord), new ToolsRecord());
             _records.Add(typeof(PlayerAccountRecord), new PlayerAccountRecord());
             //<New Record>
         }
