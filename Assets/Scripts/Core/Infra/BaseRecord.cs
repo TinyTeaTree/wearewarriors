@@ -1,4 +1,5 @@
 using Unity.Plastic.Newtonsoft.Json;
+using Unity.Plastic.Newtonsoft.Json.Linq;
 
 namespace Core
 {
@@ -10,6 +11,12 @@ namespace Core
         public void Populate(string json)
         {
             JsonConvert.PopulateObject(json, this);
+        }
+
+        public void Populate(JObject o)
+        {
+            using var jsonReader = o.CreateReader();
+            JsonSerializer.Create().Populate(jsonReader, this);
         }
     }
 }

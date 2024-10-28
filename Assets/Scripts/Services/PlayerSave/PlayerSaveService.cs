@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Core;
@@ -8,6 +9,13 @@ namespace Services
 {
     public class PlayerSaveService : BaseService, IPlayerSaveService
     {
+        public void AddSaveRecord(BaseRecord record)
+        {
+            RecordsForSaving.Add(record);
+        }
+
+        public List<BaseRecord> RecordsForSaving { get; } = new();
+
         public async Task<T> GetSavedData<T>(string saveId)
         {
             var saveText = await GetSavedJson(saveId);
