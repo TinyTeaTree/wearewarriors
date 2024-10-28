@@ -124,14 +124,17 @@ public class Outline : MonoBehaviour {
     }
     
     // Destroy material instances
-    Destroy(outlineMaskMaterial);
-    Destroy(outlineFillMaterial);
+    DestroyImmediate(outlineMaskMaterial);
+    DestroyImmediate(outlineFillMaterial);
     
     _isOn = false;
   }
 
   private void TurnOn()
   {
+    if (_isOn)
+      return;
+    
     // Cache renderers
     renderers = GetComponentsInChildren<Renderer>();
 

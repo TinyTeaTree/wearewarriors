@@ -9,5 +9,6 @@ namespace Game
         [SerializeField] Button _dropToolsButton;
         
         private ToolVisual[] _toolVisuals;
+        public ToolVisual[] AllTools => _toolVisuals;
     }
 }
