@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Core;
+using UnityEngine;
 
 
 namespace Game
@@ -12,10 +13,14 @@ namespace Game
 
         ToolVisual GetHoldingTool();
 
-        ToolVisual GetClosestTool();
+        ToolVisual GetClosestTool(Vector3 pos);
 
         void DropTool(ToolVisual tool);
         
         void PickUpTool(ToolVisual tool);
+        
+        void HighlightOff();
+        
+        void HighlightOn(ToolVisual closestTool);
     }
 }

@@ -5,11 +5,14 @@ namespace Game
 {
     public class ToolVisual : BaseVisual<Tools>
     {
-        private Vector3 _toolPosition = Vector3.zero;
+        [SerializeField] private Outline _outline;
 
-        public void CreateVisual()
+        public void SetHighlight(bool state)
         {
-            Instantiate(gameObject, _toolPosition, Quaternion.identity);
+            _outline.Toggle(state);
         }
+
+        private Vector3 toolPosition;
+
     }
 }

@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Agents;
 using Core;
 using Services;
+using UnityEngine;
 
 namespace Game
 {
@@ -30,17 +31,19 @@ namespace Game
 
         public ToolAction GetToolAbilities()
         {
-            throw new System.NotImplementedException();
+            return ToolAction.filling; //TODO: get tool abilitties
         }
 
         public ToolVisual GetHoldingTool()
         {
-            throw new System.NotImplementedException();
+            //TODO: Return the Tool that was is being held
+            return null;
         }
 
-        public ToolVisual GetClosestTool()
+        public ToolVisual GetClosestTool(Vector3 pos)
         {
-            throw new System.NotImplementedException();
+            //TODO: Return the Tool that is the Closest to the @pos
+            return Object.FindObjectOfType<ToolVisual>(); //TMP: Remove once _visual is set up
         }
 
         public void DropTool(ToolVisual tool)
@@ -51,6 +54,24 @@ namespace Game
         public void PickUpTool(ToolVisual tool)
         {
             throw new System.NotImplementedException();
+        }
+
+        public void HighlightOff()
+        {
+            ToolVisual[] visuals = _visual?.AllTools ?? Object.FindObjectsByType<ToolVisual>(FindObjectsSortMode.None); //TMP: Remove Find Objects once Visual has bee set up
+            foreach (var tool in visuals)
+            {
+                tool.SetHighlight(false);
+            }
+        }
+
+        public void HighlightOn(ToolVisual closestTool)
+        {
+            ToolVisual[] visuals = _visual?.AllTools ?? Object.FindObjectsByType<ToolVisual>(FindObjectsSortMode.None); //TMP: Remove Find Objects once Visual has bee set up
+            foreach (var tool in visuals)
+            {
+                tool.SetHighlight(tool == closestTool);
+            }
         }
     }
 }

@@ -1,5 +1,7 @@
 using System.Threading.Tasks;
 using Core;
+using Services;
+using UnityEngine;
 
 namespace Game
 {
@@ -9,6 +11,10 @@ namespace Game
         [Inject] public IGarden Garden { get; set; }
         [Inject] public IJoystick Joystick { get; set; }
         
+        [Inject] public ITools Tools { get; set; }
+        
+        private AvatarConfig Config { get; set; }
+        
         
         public async Task Load()
         {
@@ -16,7 +22,7 @@ namespace Game
 
             _visual.SetPos(Garden.AvatarStartSpot);
 
-
+            Config = _bootstrap.Services.Get<ILocalConfigService>().GetConfig<AvatarConfig>();
         }
 
         public void Activate()
@@ -24,6 +30,26 @@ namespace Game
             _visual.SetDirectionProvider(Joystick);
             
             _visual.StartMovement();
+        }
+
+        public void Update()
+        {
+            if (Tools.GetHoldingTool() != null)
+                return;
+            
+            var closestTool = Tools.GetClosestTool(_visual.transform.position);
+
+            float distance = Vector3.Distance(closestTool.transform.position, _visual.transform.position);
+            if (distance > Config.HighlightDistance)
+            {
+                Tools.HighlightOff();
+            }
+            else
+            {
+                Tools.HighlightOn(closestTool);
+            }
+
+            //Tools.Highlight(closestTool);
         }
     }
 }
