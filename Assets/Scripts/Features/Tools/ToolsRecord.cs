@@ -7,9 +7,10 @@ namespace Game
 {
     public class ToolsRecord : BaseRecord
     {
-        public ToolsEnum ToolHeld { get; set; } = ToolsEnum.Hands;
+        public ToolVisual EquippedToolVisual { get; set; } 
         public ToolAction[] ToolAction { get; set; }
-        public Dictionary<ToolsEnum, Vector3> ToolsPositions { get; set; } = new();
+        public List<ToolVisual> AllToolsInGarden { get; set; }
+        public List<Vector3> AllToolsPositions { get; set; }
         public Dictionary<ToolsEnum, int> ToolsUsagePercentage { get; set; } = new();
     }
 }

@@ -17,42 +17,33 @@ namespace Game
             _toolsConfig = ConfigService.GetConfig<ToolsConfig>();
             return Task.CompletedTask;
         }
-        
-        public void LoadTools()
+
+        public Task LoadTools()
         {
-            foreach (var tool in _toolsConfig.Tool)
-            {
-               
-            }
+           return Task.CompletedTask;
         }
 
-        public void GetToolAbilities()
-        {
-            for (int i = 0; i < _toolsConfig.Tool.Length; i++)
-            {
-                foreach (var toolAbility in _toolsConfig.Tool[i].ToolAbilities)
-                {
-                    Record.ToolAction[i] = toolAbility;
-                }
-            }
-        }
-
-        public void GetHoldingTool()
+        public ToolAction GetToolAbilities()
         {
             throw new System.NotImplementedException();
         }
 
-        public void GetClosestTool()
+        public ToolVisual GetHoldingTool()
         {
             throw new System.NotImplementedException();
         }
 
-        public void DropTool()
+        public ToolVisual GetClosestTool()
         {
             throw new System.NotImplementedException();
         }
 
-        public void PickUpTool()
+        public void DropTool(ToolVisual tool)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void PickUpTool(ToolVisual tool)
         {
             throw new System.NotImplementedException();
         }
