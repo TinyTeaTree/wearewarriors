@@ -16,5 +16,7 @@ namespace Game
         void DropTool();
         
         void PickUpTool();
+        void HighlightOff();
+        void HighlightOn(ToolVisual closestTool);
     }
 }

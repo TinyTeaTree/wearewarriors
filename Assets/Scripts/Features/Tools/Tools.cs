@@ -47,7 +47,7 @@ namespace Game
         public ToolVisual GetClosestTool(Vector3 pos)
         {
             //TODO: Return the Tool that is the Closest to the @pos
-            return null;
+            return Object.FindObjectOfType<ToolVisual>(); //TMP: Remove once _visual is set up
         }
 
         public void DropTool()
@@ -58,6 +58,24 @@ namespace Game
         public void PickUpTool()
         {
             throw new System.NotImplementedException();
+        }
+
+        public void HighlightOff()
+        {
+            ToolVisual[] visuals = _visual?.AllTools ?? Object.FindObjectsByType<ToolVisual>(FindObjectsSortMode.None); //TMP: Remove Find Objects once Visual has bee set up
+            foreach (var tool in visuals)
+            {
+                tool.SetHighlight(false);
+            }
+        }
+
+        public void HighlightOn(ToolVisual closestTool)
+        {
+            ToolVisual[] visuals = _visual?.AllTools ?? Object.FindObjectsByType<ToolVisual>(FindObjectsSortMode.None); //TMP: Remove Find Objects once Visual has bee set up
+            foreach (var tool in visuals)
+            {
+                tool.SetHighlight(tool == closestTool);
+            }
         }
     }
 }
