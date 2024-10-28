@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Agents;
 using Core;
 using Services;
+using UnityEngine;
 
 namespace Game
 {
@@ -37,14 +38,16 @@ namespace Game
             }
         }
 
-        public void GetHoldingTool()
+        public ToolVisual GetHoldingTool()
         {
-            throw new System.NotImplementedException();
+            //TODO: Return the Tool that was is being held
+            return null;
         }
 
-        public void GetClosestTool()
+        public ToolVisual GetClosestTool(Vector3 pos)
         {
-            throw new System.NotImplementedException();
+            //TODO: Return the Tool that is the Closest to the @pos
+            return null;
         }
 
         public void DropTool()

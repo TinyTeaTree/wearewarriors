@@ -1,4 +1,5 @@
 using Core;
+using UnityEngine;
 
 namespace Game
 {
@@ -8,9 +9,9 @@ namespace Game
 
         void GetToolAbilities();
 
-        void GetHoldingTool();
+        ToolVisual GetHoldingTool();
 
-        void GetClosestTool();
+        ToolVisual GetClosestTool(Vector3 pos);
 
         void DropTool();
         

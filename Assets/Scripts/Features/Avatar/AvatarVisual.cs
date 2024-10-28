@@ -12,6 +12,7 @@ namespace Game
         [SerializeField] private float _speed;
 
         private Coroutine _movementRoutine;
+        private Coroutine _updateCycleRoutine;
         
         public void SetPos(Vector3 pos)
         {
@@ -30,8 +31,24 @@ namespace Game
                 StopCoroutine(_movementRoutine);
             }
             _movementRoutine = StartCoroutine(MovementRoutine());
+
+            if (_updateCycleRoutine != null)
+            {
+                StopCoroutine(_updateCycleRoutine);
+            }
+
+            _updateCycleRoutine = StartCoroutine(UpdateCycleRoutine());
         }
 
+        IEnumerator UpdateCycleRoutine()
+        {
+            while (true)
+            {
+                Feature.Update();
+                yield return null;
+            }
+        }
+        
         IEnumerator MovementRoutine()
         {
             while (true)
