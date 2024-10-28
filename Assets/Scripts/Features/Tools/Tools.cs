@@ -18,24 +18,15 @@ namespace Game
             _toolsConfig = ConfigService.GetConfig<ToolsConfig>();
             return Task.CompletedTask;
         }
-        
-        public void LoadTools()
+
+        public Task LoadTools()
         {
-            foreach (var tool in _toolsConfig.Tool)
-            {
-               
-            }
+           return Task.CompletedTask;
         }
 
-        public void GetToolAbilities()
+        public ToolAction GetToolAbilities()
         {
-            for (int i = 0; i < _toolsConfig.Tool.Length; i++)
-            {
-                foreach (var toolAbility in _toolsConfig.Tool[i].ToolAbilities)
-                {
-                    Record.ToolAction[i] = toolAbility;
-                }
-            }
+            return ToolAction.filling; //TODO: get tool abilitties
         }
 
         public ToolVisual GetHoldingTool()
@@ -50,12 +41,12 @@ namespace Game
             return Object.FindObjectOfType<ToolVisual>(); //TMP: Remove once _visual is set up
         }
 
-        public void DropTool()
+        public void DropTool(ToolVisual tool)
         {
             throw new System.NotImplementedException();
         }
 
-        public void PickUpTool()
+        public void PickUpTool(ToolVisual tool)
         {
             throw new System.NotImplementedException();
         }

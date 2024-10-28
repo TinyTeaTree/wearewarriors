@@ -1,22 +1,26 @@
+using System.Threading.Tasks;
 using Core;
 using UnityEngine;
+
 
 namespace Game
 {
     public interface ITools : IFeature
     {
-        void LoadTools();
+        Task LoadTools();
 
-        void GetToolAbilities();
+        ToolAction GetToolAbilities();
 
         ToolVisual GetHoldingTool();
 
         ToolVisual GetClosestTool(Vector3 pos);
 
-        void DropTool();
+        void DropTool(ToolVisual tool);
         
-        void PickUpTool();
+        void PickUpTool(ToolVisual tool);
+        
         void HighlightOff();
+        
         void HighlightOn(ToolVisual closestTool);
     }
 }
