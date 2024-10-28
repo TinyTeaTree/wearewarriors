@@ -20,7 +20,12 @@ namespace Game
 
         public Task LoadTools()
         {
-           return Task.CompletedTask;
+            foreach (var tool in Record.AllToolsInGarden)
+            {
+                tool.CreateVisual();
+            }
+            
+            return Task.CompletedTask;
         }
 
         public ToolAction GetToolAbilities()
