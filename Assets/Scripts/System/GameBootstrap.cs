@@ -27,6 +27,8 @@ namespace Game
             _features.Add<IAvatar>(new Avatar());
             _features.Add<IJoystick>(new Joystick());
             _features.Add<ITools>(new Tools());
+            _features.Add<IPlayerAccount>(new PlayerAccount());
+
             //<New Feature>
         }
 
@@ -42,6 +44,7 @@ namespace Game
         {
             _agents.Add<IAppLaunchAgent>(new AppLaunchAgent());
             _agents.Add<IAppExitAgent>(new AppExitAgent());
+            _agents.Add<ILogoutAgent>(new LogoutAgent());
             //<New Agent>
         }
 
@@ -52,6 +55,7 @@ namespace Game
             _records.Add(typeof(AvatarRecord), new AvatarRecord());
             _records.Add(typeof(JoystickRecord), new JoystickRecord());
             _records.Add(typeof(ToolsRecord), new ToolsRecord());
+            _records.Add(typeof(PlayerAccountRecord), new PlayerAccountRecord());
             //<New Record>
         }
 
@@ -60,8 +64,18 @@ namespace Game
             BootstrapRecordService();
             BootstrapSummoningService();
             BootstrapLocalConfigurationService();
+            BootstrapSavedRecords();
 
             AppExitAgent.SelfRegister(_agents.Get<IAppExitAgent>());
+        }
+
+        //If you want your Record to be saved, add your Record here
+        private void BootstrapSavedRecords()
+        {
+            var saveService = _services.Get<IPlayerSaveService>();
+            
+            saveService.AddSaveRecord(_records[typeof(GardenRecord)]);
+            saveService.AddSaveRecord(_records[typeof(PlayerAccountRecord)]);
         }
 
         private void BootstrapRecordService()
