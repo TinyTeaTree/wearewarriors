@@ -5,6 +5,6 @@ namespace Game
 {
     public class ToolVisual : BaseVisual<Tools>
     {
-        [SerializeField] GameObject _toolPrefab;
+        private Vector3 toolPosition;
     }
 }

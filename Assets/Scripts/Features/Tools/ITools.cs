@@ -1,19 +1,21 @@
+using System.Threading.Tasks;
 using Core;
+
 
 namespace Game
 {
     public interface ITools : IFeature
     {
-        void LoadTools();
+        Task LoadTools();
 
-        void GetToolAbilities();
+        ToolAction GetToolAbilities();
 
-        void GetHoldingTool();
+        ToolVisual GetHoldingTool();
 
-        void GetClosestTool();
+        ToolVisual GetClosestTool();
 
-        void DropTool();
+        void DropTool(ToolVisual tool);
         
-        void PickUpTool();
+        void PickUpTool(ToolVisual tool);
     }
 }
