@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7995211444428576700}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12369991, y: -0.4454923, z: 0.87559927, w: -0.13985991}
+  m_LocalRotation: {x: 0.12369745, y: -0.4454932, z: 0.875599, w: -0.13986139}
   m_LocalPosition: {x: 7, y: 0.21, z: -2.31}
   m_LocalScale: {x: 1.7777998, y: 1.7778002, z: 1.7777998}
   m_ConstrainProportionsScale: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineMode: 0
+  outlineMode: 1
   outlineColor: {r: 1, g: 0.9034767, b: 0.33490568, a: 1}
   outlineWidth: 5.96
   precomputeOutline: 0
@@ -115,3 +115,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b34b8957494582b47853ec2c9a3d49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _outline: {fileID: 3188566122743869223}
