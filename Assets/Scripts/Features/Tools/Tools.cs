@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Agents;
 using Core;
@@ -10,40 +11,56 @@ namespace Game
     {
         [Inject] public ToolsRecord Record { get; set; }
         [Inject] public ILocalConfigService ConfigService { get; set; }
-        
-        private ToolsConfig _toolsConfig;
-        
+        public ToolsConfig _toolsConfig { get; private set; }
+
         public Task AppLaunch()
         {
             _toolsConfig = ConfigService.GetConfig<ToolsConfig>();
             return Task.CompletedTask;
         }
 
-        public Task LoadTools()
+        public async Task LoadTools()
         {
-            foreach (var tool in Record.AllToolsInGarden)
-            {
-                tool.CreateVisual();
-            }
-            
-            return Task.CompletedTask;
+             await CreateVisual();
+
+             foreach (var tool in _toolsConfig.Tools)
+             { 
+                 var toolVisual = Object.Instantiate(tool.prefab, tool.ToolPosition, Quaternion.identity,_visual.transform);
+                 Record.AllToolsInGarden.Add(toolVisual);  
+                 Record.AllToolsPositions.Add(toolVisual.transform.position);
+             }
+             
+             _visual.SetToolVisuals(Record.AllToolsInGarden);
         }
 
-        public ToolAction GetToolAbilities()
+        public ToolAction[] GetToolAbilities(ToolsEnum toolType)
         {
-            return ToolAction.filling; //TODO: get tool abilitties
+            return _toolsConfig.Tools[(int)toolType].ToolAbilities;
         }
 
         public ToolVisual GetHoldingTool()
         {
-            //TODO: Return the Tool that was is being held
-            return null;
+            return Record.EquippedToolVisual;
         }
 
         public ToolVisual GetClosestTool(Vector3 pos)
         {
-            //TODO: Return the Tool that is the Closest to the @pos
-            return Object.FindObjectOfType<ToolVisual>(); //TMP: Remove once _visual is set up
+            ToolVisual closestTool = null;
+            float closestDistance = Mathf.Infinity;
+            
+            foreach (var tool in _visual.AllTools )
+            {
+                if (tool is not null)
+                {
+                    float distance = Vector3.Distance(tool.transform.position, pos);
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestTool = tool;
+                    }
+                }
+            }
+            return closestTool;
         }
 
         public void DropTool(ToolVisual tool)
@@ -51,14 +68,17 @@ namespace Game
             throw new System.NotImplementedException();
         }
 
-        public void PickUpTool(ToolVisual tool)
-        {
-            throw new System.NotImplementedException();
+        public void PickUpTool(ToolVisual closestTool, Transform avatarTransform)
+        { 
+            // Todo: Avatar pick up tool     
+            Record.EquippedToolVisual = closestTool;
+            closestTool.transform.SetParent(avatarTransform, true);
+            closestTool.SetHighlight(false);
         }
 
         public void HighlightOff()
         {
-            ToolVisual[] visuals = _visual?.AllTools ?? Object.FindObjectsByType<ToolVisual>(FindObjectsSortMode.None); //TMP: Remove Find Objects once Visual has bee set up
+            List<ToolVisual> visuals = _visual?.AllTools;
             foreach (var tool in visuals)
             {
                 tool.SetHighlight(false);
@@ -67,7 +87,7 @@ namespace Game
 
         public void HighlightOn(ToolVisual closestTool)
         {
-            ToolVisual[] visuals = _visual?.AllTools ?? Object.FindObjectsByType<ToolVisual>(FindObjectsSortMode.None); //TMP: Remove Find Objects once Visual has bee set up
+            List<ToolVisual> visuals = _visual?.AllTools;
             foreach (var tool in visuals)
             {
                 tool.SetHighlight(tool == closestTool);

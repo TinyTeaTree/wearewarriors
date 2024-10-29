@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d73a18cb46e4a16ab619840df85f694, type: 3}
   m_Name: Scare Crow
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 3986671573171305335, guid: 92bcf23be9dc09847bb50ff83df08b1d, type: 3}
   ToolID: 5
   ToolAbilities: 06000000
+  ToolPosition: {x: 3, y: 1, z: -2}

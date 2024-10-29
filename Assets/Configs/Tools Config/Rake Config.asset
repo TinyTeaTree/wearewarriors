@@ -15,4 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 6023976188719703749, guid: f97426274619e374cb1cff5e9c285fb9, type: 3}
   ToolID: 2
   ToolAbilities: 02000000
-  ToolPosition: {x: 0, y: 0, z: 0}
+  ToolPosition: {x: 2, y: 1, z: -2}

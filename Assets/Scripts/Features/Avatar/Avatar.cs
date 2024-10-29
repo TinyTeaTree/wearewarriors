@@ -38,17 +38,23 @@ namespace Game
                 return;
             
             var closestTool = Tools.GetClosestTool(_visual.transform.position);
-
-            float distance = Vector3.Distance(closestTool.transform.position, _visual.transform.position);
-            if (distance > Config.HighlightDistance)
+            if (closestTool != null)
             {
-                Tools.HighlightOff();
-            }
-            else
-            {
-                Tools.HighlightOn(closestTool);
-            }
+                float distance = Vector3.Distance(closestTool.transform.position, _visual.transform.position);
+                if (distance > Config.HighlightDistance)
+                {
+                    Tools.HighlightOff();
+                }
+                else
+                {
+                    Tools.HighlightOn(closestTool);
+                }
 
+                if (distance < Config.PickupDistance)
+                {
+                    Tools.PickUpTool(closestTool, _visual.transform);
+                }
+            }
             //Tools.Highlight(closestTool);
         }
     }

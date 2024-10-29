@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d73a18cb46e4a16ab619840df85f694, type: 3}
   m_Name: WateringCan
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 7693442538656829163, guid: f15fd589076e3d146a6e2a2bbc98e06f, type: 3}
   ToolID: 3
   ToolAbilities: 0300000004000000
+  ToolPosition: {x: 5, y: 1, z: -2}
