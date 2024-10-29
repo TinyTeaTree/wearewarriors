@@ -11,6 +11,7 @@ namespace Game
         public ToolVisual prefab;
         public ToolsEnum ToolID;
         public ToolAction[] ToolAbilities;
+        [Space(10)]
         public Vector3 ToolPosition;
     }
 }

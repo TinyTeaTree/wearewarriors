@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d73a18cb46e4a16ab619840df85f694, type: 3}
   m_Name: Shovel Config
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 2101323814457579361, guid: 6e0786d630445be43837058d8329a23b, type: 3}
   ToolID: 1
   ToolAbilities: 0000000001000000
+  ToolPosition: {x: 4, y: 1, z: -2}

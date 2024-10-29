@@ -7,6 +7,6 @@ namespace Game
     [System.Serializable]
     public class ToolsConfig : BaseConfig
     {
-        public ToolConfig[] Tool;
+        public ToolConfig[] Tools;
     }
 }

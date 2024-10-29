@@ -9,7 +9,7 @@ namespace Game
     {
         Task LoadTools();
 
-        ToolAction GetToolAbilities();
+        ToolAction[] GetToolAbilities(ToolsEnum tool);
 
         ToolVisual GetHoldingTool();
 
@@ -17,7 +17,7 @@ namespace Game
 
         void DropTool(ToolVisual tool);
         
-        void PickUpTool(ToolVisual tool);
+        void PickUpTool(ToolVisual tool, Transform avatarTransform);
         
         void HighlightOff();
         

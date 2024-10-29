@@ -12,6 +12,7 @@ namespace Game
             var joystick = bootstrap.Features.Get<IJoystick>();
             var avatar = bootstrap.Features.Get<IAvatar>();
             var playerAccount = bootstrap.Features.Get<IPlayerAccount>();
+            var tools = bootstrap.Features.Get<ITools>();
             
              AddNext(action: () => bootstrap.Agents.Get<IAppLaunchAgent>().AppLaunch())
             .AddNext(() => { bootstrap.Features.Get<ILoadingScreen>().Show(true); })
@@ -22,6 +23,7 @@ namespace Game
             .AddNext(() => playerAccount.Login())
             .AddNext(() => { bootstrap.Features.Get<ILoadingScreen>().ProgressControl(0.4f); })
             .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(0.5f)); })
+            .AddNext(() => tools.LoadTools())
             .AddNext(() => { bootstrap.Features.Get<ILoadingScreen>().ProgressControl(0.6f); })
             .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(0.5f)); })
             .AddNext(() => { bootstrap.Features.Get<ILoadingScreen>().ProgressControl(0.8f); })

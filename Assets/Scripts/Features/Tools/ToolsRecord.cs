@@ -9,8 +9,8 @@ namespace Game
     {
         public ToolVisual EquippedToolVisual { get; set; } 
         public ToolAction[] ToolAction { get; set; }
-        public List<ToolVisual> AllToolsInGarden { get; set; }
-        public List<Vector3> AllToolsPositions { get; set; }
+        public List<ToolVisual> AllToolsInGarden { get; set; } = new();
+        public List<Vector3> AllToolsPositions { get; set; } = new();
         public Dictionary<ToolsEnum, int> ToolsUsagePercentage { get; set; } = new();
     }
 }

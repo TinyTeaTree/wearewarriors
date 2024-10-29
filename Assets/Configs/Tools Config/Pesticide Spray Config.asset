@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d73a18cb46e4a16ab619840df85f694, type: 3}
   m_Name: Pesticide Spray Config
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 807229285069766825, guid: 1106141bcfec7bd43afb0b5fec864e41, type: 3}
   ToolID: 4
   ToolAbilities: 05000000
+  ToolPosition: {x: 1, y: 1, z: -2}

@@ -7,5 +7,6 @@ namespace Game
     public class AvatarConfig : BaseConfig
     {
         public float HighlightDistance;
+        public float PickupDistance;
     }
 }
