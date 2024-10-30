@@ -12,5 +12,7 @@ namespace Game
         public List<ToolVisual> AllToolsInGarden { get; set; } = new();
         public List<Vector3> AllToolsPositions { get; set; } = new();
         public Dictionary<ToolsEnum, int> ToolsUsagePercentage { get; set; } = new();
+
+        public List<ToolRecordData> GardenTools { get; set; } = new();
     }
 }

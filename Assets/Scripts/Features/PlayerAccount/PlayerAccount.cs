@@ -55,6 +55,11 @@ namespace Game
             foreach (var record in records)
             {
                 var saveJson = await Saver.GetSavedJson(record.Id);
+                if(saveJson.IsNullOrEmpty())
+                {
+                    Notebook.NoteError($"Do not have any save for {record.Id}, maybe save was corrupted, or migration?");
+                    continue;
+                }
                 record.Populate(saveJson);
             }
 
@@ -78,7 +83,12 @@ namespace Game
 
             foreach (var recordKVP in records)
             {
-                var recordToStart = Saver.RecordsForSaving.First(r => r.Id == recordKVP.Key);
+                var recordToStart = Saver.RecordsForSaving.FirstOrDefault(r => r.Id == recordKVP.Key);
+                if(recordToStart == null)
+                {
+                    Notebook.NoteError($"Record {recordKVP.Key} not present in the Records For Saving, Make sure you bootstrapped this record to have save support");
+                    continue;
+                }
                 recordToStart.Populate(recordKVP.Value);
             }
 
