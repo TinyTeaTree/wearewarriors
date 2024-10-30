@@ -1,7 +1,25 @@
 {
-    "GardenRecord" : {
-        "Version" : 0,
-        "Tomatoes" : 30
-    }
+  "GardenRecord": {
+    "Version": 0,
+    "Tomatoes": 30
+  },
+
+  "ToolsRecord": {
+    "GardenTools": [
+      {
+        "Id": "Rake",
+        "Pos": {
+          "x": 7.573,
+          "y": 1.62,
+          "z": -0.15
+        },
+        "Rot": {
+          "x": 41.142,
+          "y": -36.295,
+          "z": -46.567
+        }
+      }
+    ]
+  }
 
 }
