@@ -9,5 +9,8 @@ namespace Game
         public ToolsEnum Id { get; set; }
         [JsonConverter(typeof(Vector3Converter))]
         public Vector3 Pos { get; set; }
+
+        [JsonConverter(typeof(Vector3Converter))]
+        public Vector3 Rot { get; set; }
     }
 }

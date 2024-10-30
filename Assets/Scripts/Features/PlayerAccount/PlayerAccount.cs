@@ -44,11 +44,13 @@ namespace Game
                 {
                     await CreateNewPlayer();
                     await SyncPlayerData();
+                    return;
                 }
-            }
-            else
-            {
-                Record.Populate(savedPlayerAccount);
+                else
+                {
+                    //The caller must create User manually
+                    return;
+                }
             }
 
             var records = Saver.RecordsForSaving;

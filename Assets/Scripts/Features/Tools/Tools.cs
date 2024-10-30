@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Agents;
 using Core;
@@ -23,11 +24,11 @@ namespace Game
         {
              await CreateVisual();
 
-             foreach (var tool in _toolsConfig.Tools)
-             { 
-                 var toolVisual = Object.Instantiate(tool.prefab, tool.ToolPosition, Quaternion.identity,_visual.transform);
+             foreach (var tool in Record.GardenTools)
+             {
+                 var toolConfig = _toolsConfig.Tools.FirstOrDefault(t => t.ToolID == tool.Id);
+                 var toolVisual = Object.Instantiate(toolConfig.prefab, tool.Pos, Quaternion.Euler(tool.Rot), _visual.transform);
                  Record.AllToolsInGarden.Add(toolVisual);  
-                 Record.AllToolsPositions.Add(toolVisual.transform.position);
              }
              
              _visual.SetToolVisuals(Record.AllToolsInGarden);
