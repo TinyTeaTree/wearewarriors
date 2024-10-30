@@ -77,6 +77,7 @@ namespace Game
             
             saveService.AddSaveRecord(_records[typeof(GardenRecord)]);
             saveService.AddSaveRecord(_records[typeof(PlayerAccountRecord)]);
+            saveService.AddSaveRecord(_records[typeof(ToolsRecord)]);
         }
 
         private void BootstrapRecordService()

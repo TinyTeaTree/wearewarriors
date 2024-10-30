@@ -111,17 +111,17 @@ public class RecordDataSpyTool : EditorWindow
         foreach (var prop in publicProps)
         {
             var value = prop.GetValue(record);
-            DrawPropVisual(prop.Name, value, level);
+            DrawPropVisual(prop.Name, value, level, recordType.Assembly);
         }
 
         foreach (var field in publicFields)
         {
             var value = field.GetValue(record);
-            DrawPropVisual(field.Name, value, level);
+            DrawPropVisual(field.Name, value, level, recordType.Assembly);
         }
     }
 
-    private void DrawPropVisual(string propName, object prop, int level)
+    private void DrawPropVisual(string propName, object prop, int level, Assembly assembly)
     {
         if (level >= 10)
         {
@@ -133,7 +133,7 @@ public class RecordDataSpyTool : EditorWindow
             EditorGUILayout.TextField($"{propName} - null", textStyle);
             return;
         }
-        
+
         var propType = prop.GetType();
         if (!propType.IsClass || propType == typeof(string) || propType == typeof(JObject) || propType == typeof(JToken))
         {
@@ -145,12 +145,12 @@ public class RecordDataSpyTool : EditorWindow
             {
                 foreach (var e in enumerable)
                 {
-                    DrawPropVisual(propName, e, level + 1);
+                    DrawPropVisual(propName, e, level + 1, assembly);
                 }
             }
             EditorGUI.indentLevel--;
         }
-        else if (propType.Assembly != typeof(BaseRecord).Assembly) //We dont want to start drilling down mscorelib or Newtonsoft objects, they throw exceptions in getters
+        else if (propType.Assembly != (assembly ?? typeof(BaseRecord).Assembly)) //We dont want to start drilling down mscorelib or Newtonsoft objects, they throw exceptions in getters
         {
             EditorGUILayout.TextField($"{propName} - {prop}", textStyle);
         }
