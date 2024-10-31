@@ -29,6 +29,7 @@ namespace Game
             _features.Add<ITools>(new Tools());
             _features.Add<IPlayerAccount>(new PlayerAccount());
 
+            _features.Add<ICamera>(new Camera());
             //<New Feature>
         }
 
@@ -39,6 +40,7 @@ namespace Game
             _factories.Add(typeof(JoystickVisual), new AsyncResourceFactory(Addresses.JostickCanvas));
             _factories.Add(typeof(LoadingScreenVisual), new ResourceFactory(Addresses.LoadingScreen));
             _factories.Add(typeof(ToolsVisual), new AsyncResourceFactory(Addresses.ToolsVisual));
+            _factories.Add(typeof(CameraVisual), new ResourceFactory(Addresses.CameraVisual));
         }
 
         protected override void AddAgents()
@@ -57,6 +59,7 @@ namespace Game
             _records.Add(typeof(JoystickRecord), new JoystickRecord());
             _records.Add(typeof(ToolsRecord), new ToolsRecord());
             _records.Add(typeof(PlayerAccountRecord), new PlayerAccountRecord());
+            _records.Add(typeof(CameraRecord), new CameraRecord());
             //<New Record>
         }
 
