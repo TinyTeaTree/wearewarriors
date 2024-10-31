@@ -16,6 +16,8 @@ namespace Game
 
         private GardenConfig _config;
 
+        public Transform CameraStartSpot => _visual.CameraStartSpot;
+
         public void Dispose()
         {
             _visual.SelfDestroy();

@@ -10,5 +10,6 @@ namespace Game
         Task Load();
         
         Vector3 AvatarStartSpot { get; }
+        Transform CameraStartSpot { get; }
     }
 }
