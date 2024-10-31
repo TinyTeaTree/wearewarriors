@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d73a18cb46e4a16ab619840df85f694, type: 3}
   m_Name: Rake Config
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6023976188719703749, guid: f97426274619e374cb1cff5e9c285fb9, type: 3}
+  prefab: {fileID: 6415850304009592337, guid: bcf4f07ed7fcc7b4f978fef27604b9c8, type: 3}
   ToolID: 2
   ToolAbilities: 02000000
   ToolPosition: {x: 2, y: 1, z: -2}

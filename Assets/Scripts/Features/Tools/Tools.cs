@@ -98,7 +98,8 @@ namespace Game
             
             closestTool.ToggleRigidBody(false);
             closestTool.transform.SetParent(handTransform, true);
-            closestTool.transform.position = handTransform.position;
+            closestTool.transform.localPosition = Vector3.zero;
+            closestTool.transform.localRotation = Quaternion.identity;
             closestTool.SetHighlight(false);
 
             _visual.ToggleDropButton(true);
