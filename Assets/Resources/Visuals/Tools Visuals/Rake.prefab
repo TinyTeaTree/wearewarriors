@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7990181106264884820}
   - component: {fileID: 7963851702839329548}
   - component: {fileID: 7971641108049983112}
-  - component: {fileID: 3188566122743869223}
   - component: {fileID: 6023976188719703749}
   - component: {fileID: 8331921143946300430}
   - component: {fileID: 2357396653060431916}
@@ -88,24 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3188566122743869223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7995211444428576700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 1, g: 0.9034767, b: 0.33490568, a: 1}
-  outlineWidth: 5.96
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &6023976188719703749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b34b8957494582b47853ec2c9a3d49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outline: {fileID: 3188566122743869223}
+  ToolID: 0
+  _outline: {fileID: 0}
+  _outlineMat: {fileID: 2100000, guid: ffe6142ba5332884dbcfb3e42f5b393c, type: 2}
+  _renderer: {fileID: 7971641108049983112}
   _rigidbody: {fileID: 8331921143946300430}
 --- !u!54 &8331921143946300430
 Rigidbody:
