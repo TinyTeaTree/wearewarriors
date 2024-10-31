@@ -52,10 +52,9 @@ namespace Game
 
                 if (distance < Config.PickupDistance)
                 {
-                    Tools.PickUpTool(closestTool, _visual.transform);
+                    Tools.PickUpTool(closestTool, _visual.RightHand);
                 }
             }
-            //Tools.Highlight(closestTool);
         }
     }
 }

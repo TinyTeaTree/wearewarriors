@@ -1,6 +1,7 @@
+using System;
 using System.Collections.Generic;
+using Codice.CM.Common;
 using Core;
-using Unity.Plastic.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,11 +9,30 @@ namespace Game
 {
     public class ToolsVisual : BaseVisual<Tools>
     {
-        [SerializeField] Button _dropToolsButton;
-        
+       [SerializeField] Button _dropToolsButtonPrefab;
+
+       private Button _dropButton;
+       
         private List<ToolVisual> _toolVisuals;
         public List<ToolVisual> AllTools => _toolVisuals;
 
+        public void LoadDropButton()
+        {
+            var canvas = GameObject.Find("Canvas").transform;
+            _dropButton = Instantiate(_dropToolsButtonPrefab, canvas);
+            _dropButton.gameObject.SetActive(false);
+            
+            _dropButton.onClick.AddListener(() =>
+            {
+                Feature.DropTool(Feature.GetHoldingTool());
+            });
+        }
+
+        public void ToggleDropButton(bool state)
+        {
+            _dropButton.gameObject.SetActive(state);
+        }
+        
         public void SetToolVisuals(List<ToolVisual> toolVisuals)
         {
             _toolVisuals = toolVisuals;

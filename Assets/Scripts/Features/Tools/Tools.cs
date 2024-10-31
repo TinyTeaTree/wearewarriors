@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -5,6 +6,7 @@ using Agents;
 using Core;
 using Services;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Game
 {
@@ -14,6 +16,7 @@ namespace Game
         [Inject] public ILocalConfigService ConfigService { get; set; }
         public ToolsConfig _toolsConfig { get; private set; }
 
+        private Transform _handTransform;
         public Task AppLaunch()
         {
             _toolsConfig = ConfigService.GetConfig<ToolsConfig>();
@@ -28,10 +31,11 @@ namespace Game
              {
                  var toolConfig = _toolsConfig.Tools.FirstOrDefault(t => t.ToolID == tool.Id);
                  var toolVisual = Object.Instantiate(toolConfig.prefab, tool.Pos, Quaternion.Euler(tool.Rot), _visual.transform);
-                 Record.AllToolsInGarden.Add(toolVisual);  
+                 Record.AllToolsInGarden.Add(toolVisual);
              }
-             
+
              _visual.SetToolVisuals(Record.AllToolsInGarden);
+             _visual.LoadDropButton();
         }
 
         public ToolAction[] GetToolAbilities(ToolsEnum toolType)
@@ -64,17 +68,32 @@ namespace Game
             return closestTool;
         }
 
-        public void DropTool(ToolVisual tool)
+        public async Task DropTool(ToolVisual tool)
         {
-            throw new System.NotImplementedException();
+            tool.ToggleRigidBody(false);
+            tool.transform.SetParent(_visual.transform);
+            tool.DropToolPhysics(_handTransform, 7);
+            
+            _visual.ToggleDropButton(false); 
+            
+           await Task.Delay(TimeSpan.FromSeconds(1f));
+            
+            Record.EquippedToolVisual = null;
+              
         }
-
-        public void PickUpTool(ToolVisual closestTool, Transform avatarTransform)
-        { 
-            // Todo: Avatar pick up tool     
+        
+        public void PickUpTool(ToolVisual closestTool, Transform handTransform)
+        {
             Record.EquippedToolVisual = closestTool;
-            closestTool.transform.SetParent(avatarTransform, true);
+            
+            closestTool.ToggleRigidBody(true);
+            closestTool.transform.SetParent(handTransform, true);
+            closestTool.transform.position = handTransform.position;
             closestTool.SetHighlight(false);
+            
+            _visual.ToggleDropButton(true);
+            
+            _handTransform = handTransform;
         }
 
         public void HighlightOff()

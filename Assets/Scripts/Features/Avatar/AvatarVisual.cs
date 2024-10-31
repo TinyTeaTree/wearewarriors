@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using Core;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 
 namespace Game
 {
@@ -10,6 +8,8 @@ namespace Game
     {
         private IProvideDirection _directionProvider;
         [SerializeField] private float _speed;
+        [SerializeField] private Transform _rightHand;
+        public Transform RightHand => _rightHand;
 
         private Coroutine _movementRoutine;
         private Coroutine _updateCycleRoutine;
@@ -78,7 +78,6 @@ namespace Game
             {
                 StopCoroutine(_movementRoutine);
             }
-
             _movementRoutine = null;
         }
     }
