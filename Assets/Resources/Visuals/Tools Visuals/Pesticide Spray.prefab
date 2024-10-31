@@ -11,10 +11,12 @@ GameObject:
   - component: {fileID: 1503385593890724325}
   - component: {fileID: 1581720722410612793}
   - component: {fileID: 2143821064162383690}
-  - component: {fileID: 3544150066054973129}
   - component: {fileID: 807229285069766825}
   - component: {fileID: 5749218147468742735}
-  m_Layer: 0
+  - component: {fileID: -296126193308913096}
+  - component: {fileID: 6627612528485273635}
+  - component: {fileID: 7793850922746847978}
+  m_Layer: 7
   m_Name: Pesticide Spray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,28 +91,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3544150066054973129
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494799544642448377}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43870582728227320, guid: 2e6639014ebdb12488fb61545cdc7704, type: 2}
 --- !u!114 &807229285069766825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _outline: {fileID: 5749218147468742735}
+  _rigidbody: {fileID: -296126193308913096}
 --- !u!114 &5749218147468742735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +123,75 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!54 &-296126193308913096
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494799544642448377}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &6627612528485273635
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494799544642448377}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.050820842, y: 0.17480956, z: 0.47457042}
+  m_Center: {x: -0.0000017164275, y: -0.030572815, z: -0.043232903}
+--- !u!65 &7793850922746847978
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494799544642448377}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.050820842, y: 0.054816604, z: 0.74939764}
+  m_Center: {x: -0.0000017173588, y: 0.029423669, z: 0.56831366}
 --- !u!1 &6731375405582336072
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +203,7 @@ GameObject:
   - component: {fileID: 6800086427261118975}
   - component: {fileID: 5371227993145408895}
   - component: {fileID: 8318982855941172244}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_Wep_Shotgun_01_Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +286,7 @@ GameObject:
   - component: {fileID: 267564820065567870}
   - component: {fileID: 7271960576537281743}
   - component: {fileID: 2198211809170714596}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_Wep_Shotgun_01_Trigger_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +369,7 @@ GameObject:
   - component: {fileID: 5017003246630923764}
   - component: {fileID: 1855063360578546366}
   - component: {fileID: 8776163294017316228}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_Wep_Shotgun_01_Trigger_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

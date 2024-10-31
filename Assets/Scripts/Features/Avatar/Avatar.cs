@@ -10,9 +10,9 @@ namespace Game
         [Inject] public AvatarRecord Record { get; set; }
         [Inject] public IGarden Garden { get; set; }
         [Inject] public IJoystick Joystick { get; set; }
-        
         [Inject] public ITools Tools { get; set; }
         
+        public Transform HandTransform => _visual.RightHand;
         private AvatarConfig Config { get; set; }
         
         
@@ -31,6 +31,8 @@ namespace Game
             
             _visual.StartMovement();
         }
+
+       
 
         public void Update()
         {
@@ -52,10 +54,9 @@ namespace Game
 
                 if (distance < Config.PickupDistance)
                 {
-                    Tools.PickUpTool(closestTool, _visual.transform);
+                    Tools.PickUpTool(closestTool, _visual.RightHand);
                 }
             }
-            //Tools.Highlight(closestTool);
         }
     }
 }

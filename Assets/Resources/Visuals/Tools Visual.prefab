@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f57be31fbaf83499aab4e05a960b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dropToolsButton: {fileID: 0}
+  _dropToolsButtonPrefab: {fileID: 9020832768199161256, guid: c8d6b786379d2b247992a057a6cc8156,
+    type: 3}
