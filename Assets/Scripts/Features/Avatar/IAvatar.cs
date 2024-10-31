@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Core;
+using UnityEngine;
 
 namespace Game
 {
@@ -8,5 +9,7 @@ namespace Game
         Task Load();
 
         void Activate();
+        
+        Transform HandTransform { get; }
     }
 }

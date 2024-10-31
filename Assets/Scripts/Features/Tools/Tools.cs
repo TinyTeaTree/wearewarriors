@@ -14,9 +14,11 @@ namespace Game
     {
         [Inject] public ToolsRecord Record { get; set; }
         [Inject] public ILocalConfigService ConfigService { get; set; }
+        [Inject] public IAvatar Avatar { get; set; }
+        [Inject] public IPlayerAccount PlayerAccount { get; set; }
         public ToolsConfig _toolsConfig { get; private set; }
 
-        private Transform _handTransform;
+        
         public Task AppLaunch()
         {
             _toolsConfig = ConfigService.GetConfig<ToolsConfig>();
@@ -31,6 +33,7 @@ namespace Game
              {
                  var toolConfig = _toolsConfig.Tools.FirstOrDefault(t => t.ToolID == tool.Id);
                  var toolVisual = Object.Instantiate(toolConfig.prefab, tool.Pos, Quaternion.Euler(tool.Rot), _visual.transform);
+                 toolVisual.ToolID = tool.Id;
                  Record.AllToolsInGarden.Add(toolVisual);
              }
 
@@ -70,30 +73,35 @@ namespace Game
 
         public async Task DropTool(ToolVisual tool)
         {
-            tool.ToggleRigidBody(false);
+            // Turning on rigidbody for adding drop force
+            
+            tool.ToggleRigidBody(true);
             tool.transform.SetParent(_visual.transform);
-            tool.DropToolPhysics(_handTransform, 7);
+            tool.DropToolPhysics(Avatar.HandTransform, 7);
             
             _visual.ToggleDropButton(false); 
             
            await Task.Delay(TimeSpan.FromSeconds(1f));
             
             Record.EquippedToolVisual = null;
-              
+           var gardenTool = Record.GardenTools.FirstOrDefault(t => t.Id == tool.ToolID);
+           gardenTool.Pos = tool.transform.position;
+           gardenTool.Rot = tool.transform.rotation.eulerAngles;
+
+         await PlayerAccount.SyncPlayerData();
+
         }
         
         public void PickUpTool(ToolVisual closestTool, Transform handTransform)
         {
             Record.EquippedToolVisual = closestTool;
             
-            closestTool.ToggleRigidBody(true);
+            closestTool.ToggleRigidBody(false);
             closestTool.transform.SetParent(handTransform, true);
             closestTool.transform.position = handTransform.position;
             closestTool.SetHighlight(false);
-            
+
             _visual.ToggleDropButton(true);
-            
-            _handTransform = handTransform;
         }
 
         public void HighlightOff()

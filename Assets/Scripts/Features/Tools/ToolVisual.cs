@@ -6,12 +6,14 @@ namespace Game
 {
     public class ToolVisual : BaseVisual<Tools>
     {
+        public ToolsEnum ToolID;
+        
         [SerializeField] private Outline _outline;
         [SerializeField] private Rigidbody _rigidbody;
         
         public void ToggleRigidBody(bool state)
         {
-            _rigidbody.isKinematic = state;
+            _rigidbody.isKinematic = !state;
         }
 
         public void DropToolPhysics(Transform dropPoint, float force)
