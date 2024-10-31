@@ -13,6 +13,7 @@ namespace Game
         [Inject] public ITools Tools { get; set; }
         
         public Transform HandTransform => _visual.RightHand;
+        public Transform AvatarTransform => _visual.transform;
         private AvatarConfig Config { get; set; }
         
         

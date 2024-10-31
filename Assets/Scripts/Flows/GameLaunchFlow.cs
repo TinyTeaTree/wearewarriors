@@ -22,6 +22,7 @@ namespace Game
             .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(0.25f)); })
             .AddNext(() => { loading.ProgressControl(0.2f); })
             .AddNext(() => playerAccount.Login())
+            .AddNext(() => avatar.Load())
             .AddNext(() => camera.Load())
             .AddNext(() => { loading.ProgressControl(0.4f); })
             .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(0.25f)); })
@@ -32,7 +33,6 @@ namespace Game
             .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(0.1f)); })
             .AddNext(() => { loading.ProgressControl(1f); })
 
-            .AddNext(() => avatar.Load())
             .AddNext(() => joystick.Load())
             .AddNext(() => joystick.Show())
             .AddNext(() => avatar.Activate())
