@@ -74,33 +74,30 @@ namespace Game
         public async Task DropTool(ToolVisual tool)
         {
             // Turning on rigidbody for adding drop force
-            
+
             tool.ToggleRigidBody(true);
             tool.transform.SetParent(_visual.transform);
             tool.DropToolPhysics(Avatar.HandTransform, 7);
-            
-            _visual.ToggleDropButton(false); 
-            
-           await Task.Delay(TimeSpan.FromSeconds(1f));
-            
-            Record.EquippedToolVisual = null;
-           var gardenTool = Record.GardenTools.FirstOrDefault(t => t.Id == tool.ToolID);
-           gardenTool.Pos = tool.transform.position;
-           gardenTool.Rot = tool.transform.rotation.eulerAngles;
 
-         await PlayerAccount.SyncPlayerData();
+            _visual.ToggleDropButton(false);
+
+            await Task.Delay(TimeSpan.FromSeconds(1f));
+
+            Record.EquippedToolVisual = null;
+            var gardenTool = Record.GardenTools.FirstOrDefault(t => t.Id == tool.ToolID);
+            gardenTool.Pos = tool.transform.position;
+            gardenTool.Rot = tool.transform.rotation.eulerAngles;
+
+            await PlayerAccount.SyncPlayerData();
 
         }
-        
+
         public void PickUpTool(ToolVisual closestTool, Transform handTransform)
         {
             Record.EquippedToolVisual = closestTool;
-            
-            closestTool.ToggleRigidBody(false);
-            closestTool.transform.SetParent(handTransform, true);
-            closestTool.transform.localPosition = Vector3.zero;
-            closestTool.transform.localRotation = Quaternion.identity;
-            closestTool.SetHighlight(false);
+
+            closestTool.GetPickedUp(handTransform);
+
 
             _visual.ToggleDropButton(true);
         }
