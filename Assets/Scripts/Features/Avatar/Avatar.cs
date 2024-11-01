@@ -16,7 +16,6 @@ namespace Game
         public Transform AvatarTransform => _visual.transform;
         private AvatarConfig Config { get; set; }
         
-        
         public async Task Load()
         {
             await CreateVisual();
@@ -32,9 +31,7 @@ namespace Game
             
             _visual.StartMovement();
         }
-
-       
-
+        
         public void Update()
         {
             if (Tools.GetHoldingTool() != null)

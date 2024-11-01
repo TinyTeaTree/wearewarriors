@@ -38,6 +38,8 @@ namespace Game
             .AddNext(() => avatar.Activate())
 
             .AddNext(() => { bootstrap.Features.Get<ILoadingScreen>().Close(); })
+            
+            .AddNext(() => camera.ActivateAnimation())
 
             ;
             

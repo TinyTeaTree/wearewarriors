@@ -7,13 +7,7 @@ namespace Game
     public interface ICamera : IFeature
     {
         Task Load();
-        
-        void LookAt(Vector3 position);
-        
-        void Follow(Vector3 position);
-        
-        void StopFollowing();
 
-        void ActivateCameraAnimation();
+        void ActivateAnimation();
     }
 }

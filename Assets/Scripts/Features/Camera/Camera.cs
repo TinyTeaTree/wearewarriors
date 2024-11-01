@@ -11,8 +11,7 @@ namespace Game
         [Inject] public CameraRecord Record { get; set; }
         [Inject] public IGarden Garden { get; set; }
         [Inject] public IAvatar Avatar { get; set; }
-        public CameraConfig Config { get; set; }
-
+        public CameraConfig Config { get; private set; }
 
         public Task AppLaunch()
         {
@@ -26,26 +25,13 @@ namespace Game
             
             _visual.SetSpot(Garden.CameraStartSpot);
             _visual.SetTarget(Avatar.AvatarTransform);
+            
+            Record.Target = Avatar.AvatarTransform.gameObject;
         }
 
-        public void LookAt(Vector3 position)
+        public void ActivateAnimation()
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void Follow(Vector3 position)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void StopFollowing()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void ActivateCameraAnimation()
-        {
-            throw new System.NotImplementedException();
+            _visual.Activate();
         }
     }
 }

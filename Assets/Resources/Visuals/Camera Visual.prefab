@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1587331414312968039}
   - component: {fileID: 9185356444028620078}
+  - component: {fileID: 4062538803780601734}
   - component: {fileID: 8170407106882574507}
   - component: {fileID: 7283563027215953702}
   - component: {fileID: 290179894788841223}
@@ -49,6 +50,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 8170407106882574507}
+  _animator: {fileID: 4062538803780601734}
+  _offsetVector: {x: 0, y: 15, z: -15}
+  _angle: 0
+  _radius: 1
+  _isFollowing: 1
+  _isCircular: 0
+--- !u!95 &4062538803780601734
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3349839543094579472}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5becae466714e8f4e96ce146855d0cbb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!20 &8170407106882574507
 Camera:
   m_ObjectHideFlags: 0
