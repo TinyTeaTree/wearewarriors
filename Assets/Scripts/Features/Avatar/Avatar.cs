@@ -13,8 +13,8 @@ namespace Game
         [Inject] public ITools Tools { get; set; }
         
         public Transform HandTransform => _visual.RightHand;
+        public Transform AvatarTransform => _visual.transform;
         private AvatarConfig Config { get; set; }
-        
         
         public async Task Load()
         {
@@ -31,9 +31,7 @@ namespace Game
             
             _visual.StartMovement();
         }
-
-       
-
+        
         public void Update()
         {
             if (Tools.GetHoldingTool() != null)

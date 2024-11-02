@@ -11,5 +11,7 @@ namespace Game
         void Activate();
         
         Transform HandTransform { get; }
+        
+        Transform AvatarTransform { get; }
     }
 }
