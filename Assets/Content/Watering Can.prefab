@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1955126554095298279}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0048993886, y: 0.26174906, z: 0.3674407}
+  m_LocalPosition: {x: -0.007, y: 0.51, z: 0.714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -197,6 +197,8 @@ GameObject:
   - component: {fileID: 7693442538656829163}
   - component: {fileID: 5179608881743554473}
   - component: {fileID: 5702896499545819470}
+  - component: {fileID: 984615143448329581}
+  - component: {fileID: 1319296829718686329}
   m_Layer: 7
   m_Name: Watering Can
   m_TagString: Untagged
@@ -282,5 +284,47 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.22247963, y: 0.41880935, z: 0.44661465}
-  m_Center: {x: 0, y: 0.20940468, z: 0.0019949526}
+  m_Size: {x: 0.43352747, y: 0.6842742, z: 0.60557145}
+  m_Center: {x: 0.00285203, y: 0.3421371, z: -0.0068360865}
+--- !u!65 &984615143448329581
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7732313505615490402}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.22247963, y: 0.65290236, z: 0.7624312}
+  m_Center: {x: 0, y: 0.61735475, z: -0.13945398}
+--- !u!65 &1319296829718686329
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7732313505615490402}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.22247963, y: 0.7127944, z: 0.6369437}
+  m_Center: {x: 0, y: 0.36780494, z: 0.6163248}

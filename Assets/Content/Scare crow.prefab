@@ -97,8 +97,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.45307034, y: 2.4792156, z: 0.5042638}
-  m_Center: {x: -0.06171915, y: 0.477837, z: 0}
+  m_Size: {x: 0.73740727, y: 4.9498534, z: 0.7094096}
+  m_Center: {x: -0.13550594, y: 1.0692933, z: 0.10257292}
 --- !u!65 &5711467365426597464
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -118,8 +118,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.734264, y: 0.6729436, z: 0.5042638}
-  m_Center: {x: -0.103725374, y: 2.074077, z: 0}
+  m_Size: {x: 3.284, y: 1.6985025, z: 0.87173676}
+  m_Center: {x: -0.22150517, y: 4.3721466, z: 0.18373644}
 --- !u!1 &8274671336794696017
 GameObject:
   m_ObjectHideFlags: 0

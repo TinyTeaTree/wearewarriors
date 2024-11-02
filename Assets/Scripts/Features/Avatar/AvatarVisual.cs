@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using Core;
+using UnityEditor;
 using UnityEngine;
 
 namespace Game
@@ -8,8 +10,10 @@ namespace Game
     {
         private IProvideDirection _directionProvider;
         [SerializeField] private float _speed;
-        [SerializeField] private Transform _rightHand;
-        public Transform RightHand => _rightHand;
+
+        [Header("Tools Pivot")] [SerializeField]
+        private List<Transform> _pivotPoints;
+        public List<Transform> PivotPoints => _pivotPoints;
 
         private Coroutine _movementRoutine;
         private Coroutine _updateCycleRoutine;
