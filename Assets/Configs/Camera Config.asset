@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Camera Config
   m_EditorClassIdentifier: 
   _config:
-    LerpSpeed: 0
+    LerpSpeed: 2

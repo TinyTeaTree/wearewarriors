@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Agents;
 using Core;
 using Services;
+using UnityEngine;
 
 namespace Game
 {
@@ -9,9 +10,8 @@ namespace Game
     {
         [Inject] public CameraRecord Record { get; set; }
         [Inject] public IGarden Garden { get; set; }
-        
-        public CameraConfig Config { get; set; }
-
+        [Inject] public IAvatar Avatar { get; set; }
+        public CameraConfig Config { get; private set; }
 
         public Task AppLaunch()
         {
@@ -22,8 +22,16 @@ namespace Game
         public async Task Load()
         {
             await CreateVisual();
-
+            
             _visual.SetSpot(Garden.CameraStartSpot);
+            _visual.SetTarget(Avatar.AvatarTransform);
+            
+            Record.Target = Avatar.AvatarTransform.gameObject;
+        }
+
+        public void ActivateAnimation()
+        {
+            _visual.Activate();
         }
     }
 }
