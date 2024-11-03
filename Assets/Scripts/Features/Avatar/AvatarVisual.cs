@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Core;
-using UnityEditor;
 using UnityEngine;
 
 namespace Game
@@ -11,10 +10,10 @@ namespace Game
         private IProvideDirection _directionProvider;
         [SerializeField] private float _speed;
 
-        [Header("Tools Pivot")] [SerializeField]
-        private List<Transform> _pivotPoints;
-        public List<Transform> PivotPoints => _pivotPoints;
-
+        [Header("Tools Pivot")] 
+        [SerializeField] private List<AvatarAnchors> _avatarAnchors;
+        public List<AvatarAnchors> AvatarAnchors => _avatarAnchors;
+        
         private Coroutine _movementRoutine;
         private Coroutine _updateCycleRoutine;
         

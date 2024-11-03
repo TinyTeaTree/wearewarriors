@@ -355,13 +355,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
-  _pivotPoints:
-  - {fileID: 1768498110408512707}
-  - {fileID: 8029938710697513749}
-  - {fileID: 4930020267182898962}
-  - {fileID: 5835916906235360524}
-  - {fileID: 7469959277519529888}
-  - {fileID: 6795153344999466170}
+  _avatarAnchors:
+  - toolID: 1
+    anchorPoint: {fileID: 8029938710697513749}
+  - toolID: 2
+    anchorPoint: {fileID: 1768498110408512707}
+  - toolID: 3
+    anchorPoint: {fileID: 4930020267182898962}
+  - toolID: 4
+    anchorPoint: {fileID: 5835916906235360524}
+  - toolID: 5
+    anchorPoint: {fileID: 6795153344999466170}
+  - toolID: 6
+    anchorPoint: {fileID: 7469959277519529888}
 --- !u!1 &7370799101754203432
 GameObject:
   m_ObjectHideFlags: 0

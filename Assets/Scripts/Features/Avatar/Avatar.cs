@@ -14,7 +14,6 @@ namespace Game
         [Inject] public IGarden Garden { get; set; }
         [Inject] public IJoystick Joystick { get; set; }
         [Inject] public ITools Tools { get; set; }
-        public List<Transform> ToolsPivot => _visual.PivotPoints;
         public Transform AvatarTransform => _visual.transform;
         private AvatarConfig Config { get; set; }
         
@@ -33,9 +32,7 @@ namespace Game
             
             _visual.StartMovement();
         }
-
-       
-
+        
         public void Update()
         {
             if (Tools.GetHoldingTool() != null)
@@ -56,8 +53,14 @@ namespace Game
 
                 if (distance < Config.PickupDistance)
                 {
-                    var toolPivot = ToolsPivot.FirstOrDefault(pivot=> pivot.name.Contains(closestTool.ToolID.ToString()));
-                    Tools.PickUpTool(closestTool, toolPivot);
+                    foreach (var anchor in _visual.AvatarAnchors)
+                    {
+                        if (closestTool.ToolID == anchor.toolID)
+                        {
+                            Tools.PickUpTool(closestTool, anchor.anchorPoint);
+                        }
+                    }
+                   
                 }
             }
         }

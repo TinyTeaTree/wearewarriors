@@ -9,7 +9,6 @@ namespace Game
     {
         Task Load();
         void Activate();
-        List<Transform> ToolsPivot { get; }
         Transform AvatarTransform { get; }
     }
 }
