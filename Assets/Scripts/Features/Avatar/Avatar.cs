@@ -59,10 +59,6 @@ namespace Game
                         {
                             Tools.PickUpTool(closestTool, anchor.anchorPoint);
                         }
-                        else
-                        {
-                            Notebook.NoteError("Anchor is missing for this tool");
-                        }
                     }
                    
                 }
