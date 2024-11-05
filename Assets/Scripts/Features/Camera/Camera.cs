@@ -24,6 +24,13 @@ namespace Game
         public async Task Load()
         {
             await CreateVisual();
+
+            _visual.enabled = false;
+        }
+
+        public void Start()
+        {
+            _visual.enabled = true;
             
             _visual.SetSpot(Garden.CameraStartSpot);
             _visual.SetTarget(Avatar.AvatarTransform);

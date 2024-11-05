@@ -10,6 +10,8 @@ namespace Game
     {
         [Inject] public LoadingScreenRecord Record { get; set; }
         [Inject] public ILocalConfigService ConfigService { get; set; }
+        
+        [Inject] public IHud Hud { get; set; }
 
         private LoadingScreenConfig _config;
 
@@ -36,14 +38,13 @@ namespace Game
         {
             string randomTip = _config.proTips.GetRandom();
 
-            Transform canvas = GameObject.Find("Canvas").transform;
-            await CreateVisual(canvas);
+            await CreateVisual();
+            
+            Hud.SetHudOnCanvas(_visual.Canvas);
 
             Record.IsShowing = true;
 
             _visual.InitLoadingScreen(toggleTips, randomTip);
-
-            Debug.Log("Show Called");
         }
     }
 }

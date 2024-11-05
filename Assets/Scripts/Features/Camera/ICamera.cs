@@ -10,6 +10,8 @@ namespace Game
         
         Task Load();
 
+        void Start();
+
         void ActivateAnimation();
     }
 }

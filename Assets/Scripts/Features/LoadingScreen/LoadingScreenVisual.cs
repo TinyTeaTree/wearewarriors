@@ -11,6 +11,9 @@ namespace Game
         [SerializeField] TextMeshProUGUI proTip;
         [SerializeField] TextMeshProUGUI loadingBarPercentage;
         [SerializeField] Image loadingBar;
+        [SerializeField] private Canvas _canvas;
+
+        public Canvas Canvas => _canvas;
 
         public void InitLoadingScreen(bool toggleTip, string message)
         {

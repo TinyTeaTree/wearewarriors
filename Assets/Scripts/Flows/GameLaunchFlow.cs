@@ -18,14 +18,15 @@ namespace Game
             var hud = bootstrap.Features.Get<IHud>();
             
              AddNext(action: () => bootstrap.Agents.Get<IAppLaunchAgent>().AppLaunch())
+            .AddNext(() => camera.Load())
+            .AddNext(() => hud.Load())
             .AddNext(() => { loading.Show(true); })
             .AddNext(() => bootstrap.Features.Get<IGarden>().Load())
             .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(0.25f)); })
             .AddNext(() => { loading.ProgressControl(0.2f); })
             .AddNext(() => playerAccount.Login())
             .AddNext(() => avatar.Load())
-            .AddNext(() => camera.Load())
-            .AddNext(() => hud.Load())
+            .AddNext(camera.Start)
             .AddNext(() => { loading.ProgressControl(0.4f); })
             .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(0.25f)); })
             .AddNext(() => tools.LoadTools())
