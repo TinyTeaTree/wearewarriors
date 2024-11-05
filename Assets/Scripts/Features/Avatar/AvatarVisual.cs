@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Core;
 using UnityEngine;
 
@@ -8,9 +9,11 @@ namespace Game
     {
         private IProvideDirection _directionProvider;
         [SerializeField] private float _speed;
-        [SerializeField] private Transform _rightHand;
-        public Transform RightHand => _rightHand;
 
+        [Header("Tools Pivot")] 
+        [SerializeField] private List<AvatarAnchors> _avatarAnchors;
+        public List<AvatarAnchors> AvatarAnchors => _avatarAnchors;
+        
         private Coroutine _movementRoutine;
         private Coroutine _updateCycleRoutine;
         
