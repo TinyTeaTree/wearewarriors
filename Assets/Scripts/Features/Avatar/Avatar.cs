@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Core;
 using Services;
@@ -11,8 +14,6 @@ namespace Game
         [Inject] public IGarden Garden { get; set; }
         [Inject] public IJoystick Joystick { get; set; }
         [Inject] public ITools Tools { get; set; }
-        
-        public Transform HandTransform => _visual.RightHand;
         public Transform AvatarTransform => _visual.transform;
         private AvatarConfig Config { get; set; }
         
@@ -52,7 +53,14 @@ namespace Game
 
                 if (distance < Config.PickupDistance)
                 {
-                    Tools.PickUpTool(closestTool, _visual.RightHand);
+                    foreach (var anchor in _visual.AvatarAnchors)
+                    {
+                        if (closestTool.ToolID == anchor.toolID)
+                        {
+                            Tools.PickUpTool(closestTool, anchor.anchorPoint);
+                        }
+                    }
+                   
                 }
             }
         }

@@ -74,9 +74,15 @@ namespace Game
             transform.LookAt(target ,Vector3.up);
         }
 
-        public void Activate()
+        public void ActivateAnimator()
         {
             _animator.enabled = true;
+        }
+        
+        // <Called by an Animation event>
+        public void DeactivateAnimator()
+        {
+            _animator.enabled = false;
         }
         
         public void SetTarget(Transform target)

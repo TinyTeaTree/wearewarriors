@@ -33,7 +33,7 @@ namespace Game
 
         public void ActivateAnimation()
         {
-            _visual.Activate();
+            _visual.ActivateAnimator();
         }
     }
 }

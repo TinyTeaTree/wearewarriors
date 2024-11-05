@@ -77,7 +77,7 @@ namespace Game
 
             tool.ToggleRigidBody(true);
             tool.transform.SetParent(_visual.transform);
-            tool.DropToolPhysics(Avatar.HandTransform, 7);
+            tool.DropToolPhysics(Avatar.AvatarTransform, 7);
 
             _visual.ToggleDropButton(false);
 
@@ -97,8 +97,7 @@ namespace Game
             Record.EquippedToolVisual = closestTool;
 
             closestTool.GetPickedUp(handTransform);
-
-
+            
             _visual.ToggleDropButton(true);
         }
 
