@@ -15,6 +15,7 @@ namespace Game
             var tools = bootstrap.Features.Get<ITools>();
             var camera = bootstrap.Features.Get<ICamera>();
             var loading = bootstrap.Features.Get<ILoadingScreen>();
+            var hud = bootstrap.Features.Get<IHud>();
             
              AddNext(action: () => bootstrap.Agents.Get<IAppLaunchAgent>().AppLaunch())
             .AddNext(() => { loading.Show(true); })
@@ -24,6 +25,7 @@ namespace Game
             .AddNext(() => playerAccount.Login())
             .AddNext(() => avatar.Load())
             .AddNext(() => camera.Load())
+            .AddNext(() => hud.Load())
             .AddNext(() => { loading.ProgressControl(0.4f); })
             .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(0.25f)); })
             .AddNext(() => tools.LoadTools())

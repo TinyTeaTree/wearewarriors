@@ -19,6 +19,8 @@ namespace Game
             return Task.CompletedTask;
         }
 
+        public UnityEngine.Camera WorldCamera => _visual.Camera;
+
         public async Task Load()
         {
             await CreateVisual();

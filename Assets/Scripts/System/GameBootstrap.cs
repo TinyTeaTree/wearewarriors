@@ -30,6 +30,7 @@ namespace Game
             _features.Add<IPlayerAccount>(new PlayerAccount());
 
             _features.Add<ICamera>(new Camera());
+            _features.Add<IHud>(new Hud());
             //<New Feature>
         }
 
@@ -41,6 +42,7 @@ namespace Game
             _factories.Add(typeof(LoadingScreenVisual), new ResourceFactory(Addresses.LoadingScreen));
             _factories.Add(typeof(ToolsVisual), new AsyncResourceFactory(Addresses.ToolsVisual));
             _factories.Add(typeof(CameraVisual), new ResourceFactory(Addresses.CameraVisual));
+            _factories.Add(typeof(HudVisual), new ResourceFactory(Addresses.HudVisual));
         }
 
         protected override void AddAgents()
