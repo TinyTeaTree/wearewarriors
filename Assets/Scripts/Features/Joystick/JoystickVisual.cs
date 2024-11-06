@@ -5,25 +5,29 @@ namespace Game
 {
     public class JoystickVisual : BaseVisual<Joystick>
     {
-        [SerializeField] private GameObject _joystick;
+        [SerializeField] private Canvas _canvas;
+        [SerializeField] private JoystickInputCapture _joystick;
 
-        private Vector2 _joystickDirection;
+        public Canvas Canvas => _canvas;
 
-        public Vector2 Direction => _joystickDirection;
-        
         public void Show()
         {
-            _joystick.SetActive(true);
+            _joystick.gameObject.SetActive(true);
         }
 
         public void Hide()
         {
-            _joystick.SetActive(false);
+            _joystick.gameObject.SetActive(false);
         }
 
-        public void ReportJoystick(Vector2 vector2)
+        public void ReportJoystick(Vector2 mousePos)
         {
-            _joystickDirection = vector2;
+            Feature.MoveJoystick(mousePos);
+        }
+
+        public Vector2 MoveKnob(Vector3 worldPoint)
+        {
+            return _joystick.MoveKnob(worldPoint);
         }
     }
 }

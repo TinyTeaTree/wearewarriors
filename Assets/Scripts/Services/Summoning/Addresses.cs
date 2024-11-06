@@ -8,6 +8,7 @@ namespace Services
         public const string CameraVisual = "Visuals/Camera Visual";
         public const string DropToolButton = "Visuals/Drop Tool Button";
         public const string Garden = "Visuals/Garden";
+        public const string HudVisual = "Visuals/Hud Visual";
         public const string JostickCanvas = "Visuals/Jostick Canvas";
         public const string LoadingScreen = "Visuals/Loading Screen";
         public const string ToolsVisual = "Visuals/Tools Visual";

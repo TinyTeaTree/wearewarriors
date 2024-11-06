@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Game;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -32,24 +30,7 @@ public class JoystickInputCapture : MonoBehaviour, IPointerDownHandler, IPointer
         
         if (_isPressing)
         {
-            var pos = Input.mousePosition;
-
-            _insideKnob.position = new Vector3(pos.x, pos.y, _insideKnob.position.z);
-
-            var fullSize = Vector3.Distance(_edgeAnchor.position, _outsideKnob.position);
-            var knobSizeX = _insideKnob.position.x - _outsideKnob.position.x;
-            var knobXNormalized = Mathf.Clamp(knobSizeX / fullSize, -1f, 1f);
-            
-            var knobSizeY = _insideKnob.position.y - _outsideKnob.position.y;
-            var knobYNormalized = Mathf.Clamp(knobSizeY / fullSize, -1f, 1f);
-
-            var delta = _insideKnob.position - _outsideKnob.position;
-            if (delta.magnitude > fullSize)
-            {
-                _insideKnob.position = _outsideKnob.position + delta.normalized * fullSize;
-            }
-
-            _visual.ReportJoystick(new Vector2(knobXNormalized, knobYNormalized));
+            _visual.ReportJoystick(Input.mousePosition);
         }
         else
         {
@@ -61,5 +42,25 @@ public class JoystickInputCapture : MonoBehaviour, IPointerDownHandler, IPointer
     private void ResetKnobPosition()
     {
         _insideKnob.anchoredPosition = Vector2.zero;
+    }
+
+    public Vector2 MoveKnob(Vector3 worldPoint)
+    {
+        _insideKnob.position = new Vector3(worldPoint.x, worldPoint.y, _insideKnob.position.z);
+
+        var fullSize = Vector3.Distance(_edgeAnchor.position, _outsideKnob.position);
+        var knobSizeX = _insideKnob.position.x - _outsideKnob.position.x;
+        var knobXNormalized = Mathf.Clamp(knobSizeX / fullSize, -1f, 1f);
+            
+        var knobSizeY = _insideKnob.position.y - _outsideKnob.position.y;
+        var knobYNormalized = Mathf.Clamp(knobSizeY / fullSize, -1f, 1f);
+
+        var delta = _insideKnob.position - _outsideKnob.position;
+        if (delta.magnitude > fullSize)
+        {
+            _insideKnob.position = _outsideKnob.position + delta.normalized * fullSize;
+        }
+
+        return new Vector2(knobXNormalized, knobYNormalized);
     }
 }

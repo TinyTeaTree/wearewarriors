@@ -21,6 +21,8 @@ namespace Game
         
         private Transform _target;
         private Vector3 _velocity = Vector3.zero;
+        public UnityEngine.Camera Camera => _camera;
+
         private void LateUpdate()
         {
             if (_isFollowing)

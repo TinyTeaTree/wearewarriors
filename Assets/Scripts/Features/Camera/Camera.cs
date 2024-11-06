@@ -19,9 +19,18 @@ namespace Game
             return Task.CompletedTask;
         }
 
+        public UnityEngine.Camera WorldCamera => _visual.Camera;
+
         public async Task Load()
         {
             await CreateVisual();
+
+            _visual.enabled = false;
+        }
+
+        public void Start()
+        {
+            _visual.enabled = true;
             
             _visual.SetSpot(Garden.CameraStartSpot);
             _visual.SetTarget(Avatar.AvatarTransform);
