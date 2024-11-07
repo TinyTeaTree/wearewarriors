@@ -31,6 +31,7 @@ namespace Game
 
             _features.Add<ICamera>(new Camera());
             _features.Add<IHud>(new Hud());
+            _features.Add<IWallet>(new Wallet());
             //<New Feature>
         }
 
@@ -62,6 +63,7 @@ namespace Game
             _records.Add(typeof(ToolsRecord), new ToolsRecord());
             _records.Add(typeof(PlayerAccountRecord), new PlayerAccountRecord());
             _records.Add(typeof(CameraRecord), new CameraRecord());
+            _records.Add(typeof(WalletRecord), new WalletRecord());
             //<New Record>
         }
 
