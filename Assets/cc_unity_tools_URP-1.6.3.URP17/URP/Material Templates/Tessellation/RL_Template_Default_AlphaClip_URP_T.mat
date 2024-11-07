@@ -35,11 +35,9 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: RL_Template_Default_AlphaClip_URP_T
   m_Shader: {fileID: 4800000, guid: bbcbb60f367232545ab01c8c2aba3f83, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _ALPHATEST_ON
+  m_ValidKeywords: []
   m_InvalidKeywords:
+  - _ALPHATEST_ON
   - _METALLICSPECGLOSSMAP
   - _NORMALMAP
   - _OCCLUSIONMAP
@@ -51,9 +49,9 @@ Material:
   disabledShaderPasses:
   - TransparentDepthPrepass
   - TransparentBackface
-  - TransparentDepthPostpass
+  - MOTIONVECTORS
   - RayTracingPrepass
-  m_LockedProperties: 
+  - TransparentDepthPostpass
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -108,7 +106,7 @@ Material:
     - _BumpScale: 1
     - _DetailNormalMapScale: 1
     - _EnvironmentReflections: 1
-    - _GlossMapScale: 0.897
+    - _GlossMapScale: 0
     - _Metallic: 1
     - _OcclusionStrength: 1
     - _QueueControl: 0
@@ -123,4 +121,3 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
-  m_AllowLocking: 1
