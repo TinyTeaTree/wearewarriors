@@ -44,6 +44,7 @@ namespace Game
             _factories.Add(typeof(ToolsVisual), new AsyncResourceFactory(Addresses.ToolsVisual));
             _factories.Add(typeof(CameraVisual), new ResourceFactory(Addresses.CameraVisual));
             _factories.Add(typeof(HudVisual), new ResourceFactory(Addresses.HudVisual));
+            _factories.Add(typeof(MarksVisual), new ResourceFactory(Addresses.MarksCanvas));
         }
 
         protected override void AddAgents()

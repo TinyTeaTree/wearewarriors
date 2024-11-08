@@ -19,6 +19,22 @@ namespace Game
         public ToolsConfig _toolsConfig { get; private set; }
 
         
+        
+
+        /// ///////////////////////////// DELETE ME
+        /// </summary>
+        [Inject] public IMarks Marks { get; set; }
+
+        public async Task Do()
+        {
+            await Task.Delay(2000);
+
+            Marks.AddMark(_visual.AllTools.FirstOrDefault().transform, TMark.Example, "123");
+        }
+        
+        /// <summary>
+        /// //////////////////////////////////////DELETE ME
+        
         public Task AppLaunch()
         {
             _toolsConfig = ConfigService.GetConfig<ToolsConfig>();
@@ -39,6 +55,8 @@ namespace Game
 
              _visual.SetToolVisuals(Record.AllToolsInGarden);
              _visual.LoadDropButton();
+
+             Do().Forget(); //TODO: Kill Me
         }
 
         public ToolAction[] GetToolAbilities(ToolsEnum toolType)
