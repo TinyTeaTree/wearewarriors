@@ -31,6 +31,7 @@ namespace Game
 
             _features.Add<ICamera>(new Camera());
             _features.Add<IHud>(new Hud());
+            _features.Add<IMarks>(new Marks());
             //<New Feature>
         }
 
