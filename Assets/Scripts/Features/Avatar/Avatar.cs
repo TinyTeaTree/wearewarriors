@@ -2,18 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Agents;
 using Core;
 using Services;
 using UnityEngine;
 
 namespace Game
 {
-    public class Avatar : BaseVisualFeature<AvatarVisual>, IAvatar
+    public class Avatar : BaseVisualFeature<AvatarVisual>, IAvatar, IAppExitAgent
     {
         [Inject] public AvatarRecord Record { get; set; }
         [Inject] public IGarden Garden { get; set; }
         [Inject] public IJoystick Joystick { get; set; }
         [Inject] public ITools Tools { get; set; }
+        [Inject] public IPlayerAccount PlayerAccount { get; set; }
         public Transform AvatarTransform => _visual.transform;
         private AvatarConfig Config { get; set; }
         
@@ -21,7 +23,7 @@ namespace Game
         {
             await CreateVisual();
 
-            _visual.SetPos(Garden.AvatarStartSpot);
+            _visual.SetPos(Record.AvatarRecordData.Pos);
 
             Config = _bootstrap.Services.Get<ILocalConfigService>().GetConfig<AvatarConfig>();
         }
@@ -63,6 +65,12 @@ namespace Game
                    
                 }
             }
+        }
+
+        public void AppExit()
+        {
+            Record.AvatarRecordData.Pos = _visual.transform.position;
+            PlayerAccount.SyncPlayerData();
         }
     }
 }
