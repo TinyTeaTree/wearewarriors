@@ -55,7 +55,14 @@ namespace Game
 
         public T GetMark<T>(string id) where T : BaseMarkVisual
         {
-            return null; //TODO;
+            var mark = _visual.GetMarkById(id);
+            if (mark == null)
+            {
+                Notebook.NoteError($"No Mark for {id} found");
+                return null;
+            }
+
+            return (T)mark;
         }
 
         public void UpdateMarkPosition(BaseMarkVisual mark)
@@ -76,6 +83,20 @@ namespace Game
             var hudPoint = hudCamera.ScreenToWorldPoint(screenPoint);
 
             mark.transform.position = hudPoint;
+        }
+
+        public void RemoveMark(string id)
+        {
+            var doomedMark = _visual.GetMarkById(id);
+            if (doomedMark == null)
+            {
+                Notebook.NoteError($"Mark {id} does not exist");
+                return;
+            }
+
+            doomedMark.SelfDestroy();
+
+            _visual.RemoveMark(doomedMark);
         }
     }
 }

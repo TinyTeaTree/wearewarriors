@@ -29,5 +29,10 @@ namespace Game
                 Feature.UpdateMarkPosition(mark);
             }
         }
+
+        public void RemoveMark(BaseMarkVisual doomedMark)
+        {
+            _marks.Remove(doomedMark);
+        }
     }
 }

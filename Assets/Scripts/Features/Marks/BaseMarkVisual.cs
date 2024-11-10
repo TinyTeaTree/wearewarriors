@@ -1,8 +1,10 @@
+using Core;
 using UnityEngine;
 
 namespace Game
 {
-    public class BaseMarkVisual : MonoBehaviour
+    //TODO: Add Test to make sure no-one changed this script
+    public class BaseMarkVisual : MonoBehaviour, IAmDestructible
     {
         [SerializeField] private TMark _type;
         public TMark Type => _type;
@@ -15,6 +17,9 @@ namespace Game
             Anchor = anchor;
         }
         
-        //TODO: Add Test to make sure no-one changed this script
+        public virtual void SelfDestroy()
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -15,5 +15,7 @@ namespace Game
         
         T GetMark<T>(string id)
             where T : BaseMarkVisual;
+
+        void RemoveMark(string id);
     }
 }
