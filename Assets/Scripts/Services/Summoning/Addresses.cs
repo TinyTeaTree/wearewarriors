@@ -11,6 +11,7 @@ namespace Services
         public const string HudVisual = "Visuals/Hud Visual";
         public const string JostickCanvas = "Visuals/Jostick Canvas";
         public const string LoadingScreen = "Visuals/Loading Screen";
+        public const string MarksCanvas = "Visuals/Marks Canvas";
         public const string ToolsVisual = "Visuals/Tools Visual";
         //<Resource Path End>
     }

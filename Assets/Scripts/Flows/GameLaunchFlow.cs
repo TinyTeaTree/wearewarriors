@@ -16,11 +16,13 @@ namespace Game
             var camera = bootstrap.Features.Get<ICamera>();
             var loading = bootstrap.Features.Get<ILoadingScreen>();
             var hud = bootstrap.Features.Get<IHud>();
+            var marks = bootstrap.Features.Get<IMarks>();
             
              AddNext(action: () => bootstrap.Agents.Get<IAppLaunchAgent>().AppLaunch())
             .AddNext(() => camera.Load())
             .AddNext(() => hud.Load())
             .AddNext(() => { loading.Show(true); })
+            .AddNext(() => marks.Load())
             .AddNext(() => bootstrap.Features.Get<IGarden>().Load())
             .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(0.25f)); })
             .AddNext(() => { loading.ProgressControl(0.2f); })
