@@ -117,6 +117,8 @@ namespace Game
             closestTool.GetPickedUp(handTransform);
             
             _visual.ToggleDropButton(true);
+            
+            Marks.RemoveMark("123");
         }
 
         public void HighlightOff()

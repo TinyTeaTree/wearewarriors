@@ -12,6 +12,8 @@ namespace Game
 
         [Header("Tools Pivot")] 
         [SerializeField] private List<AvatarAnchors> _avatarAnchors;
+
+        [SerializeField] private Animator _animator;
         public List<AvatarAnchors> AvatarAnchors => _avatarAnchors;
         
         private Coroutine _movementRoutine;
@@ -51,11 +53,14 @@ namespace Game
                 yield return null;
             }
         }
-        
+
+        private bool inPlot = false;
+        private float lastAnimationTime = 0f;
         IEnumerator MovementRoutine()
         {
             while (true)
             {
+                inPlot = false;
                 var direction = _directionProvider.Direction;
 
                 var strength = direction.magnitude;
@@ -67,8 +72,27 @@ namespace Game
                     var translation = new Vector3(direction.x, 0f, direction.y).normalized * (_speed * clampedStrength * Time.deltaTime);
 
                     transform.LookAt(transform.position + translation);
-
+                    
                     transform.position += translation;
+                }
+                else
+                {
+                    if (Physics.CheckSphere(transform.position, 1.5f, LayerMask.GetMask("Plot")))
+                    {
+                        inPlot = true;
+                    }
+                }
+                
+                _animator.SetFloat("Speed", clampedStrength);
+
+
+                if (inPlot)
+                {
+                    if (lastAnimationTime + 1f < Time.time)
+                    {
+                        _animator.SetTrigger("Harvest");
+                        lastAnimationTime = Time.time;
+                    }
                 }
 
                 yield return null;
