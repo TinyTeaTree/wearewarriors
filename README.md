@@ -138,3 +138,20 @@ Core Editor
 Should be marked as Editor Only obviously
 
 ## Features
+
+A good feature always starts with a Good Conversation
+ק
+![cartoon](https://github.com/user-attachments/assets/da37324b-ae0b-4231-afd0-5a2f42af15f3)
+
+Once you have a good idea for a Feature that you want, Head on over the the Feature Maker to create it
+
+**A Feature Contains**
+- Feature Script, The Main Script of the Feature, All the Feature Logic
+- Interface Script, Contains the API
+- Visual Script (Optional), For MonoBehaviour and Unity Engine
+- Record, For Read and Write data
+- Config, For Readonly Data this is Common to all Users
+
+![image](https://github.com/user-attachments/assets/af3b91ee-d000-4e5b-9af0-39e96763812b)
+
+
