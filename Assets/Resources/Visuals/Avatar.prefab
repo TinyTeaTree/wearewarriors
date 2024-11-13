@@ -1190,6 +1190,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
+  _animator: {fileID: 1445252816538159614}
+  _leftFootDownAnchor: {fileID: 8771625395866350746}
+  _rightFootDownAnchor: {fileID: 4761269301272389549}
   _avatarAnchors:
   - toolID: 2
     anchorPoint: {fileID: 2481550706652445019}
