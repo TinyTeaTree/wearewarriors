@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Agents;
 using Core;
@@ -16,6 +17,7 @@ namespace Game
 
         private GardenConfig _config;
 
+        public Vector3 AvatarStartSpot => _visual.AvatarStartSpot.position;
         public Transform CameraStartSpot => _visual.CameraStartSpot;
 
         public void Dispose()
@@ -30,6 +32,5 @@ namespace Game
             await Task.WhenAll(Task.Delay(TimeSpan.FromSeconds(3f)), CreateVisual());
         }
 
-        public Vector3 AvatarStartSpot => _visual.AvatarStartSpot.position;
     }
 }
