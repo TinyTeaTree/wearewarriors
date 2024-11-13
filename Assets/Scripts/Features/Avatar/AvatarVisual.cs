@@ -10,6 +10,13 @@ namespace Game
         private IProvideDirection _directionProvider;
         [SerializeField] private float _speed;
 
+        [SerializeField] private Animator _animator;
+        
+        [SerializeField, Tooltip("This Anchor should be at the bottom of the Sole and will Raycast to Elevate from Floor properly")] 
+        private Transform _leftFootDownAnchor;
+        [SerializeField, Tooltip("This Anchor should be at the bottom of the Sole and will Raycast to Elevate from Floor properly")] 
+        private Transform _rightFootDownAnchor;
+
         [Header("Tools Pivot")] 
         [SerializeField] private List<AvatarAnchors> _avatarAnchors;
         public List<AvatarAnchors> AvatarAnchors => _avatarAnchors;
@@ -70,6 +77,34 @@ namespace Game
 
                     transform.position += translation;
                 }
+                
+                _animator.SetFloat("Speed", clampedStrength);
+
+                var from = _leftFootDownAnchor.position;
+                from.y += 50;
+
+                float maxY = 0;
+
+
+                if (Physics.Raycast(from, Vector3.down, out var hitInfoRight, 100f, LayerMask.GetMask("Floor")))
+                {
+                    if (hitInfoRight.point.y > maxY)
+                    {
+                        maxY = hitInfoRight.point.y;
+                    }
+                }
+
+                if (Physics.Raycast(from, Vector3.down, out var hitInfoLeft, 100f, LayerMask.GetMask("Floor")))
+                {
+                    if (hitInfoLeft.point.y > maxY)
+                    {
+                        maxY = hitInfoRight.point.y;
+                    }
+                }
+                
+                var pos = transform.position;
+                pos.y = maxY;
+                transform.position = pos;
 
                 yield return null;
             }

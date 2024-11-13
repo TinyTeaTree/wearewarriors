@@ -1166,7 +1166,7 @@ Animator:
   m_GameObject: {fileID: 3128727891203153695}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3f1e65987757fbe4eb752f1b06037ea1, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d6dc2d9de204227499d88613c8356bea, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1190,6 +1190,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
+  _animator: {fileID: 1445252816538159614}
+  _leftFootDownAnchor: {fileID: 8771625395866350746}
+  _rightFootDownAnchor: {fileID: 4761269301272389549}
   _avatarAnchors:
   - toolID: 2
     anchorPoint: {fileID: 2481550706652445019}
