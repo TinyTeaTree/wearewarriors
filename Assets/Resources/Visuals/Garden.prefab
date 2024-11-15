@@ -170,6 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _avatarStartSpot: {fileID: 810413533957808781}
   _cameraStartSpot: {fileID: 9049937298035012388}
+  _gardenplot: {fileID: 8683917846866880864, guid: f00318ca0990f40479bdedb3809eed57,
+    type: 3}
 --- !u!1 &5251576343028226690
 GameObject:
   m_ObjectHideFlags: 0
