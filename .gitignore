@@ -11,3 +11,4 @@
 /.idea
 *.user
 /Assets/Player Data
+.DS_Store
