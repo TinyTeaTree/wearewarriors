@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2518811214693164164
+--- !u!1 &1157003423937033794
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,69 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2127312034969116766}
-  - component: {fileID: 6676104038790147092}
-  - component: {fileID: 4850083149118619978}
-  - component: {fileID: 923352313194161675}
-  - component: {fileID: 8683917846866880864}
+  - component: {fileID: 7029833888727657802}
+  - component: {fileID: 8162421972515747598}
+  - component: {fileID: 3898774620765128767}
+  - component: {fileID: 6237968433365414272}
   m_Layer: 0
-  m_Name: Garden Plot
+  m_Name: Plot Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2127312034969116766
+--- !u!4 &7029833888727657802
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2518811214693164164}
+  m_GameObject: {fileID: 1157003423937033794}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 8267958117204316203}
-  m_Father: {fileID: 0}
+  m_LocalPosition: {x: 2.5, y: 0, z: -2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2127312034969116766}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6676104038790147092
+--- !u!64 &8162421972515747598
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157003423937033794}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0b97703979089cd40a1151f2be3067e2, type: 3}
+--- !u!33 &3898774620765128767
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2518811214693164164}
+  m_GameObject: {fileID: 1157003423937033794}
   m_Mesh: {fileID: 4300000, guid: 0b97703979089cd40a1151f2be3067e2, type: 3}
---- !u!23 &4850083149118619978
+--- !u!23 &6237968433365414272
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2518811214693164164}
+  m_GameObject: {fileID: 1157003423937033794}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,28 +106,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &923352313194161675
-MeshCollider:
+--- !u!1 &2518811214693164164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2127312034969116766}
+  - component: {fileID: 8683917846866880864}
+  m_Layer: 0
+  m_Name: Garden Plot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2127312034969116766
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2518811214693164164}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 0b97703979089cd40a1151f2be3067e2, type: 3}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 7029833888727657802}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8683917846866880864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,97 +151,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e5437fb24464a8885c1983bc70f5323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &7488973836181896159
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 2127312034969116766}
-    m_Modifications:
-    - target: {fileID: 1536745743981063156, guid: 303c5f88e3335a34ca06666c7300e215,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536745743981063156, guid: 303c5f88e3335a34ca06666c7300e215,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536745743981063156, guid: 303c5f88e3335a34ca06666c7300e215,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536745743981063156, guid: 303c5f88e3335a34ca06666c7300e215,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536745743981063156, guid: 303c5f88e3335a34ca06666c7300e215,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536745743981063156, guid: 303c5f88e3335a34ca06666c7300e215,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536745743981063156, guid: 303c5f88e3335a34ca06666c7300e215,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536745743981063156, guid: 303c5f88e3335a34ca06666c7300e215,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536745743981063156, guid: 303c5f88e3335a34ca06666c7300e215,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536745743981063156, guid: 303c5f88e3335a34ca06666c7300e215,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536745743981063156, guid: 303c5f88e3335a34ca06666c7300e215,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536745743981063156, guid: 303c5f88e3335a34ca06666c7300e215,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536745743981063156, guid: 303c5f88e3335a34ca06666c7300e215,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536745743981063156, guid: 303c5f88e3335a34ca06666c7300e215,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8689744609885658097, guid: 303c5f88e3335a34ca06666c7300e215,
-        type: 3}
-      propertyPath: m_Name
-      value: Corn Plant
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 303c5f88e3335a34ca06666c7300e215, type: 3}
---- !u!4 &8267958117204316203 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1536745743981063156, guid: 303c5f88e3335a34ca06666c7300e215,
-    type: 3}
-  m_PrefabInstance: {fileID: 7488973836181896159}
-  m_PrefabAsset: {fileID: 0}
+  PlotID: 0
+  plantType: 0
