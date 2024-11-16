@@ -8,7 +8,7 @@ namespace Game
     [Serializable]
     public class AvatarAnchors
     {
-        public ToolsEnum toolID;
+        public TTools toolID;
         public Transform anchorPoint;
     }
 }

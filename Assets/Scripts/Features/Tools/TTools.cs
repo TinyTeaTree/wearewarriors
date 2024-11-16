@@ -1,6 +1,6 @@
 ﻿namespace Game
 {
-    public enum ToolsEnum
+    public enum TTools
     {
         Hands,
         Shovel,

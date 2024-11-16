@@ -15,7 +15,7 @@ namespace Game
         [JsonIgnore]
         public List<ToolVisual> AllToolsInGarden { get; set; } = new();
         [JsonIgnore]
-        public Dictionary<ToolsEnum, int> ToolsUsagePercentage { get; set; } = new();
+        public Dictionary<TTools, int> ToolsUsagePercentage { get; set; } = new();
 
         public List<ToolRecordData> GardenTools { get; set; } = new();
     }
