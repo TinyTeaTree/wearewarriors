@@ -8,14 +8,6 @@ namespace Game
     public class SheepVisual :  BaseVisual<Sheeps>
     {
         public Animator animator;
-        private string walkForwardAnimation = "walk_forward";
-        private string idle = "idle";
-        private string runForwardAnimation = "run_forward";
-        private string turn90LAnimation = "turn_90_L";
-        private string turn90RAnimation = "turn_90_R";
-        private string trotAnimation = "trot_forward";
-        private string sittostandAnimation = "sit_to_stand";
-        private string standtositAnimation = "stand_to_sit";
 
         [SerializeField] private float _minMoveDuration;
         [SerializeField] private float _maxMoveDuration;
@@ -35,12 +27,6 @@ namespace Game
         public float DistanceMagnet => _distanceMagnet;
 
         private Coroutine _moveRoutine;
-
-        void Start()
-        {
-            animator = GetComponent<Animator>();
-        }
-
 
         public float GetIdleDuration()
         {
@@ -95,9 +81,7 @@ namespace Game
                 }
             }
 
-            var pos = transform.position;
-            pos.y = maxY;
-            transform.position = pos;
+            transform.SetY(maxY);
         }
 
         public void Idle()
