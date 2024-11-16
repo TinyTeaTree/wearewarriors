@@ -18,15 +18,12 @@ namespace Game
 
         public void LoadPlantVisuals()
         {
-
             var plantVisual = Feature.Config.plantVisuals.FirstOrDefault(v => v.PlantID == plantType);
 
-                if (plantVisual != null)
-                {
-                    Instantiate(plantVisual, transform);
-                }
-                
-            
+            if(plantVisual != null)
+            {
+                Instantiate(plantVisual, transform);
+            }
         }
         
     }
