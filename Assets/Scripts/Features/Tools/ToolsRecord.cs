@@ -18,5 +18,8 @@ namespace Game
         public Dictionary<TTools, int> ToolsUsagePercentage { get; set; } = new();
 
         public List<ToolRecordData> GardenTools { get; set; } = new();
+        
+        [JsonIgnore]
+        public string MarkId { get; set; }
     }
 }
