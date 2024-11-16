@@ -2,21 +2,31 @@
 using Codice.CM.Common;
 using Core;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game
 {
     public class GardenPlotVisual : BaseVisual<Garden>
     {
-        [SerializeField] private int PlotID;
+        [SerializeField] private int plotID;
         [SerializeField] private TPlant plantType;
+        
+        public int PlotID => plotID;
+        public TPlant PlantType => plantType;
         
         //Todo: Get plot visual
 
-       public void LoadGardenPlot()
+        public void LoadPlantVisuals()
         {
-            var plant = Feature.Config.GardenPlots.FirstOrDefault(v => v.plantID == plantType)?.PlantVisual;
 
-            Instantiate(plant, transform);
+            var plantVisual = Feature.Config.plantVisuals.FirstOrDefault(v => v.PlantID == plantType);
+
+                if (plantVisual != null)
+                {
+                    Instantiate(plantVisual, transform);
+                }
+                
+            
         }
         
     }

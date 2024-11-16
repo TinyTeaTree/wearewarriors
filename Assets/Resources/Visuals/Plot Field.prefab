@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2d401dd1bf84afcaa390fb8a32224f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FieldID: 0
+  fieldID: 0
   gardenPlotVisuals:
   - {fileID: 1705747681658346050}
   - {fileID: 5749487298598269485}
@@ -114,6 +114,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Garden Plot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683917846866880864, guid: f00318ca0990f40479bdedb3809eed57,
+        type: 3}
+      propertyPath: plotID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683917846866880864, guid: f00318ca0990f40479bdedb3809eed57,
+        type: 3}
+      propertyPath: plantType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -200,6 +210,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Garden Plot (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683917846866880864, guid: f00318ca0990f40479bdedb3809eed57,
+        type: 3}
+      propertyPath: plotID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683917846866880864, guid: f00318ca0990f40479bdedb3809eed57,
+        type: 3}
+      propertyPath: plantType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

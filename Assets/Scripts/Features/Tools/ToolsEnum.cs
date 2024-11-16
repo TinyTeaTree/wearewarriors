@@ -9,5 +9,8 @@
         PesticideSpray,
         ScareCrow,
         CropBox,
+        StrawberrySeed,
+        TomatoSeed,
+        CornSeed,
     }
 }

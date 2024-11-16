@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Core;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -8,6 +9,7 @@ namespace Game
     public class GardenConfig : BaseConfig
     {
         public GardenPlotVisual plotPrefab;
-        public GardenPlotData[] GardenPlots;
+        public PlotFieldData[] plotFields;
+        public PlantVisual[] plantVisuals;
     }
 }

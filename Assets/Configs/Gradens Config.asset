@@ -15,16 +15,50 @@ MonoBehaviour:
   _config:
     plotPrefab: {fileID: 8683917846866880864, guid: f00318ca0990f40479bdedb3809eed57,
       type: 3}
-    GardenPlots:
-    - PlotID: 1
-      plantID: 0
-      PlantVisual: {fileID: -6279006562197902439, guid: 7c958bcc959897640824deef262e29e8,
-        type: 3}
-    - PlotID: 2
-      plantID: 1
-      PlantVisual: {fileID: 5935114039747994443, guid: 3c0f3f9083bc32f4b944db593708005d,
-        type: 3}
-    - PlotID: 3
-      plantID: 2
-      PlantVisual: {fileID: -8504608328066412054, guid: 303c5f88e3335a34ca06666c7300e215,
-        type: 3}
+    plotFields:
+    - fieldID: 0
+      plotData:
+      - PlotID: 0
+        plantID: 0
+        PlantVisual: {fileID: -6279006562197902439, guid: 7c958bcc959897640824deef262e29e8,
+          type: 3}
+      - PlotID: 1
+        plantID: 0
+        PlantVisual: {fileID: -6279006562197902439, guid: 7c958bcc959897640824deef262e29e8,
+          type: 3}
+      - PlotID: 2
+        plantID: 0
+        PlantVisual: {fileID: -6279006562197902439, guid: 7c958bcc959897640824deef262e29e8,
+          type: 3}
+    - fieldID: 1
+      plotData:
+      - PlotID: 0
+        plantID: 1
+        PlantVisual: {fileID: 5935114039747994443, guid: 3c0f3f9083bc32f4b944db593708005d,
+          type: 3}
+      - PlotID: 1
+        plantID: 1
+        PlantVisual: {fileID: 5935114039747994443, guid: 3c0f3f9083bc32f4b944db593708005d,
+          type: 3}
+      - PlotID: 2
+        plantID: 1
+        PlantVisual: {fileID: 5935114039747994443, guid: 3c0f3f9083bc32f4b944db593708005d,
+          type: 3}
+    - fieldID: 2
+      plotData:
+      - PlotID: 0
+        plantID: 2
+        PlantVisual: {fileID: -8504608328066412054, guid: 303c5f88e3335a34ca06666c7300e215,
+          type: 3}
+      - PlotID: 1
+        plantID: 2
+        PlantVisual: {fileID: -8504608328066412054, guid: 303c5f88e3335a34ca06666c7300e215,
+          type: 3}
+      - PlotID: 2
+        plantID: 2
+        PlantVisual: {fileID: -8504608328066412054, guid: 303c5f88e3335a34ca06666c7300e215,
+          type: 3}
+    plantVisuals:
+    - {fileID: -8504608328066412054, guid: 303c5f88e3335a34ca06666c7300e215, type: 3}
+    - {fileID: 5935114039747994443, guid: 3c0f3f9083bc32f4b944db593708005d, type: 3}
+    - {fileID: -6279006562197902439, guid: 7c958bcc959897640824deef262e29e8, type: 3}

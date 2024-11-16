@@ -6,8 +6,8 @@
         Picking,
         Gathering,
         Watering,
-        filling,
         Spraying,
         Placing,
+        Planting
     }
 }

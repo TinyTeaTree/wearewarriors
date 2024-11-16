@@ -1,6 +1,7 @@
 ﻿
 using Core;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game
 {

@@ -1,6 +1,8 @@
-﻿using Core;
+﻿
+using System.Linq;
+using Core;
 using UnityEngine;
-using UnityEngine.Serialization;
+
 
 namespace Game
 {
@@ -12,9 +14,13 @@ namespace Game
         public int FieldId => fieldID;
         public GardenPlotVisual[] GardenPlotVisuals => gardenPlotVisuals;
 
-        public void Load()
+        public void LoadPlotField()
         {
-            
+            foreach (var plotVisual in gardenPlotVisuals)
+            {
+                plotVisual.SetFeature(Feature);
+                plotVisual.LoadPlantVisuals();
+            }
         }
         
         

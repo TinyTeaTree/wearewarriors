@@ -9,7 +9,7 @@ namespace Game
     {
         Task LoadTools();
 
-        ToolAction[] GetToolAbilities(ToolsEnum tool);
+        ToolAction[] GetToolAbilities(ToolsEnum toolEnum);
 
         ToolVisual GetHoldingTool();
 

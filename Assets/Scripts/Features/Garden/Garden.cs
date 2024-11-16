@@ -13,7 +13,7 @@ namespace Game
         [Inject] public ILocalConfigService ConfigService { get; set; }
 
         private GardenConfig _config;
-
+        
         public Vector3 AvatarStartSpot => _visual.AvatarStartSpot.position;
         public Transform CameraStartSpot => _visual.CameraStartSpot;
         public GardenConfig Config => _config;
@@ -27,9 +27,10 @@ namespace Game
         {
             _config = ConfigService.GetConfig<GardenConfig>();
             
-            await Task.WhenAll(Task.Delay(TimeSpan.FromSeconds(3f)), CreateVisual());
+            await Task.WhenAll(Task.Delay(TimeSpan.FromSeconds(1f)), CreateVisual());
             
-            //Todo: load plot field visual, plot visual and plant visual.
+            _visual.LoadPlotFieldVisuals();
+           
         }
 
     }
