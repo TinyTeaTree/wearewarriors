@@ -6,7 +6,7 @@ namespace Game
     [System.Serializable]
     public class ToolRecordData
     {
-        public ToolsEnum Id { get; set; }
+        public TTools Id { get; set; }
         [JsonConverter(typeof(Vector3Converter))]
         public Vector3 Pos { get; set; }
 

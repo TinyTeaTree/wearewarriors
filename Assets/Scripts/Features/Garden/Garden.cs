@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Agents;
 using Core;
 using Factories;
 using Services;
@@ -15,8 +13,10 @@ namespace Game
         [Inject] public ILocalConfigService ConfigService { get; set; }
 
         private GardenConfig _config;
-
+        
+        public Vector3 AvatarStartSpot => _visual.AvatarStartSpot.position;
         public Transform CameraStartSpot => _visual.CameraStartSpot;
+        public GardenConfig Config => _config;
 
         public void Dispose()
         {
@@ -26,10 +26,12 @@ namespace Game
         public async Task Load()
         {
             _config = ConfigService.GetConfig<GardenConfig>();
-
-            await Task.WhenAll(Task.Delay(TimeSpan.FromSeconds(3f)), CreateVisual());
+            
+            await Task.WhenAll(Task.Delay(TimeSpan.FromSeconds(1f)), CreateVisual());
+            
+            _visual.LoadPlotFieldVisuals();
+           
         }
 
-        public Vector3 AvatarStartSpot => _visual.AvatarStartSpot.position;
     }
 }

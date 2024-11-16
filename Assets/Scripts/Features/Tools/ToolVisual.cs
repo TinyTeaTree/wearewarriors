@@ -2,12 +2,13 @@
 using Codice.CM.Common;
 using Core;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game
 {
     public class ToolVisual : BaseVisual<Tools>
     {
-        public ToolsEnum ToolID;
+        public TTools ToolID;
         
         [SerializeField] private Outline _outline;
         [SerializeField] private Rigidbody _rigidbody;
