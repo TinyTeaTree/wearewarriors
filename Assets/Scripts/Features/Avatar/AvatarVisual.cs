@@ -93,6 +93,9 @@ namespace Game
                         maxY = hitInfoRight.point.y;
                     }
                 }
+                
+                from = _rightFootDownAnchor.position;
+                from.y += 50;
 
                 if (Physics.Raycast(from, Vector3.down, out var hitInfoLeft, 100f, LayerMask.GetMask("Floor")))
                 {

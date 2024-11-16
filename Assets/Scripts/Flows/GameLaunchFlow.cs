@@ -17,6 +17,7 @@ namespace Game
             var loading = bootstrap.Features.Get<ILoadingScreen>();
             var hud = bootstrap.Features.Get<IHud>();
             var marks = bootstrap.Features.Get<IMarks>();
+            var sheeps = bootstrap.Features.Get<ISheeps>();
             var garden = bootstrap.Features.Get<IGarden>();
 
             AddNext(action: () => bootstrap.Agents.Get<IAppLaunchAgent>().AppLaunch())
@@ -38,14 +39,13 @@ namespace Game
                 .AddNext(() => { loading.ProgressControl(0.8f); })
                 .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(0.1f)); })
                 .AddNext(() => { loading.ProgressControl(1f); })
-
                 .AddNext(() => joystick.Load())
                 .AddNext(() => joystick.Show())
                 .AddNext(() => avatar.Activate())
-
                 .AddNext(() => { bootstrap.Features.Get<ILoadingScreen>().Close(); })
-
                 .AddNext(() => camera.ActivateAnimation())
+                .AddNext(() => Task.Delay(TimeSpan.FromSeconds(2f)))
+                .AddNext(() => sheeps.LoadSheep())
             ;
             
         }

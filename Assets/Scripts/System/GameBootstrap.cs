@@ -32,6 +32,7 @@ namespace Game
             _features.Add<ICamera>(new Camera());
             _features.Add<IHud>(new Hud());
             _features.Add<IMarks>(new Marks());
+            _features.Add<ISheeps>(new Sheeps());
             //<New Feature>
         }
 
@@ -45,6 +46,7 @@ namespace Game
             _factories.Add(typeof(CameraVisual), new ResourceFactory(Addresses.CameraVisual));
             _factories.Add(typeof(HudVisual), new ResourceFactory(Addresses.HudVisual));
             _factories.Add(typeof(MarksVisual), new ResourceFactory(Addresses.MarksCanvas));
+            _factories.Add(typeof(SheepsVisual), new ResourceFactory(Addresses.SheepsVisual));
         }
 
         protected override void AddAgents()

@@ -29,7 +29,9 @@ namespace Game
         {
             await Task.Delay(2000);
 
-            Marks.AddMark(_visual.AllTools.FirstOrDefault().transform, TMark.Example, "123");
+            var toolToMark = _visual.AllTools.FirstOrDefault();
+            var toolId = Marks.AddMark(toolToMark.transform, TMark.Example, toolToMark.ToolID.ToString());
+            Record.MarkId = toolId;
         }
         
         /// <summary>
@@ -107,7 +109,8 @@ namespace Game
             gardenTool.Rot = tool.transform.rotation.eulerAngles;
 
             await PlayerAccount.SyncPlayerData();
-
+            
+            Do().Forget(); //TODO: Kill Me
         }
 
         public void PickUpTool(ToolVisual closestTool, Transform handTransform)
@@ -117,6 +120,11 @@ namespace Game
             closestTool.GetPickedUp(handTransform);
             
             _visual.ToggleDropButton(true);
+
+            if (Record.MarkId.HasContent())
+            {
+                Marks.RemoveMark(Record.MarkId);
+            }
         }
 
         public void HighlightOff()
