@@ -51,9 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 8170407106882574507}
   _animator: {fileID: 4062538803780601734}
-  _offsetVector: {x: 0, y: 15, z: -15}
-  _angle: 0
-  _radius: 1
+  _offsetVector: {x: 0, y: 7, z: -10}
+  _angle: -11.8
+  _radius: 50.5
   _isFollowing: 1
   _isCircular: 0
 --- !u!95 &4062538803780601734
@@ -110,7 +110,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 15000
-  field of view: 45.8
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1

@@ -59,9 +59,9 @@ namespace Game
              Do().Forget(); //TODO: Kill Me
         }
 
-        public ToolAction[] GetToolAbilities(ToolsEnum toolType)
+        public ToolAction[] GetToolAbilities(TTools tool)
         {
-            return _toolsConfig.Tools[(int)toolType].ToolAbilities;
+            return _toolsConfig.Tools[(int)tool].ToolAbilities;
         }
 
         public ToolVisual GetHoldingTool()
