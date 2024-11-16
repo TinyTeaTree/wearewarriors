@@ -154,4 +154,41 @@ Once you have a good idea for a Feature that you want, Head on over the the Feat
 
 ![image](https://github.com/user-attachments/assets/af3b91ee-d000-4e5b-9af0-39e96763812b)
 
+## Records
 
+![vinyl-record-icon-symbol-music-260nw-2411383077](https://github.com/user-attachments/assets/fec61b89-cbe9-4b3d-a885-f95dcf0c83d7)
+
+Records are Places for Data.
+
+Data can be of Many Types
+
+Some Data can Change during the Game Lifetime.
+
+Some Data can be Saved between Game Sessions.
+
+Some Data is the Same for All Users.
+
+Many things Are not Data
+ - Cancellation Tokens are not data
+ - Task Completion Sources are not data
+ - Coroutine references are not data
+ - MonoBehaviour of other GameObject stuff are not data
+ - Callbacks are not Data
+ - Events are not Data
+ - Delegates are not Data
+ - Prefabs, and Textures, and Materials are not data.
+
+Records should only contain Data, and Functionality to Manipulate and Retrieve this Data.
+
+Data ususally is Serializable. And can be Converted from one format to another.
+
+So Records should be Convertible to a Json and Back.
+
+Each Record Type is a Single Instance. Records are [Inject] able into the System as long as they are Bootstrapped
+![image](https://github.com/user-attachments/assets/a25cddc9-9ebe-4ebf-9f90-cb33961b3372)
+
+All referense to the Records should point to the same Instance, So changing a Record in one Feature, should be visible to another Feature.
+
+Each Feature may have its Own Record. But we can also Create Records to contain data regradless of any specific Feature.
+
+Most important Note - Never create new Instances of Records, outside the Bootstrap phase.
