@@ -49,7 +49,7 @@ namespace Game
 
         private IEnumerator MoveTowardsDirectionRoutine(Vector2 direction, float speedFactor)
         {
-            animator.SetTrigger("Run");
+            animator.SetTrigger(speedFactor > 1.1f ? "Run" : "Walk");
 
             while (true)
             {

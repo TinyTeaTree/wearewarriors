@@ -32,10 +32,22 @@ namespace Game
         {
             while (true)
             {
-                yield return new WaitForSeconds(sheep.GetIdleDuration());
+                var idleDuration = sheep.GetIdleDuration();
+                yield return new WaitForSeconds(idleDuration * 0.1f);
 
-                var tolerance = sheep.DistanceTolerance;
+                float timePassed = 0;
+                while (timePassed <= idleDuration * 0.9f)
+                {
+                    var checkDistance = Vector3.Distance(AvatarTransform.position, sheep.transform.position);
+                    if (checkDistance < sheep.DistanceTolerance)
+                    {
+                        break;
+                    }
 
+                    timePassed += Time.deltaTime;
+                    yield return null;
+                }
+                
                 var distance = Vector3.Distance(AvatarTransform.position, sheep.transform.position);
 
                 Vector2 direction;
