@@ -62,7 +62,6 @@ namespace Game
                             Tools.PickUpTool(closestTool, anchor.anchorPoint);
                         }
                     }
-                   
                 }
             }
         }
@@ -71,6 +70,28 @@ namespace Game
         {
             Record.AvatarRecordData.Pos = _visual.transform.position;
             PlayerAccount.SyncPlayerData();
+        }
+
+        public void ProcessMove()
+        {
+            if (Record.IsWorking)
+            {
+                _visual.AnimateTool(Record.ToolWorking, false);
+                Record.IsWorking = false;
+            }
+        }
+        
+        public void ProcessIdle()
+        {
+            if (!Record.IsWorking)
+            {
+                if (Tools.GetHoldingTool() != null && Tools.GetHoldingTool().ToolID == TTools.Rake)
+                {
+                    _visual.AnimateTool(Tools.GetHoldingTool().ToolID, true);
+                    Record.IsWorking = true;
+                    Record.ToolWorking = Tools.GetHoldingTool().ToolID;
+                }
+            }
         }
     }
 }
