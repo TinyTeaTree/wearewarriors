@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Core;
@@ -76,6 +77,12 @@ namespace Game
                     transform.LookAt(transform.position + translation);
 
                     transform.position += translation;
+                    
+                    Feature.ProcessMove();
+                }
+                else
+                {
+                    Feature.ProcessIdle();
                 }
                 
                 _animator.SetFloat("Speed", clampedStrength);
@@ -120,6 +127,36 @@ namespace Game
                 StopCoroutine(_movementRoutine);
             }
             _movementRoutine = null;
+        }
+
+        public void AnimateTool(TTools toolID, bool state)
+        {
+            switch (toolID)
+            {
+                case TTools.Hands:
+                    break;
+                case TTools.Shovel:
+                    break;
+                case TTools.Rake:
+                    _animator.SetBool("Sweep", state);
+                    break;
+                case TTools.WateringCan:
+                    break;
+                case TTools.PesticideSpray:
+                    break;
+                case TTools.ScareCrow:
+                    break;
+                case TTools.CropBox:
+                    break;
+                case TTools.StrawberrySeed:
+                    break;
+                case TTools.TomatoSeed:
+                    break;
+                case TTools.CornSeed:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(toolID), toolID, null);
+            }
         }
     }
 }
