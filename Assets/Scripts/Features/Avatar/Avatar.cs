@@ -16,6 +16,7 @@ namespace Game
         [Inject] public IJoystick Joystick { get; set; }
         [Inject] public ITools Tools { get; set; }
         [Inject] public IPlayerAccount PlayerAccount { get; set; }
+
         public Transform AvatarTransform => _visual.transform;
         private AvatarConfig Config { get; set; }
         
@@ -90,6 +91,16 @@ namespace Game
                     _visual.AnimateTool(Tools.GetHoldingTool().ToolID, true);
                     Record.IsWorking = true;
                     Record.ToolWorking = Tools.GetHoldingTool().ToolID;
+                    Record.WorkTime = Time.time;
+                }
+            }
+            else
+            {
+                if (Record.WorkTime + 1f < Time.time)
+                {
+                    Record.WorkTime = Time.time;
+                    
+                    //TODO: Connect Garden under Raycast
                 }
             }
         }

@@ -17,6 +17,7 @@ namespace Game
             _services.Add<ILocalConfigService>(new LocalConfigService());
             _services.Add<IPlayerSaveService>(new PlayerSaveService());
             _services.Add<IRecordService>(new RecordService());
+            _services.Add<ISoundPlayerService>(new SoundPlayerService());
             //<New Service>
         }
 
@@ -75,8 +76,14 @@ namespace Game
             BootstrapSummoningService();
             BootstrapLocalConfigurationService();
             BootstrapSavedRecords();
+            BootstrapSoundSystem();
 
             AppExitAgent.SelfRegister(_agents.Get<IAppExitAgent>());
+        }
+
+        private void BootstrapSoundSystem()
+        {
+            DJ.SoundPlayer = _services.Get<ISoundPlayerService>();
         }
 
         //If you want your Record to be saved, add your Record here
