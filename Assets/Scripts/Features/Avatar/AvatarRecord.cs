@@ -12,5 +12,7 @@ namespace Game
         
         [JsonIgnore]
         public TTools ToolWorking { get; set; }
+        [JsonIgnore]
+        public float WorkTime { get; set; }
     }
 }

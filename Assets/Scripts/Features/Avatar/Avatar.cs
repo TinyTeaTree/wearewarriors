@@ -90,6 +90,16 @@ namespace Game
                     _visual.AnimateTool(Tools.GetHoldingTool().ToolID, true);
                     Record.IsWorking = true;
                     Record.ToolWorking = Tools.GetHoldingTool().ToolID;
+                    Record.WorkTime = Time.time;
+                }
+            }
+            else
+            {
+                if (Record.WorkTime + 1f < Time.time)
+                {
+                    Record.WorkTime = Time.time;
+                    
+                    //TODO: Connect Garden under Raycast
                 }
             }
         }
