@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Core;
+using Services;
 using UnityEngine;
 
 namespace Game
@@ -24,6 +25,11 @@ namespace Game
         
         private Coroutine _movementRoutine;
         private Coroutine _updateCycleRoutine;
+
+        [SerializeField] private BaseSoundDesign _walkSounds;
+
+        private bool _isMoving = false;
+        private SoundPlayer _movingSoundPlayer;
         
         public void SetPos(Vector3 pos)
         {
@@ -79,10 +85,29 @@ namespace Game
                     transform.position += translation;
                     
                     Feature.ProcessMove();
+
+                    if (!_isMoving)
+                    {
+                        _isMoving = true;
+                        DJ.Play(_walkSounds);
+                        _movingSoundPlayer = DJ.GetPlayer(_walkSounds);
+                    }
+
+                    if (_movingSoundPlayer != null)
+                    {
+                        _movingSoundPlayer.SetPitch(clampedStrength);
+                        _movingSoundPlayer.SetVolume(clampedStrength);
+                    }
                 }
                 else
                 {
                     Feature.ProcessIdle();
+
+                    if (_isMoving)
+                    {
+                        _isMoving = false;
+                        DJ.Stop(_walkSounds);
+                    }
                 }
                 
                 _animator.SetFloat("Speed", clampedStrength);

@@ -3,6 +3,7 @@ namespace Services
     public static class Addresses
     {
         //<Resource Path Start>
+        public const string SoundPlayer = "Sound Player";
         public const string LocalConfigs = "Configs/LocalConfigs";
         public const string Avatar = "Visuals/Avatar";
         public const string CameraVisual = "Visuals/Camera Visual";
