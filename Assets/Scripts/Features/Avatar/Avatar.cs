@@ -16,6 +16,7 @@ namespace Game
         [Inject] public IJoystick Joystick { get; set; }
         [Inject] public ITools Tools { get; set; }
         [Inject] public IPlayerAccount PlayerAccount { get; set; }
+
         public Transform AvatarTransform => _visual.transform;
         private AvatarConfig Config { get; set; }
         

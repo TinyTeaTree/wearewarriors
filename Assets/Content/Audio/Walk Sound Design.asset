@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33840edac70a4f669eea8bf75db26de1, type: 3}
   m_Name: Walk Sound Design
   m_EditorClassIdentifier: 
-  _clip: {fileID: 0}
+  _clip: {fileID: 8300000, guid: 288814d7b65814753b450d86e4f475d4, type: 3}
   _volume: 1
