@@ -33,6 +33,7 @@ namespace Game
             _features.Add<IHud>(new Hud());
             _features.Add<IMarks>(new Marks());
             _features.Add<ISheeps>(new Sheeps());
+            _features.Add<IWorld>(new World());
             //<New Feature>
         }
 
@@ -47,6 +48,7 @@ namespace Game
             _factories.Add(typeof(HudVisual), new ResourceFactory(Addresses.HudVisual));
             _factories.Add(typeof(MarksVisual), new ResourceFactory(Addresses.MarksCanvas));
             _factories.Add(typeof(SheepsVisual), new ResourceFactory(Addresses.SheepsVisual));
+            _factories.Add(typeof(WorldVisual), new AsyncResourceFactory(Addresses.World));
         }
 
         protected override void AddAgents()

@@ -9,7 +9,7 @@ namespace Game
     public class Camera : BaseVisualFeature<CameraVisual>, ICamera, IAppLaunchAgent
     {
         [Inject] public CameraRecord Record { get; set; }
-        [Inject] public IGarden Garden { get; set; }
+        [Inject] public IWorld World { get; set; }
         [Inject] public IAvatar Avatar { get; set; }
         public CameraConfig Config { get; private set; }
 
@@ -32,7 +32,7 @@ namespace Game
         {
             _visual.enabled = true;
             
-            _visual.SetSpot(Garden.CameraStartSpot);
+            _visual.SetSpot(World.CameraStartSpot);
             _visual.SetTarget(Avatar.AvatarTransform);
             
             Record.Target = Avatar.AvatarTransform.gameObject;
