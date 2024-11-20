@@ -108,7 +108,6 @@ namespace Game
                     {
                        gardenPlotVisual.PlantVisual.WaterPlant(0.5f);
                     }
-                    
                 }
             }
         }
