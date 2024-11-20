@@ -154,6 +154,22 @@ namespace Game
             _movementRoutine = null;
         }
 
+        public GardenPlotVisual DetectPlot()
+        {
+            if (Physics.Raycast(
+                    transform.position,
+                    Vector3.down, 
+                    out RaycastHit hitInfo,
+                    50f, 
+                    LayerMask.GetMask("GardenPlot"))
+                )
+            {
+                return hitInfo.collider.gameObject.GetComponent<GardenPlotVisual>();
+            }
+            
+            return null;
+        }
+
         public void AnimateTool(TTools toolID, bool state)
         {
             switch (toolID)

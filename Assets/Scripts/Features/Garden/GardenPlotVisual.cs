@@ -1,8 +1,6 @@
 ﻿using System.Linq;
-using Codice.CM.Common;
 using Core;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -13,6 +11,9 @@ namespace Game
         
         public int PlotID => plotID;
         public TPlant PlantType => plantType;
+
+        private PlantVisual _plantVisual;
+        public PlantVisual PlantVisual => _plantVisual;
         
         //Todo: Get plot visual
 
@@ -22,7 +23,7 @@ namespace Game
 
             if(plantVisual != null)
             {
-                Instantiate(plantVisual, transform);
+               _plantVisual = Instantiate(plantVisual, transform);
             }
         }
         
