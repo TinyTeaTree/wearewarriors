@@ -157,10 +157,10 @@ namespace Game
         public GardenPlotVisual DetectPlot()
         {
             if (Physics.Raycast(
-                    transform.position,
+                    transform.position + Vector3.up * 5,
                     Vector3.down, 
                     out RaycastHit hitInfo,
-                    50f, 
+                    15, 
                     LayerMask.GetMask("GardenPlot"))
                 )
             {

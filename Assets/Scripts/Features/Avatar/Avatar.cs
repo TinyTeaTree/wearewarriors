@@ -106,7 +106,7 @@ namespace Game
 
                     if (gardenPlotVisual != null)
                     {
-                       gardenPlotVisual.PlantVisual.WaterPlant(0.5f);
+                       gardenPlotVisual.PlantVisual.WaterPlant(0.2f);
                     }
                 }
             }
