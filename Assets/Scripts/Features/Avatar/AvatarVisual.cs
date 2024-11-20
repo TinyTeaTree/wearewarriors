@@ -118,7 +118,7 @@ namespace Game
                 float maxY = 0;
 
 
-                if (Physics.Raycast(from, Vector3.down, out var hitInfoRight, 100f, LayerMask.GetMask("Floor")))
+                if (Physics.Raycast(from, Vector3.down, out var hitInfoRight, 100f, LayerMask.GetMask("Floor", "GardenPlot")))
                 {
                     if (hitInfoRight.point.y > maxY)
                     {
@@ -129,7 +129,7 @@ namespace Game
                 from = _rightFootDownAnchor.position;
                 from.y += 50;
 
-                if (Physics.Raycast(from, Vector3.down, out var hitInfoLeft, 100f, LayerMask.GetMask("Floor")))
+                if (Physics.Raycast(from, Vector3.down, out var hitInfoLeft, 100f, LayerMask.GetMask("Floor", "GardenPlot")))
                 {
                     if (hitInfoLeft.point.y > maxY)
                     {
@@ -154,6 +154,22 @@ namespace Game
             _movementRoutine = null;
         }
 
+        public GardenPlotVisual DetectPlot()
+        {
+            if (Physics.Raycast(
+                    transform.position + Vector3.up * 5,
+                    Vector3.down, 
+                    out RaycastHit hitInfo,
+                    15, 
+                    LayerMask.GetMask("GardenPlot"))
+                )
+            {
+                return hitInfo.collider.gameObject.GetComponent<GardenPlotVisual>();
+            }
+            
+            return null;
+        }
+
         public void AnimateTool(TTools toolID, bool state)
         {
             switch (toolID)
@@ -172,12 +188,6 @@ namespace Game
                 case TTools.ScareCrow:
                     break;
                 case TTools.CropBox:
-                    break;
-                case TTools.StrawberrySeed:
-                    break;
-                case TTools.TomatoSeed:
-                    break;
-                case TTools.CornSeed:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(toolID), toolID, null);

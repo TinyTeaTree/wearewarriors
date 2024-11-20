@@ -64,6 +64,7 @@ namespace Game
                     }
                 }
             }
+            
         }
 
         public void AppExit()
@@ -100,6 +101,12 @@ namespace Game
                     Record.WorkTime = Time.time;
                     
                     //TODO: Connect Garden under Raycast
+                    var gardenPlotVisual = _visual.DetectPlot();
+
+                    if (gardenPlotVisual != null)
+                    {
+                       gardenPlotVisual.PlantVisual.WaterPlant(0.2f);
+                    }
                 }
             }
         }

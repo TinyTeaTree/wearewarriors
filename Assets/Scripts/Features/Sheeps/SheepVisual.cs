@@ -72,7 +72,7 @@ namespace Game
                 var from = anchor.position;
                 from.y += 50;
 
-                if (Physics.Raycast(from, Vector3.down, out var hitInfoRight, 100f, LayerMask.GetMask("Floor")))
+                if (Physics.Raycast(from, Vector3.down, out var hitInfoRight, 100f, LayerMask.GetMask("Floor", "GardenPlot")))
                 {
                     if (hitInfoRight.point.y > maxY)
                     {

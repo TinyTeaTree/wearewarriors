@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33840edac70a4f669eea8bf75db26de1, type: 3}
-  m_Name: Walk Sound Design
+  m_Script: {fileID: 11500000, guid: 2d73a18cb46e4a16ab619840df85f694, type: 3}
+  m_Name: GrainBag
   m_EditorClassIdentifier: 
-  _clip: {fileID: 8300000, guid: 288814d7b65814753b450d86e4f475d4, type: 3}
-  _volume: 1
+  prefab: {fileID: 3088499285026828010, guid: 8e681789fa33ef547a365ab24f457431, type: 3}
+  ToolID: 7
+  ToolAbilities: 06000000
+  ToolPosition: {x: 0, y: 0, z: 0}

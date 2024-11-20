@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7029833888727657802}
-  - component: {fileID: 8162421972515747598}
   - component: {fileID: 3898774620765128767}
   - component: {fileID: 6237968433365414272}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plot Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,28 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2127312034969116766}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &8162421972515747598
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157003423937033794}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 0b97703979089cd40a1151f2be3067e2, type: 3}
 --- !u!33 &3898774620765128767
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -116,7 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2127312034969116766}
   - component: {fileID: 8683917846866880864}
-  m_Layer: 0
+  - component: {fileID: 6040789166176373171}
+  m_Layer: 3
   m_Name: Garden Plot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,5 +129,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e5437fb24464a8885c1983bc70f5323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlotID: 0
+  plotID: 0
   plantType: 0
+--- !u!65 &6040789166176373171
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2518811214693164164}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.8, y: 0.81, z: 5.72}
+  m_Center: {x: 0, y: -0.27, z: 0}

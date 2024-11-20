@@ -14,7 +14,7 @@ namespace Game
         private float _targetProgress = 0f;
         
         private Vector3 _initScale = Vector3.zero;
-        private Vector3 _targetScale = Vector3.one * 2;
+        private Vector3 _targetScale = Vector3.one * 3;
         private void Start()
         {
             StartCoroutine(GrowCoroutine());
@@ -27,8 +27,6 @@ namespace Game
                 _progress = Mathf.Lerp(_progress, _targetProgress, 0.5f * Time.deltaTime);
                 
                 transform.localScale = Vector3.Lerp(_initScale ,_targetScale, _progress);
-
-                WaterPlant(0.2f);
                 
                 yield return null;
             }
@@ -37,10 +35,7 @@ namespace Game
 
         public void WaterPlant(float amount)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            { 
-                _targetProgress = Mathf.Clamp01(_targetProgress + amount);
-            }
+            _targetProgress = Mathf.Clamp01(_targetProgress + amount);
         }
     }
 }
