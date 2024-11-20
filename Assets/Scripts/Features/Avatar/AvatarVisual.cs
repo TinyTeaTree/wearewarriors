@@ -189,12 +189,6 @@ namespace Game
                     break;
                 case TTools.CropBox:
                     break;
-                case TTools.StrawberrySeed:
-                    break;
-                case TTools.TomatoSeed:
-                    break;
-                case TTools.CornSeed:
-                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(toolID), toolID, null);
             }
