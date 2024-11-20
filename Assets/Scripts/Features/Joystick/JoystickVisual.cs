@@ -1,5 +1,7 @@
+using System;
 using Core;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game
 {
@@ -7,8 +9,14 @@ namespace Game
     {
         [SerializeField] private Canvas _canvas;
         [SerializeField] private JoystickInputCapture _joystick;
+        [SerializeField] private Button _dropToolButton;
 
         public Canvas Canvas => _canvas;
+
+        private void Start()
+        {
+            _dropToolButton.onClick.AddListener(Feature.DropPressed);
+        }
 
         public void Show()
         {
@@ -28,6 +36,11 @@ namespace Game
         public Vector2 MoveKnob(Vector3 worldPoint)
         {
             return _joystick.MoveKnob(worldPoint);
+        }
+
+        public void ToggleDropButton(bool state)
+        {
+            _dropToolButton.gameObject.SetActive(state);
         }
     }
 }

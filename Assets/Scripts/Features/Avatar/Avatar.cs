@@ -12,7 +12,6 @@ namespace Game
     public class Avatar : BaseVisualFeature<AvatarVisual>, IAvatar, IAppExitAgent
     {
         [Inject] public AvatarRecord Record { get; set; }
-        [Inject] public IGarden Garden { get; set; }
         [Inject] public IJoystick Joystick { get; set; }
         [Inject] public ITools Tools { get; set; }
         [Inject] public IPlayerAccount PlayerAccount { get; set; }

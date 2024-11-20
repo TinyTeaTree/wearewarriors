@@ -9,7 +9,7 @@ namespace Game
         [Inject] public JoystickRecord Record { get; set; }
         [Inject] public IHud Hud { get; set; }
         [Inject] public ICamera Camera { get; set; }
-        
+        [Inject] public ITools Tools { get; set; }
         public bool IsAvailable => Record.IsShowing;
         public Vector2 Direction => Record.Direction;
         
@@ -46,6 +46,16 @@ namespace Game
                 var direction = _visual.MoveKnob(worldPoint);
                 Record.Direction = direction;
             }
+        }
+        
+        public void ToggleDropButton(bool state)
+        {
+            _visual.ToggleDropButton(state);
+        }
+
+        public void DropPressed()
+        {
+            Tools.DropTool(Tools.GetHoldingTool());
         }
     }
 }
