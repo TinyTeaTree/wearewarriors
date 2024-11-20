@@ -15,23 +15,6 @@ namespace Game
        
         private List<ToolVisual> _toolVisuals;
         public List<ToolVisual> AllTools => _toolVisuals;
-
-        public void LoadDropButton()
-        {
-            var canvas = GameObject.Find("Canvas").transform;
-            _dropButton = Instantiate(_dropToolsButtonPrefab, canvas);
-            _dropButton.gameObject.SetActive(false);
-            
-            _dropButton.onClick.AddListener(() =>
-            {
-                Feature.DropTool(Feature.GetHoldingTool());
-            });
-        }
-
-        public void ToggleDropButton(bool state)
-        {
-            _dropButton.gameObject.SetActive(state);
-        }
         
         public void SetToolVisuals(List<ToolVisual> toolVisuals)
         {

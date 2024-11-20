@@ -16,6 +16,7 @@ namespace Game
         [Inject] public ILocalConfigService ConfigService { get; set; }
         [Inject] public IAvatar Avatar { get; set; }
         [Inject] public IPlayerAccount PlayerAccount { get; set; }
+        [Inject] public IJoystick Joystick { get; set; }
         public ToolsConfig _toolsConfig { get; private set; }
 
         
@@ -56,9 +57,10 @@ namespace Game
              }
 
              _visual.SetToolVisuals(Record.AllToolsInGarden);
-             _visual.LoadDropButton();
 
              Do().Forget(); //TODO: Kill Me
+
+             Joystick.ToggleDropButton(GetHoldingTool() != null);
         }
 
         public ToolAction[] GetToolAbilities(TTools tool)
@@ -99,7 +101,7 @@ namespace Game
             tool.transform.SetParent(_visual.transform);
             tool.DropToolPhysics(Avatar.AvatarTransform, 7);
 
-            _visual.ToggleDropButton(false);
+            Joystick.ToggleDropButton(false);
 
             await Task.Delay(TimeSpan.FromSeconds(1f));
 
@@ -119,7 +121,7 @@ namespace Game
 
             closestTool.GetPickedUp(handTransform);
             
-            _visual.ToggleDropButton(true);
+            Joystick.ToggleDropButton(true);
 
             if (Record.MarkId.HasContent())
             {
