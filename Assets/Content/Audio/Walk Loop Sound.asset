@@ -9,8 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33840edac70a4f669eea8bf75db26de1, type: 3}
-  m_Name: Walk Sound Design
+  m_Script: {fileID: 11500000, guid: b62a173efd2b40729f43d1c64a110c46, type: 3}
+  m_Name: Walk Loop Sound
   m_EditorClassIdentifier: 
+  PitchRange: {x: 1, y: 1}
   _clip: {fileID: 8300000, guid: 288814d7b65814753b450d86e4f475d4, type: 3}
+  _type: 0
+  _loop: 1
   _volume: 1
+  _fadeIn: 0
+  _fadeOut: 0

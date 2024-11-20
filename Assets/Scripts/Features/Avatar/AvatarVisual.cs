@@ -118,7 +118,7 @@ namespace Game
                 float maxY = 0;
 
 
-                if (Physics.Raycast(from, Vector3.down, out var hitInfoRight, 100f, LayerMask.GetMask("Floor")))
+                if (Physics.Raycast(from, Vector3.down, out var hitInfoRight, 100f, LayerMask.GetMask("Floor", "GardenPlot")))
                 {
                     if (hitInfoRight.point.y > maxY)
                     {
@@ -129,7 +129,7 @@ namespace Game
                 from = _rightFootDownAnchor.position;
                 from.y += 50;
 
-                if (Physics.Raycast(from, Vector3.down, out var hitInfoLeft, 100f, LayerMask.GetMask("Floor")))
+                if (Physics.Raycast(from, Vector3.down, out var hitInfoLeft, 100f, LayerMask.GetMask("Floor", "GardenPlot")))
                 {
                     if (hitInfoLeft.point.y > maxY)
                     {
