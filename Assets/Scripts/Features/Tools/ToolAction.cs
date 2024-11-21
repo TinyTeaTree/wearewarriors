@@ -8,6 +8,6 @@
         Watering,
         Spraying,
         Placing,
-        Planting
+        Planting 
     }
 }

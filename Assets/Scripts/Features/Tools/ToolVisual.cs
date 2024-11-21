@@ -9,6 +9,7 @@ namespace Game
     public class ToolVisual : BaseVisual<Tools>
     {
         public TTools ToolID;
+        public TPlant SeedType;
         
         [SerializeField] private Outline _outline;
         [SerializeField] private Rigidbody _rigidbody;
