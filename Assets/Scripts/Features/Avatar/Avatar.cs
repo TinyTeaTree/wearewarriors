@@ -86,38 +86,47 @@ namespace Game
         {
             var gardenPlotVisual = _visual.TryGetPlot();
             var seedPool = _visual.TryGetSeed();
-            
+            var holdingTool = Tools.GetHoldingTool();
             
             if (!Record.IsWorking)
             {
-                if (Tools.GetHoldingTool() != null && Tools.GetHoldingTool().ToolID == TTools.Rake)
-                {
-                    _visual.AnimateTool(Tools.GetHoldingTool().ToolID, true);
-                    Record.IsWorking = true;
-                    Record.ToolWorking = Tools.GetHoldingTool().ToolID;
-                    Record.WorkTime = Time.time;
-                }
-
-                if (Tools.GetHoldingTool() != null && Tools.GetHoldingTool().ToolID == TTools.GrainBag)
+                if (holdingTool != null && holdingTool.ToolID == TTools.Rake)
                 {
                     if (gardenPlotVisual != null)
                     {
-                        if (gardenPlotVisual.PlantType == TPlant.None && Tools.GetHoldingTool().SeedType != TPlant.None)
+                        if (gardenPlotVisual.PlantVisual != null)
                         {
-                            _visual.AnimateTool(Tools.GetHoldingTool().ToolID, true);
+                            if (gardenPlotVisual.PlantVisual.IsComplete == false)
+                            {
+                                _visual.AnimateTool(holdingTool.ToolID, true);
+                                Record.IsWorking = true;
+                                Record.ToolWorking = holdingTool.ToolID;
+                                Record.WorkTime = Time.time;
+                            }
+                        }
+                    }
+                }
+                
+                if (holdingTool != null && holdingTool.ToolID == TTools.GrainBag)
+                {
+                    if (gardenPlotVisual != null)
+                    {
+                        if (gardenPlotVisual.PlantType == TPlant.None && holdingTool.SeedType != TPlant.None)
+                        {
+                            _visual.AnimateTool(holdingTool.ToolID, true);
                             Record.IsWorking = true;
-                            Record.ToolWorking = Tools.GetHoldingTool().ToolID;
+                            Record.ToolWorking = holdingTool.ToolID;
                             Record.WorkTime = Time.time;
                         }
                     }
 
                     if (seedPool != null)
                     {
-                        if (seedPool.SeedPoolType != Tools.GetHoldingTool().SeedType)
+                        if (seedPool.SeedPoolType != holdingTool.SeedType)
                         {
-                            _visual.AnimateTool(Tools.GetHoldingTool().ToolID, true);
+                            _visual.AnimateTool(holdingTool.ToolID, true);
                             Record.IsWorking = true;
-                            Record.ToolWorking = Tools.GetHoldingTool().ToolID;
+                            Record.ToolWorking = holdingTool.ToolID;
                             Record.WorkTime = Time.time;
                         }
                     }
@@ -129,10 +138,16 @@ namespace Game
                 {
                     Record.WorkTime = Time.time;
 
-                    if (Tools.GetHoldingTool().ToolID == TTools.Rake)
+                    if (holdingTool.ToolID == TTools.Rake)
                     {
                         if (gardenPlotVisual != null)
                         {
+                            if (gardenPlotVisual.PlantVisual.IsComplete)
+                            {
+                                _visual.AnimateTool(holdingTool.ToolID, false);
+                                return;
+                            }
+                            
                             if (gardenPlotVisual.PlantType == TPlant.None)
                             {
                                 return;
@@ -142,12 +157,12 @@ namespace Game
                         }
                     }
                     
-                    if (Tools.GetHoldingTool().ToolID == TTools.GrainBag)
+                    if (holdingTool.ToolID == TTools.GrainBag)
                     {
                         if (seedPool != null)
                         {
-                            Tools.GetHoldingTool().SeedType = seedPool.SeedPoolType;
-                            _visual.AnimateTool(Tools.GetHoldingTool().ToolID, false);
+                            holdingTool.SeedType = seedPool.SeedPoolType;
+                            _visual.AnimateTool(holdingTool.ToolID, false);
                         }
                         
                         if (gardenPlotVisual != null)
@@ -155,8 +170,8 @@ namespace Game
                             
                             if (gardenPlotVisual.PlantVisual == null)
                             {
-                                gardenPlotVisual.PlantSeed(Tools.GetHoldingTool().SeedType);
-                                _visual.AnimateTool(Tools.GetHoldingTool().ToolID, false);
+                                gardenPlotVisual.PlantSeed(holdingTool.SeedType);
+                                _visual.AnimateTool(holdingTool.ToolID, false);
                             }
                         }
                     }

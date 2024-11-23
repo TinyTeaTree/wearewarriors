@@ -9,12 +9,17 @@ namespace Game
     public class PlantVisual : BaseVisual<Garden>
     {
         public TPlant PlantID;
-
+        public string MarkID;
+        
         private float _progress = 0f;
         private float _targetProgress = 0f;
+        private bool _isComplete = false;
         
         private Vector3 _initScale = Vector3.zero;
         private Vector3 _targetScale = Vector3.one * 3;
+        
+        public bool IsComplete => _isComplete;
+        
         private void Start()
         {
             StartCoroutine(GrowCoroutine());
@@ -22,15 +27,20 @@ namespace Game
 
         private IEnumerator GrowCoroutine()
         {
-            while (_progress < 1f)
+            while (_progress <= 0.99f)
             {
-                _progress = Mathf.Lerp(_progress, _targetProgress, 0.5f * Time.deltaTime);
+                _progress = Mathf.Lerp(_progress, _targetProgress, 0.1f);
                 
                 transform.localScale = Vector3.Lerp(_initScale ,_targetScale, _progress);
+                Feature.Marks.GetMark<BaseMarkVisual>(MarkID).UpdateMarkProgress(_progress);
                 
                 yield return null;
             }
             transform.localScale = _targetScale;
+            Feature.Marks.GetMark<BaseMarkVisual>(MarkID).SelfDestroy();
+            Feature.Marks.RemoveMark(MarkID);
+            MarkID = null;
+            _isComplete = true;
         }
 
         public void WaterPlant(float amount)

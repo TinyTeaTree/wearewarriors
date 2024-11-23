@@ -41,6 +41,11 @@ namespace Game
             _directionProvider = directionProvider;
         }
 
+        public void SetSpeed(float speed)
+        {
+            _speed = speed;
+        }
+
         public void StartMovement()
         {
             if (_movementRoutine != null)
