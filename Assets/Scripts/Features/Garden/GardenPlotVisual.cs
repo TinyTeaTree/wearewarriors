@@ -10,13 +10,14 @@ namespace Game
         [SerializeField] private int plotID;
         [SerializeField] private TPlant plantType;
         
-        public int PlotID => plotID;
-        public TPlant PlantType => plantType;
-
         private PlantVisual _plantVisual = null;
-        public PlantVisual PlantVisual => _plantVisual;
+       
         
-        //Todo: Get plot visual
+        public int PlotID => plotID;
+        public PlantVisual PlantVisual => _plantVisual;
+        public TPlant PlantType => plantType;
+        
+        
 
         public void LoadPlantVisuals()
         {
@@ -39,6 +40,9 @@ namespace Game
 
              _plantVisual = Instantiate(plantPrefab, transform);
              plantType = plant;
+             
+             _plantVisual.SetFeature(Feature);
+            _plantVisual.MarkID = Feature.Marks.AddMark(transform, TMark.Progress);
         }
         
     }

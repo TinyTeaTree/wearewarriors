@@ -18,25 +18,6 @@ namespace Game
         [Inject] public IPlayerAccount PlayerAccount { get; set; }
         [Inject] public IJoystick Joystick { get; set; }
         public ToolsConfig _toolsConfig { get; private set; }
-
-        
-        
-
-        /// ///////////////////////////// DELETE ME
-        /// </summary>
-        [Inject] public IMarks Marks { get; set; }
-
-        public async Task Do()
-        {
-            await Task.Delay(2000);
-
-            var toolToMark = _visual.AllTools.FirstOrDefault();
-            var toolId = Marks.AddMark(toolToMark.transform, TMark.Example, toolToMark.ToolID.ToString());
-            Record.MarkId = toolId;
-        }
-        
-        /// <summary>
-        /// //////////////////////////////////////DELETE ME
         
         public Task AppLaunch()
         {
@@ -58,7 +39,7 @@ namespace Game
 
              _visual.SetToolVisuals(Record.AllToolsInGarden);
 
-             Do().Forget(); //TODO: Kill Me
+             /*Do().Forget(); //TODO: Kill Me*/
 
              Joystick.ToggleDropButton(GetHoldingTool() != null);
         }
@@ -112,7 +93,7 @@ namespace Game
 
             await PlayerAccount.SyncPlayerData();
             
-            Do().Forget(); //TODO: Kill Me
+            /*Do().Forget(); //TODO: Kill Me*/
         }
 
         public void PickUpTool(ToolVisual closestTool, Transform handTransform)
@@ -122,11 +103,6 @@ namespace Game
             closestTool.GetPickedUp(handTransform);
             
             Joystick.ToggleDropButton(true);
-
-            if (Record.MarkId.HasContent())
-            {
-                Marks.RemoveMark(Record.MarkId);
-            }
         }
 
         public void HighlightOff()

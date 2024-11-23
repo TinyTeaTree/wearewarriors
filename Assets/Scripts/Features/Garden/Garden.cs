@@ -11,6 +11,7 @@ namespace Game
     {
         [Inject] public GardenRecord Record { get; set; }
         [Inject] public ILocalConfigService ConfigService { get; set; }
+        [Inject] public IMarks Marks { get; set; }
 
         private GardenConfig _config;
         public GardenConfig Config => _config;

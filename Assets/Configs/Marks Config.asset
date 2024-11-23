@@ -15,3 +15,4 @@ MonoBehaviour:
   _config:
     Visuals:
     - {fileID: 8222545943143833123, guid: 7009a2819a552dd429dd75fc05dc405b, type: 3}
+    - {fileID: 8222545943143833123, guid: 2e0c3f8a16859a644a876b9ecc649349, type: 3}
