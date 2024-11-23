@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Core;
+using Unity.VisualScripting.YamlDotNet.Core;
 using UnityEngine;
 
 namespace Game
@@ -32,12 +33,12 @@ namespace Game
                 _progress = Mathf.Lerp(_progress, _targetProgress, 0.1f);
                 
                 transform.localScale = Vector3.Lerp(_initScale ,_targetScale, _progress);
-                Feature.Marks.GetMark<BaseMarkVisual>(MarkID).UpdateMarkProgress(_progress);
+                Feature.Marks.GetMark<MarkPlantProgress>(MarkID).UpdateMarkProgress(_progress);
                 
                 yield return null;
             }
             transform.localScale = _targetScale;
-            Feature.Marks.GetMark<BaseMarkVisual>(MarkID).SelfDestroy();
+            Feature.Marks.GetMark<MarkPlantProgress>(MarkID).SelfDestroy();
             Feature.Marks.RemoveMark(MarkID);
             MarkID = null;
             _isComplete = true;
