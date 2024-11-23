@@ -115,7 +115,7 @@ namespace Game
                 var from = _leftFootDownAnchor.position;
                 from.y += 50;
 
-                float maxY = 0;
+                float maxY = -100;
 
 
                 if (Physics.Raycast(from, Vector3.down, out var hitInfoRight, 100f, LayerMask.GetMask("Floor", "GardenPlot")))
