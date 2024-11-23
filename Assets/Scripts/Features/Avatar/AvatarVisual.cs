@@ -28,7 +28,6 @@ namespace Game
 
         [SerializeField] private BaseSoundDesign _walkSounds;
 
-        private bool _isMoving = false;
         private SoundPlayer _movingSoundPlayer;
         
         public void SetPos(Vector3 pos)
@@ -91,13 +90,6 @@ namespace Game
                     
                     Feature.ProcessMove();
 
-                    if (!_isMoving)
-                    {
-                        _isMoving = true;
-                        DJ.Play(_walkSounds);
-                        _movingSoundPlayer = DJ.GetPlayer(_walkSounds);
-                    }
-
                     if (_movingSoundPlayer != null)
                     {
                         _movingSoundPlayer.SetPitch(clampedStrength);
@@ -106,13 +98,7 @@ namespace Game
                 }
                 else
                 {
-                    Feature.ProcessIdle();
-
-                    if (_isMoving)
-                    {
-                        _isMoving = false;
-                        DJ.Stop(_walkSounds);
-                    }
+                    Feature.UpdateIdle();
                 }
                 
                 _animator.SetFloat("Speed", clampedStrength);
@@ -149,7 +135,18 @@ namespace Game
                 yield return null;
             }
         }
-        
+
+        public void PlayWalkSounds()
+        {
+            DJ.Play(_walkSounds);
+            _movingSoundPlayer = DJ.GetPlayer(_walkSounds);
+        }
+
+        public void StopWalkSounds()
+        {
+            DJ.Stop(_walkSounds);
+        }
+
         public void StopMovement()
         {
             if (_movementRoutine != null)
