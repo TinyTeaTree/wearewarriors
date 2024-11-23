@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using Core;
-using Unity.VisualScripting.YamlDotNet.Core;
 using UnityEngine;
 
 namespace Game
