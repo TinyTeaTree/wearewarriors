@@ -123,7 +123,7 @@ PrefabInstance:
     - target: {fileID: 8683917846866880864, guid: f00318ca0990f40479bdedb3809eed57,
         type: 3}
       propertyPath: plantType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -219,7 +219,7 @@ PrefabInstance:
     - target: {fileID: 8683917846866880864, guid: f00318ca0990f40479bdedb3809eed57,
         type: 3}
       propertyPath: plantType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

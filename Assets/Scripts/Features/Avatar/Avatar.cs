@@ -84,6 +84,10 @@ namespace Game
         
         public void ProcessIdle()
         {
+            var gardenPlotVisual = _visual.TryGetPlot();
+            var seedPool = _visual.TryGetSeed();
+            
+            
             if (!Record.IsWorking)
             {
                 if (Tools.GetHoldingTool() != null && Tools.GetHoldingTool().ToolID == TTools.Rake)
@@ -93,19 +97,68 @@ namespace Game
                     Record.ToolWorking = Tools.GetHoldingTool().ToolID;
                     Record.WorkTime = Time.time;
                 }
+
+                if (Tools.GetHoldingTool() != null && Tools.GetHoldingTool().ToolID == TTools.GrainBag)
+                {
+                    if (gardenPlotVisual != null)
+                    {
+                        if (gardenPlotVisual.PlantType == TPlant.None && Tools.GetHoldingTool().SeedType != TPlant.None)
+                        {
+                            _visual.AnimateTool(Tools.GetHoldingTool().ToolID, true);
+                            Record.IsWorking = true;
+                            Record.ToolWorking = Tools.GetHoldingTool().ToolID;
+                            Record.WorkTime = Time.time;
+                        }
+                    }
+
+                    if (seedPool != null)
+                    {
+                        if (seedPool.SeedPoolType != Tools.GetHoldingTool().SeedType)
+                        {
+                            _visual.AnimateTool(Tools.GetHoldingTool().ToolID, true);
+                            Record.IsWorking = true;
+                            Record.ToolWorking = Tools.GetHoldingTool().ToolID;
+                            Record.WorkTime = Time.time;
+                        }
+                    }
+                }
             }
             else
             {
                 if (Record.WorkTime + 1f < Time.time)
                 {
                     Record.WorkTime = Time.time;
-                    
-                    //TODO: Connect Garden under Raycast
-                    var gardenPlotVisual = _visual.DetectPlot();
 
-                    if (gardenPlotVisual != null)
+                    if (Tools.GetHoldingTool().ToolID == TTools.Rake)
                     {
-                       gardenPlotVisual.PlantVisual.WaterPlant(0.2f);
+                        if (gardenPlotVisual != null)
+                        {
+                            if (gardenPlotVisual.PlantType == TPlant.None)
+                            {
+                                return;
+                            }
+                            
+                            gardenPlotVisual.PlantVisual.WaterPlant(0.2f);
+                        }
+                    }
+                    
+                    if (Tools.GetHoldingTool().ToolID == TTools.GrainBag)
+                    {
+                        if (seedPool != null)
+                        {
+                            Tools.GetHoldingTool().SeedType = seedPool.SeedPoolType;
+                            _visual.AnimateTool(Tools.GetHoldingTool().ToolID, false);
+                        }
+                        
+                        if (gardenPlotVisual != null)
+                        {
+                            
+                            if (gardenPlotVisual.PlantVisual == null)
+                            {
+                                gardenPlotVisual.PlantSeed(Tools.GetHoldingTool().SeedType);
+                                _visual.AnimateTool(Tools.GetHoldingTool().ToolID, false);
+                            }
+                        }
                     }
                 }
             }

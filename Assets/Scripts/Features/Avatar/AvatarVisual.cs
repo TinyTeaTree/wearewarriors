@@ -154,7 +154,7 @@ namespace Game
             _movementRoutine = null;
         }
 
-        public GardenPlotVisual DetectPlot()
+        public GardenPlotVisual TryGetPlot()
         {
             if (Physics.Raycast(
                     transform.position + Vector3.up * 5,
@@ -165,6 +165,22 @@ namespace Game
                 )
             {
                 return hitInfo.collider.gameObject.GetComponent<GardenPlotVisual>();
+            }
+            
+            return null;
+        }
+        
+        public GardenSeedPoolVisual TryGetSeed()
+        {
+            if (Physics.Raycast(
+                    transform.position + Vector3.up * 5,
+                    Vector3.down, 
+                    out RaycastHit hitInfo,
+                    15, 
+                    LayerMask.GetMask("SeedPool"))
+               )
+            {
+                return hitInfo.collider.gameObject.GetComponent<GardenSeedPoolVisual>();
             }
             
             return null;
@@ -188,6 +204,9 @@ namespace Game
                 case TTools.ScareCrow:
                     break;
                 case TTools.CropBox:
+                    break;
+                case TTools.GrainBag:
+                    _animator.SetBool("Plant", state);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(toolID), toolID, null);
