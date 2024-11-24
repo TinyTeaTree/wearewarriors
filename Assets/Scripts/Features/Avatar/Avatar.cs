@@ -106,6 +106,24 @@ namespace Game
             }
         }
 
+       
+        private void CheckStartWorking()
+        {
+            var gardenPlotVisual = _visual.TryGetPlot();
+            var holdingTool = Tools.GetHoldingTool();
+            var seedPool = _visual.TryGetSeed();
+            
+            CheckRakeWork(holdingTool, gardenPlotVisual);
+            
+            CheckGrainBagWork(holdingTool, gardenPlotVisual, seedPool);
+        }
+        private void StartWorking(ToolVisual holdingTool)
+        {
+            _visual.AnimateTool(holdingTool.ToolID, true);
+            Record.IsWorking = true;
+            Record.ToolWorking = holdingTool.ToolID;
+            Record.WorkTime = Time.time;
+        }
         private void CheckProgressWork()
         {
             if (!(Record.WorkTime + 1f < Time.time)) 
@@ -121,6 +139,7 @@ namespace Game
                     
             CheckGrainBagProgress(holdingTool, seedPool, gardenPlotVisual);
         }
+        
 
         private void CheckGrainBagProgress(ToolVisual holdingTool, GardenSeedPoolVisual seedPool, GardenPlotVisual gardenPlotVisual)
         {
@@ -161,22 +180,11 @@ namespace Game
                         return;
                     }
                             
-                    gardenPlotVisual.PlantVisual.WaterPlant(0.2f);
+                    gardenPlotVisual.PlantVisual.WaterPlant(.5f);
                 }
             }
         }
-
-        private void CheckStartWorking()
-        {
-            var gardenPlotVisual = _visual.TryGetPlot();
-            var holdingTool = Tools.GetHoldingTool();
-            var seedPool = _visual.TryGetSeed();
-            
-            CheckRakeWork(holdingTool, gardenPlotVisual);
-            
-            CheckGrainBagWork(holdingTool, gardenPlotVisual, seedPool);
-        }
-
+        
         private void CheckGrainBagWork(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual, GardenSeedPoolVisual seedPool)
         {
             if (holdingTool == null || holdingTool.ToolID != TTools.GrainBag) 
@@ -192,7 +200,7 @@ namespace Game
 
             CheckSeedPoolWork(holdingTool, seedPool);
         }
-
+        
         private void CheckSeedPoolWork(ToolVisual holdingTool, GardenSeedPoolVisual seedPool)
         {
             if (seedPool == null) 
@@ -217,12 +225,6 @@ namespace Game
             }
         }
 
-        private void StartWorking(ToolVisual holdingTool)
-        {
-            _visual.AnimateTool(holdingTool.ToolID, true);
-            Record.IsWorking = true;
-            Record.ToolWorking = holdingTool.ToolID;
-            Record.WorkTime = Time.time;
-        }
+       
     }
 }

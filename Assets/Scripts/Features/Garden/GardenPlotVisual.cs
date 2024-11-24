@@ -11,14 +11,11 @@ namespace Game
         [SerializeField] private TPlant plantType;
         
         private PlantVisual _plantVisual = null;
-       
         
         public int PlotID => plotID;
         public PlantVisual PlantVisual => _plantVisual;
         public TPlant PlantType => plantType;
         
-        
-
         public void LoadPlantVisuals()
         {
             if (plantType == TPlant.None)
@@ -42,7 +39,7 @@ namespace Game
              plantType = plant;
              
              _plantVisual.SetFeature(Feature);
-            _plantVisual.MarkID = Feature.Marks.AddMark(transform, TMark.Progress);
+            _plantVisual.MarkID = Feature.Marks.AddMark(transform, TMark.PlantProgress);
         }
         
     }

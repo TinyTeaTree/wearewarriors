@@ -160,7 +160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8924363628067692852}
-  - component: {fileID: 8222545943143833123}
+  - component: {fileID: 7020435514874240898}
   m_Layer: 5
   m_Name: Mark Progress
   m_TagString: Untagged
@@ -188,7 +188,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8222545943143833123
+--- !u!114 &7020435514874240898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,8 +197,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 9043580902711641197}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18b3f4d56b644ec881a2dd7a299e2c96, type: 3}
+  m_Script: {fileID: 11500000, guid: c9889226dc9e44bba7beea4fa50748ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
-  _markImage: {fileID: 7089268261013540394}
+  _markSlider: {fileID: 7089268261013540394}

@@ -1189,7 +1189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 228a8faeee1f3435c8004fcfbadf70a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
+  _speed: 3.5
   _animator: {fileID: 1445252816538159614}
   _leftFootDownAnchor: {fileID: 8771625395866350746}
   _rightFootDownAnchor: {fileID: 4761269301272389549}

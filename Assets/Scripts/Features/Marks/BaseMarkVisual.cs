@@ -8,7 +8,6 @@ namespace Game
     public class BaseMarkVisual : MonoBehaviour, IAmDestructible
     {
         [SerializeField] private TMark _type;
-        [SerializeField] private Image _markImage;
         public TMark Type => _type;
         public string Id { get; set; }
         
@@ -22,11 +21,6 @@ namespace Game
         public virtual void SelfDestroy()
         {
             Destroy(gameObject);
-        }
-
-        public void UpdateMarkProgress(float progress)
-        {
-            _markImage.fillAmount = progress;
         }
     }
 }

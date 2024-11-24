@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using Core;
 using UnityEngine;
 
@@ -32,12 +30,15 @@ namespace Game
                 _progress = Mathf.Lerp(_progress, _targetProgress, 0.1f);
                 
                 transform.localScale = Vector3.Lerp(_initScale ,_targetScale, _progress);
-                Feature.Marks.GetMark<BaseMarkVisual>(MarkID).UpdateMarkProgress(_progress);
+
+                StartCoroutine(BounceEffect());
+                
+                Feature.Marks.GetMark<MarkPlantProgress>(MarkID).UpdateMarkProgress(_progress);
                 
                 yield return null;
             }
             transform.localScale = _targetScale;
-            Feature.Marks.GetMark<BaseMarkVisual>(MarkID).SelfDestroy();
+            Feature.Marks.GetMark<MarkPlantProgress>(MarkID).SelfDestroy();
             Feature.Marks.RemoveMark(MarkID);
             MarkID = null;
             _isComplete = true;
@@ -46,6 +47,31 @@ namespace Game
         public void WaterPlant(float amount)
         {
             _targetProgress = Mathf.Clamp01(_targetProgress + amount);
+        }
+        
+        private IEnumerator BounceEffect()
+        {
+            Vector3 currentScale = transform.localScale;
+            Vector3 bounceScale = currentScale * 1.23f; 
+
+            float bounceSpeed = 0.12f; 
+            float progress = 0f;
+           
+            while (progress < 1f)
+            {
+                progress += Time.deltaTime / bounceSpeed;
+                transform.localScale = Vector3.Lerp(currentScale, bounceScale, progress);
+                yield return null;
+            }
+
+            progress = 0f;
+            
+            while (progress < 1f)
+            {
+                progress += Time.deltaTime / bounceSpeed;
+                transform.localScale = Vector3.Lerp(bounceScale, currentScale, progress);
+                yield return null;
+            }
         }
     }
 }

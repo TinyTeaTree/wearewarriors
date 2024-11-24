@@ -3,7 +3,7 @@ namespace Game
     public enum TMark
     {
         Example,
-        Progress,
+        PlantProgress,
         BugsAlert
     }
 }
