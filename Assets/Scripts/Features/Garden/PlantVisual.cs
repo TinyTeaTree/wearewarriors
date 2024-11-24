@@ -30,6 +30,9 @@ namespace Game
                 _progress = Mathf.Lerp(_progress, _targetProgress, 0.1f);
                 
                 transform.localScale = Vector3.Lerp(_initScale ,_targetScale, _progress);
+
+                StartCoroutine(BounceEffect());
+                
                 Feature.Marks.GetMark<MarkPlantProgress>(MarkID).UpdateMarkProgress(_progress);
                 
                 yield return null;
@@ -44,6 +47,31 @@ namespace Game
         public void WaterPlant(float amount)
         {
             _targetProgress = Mathf.Clamp01(_targetProgress + amount);
+        }
+        
+        private IEnumerator BounceEffect()
+        {
+            Vector3 currentScale = transform.localScale;
+            Vector3 bounceScale = currentScale * 1.23f; 
+
+            float bounceSpeed = 0.12f; 
+            float progress = 0f;
+           
+            while (progress < 1f)
+            {
+                progress += Time.deltaTime / bounceSpeed;
+                transform.localScale = Vector3.Lerp(currentScale, bounceScale, progress);
+                yield return null;
+            }
+
+            progress = 0f;
+            
+            while (progress < 1f)
+            {
+                progress += Time.deltaTime / bounceSpeed;
+                transform.localScale = Vector3.Lerp(bounceScale, currentScale, progress);
+                yield return null;
+            }
         }
     }
 }
