@@ -31,9 +31,7 @@ Shader "Sprites/PanningDiffuse"
         Blend One OneMinusSrcAlpha
 
         CGPROGRAM
-        #pragma surface surf Lambert vertex:vert nofog nolightmap nodynlightmap keepalpha noinstancing
-        #pragma multi_compile_local _ PIXELSNAP_ON
-        #pragma multi_compile _ ETC1_EXTERNAL_ALPHA
+        #pragma surface surf vertex:vert
         #include "UnitySprites.cginc"
 
         struct Input
@@ -48,10 +46,6 @@ Shader "Sprites/PanningDiffuse"
         {
             v.vertex = UnityFlipSprite(v.vertex, _Flip);
 
-            #if defined(PIXELSNAP_ON)
-            v.vertex = UnityPixelSnap (v.vertex);
-            #endif
-
             UNITY_INITIALIZE_OUTPUT(Input, o);
             o.color = v.color * _Color * _RendererColor;
         }
@@ -59,12 +53,11 @@ Shader "Sprites/PanningDiffuse"
         void surf (Input IN, inout SurfaceOutput o)
         {
 			IN.uv_MainTex.x -= _Time.y * _Speed;
-            fixed4 c = SampleSpriteTexture (IN.uv_MainTex) * IN.color;
-            o.Albedo = c.rgb * c.a;
-            o.Alpha = c.a;
+            //fixed4 c = SampleSpriteTexture (IN.uv_MainTex) * IN.color;
+            o.Albedo = (1, 1, 0, 0);
+            o.Emission = (1, 0, 0, 0);
+            o.Alpha = 0;
         }
         ENDCG
     }
-
-Fallback "Transparent/VertexLit"
 }

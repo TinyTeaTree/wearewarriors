@@ -5,56 +5,57 @@ using UnityEngine;
 public class Stream : MonoBehaviour
 {
     public LineRenderer line;
-    public ParticleSystem particle;
 
-    private Vector3 target;
+    private Vector3 startPos;
 
-    private Coroutine routine;
-
-    private void Start()
-    {
-        MoveToPosition(0, transform.position);
-        MoveToPosition(1, transform.position);
-    }
+    [SerializeField] private float accel0;
+    [SerializeField] private float accel1;
+    [SerializeField] private float maxSpeed;
+    
+    private float speed0;
+    private float speed1;
 
     public void Begin()
     {
-        routine = StartCoroutine(StreamRoutine());
-        StartCoroutine(UpdateParticle());
-    }
-
-    public void End()
-    {
-        StopCoroutine(routine);
-        routine = StartCoroutine(EndRoutine());
-    }
-
-    private IEnumerator EndRoutine()
-    {
-        while (!ReachedPosition(0, target))
-        {
-            AnimateToPosition(0, target);
-            AnimateToPosition(1, target);
-
-            yield return null;
-        }
+        startPos = transform.position;
+        MoveToPosition(0, startPos);
+        MoveToPosition(1, startPos);  
         
-        Destroy(gameObject);
+        StartCoroutine(StreamRoutine());
     }
 
     private IEnumerator StreamRoutine()
     {
-        MoveToPosition(0, transform.position);
-        MoveToPosition(1, transform.position);
+        var target = GetTarget();
         
-        yield return new WaitForSeconds(0.5f);
-        while (true)
+        while (!ReachedPosition(1, target))
         {
-            target = GetTarget();
-            MoveToPosition(0, transform.position);
-            AnimateToPosition(1, target);
+            speed0 += accel0 * Time.deltaTime;
+            speed1 += accel1 * Time.deltaTime;
+
+            speed0 = Mathf.Min(speed0, maxSpeed);
+            speed1 = Mathf.Min(speed1, maxSpeed);
+            
+            MoveTowards(0, target, speed0 * Time.deltaTime);
+            MoveTowards(1, target, speed1 * Time.deltaTime);
+            
             yield return null;
         }
+        
+        while (!ReachedPosition(0, target))
+        {
+            speed0 += accel0 * Time.deltaTime;
+
+            speed0 = Mathf.Min(speed0, maxSpeed);
+            
+            MoveTowards(0, target, speed0 * Time.deltaTime);
+            
+            line.endWidth += Time.deltaTime;
+            
+            yield return null;
+        }
+        
+        Destroy(gameObject);
     }
 
     private Vector3 GetTarget()
@@ -74,10 +75,10 @@ public class Stream : MonoBehaviour
         line.SetPosition(index, position);
     }
 
-    private void AnimateToPosition(int index, Vector3 pos)
+    private void MoveTowards(int index, Vector3 pos, float by)
     {
         var current = line.GetPosition(index);
-        current = Vector3.MoveTowards(current, pos, Time.deltaTime * 1.75f);
+        current = Vector3.MoveTowards(current, pos, by);
         line.SetPosition(index, current);
     }
 
@@ -85,23 +86,5 @@ public class Stream : MonoBehaviour
     {
         var current = line.GetPosition(index);
         return Vector3.Distance(current, pos) < 0.1f;
-    }
-
-    private IEnumerator UpdateParticle()
-    {
-        while (true)
-        {
-            particle.transform.position = target;
-            if (ReachedPosition(1, target))
-            {
-                particle.gameObject.SetActive(true);
-            }
-            else
-            {
-                particle.gameObject.SetActive(false);
-
-            }
-            yield return null;
-        }
     }
 }

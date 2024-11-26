@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Game
@@ -6,21 +7,28 @@ namespace Game
     {
         public Transform origin;
         public Stream streamPrefab;
-
-        private bool isPouring;
-        private Stream currentStream;
         
+        private Coroutine routine;
         
         public override void StartWorking()
         {
-            currentStream = Create();
-            currentStream.Begin();
+            routine = StartCoroutine(CreateStreams());
         }
 
+        private IEnumerator CreateStreams()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(Random.Range(0f, 0.2f));
+
+                var currentStream = Create();
+                currentStream.Begin();
+            }
+        }
+        
         public override void EndWorking()
         {
-            currentStream.End();
-            currentStream = null;
+            StopCoroutine(routine);
         }
 
         private Stream Create()
