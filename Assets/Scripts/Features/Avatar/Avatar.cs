@@ -75,6 +75,11 @@ namespace Game
             if (Record.IsWorking)
             {
                 _visual.AnimateTool(Record.ToolWorking, false);
+                var holdingTool = Tools.GetHoldingTool();
+                if (holdingTool != null)
+                {
+                    holdingTool.EndWorking();
+                }
                 Record.IsWorking = false;
             }
             
@@ -106,17 +111,25 @@ namespace Game
        
         private void CheckStartWorking()
         {
-            var gardenPlotVisual = _visual.TryGetPlot();
             var holdingTool = Tools.GetHoldingTool();
+            if (holdingTool == null)
+            {
+                return;
+            }
+            
+            var gardenPlotVisual = _visual.TryGetPlot();
             var seedPool = _visual.TryGetSeed();
             
             CheckRakeWork(holdingTool, gardenPlotVisual);
             
             CheckGrainBagWork(holdingTool, gardenPlotVisual, seedPool);
+
+            CheckWaterWork(holdingTool, gardenPlotVisual);
         }
         private void StartWorking(ToolVisual holdingTool)
         {
             _visual.AnimateTool(holdingTool.ToolID, true);
+            holdingTool.StartWorking();
             Record.IsWorking = true;
             Record.ToolWorking = holdingTool.ToolID;
             Record.WorkTime = Time.time;
@@ -184,7 +197,7 @@ namespace Game
         
         private void CheckGrainBagWork(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual, GardenSeedPoolVisual seedPool)
         {
-            if (holdingTool == null || holdingTool.ToolID != TTools.GrainBag) 
+            if (holdingTool.ToolID != TTools.GrainBag) 
                 return;
             
             if (gardenPlotVisual != null)
@@ -211,7 +224,7 @@ namespace Game
 
         private void CheckRakeWork(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual)
         {
-            if (holdingTool?.ToolID != TTools.Rake) 
+            if (holdingTool.ToolID != TTools.Rake) 
                 return;
             if (gardenPlotVisual?.PlantVisual == null) 
                 return;
@@ -221,7 +234,16 @@ namespace Game
                 StartWorking(holdingTool);
             }
         }
+        
+        private void CheckWaterWork(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual)
+        {
+            if (holdingTool.ToolID != TTools.WateringCan) 
+                return;
+            
+            if (gardenPlotVisual== null) 
+                return;
 
-       
+            StartWorking(holdingTool);
+        }
     }
 }

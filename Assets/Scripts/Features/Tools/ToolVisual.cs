@@ -1,8 +1,6 @@
 ﻿using System.Collections;
-using Codice.CM.Common;
 using Core;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -27,6 +25,16 @@ namespace Game
         public void SetHighlight(bool state)
         {
             _outline.Toggle(state);
+        }
+
+        public virtual void StartWorking()
+        {
+            
+        }
+
+        public virtual void EndWorking()
+        {
+            
         }
 
 
