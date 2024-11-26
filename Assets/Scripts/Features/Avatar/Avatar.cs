@@ -37,9 +37,6 @@ namespace Game
         
         public void Update()
         {
-            if (Tools.GetHoldingTool() != null)
-                return;
-            
             var closestTool = Tools.GetClosestTool(_visual.transform.position);
             if (closestTool != null)
             {
