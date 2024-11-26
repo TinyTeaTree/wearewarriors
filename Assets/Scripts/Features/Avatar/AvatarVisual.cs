@@ -200,6 +200,7 @@ namespace Game
                     _animator.SetBool("Sweep", state);
                     break;
                 case TTools.WateringCan:
+                    _animator.SetBool("Water", state);
                     break;
                 case TTools.PesticideSpray:
                     break;
