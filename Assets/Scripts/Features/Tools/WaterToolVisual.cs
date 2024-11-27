@@ -33,7 +33,7 @@ namespace Game
 
         private Stream Create()
         {
-            return Instantiate(streamPrefab, origin.position, origin.rotation, transform);
+            return Instantiate(streamPrefab, origin.position, origin.rotation, null);
         }
     }
 }

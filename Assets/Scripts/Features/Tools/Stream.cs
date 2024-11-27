@@ -5,6 +5,7 @@ using UnityEngine;
 public class Stream : MonoBehaviour
 {
     public LineRenderer line;
+    public ParticleSystem ps;
 
     private Vector3 startPos;
 
@@ -17,6 +18,8 @@ public class Stream : MonoBehaviour
 
     public void Begin()
     {
+        ps.gameObject.SetActive(false);
+        
         startPos = transform.position;
         MoveToPosition(0, startPos);
         MoveToPosition(1, startPos);  
@@ -41,6 +44,10 @@ public class Stream : MonoBehaviour
             
             yield return null;
         }
+
+        ps.transform.position = target;
+        ps.gameObject.SetActive(true);
+        ps.Play();
         
         while (!ReachedPosition(0, target))
         {
@@ -54,7 +61,9 @@ public class Stream : MonoBehaviour
             
             yield return null;
         }
-        
+
+        line.enabled = false;
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
 
@@ -63,7 +72,7 @@ public class Stream : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(transform.position + Vector3.up*10, Vector3.down);
         
-        Physics.Raycast(ray, out hit, 200.0f, LayerMask.GetMask("Floor"));
+        Physics.Raycast(ray, out hit, 200.0f, LayerMask.GetMask("Floor", "GardenPlot"));
 
         var end = hit.collider == null ? ray.GetPoint(2f) : hit.point;
         
