@@ -23,6 +23,7 @@ _Features Using Services Example_
 - Services
 - Agents
 - Sequence Flow
+- Feature Maker
 
 
 ## Empty Scene
@@ -189,6 +190,44 @@ Each Record Type is a Single Instance. Records are [Inject] able into the System
 
 All referense to the Records should point to the same Instance, So changing a Record in one Feature, should be visible to another Feature.
 
+![image](https://github.com/user-attachments/assets/760a4550-af12-4266-943f-8cdf234fe50a)
+In this Example the Record of the Grid Feature serves as a hub for Data both for the the Player Feature and the Grid Feature.
+
+While the Grid Feture only changes and sets the Grid Data. The Player Feature can access the Data and Read from it to understand where Movement is Available.
+
+This is why its important that each record exists as a single instance. Which is what happens automatically :)
+
+
 Each Feature may have its Own Record. But we can also Create Records to contain data regradless of any specific Feature.
 
-Most important Note - Never create new Instances of Records, outside the Bootstrap phase.
+Dont forget to Bootstrap your Records
+![image](https://github.com/user-attachments/assets/bff9cb01-67ed-45a6-a446-77087e1328c2)
+
+
+Most important Note - Never create new Instances of Records, outside the Bootstrap phase, without a good reason.
+
+## [Inject] Attribute
+
+![image](https://github.com/user-attachments/assets/f385283a-31f9-4209-ae21-1d23fcf78c0d)
+
+If you have never seen this type of Attribute, just know its very common.
+
+Our [Inject] Attribute is of Custom Implementation.
+
+We can tag any Properties (not fields) with a getter and a setter with the [Inject] Attribute
+
+And what this does is bring you the IFeature, Record, IService, or IAgent that you are looking for and set your Property with the reference that was set in the Bootstrap.
+
+This works only in Features and Services. We do not support or encourage referencing Features in Visuals or Visuals in Data. There is no reason for it so we dont support it.
+
+All Features can only be "Injected" via their Interface. The Interface has to be registered in the Bootstrap (which happens automatically via the Feature Maker Tool)
+
+
+
+External Users of your Feature should never care How the feature achieves its implementation. As long as it works and the API can be called via the Interface that is [Inject]-able
+
+This way the [Inject] Attribute serves us the perfect solution for Dependency Injection without promoting bad practices.
+
+## Configurations
+
+
