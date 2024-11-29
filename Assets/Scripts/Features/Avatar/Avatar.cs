@@ -149,8 +149,23 @@ namespace Game
             Record.WorkTime = Time.time;
 
             CheckRakeProgress(holdingTool, gardenPlotVisual);
+
+            CheckWaterProgress(holdingTool, gardenPlotVisual);
                     
             CheckGrainBagProgress(holdingTool, seedPool, gardenPlotVisual);
+        }
+
+        private void CheckWaterProgress(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual)
+        {
+            if (holdingTool.ToolID != TTools.WateringCan) 
+                return;
+            if (gardenPlotVisual == null) 
+                return;
+
+            if (gardenPlotVisual.PlantVisual != null)
+            {
+                gardenPlotVisual.PlantVisual.WaterPlant(.05f);
+            }
         }
         
 
@@ -178,24 +193,24 @@ namespace Game
 
         private void CheckRakeProgress(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual)
         {
-            if (holdingTool.ToolID == TTools.Rake)
-            {
-                if (gardenPlotVisual != null)
-                {
-                    if (gardenPlotVisual.PlantVisual.IsComplete)
-                    {
-                        _visual.AnimateTool(holdingTool.ToolID, false);
-                        return;
-                    }
-                            
-                    if (gardenPlotVisual.PlantType == TPlant.None)
-                    {
-                        return;
-                    }
-                            
-                    gardenPlotVisual.PlantVisual.WaterPlant(.5f);
-                }
-            }
+            // if (holdingTool.ToolID == TTools.Rake)
+            // {
+            //     if (gardenPlotVisual != null)
+            //     {
+            //         if (gardenPlotVisual.PlantVisual.IsComplete)
+            //         {
+            //             _visual.AnimateTool(holdingTool.ToolID, false);
+            //             return;
+            //         }
+            //                 
+            //         if (gardenPlotVisual.PlantType == TPlant.None)
+            //         {
+            //             return;
+            //         }
+            //                 
+            //         gardenPlotVisual.PlantVisual.WaterPlant(.5f);
+            //     }
+            // }
         }
         
         private void CheckGrainBagWork(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual, GardenSeedPoolVisual seedPool)

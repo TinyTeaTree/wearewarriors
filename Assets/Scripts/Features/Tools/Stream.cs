@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Stream : MonoBehaviour
@@ -16,13 +15,21 @@ public class Stream : MonoBehaviour
     private float speed0;
     private float speed1;
 
-    public void Begin()
+    private float forwardSpeed;
+
+    private Vector3 forward;
+
+    public void Begin(Vector3 forward)
     {
+        this.forward = forward;
+        forwardSpeed = Random.Range(0.1f, 0.4f);
         ps.gameObject.SetActive(false);
         
         startPos = transform.position;
         MoveToPosition(0, startPos);
-        MoveToPosition(1, startPos);  
+        MoveToPosition(1, startPos);
+
+        line.endWidth = line.endWidth * Random.Range(0.3f, 1.1f);
         
         StartCoroutine(StreamRoutine());
     }
@@ -33,6 +40,15 @@ public class Stream : MonoBehaviour
         
         while (!ReachedPosition(1, target))
         {
+            if (forwardSpeed > 0f)
+            {
+                MoveTowards(0, line.GetPosition(0) + forward, forwardSpeed * Time.deltaTime);
+                MoveTowards(1, line.GetPosition(1) + forward, forwardSpeed * Time.deltaTime);
+                forwardSpeed = Mathf.MoveTowards(forwardSpeed, 0, Time.deltaTime);
+
+                target = GetTarget();
+            }
+
             speed0 += accel0 * Time.deltaTime;
             speed1 += accel1 * Time.deltaTime;
 
