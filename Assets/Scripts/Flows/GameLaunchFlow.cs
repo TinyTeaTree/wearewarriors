@@ -25,12 +25,14 @@ namespace Game
                 .AddNext(() => camera.Load())
                 .AddNext(() => hud.Load())
                 .AddNext(() => { loading.Show(true); })
+                .AddNext(() => playerAccount.Login())
+                
+                //Here we can start loading User Related Features
                 .AddNext(() => marks.Load())
                 .AddNext(() => world.Load())
                 .AddNext(() => garden.Load())
                 .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(0.25f)); })
                 .AddNext(() => { loading.ProgressControl(0.2f); })
-                .AddNext(() => playerAccount.Login())
                 .AddNext(() => avatar.Load())
                 .AddNext(camera.Start)
                 .AddNext(() => { loading.ProgressControl(0.4f); })
