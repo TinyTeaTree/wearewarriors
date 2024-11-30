@@ -9,7 +9,7 @@ namespace Game
     public class GardenConfig : BaseConfig
     {
         public GardenPlotVisual plotPrefab;
-        public PlotFieldData[] plotFields;
+        public FieldData[] plotFields;
         public PlantVisual[] plantVisuals;
     }
 }

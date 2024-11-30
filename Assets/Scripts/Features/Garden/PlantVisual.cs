@@ -18,7 +18,7 @@ namespace Game
         
         public bool IsComplete => _isComplete;
         
-        private void Start()
+        public void StartGrowing()
         {
             StartCoroutine(GrowCoroutine());
         }
@@ -44,9 +44,28 @@ namespace Game
             _isComplete = true;
         }
 
-        public void WaterPlant(float amount)
+        public void SetUp(PlotData data)
         {
-            _targetProgress = Mathf.Clamp01(_targetProgress + amount);
+            _targetProgress = data.State == TPlotState.PlantRiping ? 1f : data.Progress;
+            _progress = _targetProgress;
+            transform.localScale = Vector3.Lerp(_initScale ,_targetScale, _progress);
+
+            if (Mathf.Approximately(_targetProgress, 1f))
+            {
+                _isComplete = true;
+            }
+            else
+            {
+                MarkID = Feature.Marks.AddMark(transform, TMark.PlantProgress);
+                StartGrowing();
+
+                _isComplete = false;
+            }
+        }
+
+        public void WaterPlant(PlotData data)
+        {
+            _targetProgress = data.State == TPlotState.PlantRiping ? 1f : data.Progress;
         }
         
         private IEnumerator BounceEffect()

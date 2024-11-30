@@ -215,5 +215,10 @@ namespace Game
                     throw new ArgumentOutOfRangeException(nameof(toolID), toolID, null);
             }
         }
+
+        public void SetRot(float rot)
+        {
+            transform.rotation = Quaternion.Euler(0f, rot, 0f);
+        }
     }
 }
