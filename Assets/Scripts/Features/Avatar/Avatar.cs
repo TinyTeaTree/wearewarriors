@@ -145,9 +145,12 @@ namespace Game
             if (!(Record.WorkTime + 1f < Time.time)) 
                 return;
             
+            var holdingTool = Tools.GetHoldingTool();
+            if (holdingTool == null)
+                return;
+            
             var gardenPlotVisual = _visual.TryGetPlot();
             var seedPool = _visual.TryGetSeed();
-            var holdingTool = Tools.GetHoldingTool();
             
             Record.WorkTime = Time.time;
 
