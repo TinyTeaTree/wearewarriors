@@ -12,6 +12,9 @@ namespace Game
         [SerializeField] private Outline _outline;
         [SerializeField] private Rigidbody _rigidbody;
         
+        [SerializeField] private float workPerSecond;
+        public float WorkPerSecond => workPerSecond;
+        
         public void ToggleRigidBody(bool state)
         {
             _rigidbody.isKinematic = !state;

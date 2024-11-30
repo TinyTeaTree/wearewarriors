@@ -355,6 +355,7 @@ MonoBehaviour:
   SeedType: 0
   _outline: {fileID: 7840555461370842941}
   _rigidbody: {fileID: 5179608881743554473}
+  workPerSecond: 0.1
   origin: {fileID: 6896505752106145567}
   streamPrefab: {fileID: 5238570228697279501, guid: 687fe5b6c1388c34882009636030b3c7,
     type: 3}

@@ -165,7 +165,7 @@ namespace Game
             if (gardenPlotVisual == null) 
                 return;
 
-            Garden.WaterPlant(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID, 0.05f);
+            Garden.WaterPlant(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID, holdingTool.WorkPerSecond);
         }
 
         private void CheckGrainBagProgress(ToolVisual holdingTool, GardenSeedPoolVisual seedPool, GardenPlotVisual gardenPlotVisual)
@@ -184,7 +184,7 @@ namespace Game
             var plotData = Garden.GetPlotData(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID);
             if (plotData.State == TPlotState.Raked)
             {
-                Garden.SeedPlot(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID, 0.2f, holdingTool.SeedType);
+                Garden.SeedPlot(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID, holdingTool.WorkPerSecond, holdingTool.SeedType);
             }
             else
             {
@@ -203,7 +203,7 @@ namespace Game
             
             if (plotData.State is TPlotState.Empty or TPlotState.Weeds)
             {
-                Garden.RakePlot(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID, 0.1f);
+                Garden.RakePlot(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID, holdingTool.WorkPerSecond);
             }
             else
             {
