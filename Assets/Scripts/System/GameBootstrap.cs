@@ -69,6 +69,7 @@ namespace Game
             _records.Add(typeof(ToolsRecord), new ToolsRecord());
             _records.Add(typeof(PlayerAccountRecord), new PlayerAccountRecord());
             _records.Add(typeof(CameraRecord), new CameraRecord());
+            _records.Add(typeof(SheepsRecord), new SheepsRecord());
             //<New Record>
         }
 
