@@ -1,6 +1,620 @@
 {
   "GardenRecord": {
-    "Version": 0
+    "Version": 1,
+    "Fields": [
+      {
+        "Id": 0,
+        "Plots": [
+          {
+            "Id": 0,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 1,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 2,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 3,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 4,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 5,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 6,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 7,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 8,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          }
+        ]
+      },
+      {
+        "Id": 1,
+        "Plots": [
+          {
+            "Id": 0,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 1,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 2,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 3,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 4,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 5,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 6,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 7,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 8,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          }
+        ]
+      },
+      {
+        "Id": 2,
+        "Plots": [
+          {
+            "Id": 0,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 1,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 2,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 3,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 4,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 5,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 6,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 7,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 8,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          }
+        ]
+      },
+      {
+        "Id": 3,
+        "Plots": [
+          {
+            "Id": 0,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 1,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 2,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 3,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 4,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 5,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 6,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 7,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 8,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          }
+        ]
+      },
+      {
+        "Id": 4,
+        "Plots": [
+          {
+            "Id": 0,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 1,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 2,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 3,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 4,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 5,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 6,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 7,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 8,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          }
+        ]
+      },
+      {
+        "Id": 5,
+        "Plots": [
+          {
+            "Id": 0,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 1,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 2,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 3,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 4,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 5,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 6,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 7,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 8,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          }
+        ]
+      },
+      {
+        "Id": 6,
+        "Plots": [
+          {
+            "Id": 0,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 1,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 2,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 3,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 4,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 5,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 6,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 7,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 8,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          }
+        ]
+      },
+      {
+        "Id": 7,
+        "Plots": [
+          {
+            "Id": 0,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 1,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 2,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 3,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 4,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 5,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 6,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 7,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 8,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          }
+        ]
+      },
+      {
+        "Id": 8,
+        "Plots": [
+          {
+            "Id": 0,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 1,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 2,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 3,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 4,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 5,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 6,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 7,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          },
+          {
+            "Id": 8,
+            "Plant": "None",
+            "State": "Empty",
+            "Progress": 0,
+            "TimeLeft": 0
+          }
+        ]
+      }
+    ]
   },
 
   "ToolsRecord": {
@@ -97,6 +711,17 @@
         }
       }
     ]
+  },
+  
+  "AvatarRecord": {
+    "AvatarRecordData": {
+      "Pos": {
+        "X" : -11.06,
+        "Y" : 0,
+        "Z" : -12.96
+      },
+      "Rot": 151.92
+    }
   }
 
 }

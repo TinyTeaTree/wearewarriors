@@ -17,12 +17,14 @@ namespace Game
 
         private IEnumerator CreateStreams()
         {
+            yield return new WaitForSeconds(1f);
+            
             while (true)
             {
                 yield return new WaitForSeconds(Random.Range(0f, 0.2f));
 
                 var currentStream = Create();
-                currentStream.Begin();
+                currentStream.Begin(origin.forward);
             }
         }
         
@@ -33,7 +35,8 @@ namespace Game
 
         private Stream Create()
         {
-            return Instantiate(streamPrefab, origin.position, origin.rotation, transform);
+            var pos = origin.position + origin.right * Random.Range(-0.1f, 0.1f) + origin.up * Random.Range(-0.1f, 0.1f);
+            return Instantiate(streamPrefab, pos, origin.rotation, null);
         }
     }
 }

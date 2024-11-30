@@ -7,7 +7,7 @@ namespace Game
     {
         [SerializeField] private PlotFieldVisual[] _plotFieldVisual;
         
-        public PlotFieldVisual[] PlotFieldVisual => _plotFieldVisual;
+        public PlotFieldVisual[] FieldVisuals => _plotFieldVisual;
 
         public void LoadPlotFieldVisuals()
         {

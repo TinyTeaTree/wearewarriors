@@ -18,11 +18,11 @@ namespace Game
         {
             foreach (var plotVisual in gardenPlotVisuals)
             {
+                var data = Feature.GetPlotData(fieldID, plotVisual.PlotID);
+                
                 plotVisual.SetFeature(Feature);
-                plotVisual.LoadPlantVisuals();
+                plotVisual.LoadPlantVisuals(data);
             }
         }
-        
-        
     }
 }

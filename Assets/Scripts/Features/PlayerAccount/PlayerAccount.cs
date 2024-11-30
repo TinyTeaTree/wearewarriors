@@ -7,6 +7,7 @@ using Core;
 using Services;
 using Unity.Plastic.Newtonsoft.Json;
 using Unity.Plastic.Newtonsoft.Json.Linq;
+using UnityEngine;
 
 namespace Game
 {
@@ -52,10 +53,28 @@ namespace Game
                     return;
                 }
             }
+            else
+            {
+                Record.Populate(savedPlayerAccount);
+            }
+
+            if (Record.Version < PlayerAccountRecord.MigrationRecord)
+            {
+                //This means that a new version is available. Currently we dont have migrations, just restarting Player Data
+                Notebook.NoteCritical($"Migration activated for player {Record.PlayerId}");
+                
+                await CreateNewPlayer();
+                await SyncPlayerData();
+                
+                return;
+            }
 
             var records = Saver.RecordsForSaving;
             foreach (var record in records)
             {
+                if (record.Id == Record.Id)
+                    continue; //This Record is already populated
+                
                 var saveJson = await Saver.GetSavedJson(record.Id);
                 if(saveJson.IsNullOrEmpty())
                 {
@@ -80,6 +99,8 @@ namespace Game
         public Task CreateNewPlayer()
         {
             Record.PlayerId = Guid.NewGuid().GetHashCode().ToString();
+            
+            Notebook.NoteCritical($"New User Created {Record.PlayerId}");
 
             var records = JsonConvert.DeserializeObject<Dictionary<string, JObject>>(Config.NewPlayerRecords.text);
 
@@ -93,6 +114,8 @@ namespace Game
                 }
                 recordToStart.Populate(recordKVP.Value);
             }
+
+            Record.Version = PlayerAccountRecord.MigrationRecord;
 
             return Task.CompletedTask;
         }

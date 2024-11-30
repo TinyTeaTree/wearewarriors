@@ -49,8 +49,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ToolID: 2
+  SeedType: 0
   _outline: {fileID: 2087690263813841139}
   _rigidbody: {fileID: 7950944132987924175}
+  workPerSecond: 0.2
 --- !u!54 &7950944132987924175
 Rigidbody:
   m_ObjectHideFlags: 0
