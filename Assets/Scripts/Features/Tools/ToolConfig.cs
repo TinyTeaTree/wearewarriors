@@ -1,7 +1,4 @@
-﻿
-using Core;
-using UnityEngine;
-using UnityEngine.Serialization;
+﻿using UnityEngine;
 
 namespace Game
 {

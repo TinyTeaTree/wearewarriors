@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +15,7 @@ namespace Game
         [Inject] public ILocalConfigService ConfigService { get; set; }
         [Inject] public IAvatar Avatar { get; set; }
         [Inject] public IPlayerAccount PlayerAccount { get; set; }
-        [Inject] public IJoystick Joystick { get; set; }
+        [Inject] public ICamera Camera { get; set; }
         public ToolsConfig _toolsConfig { get; private set; }
         
         public Task AppLaunch()
@@ -39,14 +38,7 @@ namespace Game
 
              _visual.SetToolVisuals(Record.AllToolsInGarden);
 
-             /*Do().Forget(); //TODO: Kill Me*/
-
-             Joystick.ToggleDropButton(GetHoldingTool() != null);
-        }
-
-        public ToolAction[] GetToolAbilities(TTools tool)
-        {
-            return _toolsConfig.Tools[(int)tool].ToolAbilities;
+             /*Joystick.ToggleDropButton(GetHoldingTool() != null);*/
         }
 
         public ToolVisual GetHoldingTool()
@@ -61,7 +53,7 @@ namespace Game
             
             foreach (var tool in _visual.AllTools )
             {
-                if (tool is not null)
+                if (tool is not null && tool.Pickable)
                 {
                     float distance = Vector3.Distance(tool.transform.position, pos);
                     if (distance < closestDistance)
@@ -73,36 +65,19 @@ namespace Game
             }
             return closestTool;
         }
-
-        public async Task DropTool(ToolVisual tool)
-        {
-            // Turning on rigidbody for adding drop force
-
-            tool.ToggleRigidBody(true);
-            tool.transform.SetParent(_visual.transform);
-            tool.DropToolPhysics(Avatar.AvatarTransform, 7);
-
-            Joystick.ToggleDropButton(false);
-
-            await Task.Delay(TimeSpan.FromSeconds(1f));
-
-            Record.EquippedToolVisual = null;
-            var gardenTool = Record.GardenTools.FirstOrDefault(t => t.Id == tool.ToolID);
-            gardenTool.Pos = tool.transform.position;
-            gardenTool.Rot = tool.transform.rotation.eulerAngles;
-
-            await PlayerAccount.SyncPlayerData();
-            
-            /*Do().Forget(); //TODO: Kill Me*/
-        }
-
+        
         public void PickUpTool(ToolVisual closestTool, Transform handTransform)
         {
-            Record.EquippedToolVisual = closestTool;
-
-            closestTool.GetPickedUp(handTransform);
+            if (Record.EquippedToolVisual != null)
+            {
+                if (GetHoldingTool().Droppable)
+                { 
+                    DropTool(Record.EquippedToolVisual);
+                }
+            }
             
-            Joystick.ToggleDropButton(true);
+            Record.EquippedToolVisual = closestTool;
+            closestTool.GetPickedUp(handTransform);
         }
 
         public void HighlightOff()
@@ -119,8 +94,46 @@ namespace Game
             List<ToolVisual> visuals = _visual?.AllTools;
             foreach (var tool in visuals)
             {
-                tool.SetHighlight(tool == closestTool);
+                if (GetHoldingTool() != tool)
+                {
+                    tool.SetHighlight(tool == closestTool);
+                }
             }
+        }
+        
+        
+        private async Task SaveToolData(ToolVisual tool)
+        {
+            var gardenTool = Record.GardenTools.FirstOrDefault(t => t.Id == tool.ToolID);
+            gardenTool.Pos = tool.transform.position;
+            gardenTool.Rot = tool.transform.rotation.eulerAngles;
+
+            await PlayerAccount.SyncPlayerData();
+        }
+        private async Task DropTool(ToolVisual tool)
+        {
+            // Turning on rigidbody for adding drop force
+
+            tool.ToggleRigidBody(true);
+            tool.transform.SetParent(_visual.transform);
+            tool.DropToolPhysics(Avatar.AvatarTransform, 7);
+
+            Record.EquippedToolVisual = null;
+            tool.StartPickupCooldown(2f);
+            
+            await SaveToolData(tool);
+        }
+
+        public async Task ThrowTool(ToolVisual tool, Vector3 dropPoint)
+        {
+            tool.ToggleRigidBody(true);
+            tool.transform.SetParent(_visual.transform);
+            tool.ThrowToolPhysics(dropPoint, 7);
+
+            Record.EquippedToolVisual = null;
+            tool.StartPickupCooldown(2f);
+            
+            await SaveToolData(tool);
         }
     }
 }

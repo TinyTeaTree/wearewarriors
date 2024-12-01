@@ -39,9 +39,11 @@ namespace Game
         
         public void Update()
         {
-            if (Tools.GetHoldingTool() != null)
-                return;
-            
+            ScanForTool();
+        }
+
+        private void ScanForTool()
+        {
             var closestTool = Tools.GetClosestTool(_visual.transform.position);
             if (closestTool != null)
             {
@@ -62,11 +64,11 @@ namespace Game
                         if (closestTool.ToolID == anchor.toolID)
                         {
                             Tools.PickUpTool(closestTool, anchor.anchorPoint);
+                            closestTool.Pickable = false;
                         }
                     }
                 }
             }
-            
         }
 
         public void AppExit()
@@ -253,7 +255,7 @@ namespace Game
                 return;
             if (gardenPlotVisual == null)
                 return;
-
+            
             var plotData = Garden.GetPlotData(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID);
             if (plotData.State is TPlotState.Empty or TPlotState.Weeds)
             {

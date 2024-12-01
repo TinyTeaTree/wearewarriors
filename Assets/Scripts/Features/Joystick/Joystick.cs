@@ -47,15 +47,5 @@ namespace Game
                 Record.Direction = direction;
             }
         }
-        
-        public void ToggleDropButton(bool state)
-        {
-            _visual.ToggleDropButton(state);
-        }
-
-        public void DropPressed()
-        {
-            Tools.DropTool(Tools.GetHoldingTool());
-        }
     }
 }
