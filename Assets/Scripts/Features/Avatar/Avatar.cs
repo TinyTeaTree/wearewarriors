@@ -39,6 +39,11 @@ namespace Game
         
         public void Update()
         {
+            ScanForTool();
+        }
+
+        private void ScanForTool()
+        {
             var closestTool = Tools.GetClosestTool(_visual.transform.position);
             if (closestTool != null)
             {
@@ -59,11 +64,11 @@ namespace Game
                         if (closestTool.ToolID == anchor.toolID)
                         {
                             Tools.PickUpTool(closestTool, anchor.anchorPoint);
+                            closestTool.Pickable = true;
                         }
                     }
                 }
             }
-            
         }
 
         public void AppExit()

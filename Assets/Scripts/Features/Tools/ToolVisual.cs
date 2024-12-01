@@ -14,7 +14,8 @@ namespace Game
         
         [SerializeField] private float workPerSecond;
         public float WorkPerSecond => workPerSecond;
-        
+        public bool Pickable { get; set; }
+
         public void ToggleRigidBody(bool state)
         {
             _rigidbody.isKinematic = !state;
@@ -39,8 +40,7 @@ namespace Game
         {
             
         }
-
-
+        
         public void GetPickedUp(Transform handTransform)
         {
             ToggleRigidBody(false);
@@ -69,6 +69,25 @@ namespace Game
             
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
+        }
+
+        IEnumerator PickUpCooldownCoroutine(float waitTime)
+        {
+            yield return new WaitForSeconds(waitTime);
+            Pickable = false;
+            yield return null;
+        }
+        
+        public void StartPickupCooldown(float cooldown)
+        {
+            StartCoroutine(PickUpCooldownCoroutine(cooldown));
+        }
+
+        public void ThrowToolPhysics(Vector3 dropPoint, int force)
+        {
+            dropPoint.y = Feature.Avatar.AvatarTransform.position.y + 5;
+            Vector3 throwDirection = dropPoint - Feature.Avatar.AvatarTransform.position;
+            _rigidbody.AddForce(throwDirection.normalized * force, ForceMode.Impulse);
         }
     }
 }
