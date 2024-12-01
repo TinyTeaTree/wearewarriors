@@ -13,6 +13,7 @@ namespace Game
         public override void StartWorking()
         {
             routine = StartCoroutine(CreateStreams());
+            Droppable = false;
         }
 
         private IEnumerator CreateStreams()
@@ -31,6 +32,7 @@ namespace Game
         public override void EndWorking()
         {
             StopCoroutine(routine);
+            Droppable = true;
         }
 
         private Stream Create()

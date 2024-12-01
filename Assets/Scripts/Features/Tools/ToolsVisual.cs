@@ -1,10 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Codice.CM.Common;
 using Core;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace Game
 {
@@ -28,23 +26,24 @@ namespace Game
             int floorLayerMask = LayerMask.GetMask("Floor");
             while (true)
             {
-                var holdingTool = Feature.GetHoldingTool();
-
-                if (Input.GetMouseButtonDown(0) && holdingTool != null)
-                {
-                    // Todo: Check If player touch the UI and if yes dont throw the tool.
-                    
-                    Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
-                    RaycastHit hit;
-
-                    if (Physics.Raycast(ray, out hit, Mathf.Infinity, floorLayerMask))
+                var holdingTool = Feature?.GetHoldingTool();
+                
+                    if (Input.GetMouseButtonDown(0) && holdingTool != null)
                     {
-                        Vector3 dropPoint = hit.point;
-                        holdingTool.SetFeature(Feature);
-                        Feature.ThrowTool(holdingTool, dropPoint);
-                    }
-                }
+                        // Todo: Check If player touch the UI and if yes dont throw the tool.
+                        if (!EventSystem.current.IsPointerOverGameObject() && holdingTool.Droppable)
+                        {
+                            Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
+                            RaycastHit hit;
 
+                            if (Physics.Raycast(ray, out hit, Mathf.Infinity, floorLayerMask))
+                            {
+                                Vector3 dropPoint = hit.point;
+                                holdingTool.SetFeature(Feature);
+                                Feature.ThrowTool(holdingTool, dropPoint);
+                            }
+                        }
+                    }
                 yield return null;
             }
         }

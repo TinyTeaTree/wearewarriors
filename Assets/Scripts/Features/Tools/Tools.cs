@@ -53,7 +53,7 @@ namespace Game
             
             foreach (var tool in _visual.AllTools )
             {
-                if (tool is not null && !tool.Pickable)
+                if (tool is not null && tool.Pickable)
                 {
                     float distance = Vector3.Distance(tool.transform.position, pos);
                     if (distance < closestDistance)
@@ -70,7 +70,10 @@ namespace Game
         {
             if (Record.EquippedToolVisual != null)
             {
-                DropTool(Record.EquippedToolVisual);
+                if (GetHoldingTool().Droppable)
+                { 
+                    DropTool(Record.EquippedToolVisual);
+                }
             }
             
             Record.EquippedToolVisual = closestTool;

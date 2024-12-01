@@ -64,7 +64,7 @@ namespace Game
                         if (closestTool.ToolID == anchor.toolID)
                         {
                             Tools.PickUpTool(closestTool, anchor.anchorPoint);
-                            closestTool.Pickable = true;
+                            closestTool.Pickable = false;
                         }
                     }
                 }
@@ -255,7 +255,7 @@ namespace Game
                 return;
             if (gardenPlotVisual == null)
                 return;
-
+            
             var plotData = Garden.GetPlotData(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID);
             if (plotData.State is TPlotState.Empty or TPlotState.Weeds)
             {

@@ -14,7 +14,8 @@ namespace Game
         
         [SerializeField] private float workPerSecond;
         public float WorkPerSecond => workPerSecond;
-        public bool Pickable { get; set; }
+        public bool Pickable { get; set; } = true;
+        public bool Droppable { get; set; } = true;
 
         public void ToggleRigidBody(bool state)
         {
@@ -33,12 +34,12 @@ namespace Game
 
         public virtual void StartWorking()
         {
-            
+            Droppable = false;
         }
 
         public virtual void EndWorking()
         {
-            
+            Droppable = true;
         }
         
         public void GetPickedUp(Transform handTransform)
@@ -74,7 +75,7 @@ namespace Game
         IEnumerator PickUpCooldownCoroutine(float waitTime)
         {
             yield return new WaitForSeconds(waitTime);
-            Pickable = false;
+            Pickable = true;
             yield return null;
         }
         
@@ -85,7 +86,7 @@ namespace Game
 
         public void ThrowToolPhysics(Vector3 dropPoint, int force)
         {
-            dropPoint.y = Feature.Avatar.AvatarTransform.position.y + 5;
+            dropPoint.y = 15;
             Vector3 throwDirection = dropPoint - Feature.Avatar.AvatarTransform.position;
             _rigidbody.AddForce(throwDirection.normalized * force, ForceMode.Impulse);
         }
