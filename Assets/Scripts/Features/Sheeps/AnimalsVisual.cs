@@ -1,34 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using System.Linq;
 using Core;
 using Services;
 using UnityEngine;
 
 namespace Game
 {
-    public class SheepsVisual : BaseVisual<Sheeps>
+    public class AnimalsVisual : BaseVisual<Animals>
     {
-        [SerializeField] private SheepVisual _sheepPrefab;
-        [SerializeField] private Transform _startPos;
+        [SerializeField] private List<AnimalVisual> animalPrefabs;
 
-        private List<SheepVisual> _sheeps = new();
+        private List<AnimalVisual> animals = new();
         
         public Transform AvatarTransform { get; set; }
         
-        public void CreateSheep()
+        public void CreateAnimal(TAnimal animalType, Transform startPoint)
         {
-            var sheep = Summoner.CreateAsset(_sheepPrefab, transform);
+            var prefab = animalPrefabs.FirstOrDefault(prefab => prefab.Type == animalType);
+            var sheep = Summoner.CreateAsset(prefab, transform);
             sheep.SetFeature(Feature);
-            sheep.transform.position = _startPos.position;
-            sheep.transform.rotation = _startPos.rotation;
+            sheep.transform.position = startPoint.position;
+            sheep.transform.rotation = startPoint.rotation;
             
-            _sheeps.Add(sheep);
+            animals.Add(sheep);
 
-            StartCoroutine(SheepRoutine(sheep));
+            StartCoroutine(LoopRoutine(sheep));
         }
         
-        private IEnumerator SheepRoutine(SheepVisual sheep)
+        private IEnumerator LoopRoutine(AnimalVisual sheep)
         {
             while (true)
             {

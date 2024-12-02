@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7931762274435221931}
   - component: {fileID: 2401289043206992301}
   m_Layer: 0
-  m_Name: Sheeps Visual
+  m_Name: Animals Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad05b0347ec34664ac0524a4394bff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sheepPrefab: {fileID: 7950269076083020764, guid: a48e4b8e020654fed8d76e62c03945e3,
-    type: 3}
-  _startPos: {fileID: 7931762274435221931}
+  animalPrefabs:
+  - {fileID: 7950269076083020764, guid: a48e4b8e020654fed8d76e62c03945e3, type: 3}
+  - {fileID: 6371327034269568360, guid: 1b64e79ae5010465186860c27e6a8615, type: 3}
+  random: []

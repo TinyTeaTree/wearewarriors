@@ -722,6 +722,15 @@
       },
       "Rot": 151.92
     }
+  },
+  
+  "AnimalsRecord": {
+    "Animals": [
+      "Sheep",
+      "Chicken1",
+      "Chicken1",
+      "Chicken1"
+    ]
   }
 
 }

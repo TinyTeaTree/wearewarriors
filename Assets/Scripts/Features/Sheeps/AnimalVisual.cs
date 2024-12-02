@@ -5,10 +5,13 @@ using UnityEngine;
 
 namespace Game
 {
-    public class SheepVisual :  BaseVisual<Sheeps>
+    public class AnimalVisual :  BaseVisual<Animals>
     {
         public Animator animator;
 
+        [SerializeField] private TAnimal type;
+        public TAnimal Type => type;
+        
         [SerializeField] private float _minMoveDuration;
         [SerializeField] private float _maxMoveDuration;
 

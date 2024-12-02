@@ -1,0 +1,1550 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &196037349362569950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 862716533832143312}
+  m_Layer: 0
+  m_Name: CHICKEN_ Neck2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &862716533832143312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196037349362569950}
+  serializedVersion: 2
+  m_LocalRotation: {x: -7.915766e-14, y: -0.00000025559342, z: 0.09215223, w: 0.99574494}
+  m_LocalPosition: {x: -0.06012943, y: -0.000037546157, z: -1.0408257e-10}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5950342511073747503}
+  m_Father: {fileID: 5786015543882557642}
+  m_LocalEulerAnglesHint: {x: -0.17658378, y: 2.2040322, z: 4.286508}
+--- !u!1 &231276243065470978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3482375960047502391}
+  m_Layer: 0
+  m_Name: CHICKEN_ Spine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3482375960047502391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231276243065470978}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0000020804764, y: 0.00000069367616, z: -0.00039815909, w: 0.99999994}
+  m_LocalPosition: {x: -0.079573445, y: -0.000065860746, z: 0.000000110271536}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 945220746728487082}
+  - {fileID: 5301078732196938844}
+  - {fileID: 7539852706937927994}
+  - {fileID: 8307117252703753471}
+  m_Father: {fileID: 4416662338117508392}
+  m_LocalEulerAnglesHint: {x: -0.00023835308, y: 0.00007943486, z: -0.045625657}
+--- !u!1 &448188206352247397
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5786015543882557642}
+  m_Layer: 0
+  m_Name: CHICKEN_ Neck1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5786015543882557642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448188206352247397}
+  serializedVersion: 2
+  m_LocalRotation: {x: 1.3258977e-13, y: -0.0000003564617, z: 0.1285195, w: 0.99170697}
+  m_LocalPosition: {x: -0.060124226, y: -0.000046329496, z: -1.2852978e-10}
+  m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 862716533832143312}
+  m_Father: {fileID: 5301078732196938844}
+  m_LocalEulerAnglesHint: {x: -0.35564196, y: 1.3917592, z: 14.124098}
+--- !u!1 &671089537924519327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3091852805724686936}
+  m_Layer: 0
+  m_Name: CHICKEN_ L Toe11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3091852805724686936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671089537924519327}
+  serializedVersion: 2
+  m_LocalRotation: {x: 4.8272408e-18, y: 0.000000010366421, z: -4.656613e-10, w: 1}
+  m_LocalPosition: {x: -0.017151065, y: 1.4901161e-10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5152024121917445765}
+  m_LocalEulerAnglesHint: {x: -0.0000019928243, y: -0.0000032568837, z: 31.97331}
+--- !u!1 &743045066834971772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8670331457762354853}
+  m_Layer: 0
+  m_Name: CHICKEN_ L Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8670331457762354853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743045066834971772}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.44767338, y: 0.604167, z: -0.5918215, w: 0.29037592}
+  m_LocalPosition: {x: -0.08528124, y: 0.0000000047683715, z: 0}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1885262321581180830}
+  m_LocalEulerAnglesHint: {x: 53.221626, y: 10.8393135, z: -164.30664}
+--- !u!1 &774009447446600961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5152024121917445765}
+  m_Layer: 0
+  m_Name: CHICKEN_ L Toe1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5152024121917445765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774009447446600961}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.19484192, y: -0.19484188, z: -0.6797328, w: 0.67973274}
+  m_LocalPosition: {x: -0.014148002, y: 0.015685374, z: -0.0131443115}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3091852805724686936}
+  m_Father: {fileID: 8522580614903880546}
+  m_LocalEulerAnglesHint: {x: -31.989214, y: 0.00003523216, z: -31.455074}
+--- !u!1 &781279411934621775
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2197030848018616716}
+  m_Layer: 0
+  m_Name: CHICKEN_ L Toe0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2197030848018616716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781279411934621775}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.6960773, y: 0.6960773, z: -0.12440425, w: 0.12440425}
+  m_LocalPosition: {x: -0.01466335, y: -0.0031626385, z: 0.0013409901}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7182804922477292301}
+  m_Father: {fileID: 8522580614903880546}
+  m_LocalEulerAnglesHint: {x: 20.26596, y: -179.99983, z: 137.21727}
+--- !u!1 &1120231715410027066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1505223577505946139}
+  m_Layer: 0
+  m_Name: CHICKEN_ R Calf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1505223577505946139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120231715410027066}
+  serializedVersion: 2
+  m_LocalRotation: {x: -9.720509e-10, y: 3.7325487e-10, z: 0.6746737, w: 0.73811615}
+  m_LocalPosition: {x: -0.09701065, y: 0.000000038146972, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5394014276646166565}
+  m_Father: {fileID: 4927198082002904042}
+  m_LocalEulerAnglesHint: {x: 0.0000022387003, y: -0.0000021128963, z: 80.34599}
+--- !u!1 &1184229784146901177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3468715826128900579}
+  m_Layer: 0
+  m_Name: CHICKEN_ L Calf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3468715826128900579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184229784146901177}
+  serializedVersion: 2
+  m_LocalRotation: {x: 9.425083e-10, y: -0.0000000010311364, z: 0.6746737, w: 0.73811615}
+  m_LocalPosition: {x: -0.09701065, y: 0.000000019073486, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5405017088723813805}
+  m_Father: {fileID: 4702363075326041360}
+  m_LocalEulerAnglesHint: {x: 0.0000009667157, y: 0.00000011679495, z: 87.426544}
+--- !u!1 &1594901144913665906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 945220746728487082}
+  m_Layer: 0
+  m_Name: CHICKEN_ L Clavicle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &945220746728487082
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594901144913665906}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.37982112, y: -0.086341865, z: 0.9203485, w: 0.03520754}
+  m_LocalPosition: {x: -0.08260868, y: -0.04375097, z: 0.01791842}
+  m_LocalScale: {x: 0.9999998, y: 1, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 678854990852587371}
+  m_Father: {fileID: 3482375960047502391}
+  m_LocalEulerAnglesHint: {x: 7.5958214, y: -45.353683, z: 172.44083}
+--- !u!1 &1901486309682088700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5405017088723813805}
+  m_Layer: 0
+  m_Name: CHICKEN_ L HorseLink
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5405017088723813805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901486309682088700}
+  serializedVersion: 2
+  m_LocalRotation: {x: -5.4142435e-10, y: -7.927368e-10, z: -0.34687182, w: 0.9379125}
+  m_LocalPosition: {x: -0.12611221, y: 0.0000000047683715, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8522580614903880546}
+  m_Father: {fileID: 3468715826128900579}
+  m_LocalEulerAnglesHint: {x: -0.0000010529117, y: 0.0000005031275, z: -105.001335}
+--- !u!1 &2136328712210600749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5950342511073747503}
+  m_Layer: 0
+  m_Name: CHICKEN_ Head
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5950342511073747503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136328712210600749}
+  serializedVersion: 2
+  m_LocalRotation: {x: -4.009297e-13, y: -0.0000003079939, z: 0.11104548, w: 0.99381536}
+  m_LocalPosition: {x: -0.04794876, y: -0.000000009536743, z: 3.6379787e-14}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1132939216383896692}
+  m_Father: {fileID: 862716533832143312}
+  m_LocalEulerAnglesHint: {x: -1.1203156, y: 1.9435277, z: 33.388557}
+--- !u!1 &2296172374260618157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6506166060672580315}
+  m_Layer: 0
+  m_Name: CHICKEN_ R Toe1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6506166060672580315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2296172374260618157}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.19484194, y: 0.19484189, z: -0.6797328, w: 0.67973274}
+  m_LocalPosition: {x: -0.014147999, y: 0.015685372, z: 0.013144321}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9107881914160635629}
+  m_Father: {fileID: 1229694583807638266}
+  m_LocalEulerAnglesHint: {x: 35.07476, y: -8.864417, z: -93.23976}
+--- !u!1 &2383736752476176028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2179690434062679730}
+  m_Layer: 0
+  m_Name: CHICKEN_ R UpperArm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2179690434062679730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2383736752476176028}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.50085473, y: 0.08070325, z: 0.087666035, w: 0.85729}
+  m_LocalPosition: {x: -0.024205042, y: 0, z: -0.000000009536743}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3056281002155542129}
+  m_Father: {fileID: 7539852706937927994}
+  m_LocalEulerAnglesHint: {x: 41.4156, y: 33.567417, z: 11.7668915}
+--- !u!1 &3003123183565758801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1885262321581180830}
+  m_Layer: 0
+  m_Name: CHICKEN_ L Forearm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1885262321581180830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003123183565758801}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.000000006155342, y: -0.000000004197964, z: 0.5634413, w: 0.82615614}
+  m_LocalPosition: {x: -0.12052657, y: 0.0000000047683715, z: 0}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8670331457762354853}
+  m_Father: {fileID: 678854990852587371}
+  m_LocalEulerAnglesHint: {x: -0.000004753272, y: -0.00000085567035, z: 145.20493}
+--- !u!1 &3067683624895558477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6711042109426821338}
+  m_Layer: 0
+  m_Name: CHICKEN_ R Toe21
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6711042109426821338
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3067683624895558477}
+  serializedVersion: 2
+  m_LocalRotation: {x: -1.4551915e-11, y: -0.000000001118906, z: 4.6566134e-10, w: 1}
+  m_LocalPosition: {x: -0.021340722, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1821054771211424473}
+  m_LocalEulerAnglesHint: {x: -0.00000035738685, y: -0.0000007826841, z: 5.2026367}
+--- !u!1 &3742193863130864303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6985182367226304431}
+  m_Layer: 0
+  m_Name: root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6985182367226304431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3742193863130864303}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1533965450930632090}
+  m_Father: {fileID: 2257954083253401222}
+  m_LocalEulerAnglesHint: {x: -89.99999, y: 0, z: 0}
+--- !u!1 &3887767465051545247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5394014276646166565}
+  m_Layer: 0
+  m_Name: CHICKEN_ R HorseLink
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5394014276646166565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3887767465051545247}
+  serializedVersion: 2
+  m_LocalRotation: {x: 1.046748e-10, y: 9.542616e-10, z: -0.34687182, w: 0.9379125}
+  m_LocalPosition: {x: -0.12611221, y: 0.000000009536743, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1229694583807638266}
+  m_Father: {fileID: 1505223577505946139}
+  m_LocalEulerAnglesHint: {x: -0.000000089564566, y: 0.0000012040939, z: -40.74594}
+--- !u!1 &3992436780739585092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4092646923243547441}
+  m_Layer: 0
+  m_Name: CHICKEN_ L Toe21
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4092646923243547441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3992436780739585092}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1.355147e-10, z: -0, w: 1}
+  m_LocalPosition: {x: -0.021340724, y: 0, z: 0.0000000047683715}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6982280000388881892}
+  m_LocalEulerAnglesHint: {x: 0.0000001301313, y: -0.00000051749845, z: 50.984978}
+--- !u!1 &4310837623998369558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8522580614903880546}
+  m_Layer: 0
+  m_Name: CHICKEN_ L Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8522580614903880546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4310837623998369558}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.08326836, y: -0.018548112, z: 0.117941946, w: 0.9893493}
+  m_LocalPosition: {x: -0.068959795, y: -5.9604643e-10, z: -0.0000000047683715}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2197030848018616716}
+  - {fileID: 5152024121917445765}
+  - {fileID: 6982280000388881892}
+  - {fileID: 2594880591988647668}
+  m_Father: {fileID: 5405017088723813805}
+  m_LocalEulerAnglesHint: {x: 4.104435, y: -3.1811695, z: 111.91591}
+--- !u!1 &4526268500363331104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3056281002155542129}
+  m_Layer: 0
+  m_Name: CHICKEN_ R Forearm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3056281002155542129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4526268500363331104}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000015388355, y: 0.0000000104949125, z: 0.56344134, w: 0.8261561}
+  m_LocalPosition: {x: -0.120526575, y: 0.0000000047683715, z: 0}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8327951081305252207}
+  m_Father: {fileID: 2179690434062679730}
+  m_LocalEulerAnglesHint: {x: 0.0000028044733, y: -0.0000019488027, z: 145.20493}
+--- !u!1 &5578575810567781582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4702363075326041360}
+  m_Layer: 0
+  m_Name: CHICKEN_ L Thigh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4702363075326041360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5578575810567781582}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.9352327, y: -0.35392758, z: 0.0031758451, w: 0.008064188}
+  m_LocalPosition: {x: 0.000000085830685, y: 0.000000095367426, z: 0.068235}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3468715826128900579}
+  m_Father: {fileID: 4416662338117508392}
+  m_LocalEulerAnglesHint: {x: 4.866601, y: 178.19092, z: -145.13118}
+--- !u!1 &5697699691806423051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7182804922477292301}
+  m_Layer: 0
+  m_Name: CHICKEN_ L Toe01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7182804922477292301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5697699691806423051}
+  serializedVersion: 2
+  m_LocalRotation: {x: 4.5087568e-18, y: 0.000000009682481, z: -4.6566134e-10, w: 1}
+  m_LocalPosition: {x: -0.010600464, y: 0, z: 0.000000009536743}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2197030848018616716}
+  m_LocalEulerAnglesHint: {x: -0.0000031357067, y: -0.0000014186173, z: 17.21733}
+--- !u!1 &5786857787051025372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1821054771211424473}
+  m_Layer: 0
+  m_Name: CHICKEN_ R Toe2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1821054771211424473
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5786857787051025372}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.048024643, y: -0.048024673, z: -0.7054741, w: 0.705474}
+  m_LocalPosition: {x: -0.014147999, y: 0.0233697, z: 0.0005804586}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6711042109426821338}
+  m_Father: {fileID: 1229694583807638266}
+  m_LocalEulerAnglesHint: {x: -6.779918, y: -3.9808142, z: -100.55518}
+--- !u!1 &5837358074376328040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 230977288432644170}
+  m_Layer: 0
+  m_Name: CHICKEN_ L Toe31
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &230977288432644170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837358074376328040}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.0000000017989805, z: -0, w: 1}
+  m_LocalPosition: {x: -0.01620652, y: -9.3132255e-12, z: 0}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2594880591988647668}
+  m_LocalEulerAnglesHint: {x: -0.0000006854939, y: -0.0000030010337, z: 43.44323}
+--- !u!1 &5864332577149092898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8327951081305252207}
+  m_Layer: 0
+  m_Name: CHICKEN_ R Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8327951081305252207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5864332577149092898}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.44767332, y: 0.60416704, z: 0.59182143, w: -0.2903759}
+  m_LocalPosition: {x: -0.085281245, y: -0.0000000047683715, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3056281002155542129}
+  m_LocalEulerAnglesHint: {x: -53.221626, y: -10.839311, z: -164.30664}
+--- !u!1 &5952891463040583995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9107881914160635629}
+  m_Layer: 0
+  m_Name: CHICKEN_ R Toe11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9107881914160635629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952891463040583995}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.0000000038016883, z: -0, w: 1}
+  m_LocalPosition: {x: -0.01715106, y: 0, z: -0.000000009536743}
+  m_LocalScale: {x: 0.99999994, y: 0.9999999, z: 0.9999998}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6506166060672580315}
+  m_LocalEulerAnglesHint: {x: -0.00000011997633, y: -0.0000052653395, z: -5.9544654}
+--- !u!1 &6011793002602059801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 136158357362689939}
+  m_Layer: 0
+  m_Name: CHICKEN_ R Toe3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &136158357362689939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6011793002602059801}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.2900534, y: -0.2900534, z: -0.6448791, w: 0.6448791}
+  m_LocalPosition: {x: -0.015719436, y: 0.011644227, z: -0.012996182}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4048762028843904599}
+  m_Father: {fileID: 1229694583807638266}
+  m_LocalEulerAnglesHint: {x: -30.057835, y: 7.6978083, z: -93.77984}
+--- !u!1 &6061674221874935459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5803875907320499664}
+  m_Layer: 0
+  m_Name: CHICKEN_ R Toe01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5803875907320499664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061674221874935459}
+  serializedVersion: 2
+  m_LocalRotation: {x: -4.3520557e-18, y: -0.0000000093459676, z: -4.6566134e-10,
+    w: 1}
+  m_LocalPosition: {x: -0.010600462, y: -7.4505804e-11, z: -0.0000000047683715}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7778047421469970373}
+  m_LocalEulerAnglesHint: {x: -0.00000025917504, y: 0.0000026955502, z: -3.7208548}
+--- !u!1 &6304337494211303253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8307117252703753471}
+  m_Layer: 0
+  m_Name: CHICKEN_ Tail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8307117252703753471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6304337494211303253}
+  serializedVersion: 2
+  m_LocalRotation: {x: 2.2887074e-15, y: -0.000002507903, z: 0.9042049, w: 0.42709893}
+  m_LocalPosition: {x: 0.1514481, y: -0.030903835, z: -0.00000003800116}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3482375960047502391}
+  m_LocalEulerAnglesHint: {x: -3.0285244, y: -1.317569, z: 129.2919}
+--- !u!1 &6444339033711966609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4048762028843904599}
+  m_Layer: 0
+  m_Name: CHICKEN_ R Toe31
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4048762028843904599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444339033711966609}
+  serializedVersion: 2
+  m_LocalRotation: {x: -2.3283067e-10, y: 0.000000016663762, z: 3.879835e-18, w: 1}
+  m_LocalPosition: {x: -0.016206516, y: 2.3283063e-11, z: 0}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 136158357362689939}
+  m_LocalEulerAnglesHint: {x: 0.00000022055599, y: -0.0000014024972, z: -8.561424}
+--- !u!1 &6511494898631420190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4416662338117508392}
+  m_Layer: 0
+  m_Name: CHICKEN_ Pelvis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4416662338117508392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6511494898631420190}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.49999934, w: 0.50000066}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4702363075326041360}
+  - {fileID: 4927198082002904042}
+  - {fileID: 3482375960047502391}
+  m_Father: {fileID: 1533965450930632090}
+  m_LocalEulerAnglesHint: {x: -89.99999, y: 89.99992, z: 0}
+--- !u!1 &6656402673773970631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 678854990852587371}
+  m_Layer: 0
+  m_Name: CHICKEN_ L UpperArm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &678854990852587371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6656402673773970631}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.50085473, y: -0.08070327, z: 0.08766602, w: 0.85729}
+  m_LocalPosition: {x: -0.024205046, y: -0.000000019073486, z: 0.000000009536743}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1885262321581180830}
+  m_Father: {fileID: 945220746728487082}
+  m_LocalEulerAnglesHint: {x: -41.415596, y: -33.56742, z: 11.7668915}
+--- !u!1 &6771717226401176386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1533965450930632090}
+  m_Layer: 0
+  m_Name: CHICKEN_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1533965450930632090
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6771717226401176386}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.45451918, y: -0.45451978, z: 0.54167485, w: 0.54167557}
+  m_LocalPosition: {x: -0, y: 0.05756166, z: 0.24599999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4416662338117508392}
+  m_Father: {fileID: 6985182367226304431}
+  m_LocalEulerAnglesHint: {x: 89.99999, y: -86.582924, z: -0.000015258789}
+--- !u!1 &6870307071411800504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6982280000388881892}
+  m_Layer: 0
+  m_Name: CHICKEN_ L Toe2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6982280000388881892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6870307071411800504}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.048024643, y: 0.048024673, z: -0.705474, w: 0.7054741}
+  m_LocalPosition: {x: -0.014148002, y: 0.023369707, z: -0.00058045384}
+  m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4092646923243547441}
+  m_Father: {fileID: 8522580614903880546}
+  m_LocalEulerAnglesHint: {x: 7.7887254, y: 0.000002800605, z: -39.015003}
+--- !u!1 &7169637626150994582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1132939216383896692}
+  m_Layer: 0
+  m_Name: CHICKEN_ Queue de cheval 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1132939216383896692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7169637626150994582}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.000002926334, y: 0.00000010621378, z: -0.70953816, w: 0.70466703}
+  m_LocalPosition: {x: -0.0054147337, y: 0.012983713, z: 0.00000039986313}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5950342511073747503}
+  m_LocalEulerAnglesHint: {x: -0.00030767373, y: 0.00023025327, z: -63.709957}
+--- !u!1 &7354665014500650875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7539852706937927994}
+  m_Layer: 0
+  m_Name: CHICKEN_ R Clavicle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7539852706937927994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7354665014500650875}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.37982124, y: 0.08633929, z: 0.9203488, w: 0.035206582}
+  m_LocalPosition: {x: -0.08260868, y: -0.043750856, z: -0.01791866}
+  m_LocalScale: {x: 0.9999999, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2179690434062679730}
+  m_Father: {fileID: 3482375960047502391}
+  m_LocalEulerAnglesHint: {x: -7.595599, y: 45.353653, z: 172.44107}
+--- !u!1 &7584832051034655113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2257954083253401222}
+  - component: {fileID: 8623475489973028217}
+  - component: {fileID: 6371327034269568360}
+  m_Layer: 0
+  m_Name: Chicken 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2257954083253401222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7584832051034655113}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5745, y: 1.5745, z: 1.5745}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4900783291111475972}
+  - {fileID: 6985182367226304431}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8623475489973028217
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7584832051034655113}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: d3412d9a75167e541b11c8b9ec1ce1e6, type: 3}
+  m_Controller: {fileID: 9100000, guid: 005b4044a94bb3e4bbad3da6ba65ff72, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6371327034269568360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7584832051034655113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4044b9d0d7c4442684747036ecc5cfd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8623475489973028217}
+  type: 1
+  _minMoveDuration: 3
+  _maxMoveDuration: 5
+  _minIdleDuration: 3.83
+  _maxIdleDuration: 13
+  _speed: 2.7
+  _distanceTolerance: 3
+  _distanceMagnet: 15
+  _footAnchros:
+  - {fileID: 2257954083253401222}
+--- !u!1 &7748817527510372493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2594880591988647668}
+  m_Layer: 0
+  m_Name: CHICKEN_ L Toe3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2594880591988647668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7748817527510372493}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.2900534, y: 0.29005346, z: -0.64487904, w: 0.6448791}
+  m_LocalPosition: {x: -0.015719438, y: 0.011644227, z: 0.0129961865}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 230977288432644170}
+  m_Father: {fileID: 8522580614903880546}
+  m_LocalEulerAnglesHint: {x: 48.43449, y: 0.0000051472816, z: -46.556755}
+--- !u!1 &7795463182404273523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4900783291111475972}
+  - component: {fileID: 542254627460143211}
+  m_Layer: 0
+  m_Name: Chicken_LOD1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4900783291111475972
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7795463182404273523}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2257954083253401222}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &542254627460143211
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7795463182404273523}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7622750597563e44095000c4b50f2cc1, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 4
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300002, guid: d3412d9a75167e541b11c8b9ec1ce1e6, type: 3}
+  m_Bones:
+  - {fileID: 5950342511073747503}
+  - {fileID: 862716533832143312}
+  - {fileID: 1132939216383896692}
+  - {fileID: 5786015543882557642}
+  - {fileID: 3482375960047502391}
+  - {fileID: 2179690434062679730}
+  - {fileID: 4416662338117508392}
+  - {fileID: 7539852706937927994}
+  - {fileID: 8307117252703753471}
+  - {fileID: 8327951081305252207}
+  - {fileID: 4927198082002904042}
+  - {fileID: 3056281002155542129}
+  - {fileID: 2594880591988647668}
+  - {fileID: 3091852805724686936}
+  - {fileID: 4092646923243547441}
+  - {fileID: 230977288432644170}
+  - {fileID: 678854990852587371}
+  - {fileID: 5301078732196938844}
+  - {fileID: 5152024121917445765}
+  - {fileID: 8670331457762354853}
+  - {fileID: 1885262321581180830}
+  - {fileID: 5405017088723813805}
+  - {fileID: 4702363075326041360}
+  - {fileID: 2197030848018616716}
+  - {fileID: 7182804922477292301}
+  - {fileID: 945220746728487082}
+  - {fileID: 8522580614903880546}
+  - {fileID: 3468715826128900579}
+  - {fileID: 6982280000388881892}
+  - {fileID: 1505223577505946139}
+  - {fileID: 5394014276646166565}
+  - {fileID: 4048762028843904599}
+  - {fileID: 1229694583807638266}
+  - {fileID: 6711042109426821338}
+  - {fileID: 5803875907320499664}
+  - {fileID: 7778047421469970373}
+  - {fileID: 136158357362689939}
+  - {fileID: 1821054771211424473}
+  - {fileID: 6506166060672580315}
+  - {fileID: 9107881914160635629}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 4416662338117508392}
+  m_AABB:
+    m_Center: {x: -0.07678573, y: -0.0022099614, z: -0.000000074505806}
+    m_Extent: {x: 0.3187477, y: 0.29399502, z: 0.26661688}
+  m_DirtyAABB: 0
+--- !u!1 &8428080474551210375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5301078732196938844}
+  m_Layer: 0
+  m_Name: CHICKEN_ Neck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5301078732196938844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8428080474551210375}
+  serializedVersion: 2
+  m_LocalRotation: {x: 1.0198821e-13, y: -0.0000005792995, z: 0.20886189, w: 0.97794515}
+  m_LocalPosition: {x: -0.06728844, y: -0.015168514, z: 0.0000000035919219}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5786015543882557642}
+  m_Father: {fileID: 3482375960047502391}
+  m_LocalEulerAnglesHint: {x: -0.15309389, y: 1.0336206, z: 7.78967}
+--- !u!1 &8567005541819440808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7778047421469970373}
+  m_Layer: 0
+  m_Name: CHICKEN_ R Toe0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7778047421469970373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8567005541819440808}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.6960772, y: 0.69607735, z: 0.12440415, w: -0.12440417}
+  m_LocalPosition: {x: -0.014663348, y: -0.0031626385, z: -0.0013409853}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5803875907320499664}
+  m_Father: {fileID: 1229694583807638266}
+  m_LocalEulerAnglesHint: {x: -17.216639, y: 177.4858, z: 115.01153}
+--- !u!1 &9042983442647698321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1229694583807638266}
+  m_Layer: 0
+  m_Name: CHICKEN_ R Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1229694583807638266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9042983442647698321}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.08326845, y: 0.018548109, z: 0.117941946, w: 0.9893493}
+  m_LocalPosition: {x: -0.068959795, y: 0.0000000023841857, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7778047421469970373}
+  - {fileID: 6506166060672580315}
+  - {fileID: 1821054771211424473}
+  - {fileID: 136158357362689939}
+  m_Father: {fileID: 5394014276646166565}
+  m_LocalEulerAnglesHint: {x: 0.55224156, y: 11.715838, z: 0.013633728}
+--- !u!1 &9134648526124836876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4927198082002904042}
+  m_Layer: 0
+  m_Name: CHICKEN_ R Thigh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4927198082002904042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9134648526124836876}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.9352327, y: -0.35392755, z: -0.0031767744, w: -0.008062261}
+  m_LocalPosition: {x: -0.000000104904174, y: -0.000000095367426, z: -0.068235}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1505223577505946139}
+  m_Father: {fileID: 4416662338117508392}
+  m_LocalEulerAnglesHint: {x: -8.128376, y: 178.84195, z: -121.561714}

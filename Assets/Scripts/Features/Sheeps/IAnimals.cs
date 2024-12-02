@@ -3,7 +3,7 @@ using Core;
 
 namespace Game
 {
-    public interface ISheeps : IFeature
+    public interface IAnimals : IFeature
     {
         Task LoadSheep();
     }
