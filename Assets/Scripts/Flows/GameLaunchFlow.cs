@@ -17,7 +17,7 @@ namespace Game
             var loading = bootstrap.Features.Get<ILoadingScreen>();
             var hud = bootstrap.Features.Get<IHud>();
             var marks = bootstrap.Features.Get<IMarks>();
-            var sheeps = bootstrap.Features.Get<ISheeps>();
+            var sheeps = bootstrap.Features.Get<IAnimals>();
             var garden = bootstrap.Features.Get<IGarden>();
             var world = bootstrap.Features.Get<IWorld>();
 
