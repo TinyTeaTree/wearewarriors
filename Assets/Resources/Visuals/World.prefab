@@ -172,6 +172,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _avatarStartSpot: {fileID: 810413533957808781}
   _cameraStartSpot: {fileID: 9049937298035012388}
+  ambientSound: {fileID: 11400000, guid: eab8c8ffd3fd440f7b7dc4d57899b9c4, type: 2}
+  music: {fileID: 11400000, guid: e80735ceeab6d4646aef784a03da60d9, type: 2}
+  minMusicInterval: 50
+  maxMusicInterval: 90
 --- !u!1 &5251576343028226690
 GameObject:
   m_ObjectHideFlags: 0
