@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class WaletVisual : BaseVisual<Walet>
+    public class WalletVisual : BaseVisual<Wallet>
     {
         
     }

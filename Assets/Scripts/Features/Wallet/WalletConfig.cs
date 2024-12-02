@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game
 {
     [System.Serializable]
-    public class WaletConfig : BaseConfig
+    public class WalletConfig : BaseConfig
     {
 
     }

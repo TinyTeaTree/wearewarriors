@@ -2,7 +2,7 @@ using Core;
 
 namespace Game
 {
-    public class WaletRecord : BaseRecord
+    public class WalletRecord : BaseRecord
     {
 
     }

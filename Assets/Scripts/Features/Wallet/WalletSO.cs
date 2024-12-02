@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Game
 {
-    public class WaletSO : BaseConfigSO
+    public class WalletSO : BaseConfigSO
     {
-        [SerializeField] private WaletConfig _config;
+        [SerializeField] private WalletConfig _config;
 
         public override BaseConfig Config => _config;
     }
