@@ -20,7 +20,7 @@ namespace Services
             if (player == null)
                 player = _ambientChannel.GetPlayer(e.SoundDesign);
             if (player == null)
-                player = _musicChannel.GetPlayer(e.SoundDesign);
+                player = _musicChannel.GetMusicPlayer(e.SoundDesign);
             if (player == null)
                 player = _vocalChannel.GetPlayer(e.SoundDesign);
 

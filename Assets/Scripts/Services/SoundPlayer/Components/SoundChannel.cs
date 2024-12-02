@@ -42,6 +42,17 @@ namespace Services
 
             return null;
         }
+        
+        public SoundPlayer GetMusicPlayer(IDesignSound soundDesign)
+        {
+            foreach (var player in _musicStack)
+            {
+                if (player.Design == soundDesign)
+                    return player;
+            }
+
+            return null;
+        }
 
         private SoundPlayer GetSoundPlayer()
         {

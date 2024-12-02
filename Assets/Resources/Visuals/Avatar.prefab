@@ -1231,7 +1231,12 @@ MonoBehaviour:
     anchorPoint: {fileID: 7017152752982524625}
   - toolID: 3
     anchorPoint: {fileID: 1093953739757539461}
-  _walkSounds: {fileID: 11400000, guid: 0630dafedc45347688468388d7f9025f, type: 2}
+  footsteps:
+  - {fileID: 11400000, guid: 788bc53cc20164bec8ca8cabc188d618, type: 2}
+  - {fileID: 11400000, guid: 5d52fcfdbf535468ebc36e9f9b1bf096, type: 2}
+  - {fileID: 11400000, guid: 923f6f80173c04e93a03fb31da9ca796, type: 2}
+  - {fileID: 11400000, guid: 2e6d6c44cbe0a4eceaddf2b1df6279d3, type: 2}
+  - {fileID: 11400000, guid: 112ea3f09d6bf4bb682699fed342b087, type: 2}
 --- !u!1 &3191607244050407424
 GameObject:
   m_ObjectHideFlags: 0

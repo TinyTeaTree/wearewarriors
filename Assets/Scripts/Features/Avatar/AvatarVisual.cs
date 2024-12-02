@@ -25,10 +25,8 @@ namespace Game
         
         private Coroutine _movementRoutine;
         private Coroutine _updateCycleRoutine;
-
-        [SerializeField] private BaseSoundDesign _walkSounds;
-
-        private SoundPlayer _movingSoundPlayer;
+        
+        [SerializeField] private List<BaseSoundDesign> footsteps;
         
         public void SetPos(Vector3 pos)
         {
@@ -89,12 +87,6 @@ namespace Game
                     transform.position += translation;
                     
                     Feature.ProcessMove();
-
-                    if (_movingSoundPlayer != null)
-                    {
-                        _movingSoundPlayer.SetPitch(clampedStrength);
-                        _movingSoundPlayer.SetVolume(clampedStrength);
-                    }
                 }
                 else
                 {
@@ -136,15 +128,9 @@ namespace Game
             }
         }
 
-        public void PlayWalkSounds()
+        public void Step_Event() //This is called from Animation Event
         {
-            DJ.Play(_walkSounds);
-            _movingSoundPlayer = DJ.GetPlayer(_walkSounds);
-        }
-
-        public void StopWalkSounds()
-        {
-            DJ.Stop(_walkSounds);
+            DJ.Play(footsteps.GetRandom());
         }
 
         public void StopMovement()

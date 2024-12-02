@@ -94,7 +94,6 @@ namespace Game
             if (!Record.IsMoving)
             {
                 Record.IsMoving = true;
-                _visual.PlayWalkSounds();
             }
         }
         
@@ -103,7 +102,6 @@ namespace Game
             if (Record.IsMoving)
             {
                 Record.IsMoving = false;
-                _visual.StopWalkSounds();
             }
             
             if (!Record.IsWorking)

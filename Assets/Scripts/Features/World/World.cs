@@ -9,6 +9,7 @@ namespace Game
         public async Task Load()
         {
             await CreateVisual();
+            _visual.StartWorldSounds();
         }
 
         public Vector3 AvatarStartSpot => _visual.AvatarStartSpot.position;
