@@ -17,6 +17,7 @@ namespace Services
         public const string SheepsVisual = "Visuals/Sheeps Visual";
         public const string ToolsVisual = "Visuals/Tools Visual";
         public const string World = "Visuals/World";
+        public const string Wallet = "Visuals/Wallet Visual";
         //<Resource Path End>
     }
 }

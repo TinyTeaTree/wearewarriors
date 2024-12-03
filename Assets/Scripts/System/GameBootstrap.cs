@@ -51,6 +51,7 @@ namespace Game
             _factories.Add(typeof(MarksVisual), new ResourceFactory(Addresses.MarksCanvas));
             _factories.Add(typeof(SheepsVisual), new ResourceFactory(Addresses.SheepsVisual));
             _factories.Add(typeof(WorldVisual), new AsyncResourceFactory(Addresses.World));
+            _factories.Add(typeof(WalletVisual), new AsyncResourceFactory(Addresses.Wallet));
         }
 
         protected override void AddAgents()
@@ -99,6 +100,7 @@ namespace Game
             saveService.AddSaveRecord(_records[typeof(PlayerAccountRecord)]);
             saveService.AddSaveRecord(_records[typeof(ToolsRecord)]);
             saveService.AddSaveRecord(_records[typeof(AvatarRecord)]);
+            saveService.AddSaveRecord(_records[typeof(WalletRecord)]);
         }
 
         private void BootstrapRecordService()

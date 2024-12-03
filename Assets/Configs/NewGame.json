@@ -722,6 +722,9 @@
       },
       "Rot": 151.92
     }
-  }
-
+  },
+    
+    "WalletRecord": {
+      "WalletBalance": 300
+    }
 }
