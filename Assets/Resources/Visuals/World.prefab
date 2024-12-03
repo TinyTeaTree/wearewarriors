@@ -437,6 +437,10 @@ MonoBehaviour:
   - {fileID: 130492307754321626}
   - {fileID: 8488846392151620392}
   - {fileID: 8666120705880024951}
+  ambientSound: {fileID: 11400000, guid: eab8c8ffd3fd440f7b7dc4d57899b9c4, type: 2}
+  music: {fileID: 11400000, guid: e80735ceeab6d4646aef784a03da60d9, type: 2}
+  minMusicInterval: 50
+  maxMusicInterval: 90
 --- !u!1 &5223642901312728390
 GameObject:
   m_ObjectHideFlags: 0
