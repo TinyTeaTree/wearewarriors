@@ -1,4 +1,4 @@
-{
+  {
   "GardenRecord": {
     "Version": 1,
     "Fields": [
@@ -722,6 +722,9 @@
       },
       "Rot": 151.92
     }
-  }
-
+  },
+    
+    "WalletRecord": {
+      "WalletBalance": 300
+    }
 }

@@ -35,6 +35,7 @@ namespace Game
             _features.Add<IMarks>(new Marks());
             _features.Add<ISheeps>(new Sheeps());
             _features.Add<IWorld>(new World());
+            _features.Add<IWallet>(new Wallet());
             //<New Feature>
         }
 
@@ -50,6 +51,7 @@ namespace Game
             _factories.Add(typeof(MarksVisual), new ResourceFactory(Addresses.MarksCanvas));
             _factories.Add(typeof(SheepsVisual), new ResourceFactory(Addresses.SheepsVisual));
             _factories.Add(typeof(WorldVisual), new AsyncResourceFactory(Addresses.World));
+            _factories.Add(typeof(WalletVisual), new AsyncResourceFactory(Addresses.Wallet));
         }
 
         protected override void AddAgents()
@@ -68,7 +70,8 @@ namespace Game
             _records.Add(typeof(JoystickRecord), new JoystickRecord());
             _records.Add(typeof(ToolsRecord), new ToolsRecord());
             _records.Add(typeof(PlayerAccountRecord), new PlayerAccountRecord());
-            _records.Add(typeof(CameraRecord), new CameraRecord());
+            _records.Add(typeof(CameraRecord), new CameraRecord()); 
+            _records.Add(typeof(WalletRecord), new WalletRecord());
             //<New Record>
         }
 
@@ -97,6 +100,7 @@ namespace Game
             saveService.AddSaveRecord(_records[typeof(PlayerAccountRecord)]);
             saveService.AddSaveRecord(_records[typeof(ToolsRecord)]);
             saveService.AddSaveRecord(_records[typeof(AvatarRecord)]);
+            saveService.AddSaveRecord(_records[typeof(WalletRecord)]);
         }
 
         private void BootstrapRecordService()
