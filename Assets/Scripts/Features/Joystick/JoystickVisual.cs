@@ -9,14 +9,8 @@ namespace Game
     {
         [SerializeField] private Canvas _canvas;
         [SerializeField] private JoystickInputCapture _joystick;
-        [SerializeField] private Button _dropToolButton;
 
         public Canvas Canvas => _canvas;
-
-        private void Start()
-        {
-            _dropToolButton.onClick.AddListener(Feature.DropPressed);
-        }
 
         public void Show()
         {
@@ -37,10 +31,6 @@ namespace Game
         {
             return _joystick.MoveKnob(worldPoint);
         }
-
-        public void ToggleDropButton(bool state)
-        {
-            _dropToolButton.gameObject.SetActive(state);
-        }
+        
     }
 }

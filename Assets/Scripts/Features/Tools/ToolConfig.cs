@@ -1,7 +1,4 @@
-﻿
-using Core;
-using UnityEngine;
-using UnityEngine.Serialization;
+﻿using UnityEngine;
 
 namespace Game
 {
@@ -12,8 +9,5 @@ namespace Game
         public ToolVisual prefab;
         public TTools ToolID;
         public ToolAction[] ToolAbilities;
-        public TPlant PlantType;
-        [Space(10)]
-        public Vector3 ToolPosition;
     }
 }

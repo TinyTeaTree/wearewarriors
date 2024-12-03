@@ -11,7 +11,5 @@ namespace Game
         void Hide();
         
         bool IsAvailable { get; }
-
-        void ToggleDropButton(bool state);
     }
 }
