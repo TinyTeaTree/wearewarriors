@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381747e14d265f1469408be0e57bd99b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 3567547913476268255}
   coinText: {fileID: 1893390792934190360}
 --- !u!1 &8571734808093016508
 GameObject:

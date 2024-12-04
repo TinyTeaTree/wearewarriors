@@ -29,7 +29,7 @@ namespace Game
             _features.Add<IJoystick>(new Joystick());
             _features.Add<ITools>(new Tools());
             _features.Add<IPlayerAccount>(new PlayerAccount());
-
+            _features.Add<IWallet>(new Wallet());
             _features.Add<ICamera>(new Camera());
             _features.Add<IHud>(new Hud());
             _features.Add<IMarks>(new Marks());
@@ -49,6 +49,7 @@ namespace Game
             _factories.Add(typeof(HudVisual), new ResourceFactory(Addresses.HudVisual));
             _factories.Add(typeof(MarksVisual), new ResourceFactory(Addresses.MarksCanvas));
             _factories.Add(typeof(AnimalsVisual), new ResourceFactory(Addresses.AnimalsVisual));
+            _factories.Add(typeof(WalletVisual), new AsyncResourceFactory(Addresses.Wallet));
             _factories.Add(typeof(WorldVisual), new AsyncResourceFactory(Addresses.World));
         }
 
