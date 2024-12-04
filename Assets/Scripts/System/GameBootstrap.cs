@@ -49,7 +49,7 @@ namespace Game
             _factories.Add(typeof(HudVisual), new ResourceFactory(Addresses.HudVisual));
             _factories.Add(typeof(MarksVisual), new ResourceFactory(Addresses.MarksCanvas));
             _factories.Add(typeof(AnimalsVisual), new ResourceFactory(Addresses.AnimalsVisual));
-            _factories.Add(typeof(WalletVisual), new ResourceFactory(Addresses.Wallet));
+            _factories.Add(typeof(WalletVisual), new AsyncResourceFactory(Addresses.Wallet));
             _factories.Add(typeof(WorldVisual), new AsyncResourceFactory(Addresses.World));
         }
 
