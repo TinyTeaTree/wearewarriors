@@ -12,7 +12,7 @@ namespace Game
 
         public void UpdateCoinUI()
         {
-            coinText.text = Feature.Record.WalletBalance.ToString();
+            coinText.text = Feature.Record.Coins.ToString();
         }
     }
 }

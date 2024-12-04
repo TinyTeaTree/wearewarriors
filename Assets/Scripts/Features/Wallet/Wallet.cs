@@ -16,14 +16,14 @@ namespace Game
 
         public async Task AddToWallet(int amount)
         {
-            Record.WalletBalance += amount;
+            Record.Coins += amount;
             _visual.UpdateCoinUI();
             await PlayerAccount.SyncPlayerData();
         }
 
         public async Task  Pay(int amount)
         {
-            Record.WalletBalance -= amount;
+            Record.Coins -= amount;
             _visual.UpdateCoinUI();
             await PlayerAccount.SyncPlayerData();
         }

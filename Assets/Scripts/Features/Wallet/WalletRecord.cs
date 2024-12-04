@@ -5,6 +5,6 @@ namespace Game
 {
     public class WalletRecord : BaseRecord
     {
-        public int WalletBalance;
+        public int Coins;
     }
 }
