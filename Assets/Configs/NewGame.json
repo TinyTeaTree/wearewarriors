@@ -721,16 +721,17 @@
         "Z" : -12.96
       },
       "Rot": 151.92
+    },
+    "AnimalsRecord": {
+      "Animals": [
+        "Sheep",
+        "Chicken1",
+        "Chicken1",
+        "Chicken1"
+      ]
+    },
+    "WalletRecord": {
+      "WalletBalance": 300
     }
-  },
-  
-  "AnimalsRecord": {
-    "Animals": [
-      "Sheep",
-      "Chicken1",
-      "Chicken1",
-      "Chicken1"
-    ]
   }
-
 }

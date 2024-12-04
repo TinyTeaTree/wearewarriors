@@ -16,6 +16,7 @@ namespace Game
             var camera = bootstrap.Features.Get<ICamera>();
             var loading = bootstrap.Features.Get<ILoadingScreen>();
             var hud = bootstrap.Features.Get<IHud>();
+            var wallet = bootstrap.Features.Get<IWallet>();
             var marks = bootstrap.Features.Get<IMarks>();
             var sheeps = bootstrap.Features.Get<IAnimals>();
             var garden = bootstrap.Features.Get<IGarden>();
@@ -28,6 +29,8 @@ namespace Game
                 .AddNext(() => playerAccount.Login())
                 
                 //Here we can start loading User Related Features
+               
+                .AddNext(() => wallet.LoadWallet()) 
                 .AddNext(() => marks.Load())
                 .AddNext(() => world.Load())
                 .AddNext(() => garden.Load())

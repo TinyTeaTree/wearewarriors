@@ -10,5 +10,6 @@ namespace Game
         void SetHudOnCanvas(Canvas canvas);
         
         UnityEngine.Camera HudCamera { get; }
+        Transform NavBar { get; }
     }
 }

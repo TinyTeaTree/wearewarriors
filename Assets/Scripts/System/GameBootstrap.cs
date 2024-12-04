@@ -69,6 +69,7 @@ namespace Game
             _records.Add(typeof(ToolsRecord), new ToolsRecord());
             _records.Add(typeof(PlayerAccountRecord), new PlayerAccountRecord());
             _records.Add(typeof(CameraRecord), new CameraRecord());
+            _records.Add(typeof(WalletRecord), new WalletRecord());
             _records.Add(typeof(AnimalsRecord), new AnimalsRecord());
             //<New Record>
         }
@@ -98,8 +99,9 @@ namespace Game
             saveService.AddSaveRecord(_records[typeof(PlayerAccountRecord)]);
             saveService.AddSaveRecord(_records[typeof(ToolsRecord)]);
             saveService.AddSaveRecord(_records[typeof(AvatarRecord)]);
+            saveService.AddSaveRecord(_records[typeof(WalletRecord)]);
             saveService.AddSaveRecord(_records[typeof(AnimalsRecord)]);
-        }
+        }   
 
         private void BootstrapRecordService()
         {

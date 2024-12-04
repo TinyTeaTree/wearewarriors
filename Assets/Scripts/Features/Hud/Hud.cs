@@ -10,6 +10,7 @@ namespace Game
         [Inject] public ICamera Camera { get; set; }
         
         public UnityEngine.Camera HudCamera => _visual.Camera;
+        public Transform NavBar => _visual.MainBorder;
         
         public async Task Load()
         {
