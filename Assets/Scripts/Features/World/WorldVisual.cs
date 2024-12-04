@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Collections;
 using Core;
 using Services;
@@ -9,6 +10,8 @@ namespace Game
     {
         [SerializeField] private Transform _avatarStartSpot;
         [SerializeField] private Transform _cameraStartSpot;
+        [SerializeField] private List<Transform> animalStartPoints;
+
         
         [SerializeField] private BaseSoundDesign ambientSound;
         [SerializeField] private BaseSoundDesign music;
@@ -17,6 +20,8 @@ namespace Game
         
         public Transform AvatarStartSpot => _avatarStartSpot;
         public Transform CameraStartSpot => _cameraStartSpot;
+
+        public List<Transform> AnimalStartPoints => animalStartPoints;
 
         public void StartWorldSounds()
         {

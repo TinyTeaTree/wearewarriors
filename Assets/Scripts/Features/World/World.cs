@@ -14,5 +14,10 @@ namespace Game
 
         public Vector3 AvatarStartSpot => _visual.AvatarStartSpot.position;
         public Transform CameraStartSpot => _visual.CameraStartSpot;
+
+        public Transform GetAnimalStartPoint()
+        {
+            return _visual.AnimalStartPoints.GetRandom();
+        }
     }
 }

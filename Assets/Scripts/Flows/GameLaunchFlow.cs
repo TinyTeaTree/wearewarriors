@@ -18,7 +18,7 @@ namespace Game
             var hud = bootstrap.Features.Get<IHud>();
             var wallet = bootstrap.Features.Get<IWallet>();
             var marks = bootstrap.Features.Get<IMarks>();
-            var sheeps = bootstrap.Features.Get<ISheeps>();
+            var sheeps = bootstrap.Features.Get<IAnimals>();
             var garden = bootstrap.Features.Get<IGarden>();
             var world = bootstrap.Features.Get<IWorld>();
 
