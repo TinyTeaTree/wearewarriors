@@ -17,7 +17,8 @@ namespace Game
 
         [SerializeField] private float _minIdleDuration;
         [SerializeField] private float _maxIdleDuration;
-        
+
+        [SerializeField] private bool clampMovement;
         [SerializeField] private float _speed = 3.3f;
         
         [SerializeField, Tooltip("Closer Than This, the Sheep will move away from Avatar")] private float _distanceTolerance;
@@ -61,8 +62,35 @@ namespace Game
                 transform.LookAt(transform.position + newForward.XZ());
                 
                 transform.Translate(Vector3.forward * Time.deltaTime * _speed * speedFactor, Space.Self);
-                
+                if (clampMovement)
+                {
+                    Clamp();
+                }
+
                 yield return null;
+            }
+        }
+        
+        public void Clamp()
+        {
+            if (transform.position.z > Feature.World.TopBounds.z)
+            {
+                transform.SetZ(Feature.World.TopBounds.z);
+            }
+            
+            if (transform.position.x > Feature.World.RightBounds.x)
+            {
+                transform.SetX(Feature.World.RightBounds.x);
+            }
+            
+            if (transform.position.z < Feature.World.BottomBounds.z)
+            {
+                transform.SetZ(Feature.World.BottomBounds.z);
+            }
+            
+            if (transform.position.x < Feature.World.LeftBounds.x)
+            {
+                transform.SetX(Feature.World.LeftBounds.x);
             }
         }
 

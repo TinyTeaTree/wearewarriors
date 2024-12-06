@@ -194,6 +194,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plot Field (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7678133443408660581, guid: 8d633e8396db65d4fb29d0e594381f05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7685580172965982178, guid: 8d633e8396db65d4fb29d0e594381f05,
         type: 3}
       propertyPath: fieldID
@@ -365,6 +370,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plot Field (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7678133443408660581, guid: 8d633e8396db65d4fb29d0e594381f05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7685580172965982178, guid: 8d633e8396db65d4fb29d0e594381f05,
         type: 3}
       propertyPath: fieldID
@@ -466,6 +476,16 @@ PrefabInstance:
       propertyPath: Field
       value: 
       objectReference: {fileID: 2875625473708383783}
+    - target: {fileID: 2957389978359530512, guid: 8d633e8396db65d4fb29d0e594381f05,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.2800002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083992125222845203, guid: 8d633e8396db65d4fb29d0e594381f05,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.28
+      objectReference: {fileID: 0}
     - target: {fileID: 3349972603645648185, guid: 8d633e8396db65d4fb29d0e594381f05,
         type: 3}
       propertyPath: Field
@@ -480,6 +500,16 @@ PrefabInstance:
         type: 3}
       propertyPath: plantType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608294839804111885, guid: 8d633e8396db65d4fb29d0e594381f05,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.6000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439147779333379079, guid: 8d633e8396db65d4fb29d0e594381f05,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.2800002
       objectReference: {fileID: 0}
     - target: {fileID: 5479755704824237358, guid: 8d633e8396db65d4fb29d0e594381f05,
         type: 3}
@@ -506,10 +536,20 @@ PrefabInstance:
       propertyPath: Field
       value: 
       objectReference: {fileID: 2875625473708383783}
+    - target: {fileID: 7342583345337405301, guid: 8d633e8396db65d4fb29d0e594381f05,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.6000004
+      objectReference: {fileID: 0}
     - target: {fileID: 7678133443408660581, guid: 8d633e8396db65d4fb29d0e594381f05,
         type: 3}
       propertyPath: m_Name
       value: Plot Field
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262638813636105084, guid: 8d633e8396db65d4fb29d0e594381f05,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
