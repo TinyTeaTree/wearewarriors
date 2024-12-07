@@ -16,6 +16,7 @@ namespace Game
         [Inject] public ITools Tools { get; set; }
         [Inject] public IPlayerAccount PlayerAccount { get; set; }
         [Inject] public IGarden Garden { get; set; }
+        [Inject] public IShop Shop { get; set; }
 
         public Transform AvatarTransform => _visual.transform;
         private AvatarConfig Config { get; set; }
@@ -40,6 +41,13 @@ namespace Game
         public void Update()
         {
             ScanForTool();
+            
+            var storeTrigger = _visual.IsNearStore();
+
+            if (storeTrigger)
+            {
+                DisplayStore();
+            }
         }
 
         private void ScanForTool()
@@ -124,11 +132,10 @@ namespace Game
             }
             
             var gardenPlotVisual = _visual.TryGetPlot();
-            var seedPool = _visual.TryGetSeed();
             
             CheckRakeWork(holdingTool, gardenPlotVisual);
             
-            CheckGrainBagWork(holdingTool, gardenPlotVisual, seedPool);
+            CheckGrainBagWork(holdingTool, gardenPlotVisual);
 
             CheckWaterWork(holdingTool, gardenPlotVisual);
         }
@@ -150,7 +157,6 @@ namespace Game
                 return;
             
             var gardenPlotVisual = _visual.TryGetPlot();
-            var seedPool = _visual.TryGetSeed();
             
             Record.WorkTime = Time.time;
 
@@ -158,7 +164,7 @@ namespace Game
 
             CheckWaterProgress(holdingTool, gardenPlotVisual);
                     
-            CheckGrainBagProgress(holdingTool, seedPool, gardenPlotVisual);
+            CheckGrainBagProgress(holdingTool, gardenPlotVisual);
         }
 
         private void CheckWaterProgress(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual)
@@ -171,16 +177,10 @@ namespace Game
             Garden.WaterPlant(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID, holdingTool.WorkPerSecond);
         }
 
-        private void CheckGrainBagProgress(ToolVisual holdingTool, GardenSeedPoolVisual seedPool, GardenPlotVisual gardenPlotVisual)
+        private void CheckGrainBagProgress(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual)
         {
             if (holdingTool.ToolID != TTools.GrainBag) 
                 return;
-            if (seedPool != null)
-            {
-                holdingTool.SeedType = seedPool.SeedPoolType;
-                _visual.AnimateTool(holdingTool.ToolID, false);
-            }
-
             if (gardenPlotVisual == null) 
                 return;
             
@@ -214,7 +214,7 @@ namespace Game
             }
         }
         
-        private void CheckGrainBagWork(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual, GardenSeedPoolVisual seedPool)
+        private void CheckGrainBagWork(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual)
         {
             if (holdingTool.ToolID != TTools.GrainBag) 
                 return;
@@ -230,21 +230,14 @@ namespace Game
                     }
                 }
             }
-            else
-            {
-                CheckSeedPoolWork(holdingTool, seedPool);
-            }
         }
         
-        private void CheckSeedPoolWork(ToolVisual holdingTool, GardenSeedPoolVisual seedPool)
+        private void DisplayStore()
         {
-            if (seedPool == null) 
+            if(Shop.Visual.OnDisplay()) 
                 return;
             
-            if (seedPool.SeedPoolType != holdingTool.SeedType)
-            {
-                StartWorking(holdingTool);
-            }
+            Shop.Visual.LoadItems(TShops.SeedShop);
         }
 
         private void CheckRakeWork(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual)
