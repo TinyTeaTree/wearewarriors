@@ -76,13 +76,13 @@ namespace Game
 
         public void ActivateAnimator()
         {
-            _animator.enabled = true;
+            //_animator.enabled = true;
         }
         
         // <Called by an Animation event>
         public void DeactivateAnimator()
         {
-            _animator.enabled = false;
+            //_animator.enabled = false;
         }
         
         public void SetTarget(Transform target)

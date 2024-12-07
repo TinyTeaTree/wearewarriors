@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public interface IWorld : IFeature
+    public interface IWorld : IFeature, IWorldBounds
     {
         Task Load();
         Vector3 AvatarStartSpot { get; }
