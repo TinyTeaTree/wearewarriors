@@ -4,10 +4,20 @@
 We want the Game Architecture to be easily translatable to Business Values. In Games, our Values come in the form of Game Features. Thus our Core Foundation aims to orient the Architecture around Solid Features.
 
 ### Brief
-In the Core Foundation, we Split the Game into Features and Services. Features can use the help of Services, but Services are Agnostic to Features. Each Feature is also Split into Three Arch Types. The Feature itself is the host of the Logical Code, or Feature Design. The Visual part will collaborate with the UnityEngine and properly manage the Unity Components on a discrete GameObject. And lastly the Records will serve as Data Hubs for the Feature. We can also Add to the Feature Configurations and Register to Agents.
+In the Core Foundation, we Split the Game into Features and Services. Features can use the help of Services, but Services are Agnostic to Features. 
 
 _Features Using Services Example_
 ![Feature Service Usage Example](https://github.com/user-attachments/assets/c9a4434f-1e49-4ed4-b5b5-a8d3edda5563)
+
+Each feature consists of the Feature Script for all Logic, The Record for storing Data, and Visuals to host the MonoBehaviours and UnityEngine control code. 
+![image](https://github.com/user-attachments/assets/f5502a44-4139-48c3-b783-5a1990aa353f)
+
+
+
+
+And finally each Feature is encapsulated by an Interface that exposes only necessary functionality to the rest of the Game.
+
+This achieves a basic but highly effective MVC architecture within each feature separetely.
 
 ### Overview
 - Empty Scene
@@ -145,6 +155,8 @@ A good feature always starts with a Good Conversation
 ![cartoon](https://github.com/user-attachments/assets/da37324b-ae0b-4231-afd0-5a2f42af15f3)
 
 Once you have a good idea for a Feature that you want, Head on over the the Feature Maker to create it
+![image](https://github.com/user-attachments/assets/bf150afa-71e0-413d-8aba-5a53ceeedda4)
+
 
 **A Feature Contains**
 - Feature Script, The Main Script of the Feature, All the Feature Logic
@@ -202,6 +214,9 @@ Each Feature may have its Own Record. But we can also Create Records to contain 
 
 Dont forget to Bootstrap your Records
 ![image](https://github.com/user-attachments/assets/bff9cb01-67ed-45a6-a446-77087e1328c2)
+
+A cool tool that we have is to Spy on the content of your Records during Unity Runtime via the RecordDataSpy Tool
+![image](https://github.com/user-attachments/assets/c15de6f3-799a-4c31-9bb1-5a32b5ad7c36)
 
 
 Most important Note - Never create new Instances of Records, outside the Bootstrap phase, without a good reason.
