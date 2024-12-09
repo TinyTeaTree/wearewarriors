@@ -17,6 +17,7 @@ namespace Game
         [Inject] public IPlayerAccount PlayerAccount { get; set; }
         [Inject] public IGarden Garden { get; set; }
         [Inject] public IShop Shop { get; set; }
+        [Inject] public IWorld World { get; set; }
 
         public Transform AvatarTransform => _visual.transform;
         private AvatarConfig Config { get; set; }
@@ -35,7 +36,7 @@ namespace Game
         {
             _visual.SetDirectionProvider(Joystick);
             
-            _visual.StartMovement();
+            _visual.StartMovement(World);
         }
         
         public void Update()

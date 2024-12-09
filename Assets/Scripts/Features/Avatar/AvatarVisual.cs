@@ -25,6 +25,8 @@ namespace Game
         
         private Coroutine _movementRoutine;
         private Coroutine _updateCycleRoutine;
+
+        private IWorldBounds worldBounds;
         
         [SerializeField] private List<BaseSoundDesign> footsteps;
         
@@ -43,8 +45,10 @@ namespace Game
             _speed = speed;
         }
 
-        public void StartMovement()
+        public void StartMovement(IWorldBounds worldBounds)
         {
+            this.worldBounds = worldBounds;
+            
             if (_movementRoutine != null)
             {
                 StopCoroutine(_movementRoutine);
@@ -86,6 +90,8 @@ namespace Game
 
                     transform.position += translation;
                     
+                    Clamp();
+                    
                     Feature.ProcessMove();
                 }
                 else
@@ -125,6 +131,29 @@ namespace Game
                 transform.position = pos;
 
                 yield return null;
+            }
+        }
+
+        public void Clamp()
+        {
+            if (transform.position.z > worldBounds.TopBounds.z)
+            {
+                transform.SetZ(worldBounds.TopBounds.z);
+            }
+            
+            if (transform.position.x > worldBounds.RightBounds.x)
+            {
+                transform.SetX(worldBounds.RightBounds.x);
+            }
+            
+            if (transform.position.z < worldBounds.BottomBounds.z)
+            {
+                transform.SetZ(worldBounds.BottomBounds.z);
+            }
+            
+            if (transform.position.x < worldBounds.LeftBounds.x)
+            {
+                transform.SetX(worldBounds.LeftBounds.x);
             }
         }
 

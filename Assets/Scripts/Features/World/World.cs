@@ -19,5 +19,10 @@ namespace Game
         {
             return _visual.AnimalStartPoints.GetRandom();
         }
+
+        public Vector3 TopBounds => _visual.TopBounds;
+        public Vector3 RightBounds => _visual.RightBounds;
+        public Vector3 LeftBounds => _visual.LeftBounds;
+        public Vector3 BottomBounds => _visual.BottomBounds;
     }
 }
