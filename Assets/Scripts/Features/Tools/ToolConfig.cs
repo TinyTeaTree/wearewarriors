@@ -1,13 +1,13 @@
-﻿using UnityEngine;
+﻿using Core;
+using UnityEngine;
 
 namespace Game
 {
-    [CreateAssetMenu]
     [System.Serializable]
-    public class ToolConfig : ScriptableObject
+    public class ToolConfig : BaseSO
     {
         public ToolVisual prefab;
         public TTools ToolID;
-        public ToolAction[] ToolAbilities;
+        public TPlant GrainBagSeedType;
     }
 }

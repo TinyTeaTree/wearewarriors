@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 310578439868797837}
   - component: {fileID: 8798225633532097800}
   m_Layer: 9
-  m_Name: SeedPoolVisual
+  m_Name: Shop Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
