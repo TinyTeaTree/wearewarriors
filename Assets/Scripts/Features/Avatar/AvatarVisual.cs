@@ -206,5 +206,10 @@ namespace Game
         {
             transform.rotation = Quaternion.Euler(0f, rot, 0f);
         }
+
+        public void SetStatus(bool status)
+        {
+           
+        }
     }
 }

@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d73a18cb46e4a16ab619840df85f694, type: 3}
-  m_Name: GrainBag
+  m_Name: Grain Bag Srawbarry
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3088499285026828010, guid: 8e681789fa33ef547a365ab24f457431, type: 3}
+  prefab: {fileID: 3088499285026828010, guid: ac7217f686abf0148909509ba7755dd0, type: 3}
   ToolID: 7
-  ToolAbilities: 06000000
-  ToolPosition: {x: 0, y: 0, z: 0}
+  GrainBagSeedType: 1

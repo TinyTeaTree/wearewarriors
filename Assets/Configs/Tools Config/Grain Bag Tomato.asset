@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d73a18cb46e4a16ab619840df85f694, type: 3}
-  m_Name: WateringCan
+  m_Name: Grain Bag Tomato
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2300322989099938079, guid: f15fd589076e3d146a6e2a2bbc98e06f, type: 3}
-  ToolID: 3
-  GrainBagSeedType: 0
+  prefab: {fileID: 3088499285026828010, guid: e5160b617161bb74a9d61d4418b99677, type: 3}
+  ToolID: 7
+  GrainBagSeedType: 2

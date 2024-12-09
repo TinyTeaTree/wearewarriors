@@ -9,6 +9,8 @@ namespace Game
         [Inject] public ShopRecord Record { get; set; }
         [Inject] public ILocalConfigService ConfigService { get; set; }
         [Inject] public IHud Hud { get; set; }
+        [Inject] public ITools Tools { get; set; }
+        [Inject] public IAvatar Avatar { get; set; }
         public ShopVisual Visual { get; set; }
         
         private ShopConfig config;

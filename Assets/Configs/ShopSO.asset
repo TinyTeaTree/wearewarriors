@@ -16,9 +16,9 @@ MonoBehaviour:
     ShopConfigData:
     - ShopType: 0
       ItemsVisual:
-      - {fileID: 5675827735543734606, guid: 8de3e14a33a348b4f9003ec7bd87d536, type: 3}
-      - {fileID: 5675827735543734606, guid: 7d56c772c5fa02d48bc598a460987137, type: 3}
-      - {fileID: 5675827735543734606, guid: 1eefc973880d9554eb4b05a33eda1638, type: 3}
+      - {fileID: 3292475485821900402, guid: 7d56c772c5fa02d48bc598a460987137, type: 3}
+      - {fileID: 4505268917551346891, guid: 1eefc973880d9554eb4b05a33eda1638, type: 3}
+      - {fileID: 7156106265668946499, guid: 8de3e14a33a348b4f9003ec7bd87d536, type: 3}
     - ShopType: 1
       ItemsVisual: []
     - ShopType: 2

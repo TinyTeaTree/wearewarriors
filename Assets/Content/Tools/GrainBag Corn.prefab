@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4821160592316459416}
   - component: {fileID: 753247445157979754}
   m_Layer: 7
-  m_Name: GrainBag
+  m_Name: GrainBag Corn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ToolID: 7
-  SeedType: 0
+  SeedType: 3
   _outline: {fileID: 5978939270484191384}
   _rigidbody: {fileID: 4821160592316459416}
   workPerSecond: 0.3
@@ -180,7 +180,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fdf18c58b725a2f469593ece1786d307, type: 2}
+  - {fileID: 2100000, guid: ab0ab741c6e1b9147b9a6b4c18b87110, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

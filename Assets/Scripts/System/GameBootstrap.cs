@@ -52,7 +52,7 @@ namespace Game
             _factories.Add(typeof(AnimalsVisual), new ResourceFactory(Addresses.AnimalsVisual));
             _factories.Add(typeof(WalletVisual), new AsyncResourceFactory(Addresses.Wallet));
             _factories.Add(typeof(WorldVisual), new AsyncResourceFactory(Addresses.World));
-            _factories.Add(typeof(ShopVisual), new AsyncResourceFactory(Addresses.Shop));
+            _factories.Add(typeof(ShopVisual), new AsyncResourceFactory(Addresses.ShopHud));
         }
 
         protected override void AddAgents()

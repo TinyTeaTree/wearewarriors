@@ -1,10 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Core;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Game
@@ -16,6 +14,10 @@ namespace Game
         [SerializeField] private Button exitStoreButton;
 
         private List<ItemVisual> items = new();
+        
+        private bool alreadyOpened = false;
+        
+        public bool AlreadyOpened => alreadyOpened;
 
         private void OnEnable()
         {
@@ -23,12 +25,18 @@ namespace Game
             {
                 DisplayShop(false);
 
-                foreach (var item in items)
-                {
-                    item.DestroyMe();
-                }
-                items.Clear();
+                ClearShopItems();
             });
+        }
+
+        public void ClearShopItems()
+        {
+            foreach (var item in items)
+            {
+                item.DestroyMe();
+            }
+
+            items.Clear();
         }
 
         private void Start()
@@ -38,6 +46,7 @@ namespace Game
 
         public void DisplayShop(bool status)
         {
+            StopAllCoroutines();
             StartCoroutine(ShopDisplayRoutin(status));
         }
 
@@ -47,7 +56,7 @@ namespace Game
             
             while (!Mathf.Approximately(transform.localScale.x, status ? 1f : 0f))
             {
-                transform.localScale = Vector3.Lerp(transform.localScale, status? Vector3.one : Vector3.zero, 10f * Time.deltaTime);
+                transform.localScale = Vector3.Lerp(transform.localScale, status? Vector3.one : Vector3.zero, 0.1f);
                 yield return null;
             }
             
@@ -61,6 +70,7 @@ namespace Game
            foreach (var item in shopData.ItemsVisual)
            {
                var itemVisual = Instantiate(item, itemsContainer);
+               itemVisual.SetFeature(Feature);
                items.Add(itemVisual);
            }
            gameObject.SetActive(true);
@@ -70,6 +80,11 @@ namespace Game
         public bool OnDisplay()
         {
             return gameObject.activeSelf;
+        }
+
+        public void SetOpenStatus(bool status)
+        {
+            alreadyOpened = status;
         }
     }
 }

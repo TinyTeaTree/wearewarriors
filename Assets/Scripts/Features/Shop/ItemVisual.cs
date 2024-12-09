@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Codice.CM.Common;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +11,7 @@ namespace Game
     public class ItemVisual: BaseVisual<Shop>
     {
         [SerializeField] Image itemImage;
-        [SerializeField] Button buyButton;
+        [SerializeField] protected Button buyButton;
         [SerializeField] TextMeshProUGUI priceText;
 
         public void DestroyMe()

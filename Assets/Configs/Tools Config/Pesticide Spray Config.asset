@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 807229285069766825, guid: 1106141bcfec7bd43afb0b5fec864e41, type: 3}
   ToolID: 4
-  ToolAbilities: 05000000
-  ToolPosition: {x: 1, y: 1, z: -2}
+  GrainBagSeedType: 0

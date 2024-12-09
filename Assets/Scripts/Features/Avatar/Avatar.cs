@@ -41,12 +41,23 @@ namespace Game
         public void Update()
         {
             ScanForTool();
-            
-            var storeTrigger = _visual.IsNearStore();
+            ScanForShop();
+        }
 
-            if (storeTrigger)
+        private void ScanForShop()
+        {
+            var InStoreArea = _visual.IsNearStore();
+
+            if (InStoreArea)
             {
-                DisplayStore();
+                if (!Shop.Visual.AlreadyOpened)
+                {
+                    DisplayStore();
+                }
+            }
+            else
+            {
+                Shop.Visual.SetOpenStatus(false);
             }
         }
 
@@ -234,9 +245,7 @@ namespace Game
         
         private void DisplayStore()
         {
-            if(Shop.Visual.OnDisplay()) 
-                return;
-            
+            Shop.Visual.SetOpenStatus(true);
             Shop.Visual.LoadItems(TShops.SeedShop);
         }
 
