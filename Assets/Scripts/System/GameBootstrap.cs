@@ -35,6 +35,7 @@ namespace Game
             _features.Add<IMarks>(new Marks());
             _features.Add<IAnimals>(new Animals());
             _features.Add<IWorld>(new World());
+            _features.Add<ICoins>(new Coins());
             //<New Feature>
         }
 
@@ -72,6 +73,7 @@ namespace Game
             _records.Add(typeof(CameraRecord), new CameraRecord());
             _records.Add(typeof(WalletRecord), new WalletRecord());
             _records.Add(typeof(AnimalsRecord), new AnimalsRecord());
+            _records.Add(typeof(CoinsRecord), new CoinsRecord());
             //<New Record>
         }
 
