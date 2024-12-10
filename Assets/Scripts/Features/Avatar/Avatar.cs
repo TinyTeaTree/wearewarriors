@@ -51,14 +51,14 @@ namespace Game
 
             if (InStoreArea)
             {
-                if (!Shop.Visual.AlreadyOpened)
+                if (!Shop.WasAlreadyOpen())
                 {
                     DisplayStore();
                 }
             }
             else
             {
-                Shop.Visual.SetOpenStatus(false);
+                Shop.WasOpen(false);
             }
         }
 
@@ -246,8 +246,8 @@ namespace Game
         
         private void DisplayStore()
         {
-            Shop.Visual.SetOpenStatus(true);
-            Shop.Visual.LoadItems(TShops.SeedShop);
+            Shop.WasOpen(true);
+            Shop.LoadItems(TShops.SeedShop);
         }
 
         private void CheckRakeWork(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual)

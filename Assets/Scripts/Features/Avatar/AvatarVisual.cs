@@ -76,7 +76,7 @@ namespace Game
         {
             while (true)
             {
-                if (!Feature.Shop.Visual.OnDisplay())
+                if (!Feature.Shop.IsShopOpen())
                 {
                     var direction = _directionProvider.Direction;
 

@@ -8,6 +8,10 @@ namespace Game
         Task LoadShop();
         Task BuyProduct(string productName);
         Task SellProduct(string productName);
-        ShopVisual Visual { get; set; }
+        void LoadItems(TShops shopType);
+        void WasOpen(bool status);
+        bool IsShopOpen();
+        bool WasAlreadyOpen();
+        
     }
 }

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using Codice.CM.Common;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,12 +8,23 @@ namespace Game
     public class ItemVisual: BaseVisual<Shop>
     {
         [SerializeField] Image itemImage;
-        [SerializeField] protected Button buyButton;
+        [SerializeField] Button buyButton;
         [SerializeField] TextMeshProUGUI priceText;
 
-        public void DestroyMe()
+        private TPlant seedType;
+        public Button GetItemButton()
         {
-            SelfDestroy();
+            return buyButton;
+        }
+
+        public TPlant GetSeedType()
+        {
+            return seedType;
+        }
+        
+        protected void SetSeedType(TPlant seedType)
+        {
+            this.seedType = seedType;
         }
     }
 }

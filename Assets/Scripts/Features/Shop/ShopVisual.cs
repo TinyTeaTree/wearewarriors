@@ -15,16 +15,13 @@ namespace Game
 
         private List<ItemVisual> items = new();
         
-        private bool alreadyOpened = false;
-        
-        public bool AlreadyOpened => alreadyOpened;
-
+        private bool wasOpen = false;
+        public bool WasOpen => wasOpen;
         private void OnEnable()
         {
             exitStoreButton.onClick.AddListener(() =>
             {
                 DisplayShop(false);
-
                 ClearShopItems();
             });
         }
@@ -33,7 +30,7 @@ namespace Game
         {
             foreach (var item in items)
             {
-                item.DestroyMe();
+                item.SelfDestroy();
             }
 
             items.Clear();
@@ -72,6 +69,7 @@ namespace Game
            {
                var itemVisual = Instantiate(item, itemsContainer);
                itemVisual.SetFeature(Feature);
+               Feature.Record.ItemVisuals.Add(itemVisual);
                items.Add(itemVisual);
            }
            gameObject.SetActive(true);
@@ -83,9 +81,9 @@ namespace Game
             return gameObject.activeSelf;
         }
 
-        public void SetOpenStatus(bool status)
+        public void SetTriggerStatus(bool status)
         {
-            alreadyOpened = status;
+            wasOpen = status;
         }
     }
 }
