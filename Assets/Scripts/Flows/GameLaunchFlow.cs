@@ -21,10 +21,12 @@ namespace Game
             var sheeps = bootstrap.Features.Get<IAnimals>();
             var garden = bootstrap.Features.Get<IGarden>();
             var world = bootstrap.Features.Get<IWorld>();
+            var shop = bootstrap.Features.Get<IShop>();
 
             AddNext(action: () => bootstrap.Agents.Get<IAppLaunchAgent>().AppLaunch())
                 .AddNext(() => camera.Load())
                 .AddNext(() => hud.Load())
+                .AddNext(() => shop.LoadShop())
                 .AddNext(() => { loading.Show(true); })
                 .AddNext(() => playerAccount.Login())
                 

@@ -11,5 +11,6 @@ namespace Game
         
         UnityEngine.Camera HudCamera { get; }
         Transform NavBar { get; }
+        Transform Canvas { get; }
     }
 }

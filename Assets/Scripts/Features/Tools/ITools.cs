@@ -18,5 +18,8 @@ namespace Game
         void HighlightOff();
         
         void HighlightOn(ToolVisual closestTool);
+        
+        ToolsVisual ToolVisual { get;}
+        ToolsRecord ToolsRecord { get; }
     }
 }
