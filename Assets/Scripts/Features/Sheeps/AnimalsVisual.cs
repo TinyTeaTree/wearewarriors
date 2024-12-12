@@ -24,6 +24,8 @@ namespace Game
             sheep.transform.rotation = startPoint.rotation;
             
             animals.Add(sheep);
+            
+            sheep.Initialize();
 
             StartCoroutine(LoopRoutine(sheep));
         }

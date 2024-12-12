@@ -18,6 +18,14 @@ namespace Game
         [SerializeField] private float _minIdleDuration;
         [SerializeField] private float _maxIdleDuration;
 
+        [Header("Coins Drop")]
+        [SerializeField] private bool dropCoins;
+        [SerializeField] private int minCoinDrop;
+        [SerializeField] private int maxCoinDrop;
+
+        [SerializeField] private int minCoinDuration;
+        [SerializeField] private int maxCoinDuration;
+
         [SerializeField] private bool clampMovement;
         [SerializeField] private float _speed = 3.3f;
         
@@ -31,6 +39,28 @@ namespace Game
         public float DistanceMagnet => _distanceMagnet;
 
         private Coroutine _moveRoutine;
+
+        private float nextCoinDrop;
+
+        public void Initialize()
+        {
+            if (dropCoins)
+            {
+                var duration = Random.Range(minCoinDuration, maxCoinDuration);
+                InvokeAfter(DropCoins, duration);
+            }
+        }
+
+        [ContextMenu("Drop Coins")]
+        private void DropCoins()
+        {
+            int coins = Random.Range(minCoinDrop, maxCoinDrop + 1);
+            Feature.Coins.SpawnCoins(coins, transform.position + Vector3.up * 1.5f);
+            
+            var duration = Random.Range(minCoinDuration, maxCoinDuration);
+            InvokeAfter(DropCoins, duration);
+        }
+        
 
         public float GetIdleDuration()
         {

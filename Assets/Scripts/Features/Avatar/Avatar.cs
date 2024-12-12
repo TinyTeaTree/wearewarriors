@@ -6,6 +6,7 @@ using Agents;
 using Core;
 using Services;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -17,8 +18,9 @@ namespace Game
         [Inject] public IPlayerAccount PlayerAccount { get; set; }
         [Inject] public IGarden Garden { get; set; }
         [Inject] public IWorld World { get; set; }
+        [Inject] public ICoins Coins { get; set; }
 
-        public Transform AvatarTransform => _visual.transform;
+        public Transform AvatarTransform => _visual?.transform;
         private AvatarConfig Config { get; set; }
         
         public async Task Load()
@@ -37,7 +39,7 @@ namespace Game
             
             _visual.StartMovement(World);
         }
-        
+
         public void Update()
         {
             ScanForTool();

@@ -50,8 +50,9 @@ namespace Game
             _factories.Add(typeof(HudVisual), new ResourceFactory(Addresses.HudVisual));
             _factories.Add(typeof(MarksVisual), new ResourceFactory(Addresses.MarksCanvas));
             _factories.Add(typeof(AnimalsVisual), new ResourceFactory(Addresses.AnimalsVisual));
-            _factories.Add(typeof(WalletVisual), new AsyncResourceFactory(Addresses.Wallet));
+            _factories.Add(typeof(WalletVisual), new AsyncResourceFactory(Addresses.WalletVisual));
             _factories.Add(typeof(WorldVisual), new AsyncResourceFactory(Addresses.World));
+            _factories.Add(typeof(CoinsVisual), new ResourceFactory(Addresses.CoinsVisual));
         }
 
         protected override void AddAgents()
@@ -59,6 +60,7 @@ namespace Game
             _agents.Add<IAppLaunchAgent>(new AppLaunchAgent());
             _agents.Add<IAppExitAgent>(new AppExitAgent());
             _agents.Add<ILogoutAgent>(new LogoutAgent());
+            _agents.Add<IGameLoadedAgentAgent>(new GameLoadedAgentAgent());
             //<New Agent>
         }
 
