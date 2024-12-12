@@ -8,9 +8,9 @@ namespace Game
     public class Hud : BaseVisualFeature<HudVisual>, IHud
     {
         [Inject] public ICamera Camera { get; set; }
-        
         public UnityEngine.Camera HudCamera => _visual.Camera;
         public Transform NavBar => _visual.MainBorder;
+        public Transform Canvas => _visual.Canvas;
         
         public async Task Load()
         {

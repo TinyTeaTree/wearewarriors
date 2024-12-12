@@ -551,6 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 3454951124649058074}
   mainBorder: {fileID: 7594302426473305766}
+  canvas: {fileID: 7242765617325933839}
 --- !u!1 &7031084045404481568
 GameObject:
   m_ObjectHideFlags: 0

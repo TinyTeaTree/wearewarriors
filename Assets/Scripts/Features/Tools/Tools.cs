@@ -17,7 +17,9 @@ namespace Game
         [Inject] public IPlayerAccount PlayerAccount { get; set; }
         [Inject] public ICamera Camera { get; set; }
         public ToolsConfig _toolsConfig { get; private set; }
-        
+        public ToolsVisual ToolVisual => _visual;
+        public ToolsRecord ToolsRecord => Record;
+
         public Task AppLaunch()
         {
             _toolsConfig = ConfigService.GetConfig<ToolsConfig>();
@@ -100,8 +102,10 @@ namespace Game
                 }
             }
         }
+
         
-        
+
+
         private async Task SaveToolData(ToolVisual tool)
         {
             var gardenTool = Record.GardenTools.FirstOrDefault(t => t.Id == tool.ToolID);

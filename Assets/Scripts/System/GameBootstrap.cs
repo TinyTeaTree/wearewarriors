@@ -36,6 +36,7 @@ namespace Game
             _features.Add<IAnimals>(new Animals());
             _features.Add<IWorld>(new World());
             _features.Add<ICoins>(new Coins());
+            _features.Add<IShop>(new Shop());
             //<New Feature>
         }
 
@@ -53,6 +54,7 @@ namespace Game
             _factories.Add(typeof(WalletVisual), new AsyncResourceFactory(Addresses.WalletVisual));
             _factories.Add(typeof(WorldVisual), new AsyncResourceFactory(Addresses.World));
             _factories.Add(typeof(CoinsVisual), new ResourceFactory(Addresses.CoinsVisual));
+            _factories.Add(typeof(ShopVisual), new AsyncResourceFactory(Addresses.ShopHud));
         }
 
         protected override void AddAgents()
@@ -76,6 +78,7 @@ namespace Game
             _records.Add(typeof(WalletRecord), new WalletRecord());
             _records.Add(typeof(AnimalsRecord), new AnimalsRecord());
             _records.Add(typeof(CoinsRecord), new CoinsRecord());
+            _records.Add(typeof(ShopRecord), new ShopRecord());
             //<New Record>
         }
 
