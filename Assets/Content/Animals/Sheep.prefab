@@ -2891,10 +2891,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 127714811517061938}
+  type: 0
   _minMoveDuration: 0.42
   _maxMoveDuration: 4.28
   _minIdleDuration: 0.87
   _maxIdleDuration: 5.59
+  dropCoins: 1
+  minCoinDrop: 2
+  maxCoinDrop: 3
+  minCoinDuration: 20
+  maxCoinDuration: 30
+  clampMovement: 1
   _speed: 3.3
   _distanceTolerance: 5
   _distanceMagnet: 8

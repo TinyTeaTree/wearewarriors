@@ -1255,6 +1255,12 @@ MonoBehaviour:
   _maxMoveDuration: 5
   _minIdleDuration: 3.83
   _maxIdleDuration: 13
+  dropCoins: 1
+  minCoinDrop: 0
+  maxCoinDrop: 1
+  minCoinDuration: 60
+  maxCoinDuration: 90
+  clampMovement: 0
   _speed: 2.7
   _distanceTolerance: 3
   _distanceMagnet: 15

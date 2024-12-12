@@ -7,6 +7,7 @@ namespace Game
     {
         [Inject] public IAvatar Avatar { get; set; }
         [Inject] public IWorld World { get; set; }
+        [Inject] public ICoins Coins { get; set; }
 
         [Inject] public AnimalsRecord Record { get; set; }
 
