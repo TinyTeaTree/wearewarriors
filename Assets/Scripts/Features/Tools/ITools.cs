@@ -21,5 +21,6 @@ namespace Game
         
         ToolsVisual ToolVisual { get;}
         ToolsRecord ToolsRecord { get; }
+        void AddGrainBag(TPlant getSeedType);
     }
 }

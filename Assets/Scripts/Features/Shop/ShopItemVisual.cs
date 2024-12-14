@@ -5,16 +5,23 @@ using Core;
 
 namespace Game
 {
-    public class ItemVisual: BaseVisual<Shop>
+    public class ShopItemVisual: BaseVisual<Shop>
     {
         [SerializeField] Image itemImage;
         [SerializeField] Button buyButton;
         [SerializeField] TextMeshProUGUI priceText;
 
         private TPlant seedType;
-        public Button GetItemButton()
+
+        protected virtual void Start()
         {
-            return buyButton;
+            buyButton.onClick.AddListener(PressedBuy);
+        }
+
+        private void PressedBuy()
+        {
+            Debug.LogError("Pressed Buy");
+            Feature.PressedBuyShopItem(this);
         }
 
         public TPlant GetSeedType()

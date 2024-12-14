@@ -12,40 +12,18 @@ namespace Game
         [Inject] public ILocalConfigService ConfigService { get; set; }
         [Inject] public IHud Hud { get; set; }
         [Inject] public ITools Tools { get; set; }
-        [Inject] public IAvatar Avatar { get; set; }
         
         private ShopConfig config;
         public ShopConfig Config => config;
 
-        private void SetButtonListener()
+        public void PressedBuyShopItem(ShopItemVisual item)
         {
-            foreach (var item in Record.ItemVisuals)
-            {
-               var buyButton = item.GetItemButton();
-               
-               buyButton.onClick.AddListener(() =>
-               {
-                   _visual.DisplayShop(false);
-                   _visual.ClearShopItems();
-
-                   var toolConfig = ConfigService.GetConfig<ToolsConfig>();
-                   var grainBagPrefab = toolConfig.Tools.FirstOrDefault(t => t.GrainBagSeedType == item.GetSeedType()).prefab;
-
-                   var avatarPos = Avatar.AvatarTransform.position;
-                   var toolVisual = Tools.ToolVisual.transform;
-
-                   Vector3 grainBagSpawnPos = avatarPos - Vector3.forward * 3 + Vector3.up * 5;
-               
-                   var grainBag = Object.Instantiate(grainBagPrefab, grainBagSpawnPos , Quaternion.identity);
-                   grainBag.transform.SetParent(toolVisual);
-
-                   var toolRecordData = Tools.ToolsRecord.GardenTools.FirstOrDefault(t => t.Id == grainBag.ToolID);
-                   
-                   Tools.ToolsRecord.AllToolsInGarden.Add(grainBag);
-               });
-            }
+            _visual.DisplayShop(false);
+            _visual.ClearShopItems();
+            
+            Tools.AddGrainBag(item.GetSeedType());
         }
-        
+
         public async Task LoadShop()
         {
             config = ConfigService.GetConfig<ShopConfig>();
@@ -65,7 +43,6 @@ namespace Game
         public void LoadItems(TShops shopType)
         {
             _visual.LoadItems(shopType);
-            SetButtonListener();
         }
 
         public bool IsShopOpen()

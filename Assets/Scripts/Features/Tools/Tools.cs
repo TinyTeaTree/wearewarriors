@@ -15,13 +15,13 @@ namespace Game
         [Inject] public ILocalConfigService ConfigService { get; set; }
         [Inject] public IAvatar Avatar { get; set; }
         [Inject] public IPlayerAccount PlayerAccount { get; set; }
-        public ToolsConfig _toolsConfig { get; private set; }
+        public ToolsConfig Config { get; private set; }
         public ToolsVisual ToolVisual => _visual;
         public ToolsRecord ToolsRecord => Record;
 
         public Task AppLaunch()
         {
-            _toolsConfig = ConfigService.GetConfig<ToolsConfig>();
+            Config = ConfigService.GetConfig<ToolsConfig>();
             return Task.CompletedTask;
         }
 
@@ -29,16 +29,41 @@ namespace Game
         {
              await CreateVisual();
 
+             List<ToolVisual> tools = new();
+
              foreach (var tool in Record.GardenTools)
              {
-                 var toolConfig = _toolsConfig.Tools.FirstOrDefault(t => t.ToolID == tool.Id);
+                 var toolConfig = Config.Tools.FirstOrDefault(t => t.ToolID == tool.Id);
                  var toolVisual = Object.Instantiate(toolConfig.prefab, tool.Pos, Quaternion.Euler(tool.Rot), _visual.transform);
                  toolVisual.SetFeature(this);
                  toolVisual.ToolID = tool.Id;
-                 Record.AllToolsInGarden.Add(toolVisual);
+                 tools.Add(toolVisual);
              }
 
-             _visual.SetToolVisuals(Record.AllToolsInGarden);
+             _visual.AddTools(tools);
+        }
+
+        public void AddGrainBag(TPlant getSeedType)
+        {
+            var grainBagPrefab = Config.Tools.FirstOrDefault(t => t.GrainBagSeedType == getSeedType).prefab;
+
+            var avatarPos = Avatar.AvatarTransform.position;
+            var toolVisual = ToolVisual.transform;
+
+            Vector3 grainBagSpawnPos = avatarPos - Vector3.forward * 3 + Vector3.up * 5;
+               
+            var grainBag = Object.Instantiate(grainBagPrefab, grainBagSpawnPos , Quaternion.identity);
+            grainBag.SetFeature(this);
+            grainBag.ToolID = TTools.GrainBag;
+            grainBag.transform.SetParent(toolVisual);
+            
+            _visual.AddTools(new List<ToolVisual>(){grainBag});
+            Record.GardenTools.Add(new ToolRecordData
+            {
+                Id = grainBag.ToolID,
+                Pos = grainBagSpawnPos,
+                Rot = Vector3.zero
+            });
         }
 
         public ToolVisual GetHoldingTool()

@@ -5,6 +5,6 @@ namespace Game
 {
     public class ShopRecord : BaseRecord
     {
-        public List<ItemVisual> ItemVisuals = new();
+
     }
 }
