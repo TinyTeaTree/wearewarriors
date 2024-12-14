@@ -19,6 +19,7 @@ namespace Game
         
         void HighlightOn(ToolVisual closestTool);
         
+        void SpawnShopTool(ItemVisual item);
         ToolsVisual ToolVisual { get;}
         ToolsRecord ToolsRecord { get; }
     }

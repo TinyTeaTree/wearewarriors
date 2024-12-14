@@ -17,6 +17,7 @@ namespace Game
         [Inject] public IPlayerAccount PlayerAccount { get; set; }
         [Inject] public ICamera Camera { get; set; }
         public ToolsConfig _toolsConfig { get; private set; }
+        
         public ToolsVisual ToolVisual => _visual;
         public ToolsRecord ToolsRecord => Record;
 
@@ -46,6 +47,23 @@ namespace Game
         public ToolVisual GetHoldingTool()
         {
             return Record.EquippedToolVisual;
+        }
+        
+        public void SpawnShopTool(ItemVisual item)
+        {
+            var grainBagPrefab = _toolsConfig.Tools.FirstOrDefault(t => t.GrainBagSeedType == item.GetSeedType()).prefab;
+
+            var avatarPos = Avatar.AvatarTransform.position;
+            var toolsVisual = _visual.transform;
+
+            Vector3 grainBagSpawnPos = avatarPos - Vector3.forward * 3 + Vector3.up * 5;
+               
+            var grainBag = Object.Instantiate(grainBagPrefab, grainBagSpawnPos , Quaternion.identity);
+            grainBag.transform.SetParent(toolsVisual);
+            
+            var toolRecordData = Record.GardenTools.FirstOrDefault(t => t.Id == grainBag.ToolID);
+                   
+            Record.AllToolsInGarden.Add(grainBag);
         }
 
         public ToolVisual GetClosestTool(Vector3 pos)

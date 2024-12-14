@@ -55,6 +55,7 @@ MonoBehaviour:
   itemImage: {fileID: 3685497479978753807}
   buyButton: {fileID: 460255264287600131}
   priceText: {fileID: 7972295059005095311}
+  itemPrice: 50
   seedType: 2
 --- !u!222 &2885137129661737838
 CanvasRenderer:

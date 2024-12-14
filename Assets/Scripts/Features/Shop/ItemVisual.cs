@@ -11,6 +11,8 @@ namespace Game
         [SerializeField] Button buyButton;
         [SerializeField] TextMeshProUGUI priceText;
 
+        [SerializeField] int itemPrice;
+        
         private TPlant seedType;
         public Button GetItemButton()
         {
@@ -25,6 +27,11 @@ namespace Game
         protected void SetSeedType(TPlant seedType)
         {
             this.seedType = seedType;
+        }
+
+        public int GetItemPrice()
+        {
+            return itemPrice;
         }
     }
 }

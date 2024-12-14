@@ -8,7 +8,7 @@ namespace Game
 
         private void Start()
         {
-            base.SetSeedType(seedType);
+            SetSeedType(seedType);
         }
     }
 }

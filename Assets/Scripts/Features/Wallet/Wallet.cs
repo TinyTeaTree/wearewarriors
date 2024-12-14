@@ -21,11 +21,19 @@ namespace Game
             await PlayerAccount.SyncPlayerData();
         }
 
-        public async Task  Pay(int amount)
+        public async Task Pay(int amount)
         {
-            Record.Coins -= amount;
-            _visual.UpdateCoinUI();
-            await PlayerAccount.SyncPlayerData();
+            if (Record.Coins >= amount)
+            {
+                Record.Coins -= amount;
+                _visual.UpdateCoinUI();
+                await PlayerAccount.SyncPlayerData();
+            }
+        }
+
+        public float CheckWalletBalance()
+        {
+            return Record.Coins;
         }
     }
 }
