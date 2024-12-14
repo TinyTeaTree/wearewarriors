@@ -51,10 +51,12 @@ namespace Game
                 .AddNext(() => { loading.ProgressControl(1f); })
                 .AddNext(() => joystick.Show())
                 .AddNext(() => avatar.Activate())
+                .AddNext(() => Task.Delay(TimeSpan.FromSeconds(0.4f)))
+                .AddNext(() => sheeps.LoadSheep())
+                
+                .AddNext(action: () => bootstrap.Agents.Get<IGameLoadedAgentAgent>().OnGameLoaded())
                 .AddNext(() => { bootstrap.Features.Get<ILoadingScreen>().Close(); })
                 .AddNext(() => camera.ActivateAnimation())
-                .AddNext(() => Task.Delay(TimeSpan.FromSeconds(2f)))
-                .AddNext(() => sheeps.LoadSheep())
             ;
             
         }
