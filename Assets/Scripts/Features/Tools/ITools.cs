@@ -11,7 +11,7 @@ namespace Game
         
         ToolVisual GetHoldingTool();
 
-        ToolVisual GetClosestTool(Vector3 pos);
+        ToolVisual GetClosestPickableTool(Vector3 pos);
         
         void PickUpTool(ToolVisual tool, Transform avatarTransform);
         

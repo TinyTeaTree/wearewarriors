@@ -76,28 +76,29 @@ namespace Game
 
         private void ScanForTool()
         {
-            var closestTool = Tools.GetClosestTool(_visual.transform.position);
+            Tools.HighlightOff();
+            var closestTool = Tools.GetClosestPickableTool(_visual.transform.position);
             if (closestTool != null)
             {
                 float distance = Vector3.Distance(closestTool.transform.position, _visual.transform.position);
-                if (distance > Config.HighlightDistance)
-                {
-                    Tools.HighlightOff();
-                }
-                else
-                {
-                    Tools.HighlightOn(closestTool);
-                }
-
                 if (distance < Config.PickupDistance)
                 {
-                    foreach (var anchor in _visual.AvatarAnchors)
+                    Tools.HighlightOn(closestTool);
+                    
+                    if (Joystick.Direction.magnitude >= 0.8f && Tools.GetHoldingTool() != null)
                     {
-                        if (closestTool.ToolID == anchor.toolID)
+                        return; //Don't pick up tools if you are in full speed
+                    }
+
+                    if (Tools.GetHoldingTool() == null || Tools.GetHoldingTool().Droppable)
+                    {
+                        foreach (var anchor in _visual.AvatarAnchors)
                         {
-                            _visual.SetTool(closestTool.ToolID);
-                            Tools.PickUpTool(closestTool, anchor.anchorPoint);
-                            closestTool.Pickable = false;
+                            if (closestTool.ToolID == anchor.toolID)
+                            {
+                                Tools.PickUpTool(closestTool, anchor.anchorPoint);
+                                _visual.SetTool(closestTool.ToolID);
+                            }
                         }
                     }
                 }

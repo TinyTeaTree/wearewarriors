@@ -33,6 +33,7 @@ namespace Game
              {
                  var toolConfig = _toolsConfig.Tools.FirstOrDefault(t => t.ToolID == tool.Id);
                  var toolVisual = Object.Instantiate(toolConfig.prefab, tool.Pos, Quaternion.Euler(tool.Rot), _visual.transform);
+                 toolVisual.SetFeature(this);
                  toolVisual.ToolID = tool.Id;
                  Record.AllToolsInGarden.Add(toolVisual);
              }
@@ -45,7 +46,7 @@ namespace Game
             return Record.EquippedToolVisual;
         }
 
-        public ToolVisual GetClosestTool(Vector3 pos)
+        public ToolVisual GetClosestPickableTool(Vector3 pos)
         {
             ToolVisual closestTool = null;
             float closestDistance = Mathf.Infinity;
@@ -54,7 +55,7 @@ namespace Game
             {
                 if (tool is not null && tool.Pickable)
                 {
-                    float distance = Vector3.Distance(tool.transform.position, pos);
+                    float distance = Vector3.Distance(tool.transform.position.XZ(), pos.XZ());
                     if (distance < closestDistance)
                     {
                         closestDistance = distance;
@@ -69,12 +70,10 @@ namespace Game
         {
             if (Record.EquippedToolVisual != null)
             {
-                if (GetHoldingTool().Droppable)
-                { 
-                    DropTool(Record.EquippedToolVisual);
-                }
+                DropTool(Record.EquippedToolVisual);
             }
             
+            closestTool.SetHighlight(false);
             Record.EquippedToolVisual = closestTool;
             closestTool.GetPickedUp(handTransform);
         }
@@ -108,7 +107,7 @@ namespace Game
 
             await PlayerAccount.SyncPlayerData();
         }
-        private async Task DropTool(ToolVisual tool)
+        private void DropTool(ToolVisual tool)
         {
             // Turning on rigidbody for adding drop force
 
@@ -121,7 +120,7 @@ namespace Game
 
             Avatar.DropTool(tool);
             
-            await SaveToolData(tool);
+            SaveToolData(tool).Forget();
         }
 
         public async Task ThrowTool(ToolVisual tool, Vector3 dropPoint)

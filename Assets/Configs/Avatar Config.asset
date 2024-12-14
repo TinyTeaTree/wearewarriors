@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _config:
     HighlightDistance: 3
-    PickupDistance: 2
+    PickupDistance: 1
