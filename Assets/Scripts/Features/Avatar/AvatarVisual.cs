@@ -248,6 +248,10 @@ namespace Game
             {
                 _animator.SetInteger("Tool", (int)TTools.CropBox);
             }
+            else if (closestToolToolID == TTools.GrainBag)
+            {
+                _animator.SetInteger("Tool", (int)TTools.GrainBag);
+            }
         }
 
         public void DropTool()
