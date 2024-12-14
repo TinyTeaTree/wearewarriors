@@ -20,7 +20,6 @@ namespace Game
 
         private void PressedBuy()
         {
-            Debug.LogError("Pressed Buy");
             Feature.PressedBuyShopItem(this);
         }
 
