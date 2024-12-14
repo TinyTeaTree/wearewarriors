@@ -20,6 +20,7 @@ namespace Game
         
         public void StartGrowing()
         {
+            StopCoroutine(GrowCoroutine());
             StartCoroutine(GrowCoroutine());
         }
 
