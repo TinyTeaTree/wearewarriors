@@ -32,6 +32,16 @@ namespace Game
             _visual.SetRot(Record.AvatarRecordData.Rot);
 
             Config = _bootstrap.Services.Get<ILocalConfigService>().GetConfig<AvatarConfig>();
+            
+            Record.GatherProgress = 0;
+            Record.PlantsGathered.Clear();
+        }
+
+        public void DropTool(ToolVisual tool)
+        {
+            _visual.DropTool();
+            Record.GatherProgress = 0;
+            Record.PlantsGathered.Clear();
         }
 
         public void Activate()
@@ -85,6 +95,7 @@ namespace Game
                     {
                         if (closestTool.ToolID == anchor.toolID)
                         {
+                            _visual.SetTool(closestTool.ToolID);
                             Tools.PickUpTool(closestTool, anchor.anchorPoint);
                             closestTool.Pickable = false;
                         }
@@ -152,6 +163,8 @@ namespace Game
             CheckGrainBagWork(holdingTool, gardenPlotVisual);
 
             CheckWaterWork(holdingTool, gardenPlotVisual);
+
+            CheckPickWork(holdingTool, gardenPlotVisual);
         }
         private void StartWorking(ToolVisual holdingTool)
         {
@@ -179,6 +192,8 @@ namespace Game
             CheckWaterProgress(holdingTool, gardenPlotVisual);
                     
             CheckGrainBagProgress(holdingTool, gardenPlotVisual);
+            
+            CheckBoxProgress(holdingTool, gardenPlotVisual);
         }
 
         private void CheckWaterProgress(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual)
@@ -189,6 +204,87 @@ namespace Game
                 return;
 
             Garden.WaterPlant(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID, holdingTool.WorkPerSecond);
+        }
+        
+        private void CheckBoxProgress(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual)
+        {
+            if (holdingTool.ToolID != TTools.CropBox) 
+                return;
+            if (gardenPlotVisual == null) 
+                return;
+
+            var plotData = Garden.GetPlotData(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID);
+            
+            if(plotData.State == TPlotState.PlantRiping)
+            {
+                gardenPlotVisual.ShakePlant();
+            }
+
+            if (plotData.Progress > 0.01f)
+            {
+                var gatherCapacity = 1f - Record.GatherProgress;
+                var cropYield = Mathf.Min(plotData.Progress, holdingTool.WorkPerSecond, gatherCapacity + 0.001f);
+                
+
+                plotData.Progress -= cropYield;
+
+                var cropsGathered = CalculateCropGathered(Record.GatherProgress, Record.GatherProgress + cropYield);
+                
+                Record.GatherProgress += cropYield;
+
+                for (int i = 0; i < cropsGathered; ++i)
+                {
+                    Record.PlantsGathered.Add(gardenPlotVisual.PlantVisual.PlantID);
+                    gardenPlotVisual.PlantVisual.AnimateGather(holdingTool);
+                }
+            }
+        }
+
+        private int CalculateCropGathered(float progressBefore, float progressAfter)
+        {
+            int gathered = 0;
+            if (progressBefore <= 0.1f && progressAfter > 0.1f)
+            {
+                gathered++;
+            }
+            if (progressBefore <= 0.2f && progressAfter > 0.2f)
+            {
+                gathered++;
+            }
+            if (progressBefore <= 0.3f && progressAfter > 0.3f)
+            {
+                gathered++;
+            }
+            if (progressBefore <= 0.4f && progressAfter > 0.4f)
+            {
+                gathered++;
+            }
+            if (progressBefore <= 0.5f && progressAfter > 0.5f)
+            {
+                gathered++;
+            }
+            if (progressBefore <= 0.6f && progressAfter > 0.6f)
+            {
+                gathered++;
+            }
+            if (progressBefore <= 0.7f && progressAfter > 0.7f)
+            {
+                gathered++;
+            }
+            if (progressBefore <= 0.8f && progressAfter > 0.8f)
+            {
+                gathered++;
+            }
+            if (progressBefore <= 0.9f && progressAfter > 0.9f)
+            {
+                gathered++;
+            }
+            if (progressBefore < 1f && Mathf.Approximately(progressAfter, 1f))
+            {
+                gathered++;
+            }
+
+            return gathered;
         }
 
         private void CheckGrainBagProgress(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual)
@@ -275,6 +371,22 @@ namespace Game
                 return;
 
             StartWorking(holdingTool);
+        }
+        
+        private void CheckPickWork(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual)
+        {
+            if (holdingTool.ToolID != TTools.CropBox) 
+                return;
+            
+            if (gardenPlotVisual== null) 
+                return;
+
+            var plotData = Garden.GetPlotData(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID);
+            
+            if(plotData.State == TPlotState.PlantRiping)
+            {
+                StartWorking(holdingTool);
+            }
         }
     }
 }

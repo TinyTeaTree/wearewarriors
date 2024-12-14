@@ -15,7 +15,6 @@ namespace Game
         [Inject] public ILocalConfigService ConfigService { get; set; }
         [Inject] public IAvatar Avatar { get; set; }
         [Inject] public IPlayerAccount PlayerAccount { get; set; }
-        [Inject] public ICamera Camera { get; set; }
         public ToolsConfig _toolsConfig { get; private set; }
         public ToolsVisual ToolVisual => _visual;
         public ToolsRecord ToolsRecord => Record;
@@ -39,8 +38,6 @@ namespace Game
              }
 
              _visual.SetToolVisuals(Record.AllToolsInGarden);
-
-             /*Joystick.ToggleDropButton(GetHoldingTool() != null);*/
         }
 
         public ToolVisual GetHoldingTool()
@@ -102,10 +99,7 @@ namespace Game
                 }
             }
         }
-
-        
-
-
+         
         private async Task SaveToolData(ToolVisual tool)
         {
             var gardenTool = Record.GardenTools.FirstOrDefault(t => t.Id == tool.ToolID);
@@ -124,6 +118,8 @@ namespace Game
 
             Record.EquippedToolVisual = null;
             tool.StartPickupCooldown(2f);
+
+            Avatar.DropTool(tool);
             
             await SaveToolData(tool);
         }
@@ -136,6 +132,8 @@ namespace Game
 
             Record.EquippedToolVisual = null;
             tool.StartPickupCooldown(2f);
+            
+            Avatar.DropTool(tool);
             
             await SaveToolData(tool);
         }

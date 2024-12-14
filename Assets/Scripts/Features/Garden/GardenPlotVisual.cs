@@ -79,5 +79,10 @@ namespace Game
                 Rows.gameObject.SetActive(true);
             }
         }
+
+        public void ShakePlant()
+        {
+            _plantVisual.Shake();
+        }
     }
 }
