@@ -2,12 +2,13 @@ using UnityEngine;
 
 namespace Game
 {
-    public class SeedItemVisual : ItemVisual
+    public class SeedItemVisual : ShopItemVisual
     { 
         [SerializeField] private TPlant seedType;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             base.SetSeedType(seedType);
         }
     }

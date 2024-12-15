@@ -10,5 +10,6 @@ namespace Game
         Task Load();
         void Activate();
         Transform AvatarTransform { get; }
+        void DropTool(ToolVisual tool);
     }
 }

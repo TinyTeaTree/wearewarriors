@@ -33,7 +33,7 @@ namespace Game
                 if (plotData.Progress == 1f)
                 {
                     plotData.State = TPlotState.PlantRiping;
-                    plotData.Progress = 0f;
+                    plotData.Progress = 1f; //Start with full Plants
                 }
                 
                 _visual.FieldVisuals.FirstOrDefault(f => f.FieldId == fieldId).GardenPlotVisuals.FirstOrDefault(p => p.PlotID == plotID).WaterPlant(plotData);

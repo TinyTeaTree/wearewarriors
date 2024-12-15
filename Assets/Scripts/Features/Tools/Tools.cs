@@ -15,14 +15,13 @@ namespace Game
         [Inject] public ILocalConfigService ConfigService { get; set; }
         [Inject] public IAvatar Avatar { get; set; }
         [Inject] public IPlayerAccount PlayerAccount { get; set; }
-        [Inject] public ICamera Camera { get; set; }
-        public ToolsConfig _toolsConfig { get; private set; }
+        public ToolsConfig Config { get; private set; }
         public ToolsVisual ToolVisual => _visual;
         public ToolsRecord ToolsRecord => Record;
 
         public Task AppLaunch()
         {
-            _toolsConfig = ConfigService.GetConfig<ToolsConfig>();
+            Config = ConfigService.GetConfig<ToolsConfig>();
             return Task.CompletedTask;
         }
 
@@ -30,17 +29,41 @@ namespace Game
         {
              await CreateVisual();
 
+             List<ToolVisual> tools = new();
+
              foreach (var tool in Record.GardenTools)
              {
-                 var toolConfig = _toolsConfig.Tools.FirstOrDefault(t => t.ToolID == tool.Id);
+                 var toolConfig = Config.Tools.FirstOrDefault(t => t.ToolID == tool.Id);
                  var toolVisual = Object.Instantiate(toolConfig.prefab, tool.Pos, Quaternion.Euler(tool.Rot), _visual.transform);
+                 toolVisual.SetFeature(this);
                  toolVisual.ToolID = tool.Id;
-                 Record.AllToolsInGarden.Add(toolVisual);
+                 tools.Add(toolVisual);
              }
 
-             _visual.SetToolVisuals(Record.AllToolsInGarden);
+             _visual.AddTools(tools);
+        }
 
-             /*Joystick.ToggleDropButton(GetHoldingTool() != null);*/
+        public void AddGrainBag(TPlant getSeedType)
+        {
+            var grainBagPrefab = Config.Tools.FirstOrDefault(t => t.GrainBagSeedType == getSeedType).prefab;
+
+            var avatarPos = Avatar.AvatarTransform.position;
+            var toolVisual = ToolVisual.transform;
+
+            Vector3 grainBagSpawnPos = avatarPos - Vector3.forward * 3 + Vector3.up * 5;
+               
+            var grainBag = Object.Instantiate(grainBagPrefab, grainBagSpawnPos , Quaternion.identity);
+            grainBag.SetFeature(this);
+            grainBag.ToolID = TTools.GrainBag;
+            grainBag.transform.SetParent(toolVisual);
+            
+            _visual.AddTools(new List<ToolVisual>(){grainBag});
+            Record.GardenTools.Add(new ToolRecordData
+            {
+                Id = grainBag.ToolID,
+                Pos = grainBagSpawnPos,
+                Rot = Vector3.zero
+            });
         }
 
         public ToolVisual GetHoldingTool()
@@ -48,7 +71,7 @@ namespace Game
             return Record.EquippedToolVisual;
         }
 
-        public ToolVisual GetClosestTool(Vector3 pos)
+        public ToolVisual GetClosestPickableTool(Vector3 pos)
         {
             ToolVisual closestTool = null;
             float closestDistance = Mathf.Infinity;
@@ -57,7 +80,7 @@ namespace Game
             {
                 if (tool is not null && tool.Pickable)
                 {
-                    float distance = Vector3.Distance(tool.transform.position, pos);
+                    float distance = Vector3.Distance(tool.transform.position.XZ(), pos.XZ());
                     if (distance < closestDistance)
                     {
                         closestDistance = distance;
@@ -72,12 +95,10 @@ namespace Game
         {
             if (Record.EquippedToolVisual != null)
             {
-                if (GetHoldingTool().Droppable)
-                { 
-                    DropTool(Record.EquippedToolVisual);
-                }
+                DropTool(Record.EquippedToolVisual);
             }
             
+            closestTool.SetHighlight(false);
             Record.EquippedToolVisual = closestTool;
             closestTool.GetPickedUp(handTransform);
         }
@@ -102,10 +123,7 @@ namespace Game
                 }
             }
         }
-
-        
-
-
+         
         private async Task SaveToolData(ToolVisual tool)
         {
             var gardenTool = Record.GardenTools.FirstOrDefault(t => t.Id == tool.ToolID);
@@ -114,7 +132,7 @@ namespace Game
 
             await PlayerAccount.SyncPlayerData();
         }
-        private async Task DropTool(ToolVisual tool)
+        private void DropTool(ToolVisual tool)
         {
             // Turning on rigidbody for adding drop force
 
@@ -124,8 +142,10 @@ namespace Game
 
             Record.EquippedToolVisual = null;
             tool.StartPickupCooldown(2f);
+
+            Avatar.DropTool(tool);
             
-            await SaveToolData(tool);
+            SaveToolData(tool).Forget();
         }
 
         public async Task ThrowTool(ToolVisual tool, Vector3 dropPoint)
@@ -136,6 +156,8 @@ namespace Game
 
             Record.EquippedToolVisual = null;
             tool.StartPickupCooldown(2f);
+            
+            Avatar.DropTool(tool);
             
             await SaveToolData(tool);
         }

@@ -4,6 +4,6 @@ namespace Game
     public class ShopConfigData
     {
         public TShops ShopType;
-        public ItemVisual[] ItemsVisual;
+        public ShopItemVisual[] ItemsVisual;
     }
 }

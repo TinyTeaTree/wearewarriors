@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Core;
+using Services;
 using UnityEngine;
 
 namespace Game
@@ -17,6 +18,10 @@ namespace Game
         private Vector3 _targetScale = Vector3.one * 3;
         
         public bool IsComplete => _isComplete;
+
+        [SerializeField] private new Animation animation;
+        [SerializeField] private GameObject cropPrefab;
+        [SerializeField] private Transform cropSpawnPoint;
         
         public void StartGrowing()
         {
@@ -92,6 +97,22 @@ namespace Game
                 transform.localScale = Vector3.Lerp(bounceScale, currentScale, progress);
                 yield return null;
             }
+        }
+
+        public void Shake()
+        {
+            animation.Play("Shake");
+        }
+
+        public void AnimateGather(ToolVisual holdingTool)
+        {
+            var crop = Summoner.CreateAsset(cropPrefab, cropSpawnPoint);
+            crop.transform.localPosition = Vector3.zero;
+            crop.transform.localRotation = Quaternion.identity;
+
+            var box = holdingTool as CropBoxVisual;
+
+            box.Gather(crop);
         }
     }
 }

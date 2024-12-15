@@ -13,7 +13,7 @@ namespace Game
         [SerializeField] private Transform itemsContainer;
         [SerializeField] private Button exitStoreButton;
 
-        private List<ItemVisual> items = new();
+        private List<ShopItemVisual> items = new();
         
         private bool wasOpen = false;
         public bool WasOpen => wasOpen;
@@ -69,7 +69,6 @@ namespace Game
            {
                var itemVisual = Instantiate(item, itemsContainer);
                itemVisual.SetFeature(Feature);
-               Feature.Record.ItemVisuals.Add(itemVisual);
                items.Add(itemVisual);
            }
            gameObject.SetActive(true);

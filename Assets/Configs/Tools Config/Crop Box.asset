@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d73a18cb46e4a16ab619840df85f694, type: 3}
   m_Name: Crop Box
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3847503204547820014, guid: c84645631fd3a6342abd859219065984, type: 3}
+  prefab: {fileID: 6107837286431718243, guid: c84645631fd3a6342abd859219065984, type: 3}
   ToolID: 6
   GrainBagSeedType: 0
