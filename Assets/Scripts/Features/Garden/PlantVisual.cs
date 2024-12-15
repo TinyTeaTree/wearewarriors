@@ -18,6 +18,8 @@ namespace Game
         private Vector3 _targetScale = Vector3.one * 3;
         
         public bool IsComplete => _isComplete;
+        
+        Coroutine plantGrowthRoutine;
 
         [SerializeField] private new Animation animation;
         [SerializeField] private GameObject cropPrefab;
@@ -25,8 +27,11 @@ namespace Game
         
         public void StartGrowing()
         {
-            StopCoroutine(GrowCoroutine());
-            StartCoroutine(GrowCoroutine());
+            if (plantGrowthRoutine != null)
+            {
+                StopCoroutine(plantGrowthRoutine);
+            }
+            plantGrowthRoutine = StartCoroutine(GrowCoroutine());
         }
 
         private IEnumerator GrowCoroutine()
@@ -34,11 +39,7 @@ namespace Game
             while (_progress <= 0.99f)
             {
                 _progress = Mathf.Lerp(_progress, _targetProgress, 0.1f);
-                
                 transform.localScale = Vector3.Lerp(_initScale ,_targetScale, _progress);
-
-                StartCoroutine(BounceEffect());
-                
                 Feature.Marks.GetMark<MarkPlantProgress>(MarkID).UpdateMarkProgress(_progress);
                 
                 yield return null;
@@ -48,6 +49,7 @@ namespace Game
             Feature.Marks.RemoveMark(MarkID);
             MarkID = null;
             _isComplete = true;
+            StartCoroutine(BounceEffect());
         }
 
         public void SetUp(PlotData data)
