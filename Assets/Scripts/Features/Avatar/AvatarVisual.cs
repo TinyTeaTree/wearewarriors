@@ -227,6 +227,7 @@ namespace Game
                 case TTools.ScareCrow:
                     break;
                 case TTools.CropBox:
+                    _animator.SetBool("Pick", state);
                     break;
                 case TTools.GrainBag:
                     _animator.SetBool("Plant", state);
@@ -241,9 +242,21 @@ namespace Game
             transform.rotation = Quaternion.Euler(0f, rot, 0f);
         }
 
-        public void SetStatus(bool status)
+        public void SetTool(TTools closestToolToolID)
         {
-           
+            if (closestToolToolID == TTools.CropBox)
+            {
+                _animator.SetInteger("Tool", (int)TTools.CropBox);
+            }
+            else if (closestToolToolID == TTools.GrainBag)
+            {
+                _animator.SetInteger("Tool", (int)TTools.GrainBag);
+            }
+        }
+
+        public void DropTool()
+        {
+            _animator.SetInteger("Tool", 0);
         }
     }
 }

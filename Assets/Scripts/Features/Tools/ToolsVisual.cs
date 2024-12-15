@@ -8,7 +8,7 @@ namespace Game
 {
     public class ToolsVisual : BaseVisual<Tools>
     {
-        private List<ToolVisual> _toolVisuals;
+        private List<ToolVisual> _toolVisuals = new();
         public List<ToolVisual> AllTools => _toolVisuals;
 
         private void Start()
@@ -16,9 +16,9 @@ namespace Game
             StartCoroutine(DetectThrowClickRoutine());
         }
 
-        public void SetToolVisuals(List<ToolVisual> toolVisuals)
+        public void AddTools(List<ToolVisual> toolVisuals)
         {
-            _toolVisuals = toolVisuals;
+            _toolVisuals.AddRange(toolVisuals);
         }
 
         private IEnumerator DetectThrowClickRoutine()

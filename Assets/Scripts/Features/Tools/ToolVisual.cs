@@ -14,8 +14,10 @@ namespace Game
         
         [SerializeField] private float workPerSecond;
         public float WorkPerSecond => workPerSecond;
-        public bool Pickable { get; set; } = true;
+        public bool Pickable => Feature.GetHoldingTool() != this && Time.time > pickableAt;
         public bool Droppable { get; set; } = true;
+
+        private float pickableAt;
 
         public void ToggleRigidBody(bool state)
         {
@@ -71,17 +73,10 @@ namespace Game
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
         }
-
-        IEnumerator PickUpCooldownCoroutine(float waitTime)
-        {
-            yield return new WaitForSeconds(waitTime);
-            Pickable = true;
-            yield return null;
-        }
         
         public void StartPickupCooldown(float cooldown)
         {
-            StartCoroutine(PickUpCooldownCoroutine(cooldown));
+            pickableAt = Time.time + cooldown;
         }
 
         public void ThrowToolPhysics(Vector3 dropPoint, int force)

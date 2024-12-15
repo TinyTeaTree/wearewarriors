@@ -18,5 +18,8 @@ namespace Game
         [JsonIgnore]
         public bool IsMoving { get; set; }
 
+        public List<TPlant> PlantsGathered { get; set; } = new();
+        public float GatherProgress = 0f;
+
     }
 }
