@@ -12,7 +12,7 @@ namespace Game
         [Inject] public CoinsRecord Record { get; set; }
         [Inject] public IAvatar Avatar { get; set; }
         [Inject] public IWallet Wallet { get; set; }
-        
+        [Inject] public IFloatingText FloatingText { get; set; }
         public readonly List<int> VolumeAmounts = new() { 1, 3, 5, 10, 25 };
 
         public async Task AppLaunch()
