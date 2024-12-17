@@ -14,9 +14,8 @@ namespace Game
         [SerializeField] private Button exitStoreButton;
 
         private List<ShopItemVisual> items = new();
-        
-        private bool wasOpen = false;
-        public bool WasOpen => wasOpen;
+
+        public bool WasOpen { get; private set; }
 
         private void Awake()
         {
@@ -45,10 +44,10 @@ namespace Game
         public void DisplayShop(bool status)
         {
             StopAllCoroutines();
-            StartCoroutine(ShopDisplayRoutin(status));
+            StartCoroutine(ShopDisplayRoutine(status));
         }
 
-         IEnumerator ShopDisplayRoutin(bool status)
+        private IEnumerator ShopDisplayRoutine(bool status)
         {
             transform.localScale = status? Vector3.zero : Vector3.one;
             
@@ -81,9 +80,9 @@ namespace Game
             return gameObject.activeSelf;
         }
 
-        public void SetTriggerStatus(bool status)
+        public void MarkShopOpen(bool status)
         {
-            wasOpen = status;
+            WasOpen = status;
         }
     }
 }

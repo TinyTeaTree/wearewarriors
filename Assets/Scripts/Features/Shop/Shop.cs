@@ -65,12 +65,12 @@ namespace Game
             return _visual.WasOpen;
         }
 
-        public void ToggleShop(bool status)
+        public void MarkShop(bool status)
         {
             if (!_visual)
                 return;
             
-            _visual.SetTriggerStatus(status);
+            _visual.MarkShopOpen(status);
         }
 
         public void CheckLocation(ShopEnterDetector shopEnterDetector)
@@ -83,7 +83,7 @@ namespace Game
             
             var avatarPosition = Avatar.AvatarTransform.position;
             
-            if(Physics.SphereCast(avatarPosition, 1f, Vector3.up, out var hit, 100f, LayerMask.GetMask("Store")))
+            if(Physics.SphereCast(avatarPosition + Vector3.up * 20f, 1f, Vector3.down * 50f, out var hit, 100f, LayerMask.GetMask("Store")))
             {
                 if (shopEnterDetector.ShopType == TShops.SeedShop)
                 {
@@ -91,7 +91,7 @@ namespace Game
                     {
                         if (!WasAlreadyOpen())
                         {
-                            ToggleShop(true);
+                            MarkShop(true);
                             LoadItems(TShops.SeedShop);
                         }
                     }
@@ -100,6 +100,10 @@ namespace Game
                 {
                     
                 }
+            }
+            else
+            {
+                MarkShop(false);
             }
         }
     }

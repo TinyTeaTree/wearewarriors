@@ -18,7 +18,6 @@ namespace Game
         public Task AppLaunch()
         {
             _config = ConfigService.GetConfig<LoadingScreenConfig>();
-            Debug.Log("Loading Screen Has Lanched");
             return Task.CompletedTask;
         }
 
