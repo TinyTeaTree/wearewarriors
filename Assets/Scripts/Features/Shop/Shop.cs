@@ -96,6 +96,10 @@ namespace Game
                         }
                     }
                 }
+                else if (shopEnterDetector.ShopType == TShops.SellCropShop)
+                {
+                    
+                }
             }
         }
     }
