@@ -9,7 +9,7 @@ namespace Game
         Task BuyProduct(string productName);
         Task SellProduct(string productName);
         void LoadItems(TShops shopType);
-        void ToggleShop(bool status);
+        void MarkShop(bool status);
         bool IsShopOpen();
         bool WasAlreadyOpen();
         
