@@ -26,7 +26,6 @@ namespace Game
             AddNext(action: () => bootstrap.Agents.Get<IAppLaunchAgent>().AppLaunch())
                 .AddNext(() => camera.Load())
                 .AddNext(() => hud.Load())
-                .AddNext(() => shop.LoadShop())
                 .AddNext(() => { loading.Show(true); })
                 .AddNext(() => playerAccount.Login())
                 
@@ -39,6 +38,7 @@ namespace Game
                 .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(0.25f)); })
                 .AddNext(() => { loading.ProgressControl(0.2f); })
                 .AddNext(() => avatar.Load())
+                .AddNext(() => shop.LoadShop())
                 .AddNext(camera.Start)
                 .AddNext(() => { loading.ProgressControl(0.4f); })
                 .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(0.25f)); })

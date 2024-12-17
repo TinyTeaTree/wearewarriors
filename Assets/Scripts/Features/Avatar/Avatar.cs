@@ -54,24 +54,6 @@ namespace Game
         public void Update()
         {
             ScanForTool();
-            ScanForShop();
-        }
-
-        private void ScanForShop()
-        {
-            var InStoreArea = _visual.IsNearStore();
-
-            if (InStoreArea)
-            {
-                if (!Shop.WasAlreadyOpen())
-                {
-                    DisplayStore();
-                }
-            }
-            else
-            {
-                Shop.WasOpen(false);
-            }
         }
 
         private void ScanForTool()
@@ -341,12 +323,6 @@ namespace Game
                     }
                 }
             }
-        }
-        
-        private void DisplayStore()
-        {
-            Shop.WasOpen(true);
-            Shop.LoadItems(TShops.SeedShop);
         }
 
         private void CheckRakeWork(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual)

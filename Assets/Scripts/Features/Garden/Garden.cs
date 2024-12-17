@@ -26,7 +26,7 @@ namespace Game
         {
             var plotData = GetPlotData(fieldId, plotID);
 
-            if (plotData.State == TPlotState.SeedsGrowing)
+            if (plotData.State == TPlotState.SeedsGrowing || plotData.State == TPlotState.PlantRiping)
             {
                 plotData.Progress = Mathf.MoveTowards(plotData.Progress, 1f, amount);
                 

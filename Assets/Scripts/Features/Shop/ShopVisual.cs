@@ -17,7 +17,8 @@ namespace Game
         
         private bool wasOpen = false;
         public bool WasOpen => wasOpen;
-        private void OnEnable()
+
+        private void Awake()
         {
             exitStoreButton.onClick.AddListener(() =>
             {
@@ -51,7 +52,6 @@ namespace Game
         {
             transform.localScale = status? Vector3.zero : Vector3.one;
             
-            gameObject.SetActive(status);
             while (!Mathf.Approximately(transform.localScale.x, status ? 1f : 0f))
             {
                 transform.localScale = Vector3.Lerp(transform.localScale, status? Vector3.one : Vector3.zero, 0.1f);
@@ -60,6 +60,7 @@ namespace Game
             
             transform.localScale = status? Vector3.one : Vector3.zero;
             
+            gameObject.SetActive(status);
         }
 
         public void LoadItems(TShops shopType)
