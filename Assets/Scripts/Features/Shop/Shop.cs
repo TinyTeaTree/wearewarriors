@@ -12,6 +12,7 @@ namespace Game
         [Inject] public ILocalConfigService ConfigService { get; set; }
         [Inject] public IHud Hud { get; set; }
         [Inject] public ITools Tools { get; set; }
+        [Inject] public IAvatar Avatar { get; set; }
         
         private ShopConfig config;
         public ShopConfig Config => config;
@@ -20,8 +21,11 @@ namespace Game
         {
             _visual.DisplayShop(false);
             _visual.ClearShopItems();
-            
-            Tools.AddGrainBag(item.GetSeedType());
+
+            if (item is SeedItemVisual seedItem)
+            {
+                Tools.AddGrainBag(seedItem.GetSeedType());
+            }
         }
 
         public async Task LoadShop()
@@ -42,6 +46,9 @@ namespace Game
 
         public void LoadItems(TShops shopType)
         {
+            if (!_visual)
+                return;
+            
             _visual.LoadItems(shopType);
         }
 
@@ -52,12 +59,48 @@ namespace Game
 
         public bool WasAlreadyOpen()
         {
+            if (!_visual)
+                return false;
+            
             return _visual.WasOpen;
         }
 
-        public void WasOpen(bool status)
+        public void ToggleShop(bool status)
         {
+            if (!_visual)
+                return;
+            
             _visual.SetTriggerStatus(status);
+        }
+
+        public void CheckLocation(ShopEnterDetector shopEnterDetector)
+        {
+            if (!_visual) //Was not loaded yet
+                return;
+            
+            if (Avatar.AvatarTransform == null)
+                return; //No Avatar Yet
+            
+            var avatarPosition = Avatar.AvatarTransform.position;
+            
+            if(Physics.SphereCast(avatarPosition, 1f, Vector3.up, out var hit, 100f, LayerMask.GetMask("Store")))
+            {
+                if (shopEnterDetector.ShopType == TShops.SeedShop)
+                {
+                    if (hit.transform == shopEnterDetector.transform)
+                    {
+                        if (!WasAlreadyOpen())
+                        {
+                            ToggleShop(true);
+                            LoadItems(TShops.SeedShop);
+                        }
+                    }
+                }
+                else if (shopEnterDetector.ShopType == TShops.SellCropShop)
+                {
+                    
+                }
+            }
         }
     }
 }

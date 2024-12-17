@@ -11,8 +11,6 @@ namespace Game
         [SerializeField] Button buyButton;
         [SerializeField] TextMeshProUGUI priceText;
 
-        private TPlant seedType;
-
         protected virtual void Start()
         {
             buyButton.onClick.AddListener(PressedBuy);
@@ -23,14 +21,8 @@ namespace Game
             Feature.PressedBuyShopItem(this);
         }
 
-        public TPlant GetSeedType()
-        {
-            return seedType;
-        }
+
         
-        protected void SetSeedType(TPlant seedType)
-        {
-            this.seedType = seedType;
-        }
+
     }
 }

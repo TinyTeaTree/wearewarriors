@@ -28,7 +28,6 @@ namespace Game
                 .AddNext(() => camera.Load())
                 .AddNext(() => hud.Load())
                 .AddNext(() => floatingText.Load())
-                .AddNext(() => shop.LoadShop())
                 .AddNext(() => { loading.Show(true); })
                 .AddNext(() => playerAccount.Login())
                 //Here we can start loading User Related Features
@@ -40,6 +39,7 @@ namespace Game
                 .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(0.25f)); })
                 .AddNext(() => { loading.ProgressControl(0.2f); })
                 .AddNext(() => avatar.Load())
+                .AddNext(() => shop.LoadShop())
                 .AddNext(camera.Start)
                 .AddNext(() => { loading.ProgressControl(0.4f); })
                 .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(0.25f)); })

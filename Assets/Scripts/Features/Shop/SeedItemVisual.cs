@@ -9,7 +9,17 @@ namespace Game
         protected override void Start()
         {
             base.Start();
-            base.SetSeedType(seedType);
+            SetSeedType(seedType);
+        }
+        
+        protected void SetSeedType(TPlant seedType)
+        {
+            this.seedType = seedType;
+        }
+        
+        public TPlant GetSeedType()
+        {
+            return seedType;
         }
     }
 }

@@ -191,22 +191,6 @@ namespace Game
             
             return null;
         }
-        
-        public bool IsNearStore()
-        {
-            if (Physics.Raycast(
-                    transform.position + Vector3.up * 5,
-                    Vector3.down, 
-                    out RaycastHit hitInfo,
-                    15, 
-                    LayerMask.GetMask("Store"))
-               )
-            {
-                return true;
-            }
-            
-            return false;
-        }
 
         public void AnimateTool(TTools toolID, bool state)
         {
