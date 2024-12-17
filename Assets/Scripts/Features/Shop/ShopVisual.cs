@@ -82,6 +82,12 @@ namespace Game
 
         public void MarkShopOpen(bool status)
         {
+            if (!status && WasOpen)
+            {
+                DisplayShop(false);
+                ClearShopItems();
+            }
+            
             WasOpen = status;
         }
     }

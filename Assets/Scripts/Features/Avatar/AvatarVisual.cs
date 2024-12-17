@@ -76,65 +76,63 @@ namespace Game
         {
             while (true)
             {
-                if (!Feature.Shop.IsShopOpen())
+                var direction = _directionProvider.Direction;
+
+                var strength = direction.magnitude;
+
+                var clampedStrength = Mathf.Clamp01(strength);
+
+                if (clampedStrength > 0.03f)
                 {
-                    var direction = _directionProvider.Direction;
+                    var translation = new Vector3(direction.x, 0f, direction.y).normalized *
+                                      (_speed * clampedStrength * Time.deltaTime);
 
-                    var strength = direction.magnitude;
+                    transform.LookAt(transform.position + translation);
 
-                    var clampedStrength = Mathf.Clamp01(strength);
+                    transform.position += translation;
 
-                    if (clampedStrength > 0.03f)
-                    {
-                        var translation = new Vector3(direction.x, 0f, direction.y).normalized *
-                                          (_speed * clampedStrength * Time.deltaTime);
+                    Clamp();
 
-                        transform.LookAt(transform.position + translation);
-
-                        transform.position += translation;
-
-                        Clamp();
-
-                        Feature.ProcessMove();
-                    }
-                    else
-                    {
-                        Feature.UpdateIdle();
-                    }
-
-                    _animator.SetFloat("Speed", clampedStrength);
-
-                    var from = _leftFootDownAnchor.position;
-                    from.y += 50;
-
-                    float maxY = 0;
-
-
-                    if (Physics.Raycast(from, Vector3.down, out var hitInfoRight, 100f,
-                            LayerMask.GetMask("Floor", "GardenPlot")))
-                    {
-                        if (hitInfoRight.point.y > maxY)
-                        {
-                            maxY = hitInfoRight.point.y;
-                        }
-                    }
-
-                    from = _rightFootDownAnchor.position;
-                    from.y += 50;
-
-                    if (Physics.Raycast(from, Vector3.down, out var hitInfoLeft, 100f,
-                            LayerMask.GetMask("Floor", "GardenPlot")))
-                    {
-                        if (hitInfoLeft.point.y > maxY)
-                        {
-                            maxY = hitInfoRight.point.y;
-                        }
-                    }
-
-                    var pos = transform.position;
-                    pos.y = maxY;
-                    transform.position = pos;
+                    Feature.ProcessMove();
                 }
+                else
+                {
+                    Feature.UpdateIdle();
+                }
+
+                _animator.SetFloat("Speed", clampedStrength);
+
+                var from = _leftFootDownAnchor.position;
+                from.y += 50;
+
+                float maxY = 0;
+
+
+                if (Physics.Raycast(from, Vector3.down, out var hitInfoRight, 100f,
+                        LayerMask.GetMask("Floor", "GardenPlot")))
+                {
+                    if (hitInfoRight.point.y > maxY)
+                    {
+                        maxY = hitInfoRight.point.y;
+                    }
+                }
+
+                from = _rightFootDownAnchor.position;
+                from.y += 50;
+
+                if (Physics.Raycast(from, Vector3.down, out var hitInfoLeft, 100f,
+                        LayerMask.GetMask("Floor", "GardenPlot")))
+                {
+                    if (hitInfoLeft.point.y > maxY)
+                    {
+                        maxY = hitInfoRight.point.y;
+                    }
+                }
+
+                var pos = transform.position;
+                pos.y = maxY;
+                transform.position = pos;
+
                 yield return null;
             }
         }
