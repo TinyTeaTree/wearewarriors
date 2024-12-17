@@ -98,7 +98,11 @@ namespace Game
                 }
                 else if (shopEnterDetector.ShopType == TShops.SellCropShop)
                 {
-                    
+                    var holdingTool = Tools.GetHoldingTool();
+                    if (Tools.GetHoldingTool() != null)
+                    {
+                        
+                    }
                 }
             }
             else
