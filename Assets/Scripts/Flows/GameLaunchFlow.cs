@@ -22,13 +22,14 @@ namespace Game
             var garden = bootstrap.Features.Get<IGarden>();
             var world = bootstrap.Features.Get<IWorld>();
             var shop = bootstrap.Features.Get<IShop>();
+            var floatingText = bootstrap.Features.Get<IFloatingText>();
 
             AddNext(action: () => bootstrap.Agents.Get<IAppLaunchAgent>().AppLaunch())
                 .AddNext(() => camera.Load())
                 .AddNext(() => hud.Load())
+                .AddNext(() => floatingText.Load())
                 .AddNext(() => { loading.Show(true); })
                 .AddNext(() => playerAccount.Login())
-                
                 //Here we can start loading User Related Features
                
                 .AddNext(() => wallet.LoadWallet()) 

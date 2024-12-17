@@ -37,6 +37,7 @@ namespace Game
             _features.Add<IWorld>(new World());
             _features.Add<ICoins>(new Coins());
             _features.Add<IShop>(new Shop());
+            _features.Add<IFloatingText>(new FloatingText());
             //<New Feature>
         }
 
@@ -55,6 +56,7 @@ namespace Game
             _factories.Add(typeof(WorldVisual), new AsyncResourceFactory(Addresses.World));
             _factories.Add(typeof(CoinsVisual), new ResourceFactory(Addresses.CoinsVisual));
             _factories.Add(typeof(ShopVisual), new AsyncResourceFactory(Addresses.ShopHud));
+            _factories.Add(typeof(FloatingTextVisual), new AsyncResourceFactory(Addresses.FloatingText));
         }
 
         protected override void AddAgents()
