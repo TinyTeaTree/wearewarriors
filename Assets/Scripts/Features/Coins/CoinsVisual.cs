@@ -62,6 +62,7 @@ namespace Game
                         var adding = Feature.VolumeAmounts[coin.Volume - 1];
                         Feature.Wallet.AddToWallet(adding).Forget();
                         coin.Pick();
+                        Feature.FloatingText.PopText(coin.transform.position, adding.ToString(),2f);
                         coin.SelfDestroy();
                         didDestroy = true;
                     }

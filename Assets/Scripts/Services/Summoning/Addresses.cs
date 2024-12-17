@@ -21,6 +21,7 @@ namespace Services
         public const string World = "Visuals/World";
         public const string Wallet = "Visuals/Wallet Visual";
         public const string ShopHud = "Visuals/Hud Shop Visual";
+        public const string FloatingText = "Visuals/Floating Text Visual";
         //<Resource Path End>
     }
 }
