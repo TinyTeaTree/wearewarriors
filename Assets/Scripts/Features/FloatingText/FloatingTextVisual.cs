@@ -26,9 +26,9 @@ namespace Game
         IEnumerator PopTextRoutine(Vector3 pos, string text, float duration)
         {
             var popText = Summoner.CreateAsset(floatingTextPrefab, transform);
-            var worldPos = UnityEngine.Camera.main.WorldToScreenPoint(pos);
+            var screenPos = Feature.Camera.WorldCamera.WorldToScreenPoint(pos);
 
-            popText.transform.position = worldPos;
+            popText.transform.position = screenPos;
             popText.alpha = 0;
             popText.text = $"+{text} coins";
             popText.gameObject.SetActive(true);
@@ -39,7 +39,7 @@ namespace Game
             {
                 float progress = elapsedTime / duration;
                 
-                popText.transform.position = Vector3.Lerp(worldPos, worldPos + Vector3.up * 100, progress);
+                popText.transform.position = Vector3.Lerp(screenPos, screenPos + Vector3.up * 100, progress);
                 
                 if (progress < 0.5f)
                     popText.alpha = progress * 2; 

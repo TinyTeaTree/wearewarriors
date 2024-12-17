@@ -6,6 +6,8 @@ namespace Game
 {
     public class FloatingText : BaseVisualFeature<FloatingTextVisual>, IFloatingText
     {
+        [Inject] public ICamera Camera { get; set; }
+        
         public async Task Load()
         {
            await CreateVisual();
