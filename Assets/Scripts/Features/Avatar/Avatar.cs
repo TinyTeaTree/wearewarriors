@@ -21,6 +21,8 @@ namespace Game
         [Inject] public IWorld World { get; set; }
         [Inject] public ICoins Coins { get; set; }
 
+        public List<TPlant> PlantsGathered => Record.PlantsGathered;
+
         public Transform AvatarTransform => _visual?.transform;
         private AvatarConfig Config { get; set; }
         
@@ -44,6 +46,22 @@ namespace Game
             Record.PlantsGathered.Clear();
         }
 
+        public void SellPlants(Transform sellPoint)
+        {
+            Record.PlantsGathered.Clear();
+            Record.GatherProgress = 0f;
+
+            var box = Tools.GetHoldingTool() as CropBoxVisual;
+            var plants = box.Plants;
+            foreach (var plant in plants)
+            {
+                plant.transform.SetParent(sellPoint);
+                plant.transform.position = sellPoint.position;
+            }
+            
+            box.Plants.Clear();
+        }
+        
         public void Activate()
         {
             _visual.SetDirectionProvider(Joystick);
