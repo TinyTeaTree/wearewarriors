@@ -11,5 +11,8 @@ namespace Game
         void Activate();
         Transform AvatarTransform { get; }
         void DropTool(ToolVisual tool);
+        
+        List<TPlant> PlantsGathered { get; }
+        void SellPlants(Transform sellPoint);
     }
 }

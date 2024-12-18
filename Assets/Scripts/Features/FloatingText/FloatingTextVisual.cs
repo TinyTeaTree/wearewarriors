@@ -30,7 +30,7 @@ namespace Game
 
             popText.transform.position = screenPos;
             popText.alpha = 0;
-            popText.text = $"+{text} coins";
+            popText.text = text;
             popText.gameObject.SetActive(true);
 
             float elapsedTime = 0f;

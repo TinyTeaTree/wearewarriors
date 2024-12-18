@@ -11,10 +11,14 @@ namespace Game
         [SerializeField] private AnimationCurve heightGatherCurve;
         [SerializeField] private List<Transform> cropPlaces;
         public Transform FillPoint => fillPoint;
-        
+        public List<GameObject> Plants => plants;
+
+        private List<GameObject> plants = new();
+
 
         public void Gather(GameObject crop)
         {
+            plants.Add(crop);
             StartCoroutine(GatherRoutine(crop));
         }
         

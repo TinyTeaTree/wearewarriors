@@ -29,6 +29,7 @@ namespace Game
             if (plotData.State == TPlotState.SeedsGrowing || plotData.State == TPlotState.PlantRiping)
             {
                 plotData.Progress = Mathf.MoveTowards(plotData.Progress, 1f, amount);
+                var plantVisual = _visual.FieldVisuals.FirstOrDefault(f => f.FieldId == fieldId).GardenPlotVisuals.FirstOrDefault(p => p.PlotID == plotID);
                 
                 if (plotData.Progress == 1f)
                 {
@@ -36,7 +37,7 @@ namespace Game
                     plotData.Progress = 1f; //Start with full Plants
                 }
                 
-                _visual.FieldVisuals.FirstOrDefault(f => f.FieldId == fieldId).GardenPlotVisuals.FirstOrDefault(p => p.PlotID == plotID).WaterPlant(plotData);
+                plantVisual.WaterPlant(plotData);
             }
         }
 

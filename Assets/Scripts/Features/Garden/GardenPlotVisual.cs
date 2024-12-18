@@ -42,7 +42,7 @@ namespace Game
         
         public void WaterPlant(PlotData data)
         {
-            _plantVisual.WaterPlant(data);
+            _plantVisual.SetPlantProgress(data);
         }
 
         private void CreatePlantVisual(TPlant plantType)
@@ -63,9 +63,8 @@ namespace Game
             _plantVisual = Instantiate(plantPrefab, transform);
 
             _plantVisual.SetFeature(Feature);
-            _plantVisual.MarkID = Feature.Marks.AddMark(transform, TMark.PlantProgress);
 
-            _plantVisual.StartGrowing();
+            _plantVisual.GrowRoutine(plotData);
         }
 
         public void RakePlot(PlotData plotData)
