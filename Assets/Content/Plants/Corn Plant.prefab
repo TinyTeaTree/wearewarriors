@@ -95,7 +95,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fdf18c58b725a2f469593ece1786d307, type: 2}
+  - {fileID: 2100000, guid: 2b3d2448f37a84b8eb020a7330c084ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlantID: 3
   MarkID: 
+  _renderer: {fileID: 9026369460693849444}
   animation: {fileID: 7953412594017849151}
   cropPrefab: {fileID: 1995927978938410, guid: 55c839df0d5a74043ba47be58b12ccfa, type: 3}
   cropSpawnPoint: {fileID: 5485057290342046295}

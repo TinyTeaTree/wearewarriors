@@ -18,6 +18,7 @@ namespace Game
         private Vector3 _targetScale = Vector3.one * 3;
         
         public bool IsComplete => _isComplete;
+        [SerializeField] private MeshRenderer _renderer;
         
         Coroutine plantGrowthRoutine;
 
@@ -73,7 +74,34 @@ namespace Game
 
         public void WaterPlant(PlotData data)
         {
+            StartCoroutine(WaterEffectRoutine());
             _targetProgress = data.State == TPlotState.PlantRiping ? 1f : data.Progress;
+        }
+
+        private IEnumerator WaterEffectRoutine()
+        {
+            float passed = 0f;
+            float duration = 0.2f;
+            while (passed < duration)
+            {
+                float ratio = passed / duration;
+                _renderer.material.SetColor("_Water", Color.Lerp(Color.black, Color.blue, ratio));
+                
+                yield return null;
+                passed += Time.deltaTime;
+            }
+            
+            passed = 0f;
+            while (passed < duration)
+            {
+                float ratio = passed / duration;
+                _renderer.material.SetColor("_Water", Color.Lerp(Color.blue, Color.black, ratio));
+                
+                yield return null;
+                passed += Time.deltaTime;
+            }
+            
+            _renderer.material.SetColor("_Water", Color.black);
         }
         
         private IEnumerator BounceEffect()
