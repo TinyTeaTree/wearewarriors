@@ -226,8 +226,8 @@ namespace Game
                 var gatherCapacity = 1f - Record.GatherProgress;
                 var cropYield = Mathf.Min(plotData.Progress, holdingTool.WorkPerSecond, gatherCapacity + 0.001f);
                 
-
                 plotData.Progress -= cropYield;
+                
 
                 var cropsGathered = CalculateCropGathered(Record.GatherProgress, Record.GatherProgress + cropYield);
                 
@@ -237,6 +237,7 @@ namespace Game
                 {
                     Record.PlantsGathered.Add(gardenPlotVisual.PlantVisual.PlantID);
                     gardenPlotVisual.PlantVisual.AnimateGather(holdingTool);
+                    gardenPlotVisual.PlantVisual.SetPlantProgress(plotData);
                 }
             }
         }

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Core;
 using Services;
 using UnityEngine;
@@ -12,12 +13,10 @@ namespace Game
         
         private float _progress = 0f;
         private float _targetProgress = 0f;
-        private bool _isComplete = false;
         
         private Vector3 _initScale = Vector3.zero;
         private Vector3 _targetScale = Vector3.one * 3;
         
-        public bool IsComplete => _isComplete;
         [SerializeField] private MeshRenderer _renderer;
         
         Coroutine plantGrowthRoutine;
@@ -25,57 +24,72 @@ namespace Game
         [SerializeField] private new Animation animation;
         [SerializeField] private GameObject cropPrefab;
         [SerializeField] private Transform cropSpawnPoint;
+
+        [SerializeField] private List<Transform> crops;
         
-        public void StartGrowing()
+        public void GrowRoutine(PlotData plotData)
         {
             if (plantGrowthRoutine != null)
             {
                 StopCoroutine(plantGrowthRoutine);
             }
-            plantGrowthRoutine = StartCoroutine(GrowCoroutine());
+            plantGrowthRoutine = StartCoroutine(GrowCoroutine(plotData));
         }
 
-        private IEnumerator GrowCoroutine()
+        private IEnumerator GrowCoroutine(PlotData plotData)
         {
-            while (_progress <= 0.99f)
+            while (true)
             {
                 _progress = Mathf.Lerp(_progress, _targetProgress, 0.1f);
-                transform.localScale = Vector3.Lerp(_initScale ,_targetScale, _progress);
-                Feature.Marks.GetMark<MarkPlantProgress>(MarkID).UpdateMarkProgress(_progress);
+                SetCropProgress();
+                transform.localScale = Vector3.Lerp(_initScale ,_targetScale, plotData.State == TPlotState.PlantRiping ? 1f : _progress);
                 
                 yield return null;
             }
-            transform.localScale = _targetScale;
-            Feature.Marks.GetMark<MarkPlantProgress>(MarkID).SelfDestroy();
-            Feature.Marks.RemoveMark(MarkID);
-            MarkID = null;
-            _isComplete = true;
-            StartCoroutine(BounceEffect());
+        }
+
+        private void SetCropProgress()
+        {
+            float cropAmount = 1f / crops.Count;
+
+            float cropProgress = _progress;
+            int index = 0;
+            for (int i = 0; i < crops.Count; ++i)
+            {
+                var crop = crops[i];
+                if (cropProgress > cropAmount)
+                {
+                    crop.localScale = Vector3.one;
+                    cropProgress -= cropAmount;
+                }
+                else
+                {
+                    crop.localScale = Vector3.one * (cropProgress / cropAmount);
+                    cropProgress = 0f;
+                }
+            }
         }
 
         public void SetUp(PlotData data)
         {
-            _targetProgress = data.State == TPlotState.PlantRiping ? 1f : data.Progress;
+            _targetProgress = data.Progress;
             _progress = _targetProgress;
             transform.localScale = Vector3.Lerp(_initScale ,_targetScale, _progress);
+            SetCropProgress();
+            
+            GrowRoutine(data);
 
-            if (Mathf.Approximately(_targetProgress, 1f))
-            {
-                _isComplete = true;
-            }
-            else
-            {
-                MarkID = Feature.Marks.AddMark(transform, TMark.PlantProgress);
-                StartGrowing();
-
-                _isComplete = false;
-            }
         }
 
-        public void WaterPlant(PlotData data)
+        public void SetPlantProgress(PlotData data)
         {
             StartCoroutine(WaterEffectRoutine());
-            _targetProgress = data.State == TPlotState.PlantRiping ? 1f : data.Progress;
+            if (data.Progress > _targetProgress + 0.01f)
+            {
+                StartCoroutine(BounceEffect());
+            }
+
+            _targetProgress = data.Progress;
         }
 
         private IEnumerator WaterEffectRoutine()
