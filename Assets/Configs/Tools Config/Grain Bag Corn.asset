@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d73a18cb46e4a16ab619840df85f694, type: 3}
   m_Name: Grain Bag Corn
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3088499285026828010, guid: 8e681789fa33ef547a365ab24f457431, type: 3}
+  prefab: {fileID: 3960038661711815826, guid: 8e681789fa33ef547a365ab24f457431, type: 3}
   ToolID: 7
   GrainBagSeedType: 3
+  SeedVolume: 3
