@@ -16,8 +16,6 @@ namespace Game
         [Inject] public IAvatar Avatar { get; set; }
         [Inject] public IPlayerAccount PlayerAccount { get; set; }
         public ToolsConfig Config { get; private set; }
-        public ToolsVisual ToolVisual => _visual;
-        public ToolsRecord ToolsRecord => Record;
 
         public Task AppLaunch()
         {
@@ -48,7 +46,7 @@ namespace Game
             var grainBagPrefab = Config.Tools.FirstOrDefault(t => t.GrainBagSeedType == getSeedType).prefab;
 
             var avatarPos = Avatar.AvatarTransform.position;
-            var toolVisual = ToolVisual.transform;
+            var toolVisual = _visual.transform;
 
             Vector3 grainBagSpawnPos = avatarPos - Vector3.forward * 3 + Vector3.up * 5;
                
@@ -64,6 +62,26 @@ namespace Game
                 Pos = grainBagSpawnPos,
                 Rot = Vector3.zero
             });
+        }
+
+        public void DestroyGrainBagTool(ToolVisual tool)
+        {
+            Record.EquippedToolVisual = null;
+            Avatar.DropTool(tool);
+            _visual.AllTools.Remove(tool);
+
+            if (tool is GrainBagVisual grainBagVisual)
+            {
+                var poffEffect = Summoner.CreateAsset(grainBagVisual.PoffEffect, null);
+                var poffEffectMain = poffEffect.main;
+                poffEffectMain.startColor = grainBagVisual.BagMaterial.material.color;
+                poffEffect.transform.position = tool.transform.position;
+                poffEffect.Play();
+                Object.Destroy(poffEffect.gameObject, 2.5f);
+            }
+            
+            // Todo: remove it from the game save data
+            tool.SelfDestroy();
         }
 
         public ToolVisual GetHoldingTool()

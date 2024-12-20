@@ -9,5 +9,6 @@ namespace Game
         public ToolVisual prefab;
         public TTools ToolID;
         public TPlant GrainBagSeedType;
+        public int SeedVolume;
     }
 }

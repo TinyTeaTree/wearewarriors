@@ -295,15 +295,28 @@ namespace Game
                 return;
             if (gardenPlotVisual == null) 
                 return;
-            
-            var plotData = Garden.GetPlotData(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID);
-            if (plotData.State == TPlotState.Raked)
+
+            if (holdingTool is GrainBagVisual grainBagVisual)
             {
-                Garden.SeedPlot(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID, holdingTool.WorkPerSecond, holdingTool.SeedType);
-            }
-            else
-            {
-                _visual.AnimateTool(holdingTool.ToolID, false);
+                if (grainBagVisual.SeedsVolume > 0)
+                {
+                    var plotData = Garden.GetPlotData(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID);
+                    if (plotData.State == TPlotState.Raked && plotData.Plant == TPlant.None)
+                    {
+                        Garden.SeedPlot(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID, holdingTool.WorkPerSecond, holdingTool.SeedType);
+                        //**Todo: Fix a bug that take multiple seeds at once if the WorkPerSecond is less than 1.
+                        grainBagVisual.SeedsVolume--;
+                    }
+                    else
+                    {
+                        _visual.AnimateTool(holdingTool.ToolID, false);
+                    }
+                }
+                else
+                {
+                    Tools.DestroyGrainBagTool(holdingTool);
+                    _visual.AnimateTool(holdingTool.ToolID, false);
+                }
             }
         }
 
@@ -336,7 +349,7 @@ namespace Game
                 if (holdingTool.SeedType != TPlant.None)
                 {
                     var plotData = Garden.GetPlotData(gardenPlotVisual.FieldId, gardenPlotVisual.PlotID);
-                    if (plotData.State == TPlotState.Raked)
+                    if (plotData.State == TPlotState.Raked && plotData.Plant == TPlant.None)
                     {
                         StartWorking(holdingTool);
                     }

@@ -19,8 +19,7 @@ namespace Game
         
         void HighlightOn(ToolVisual closestTool);
         
-        ToolsVisual ToolVisual { get;}
-        ToolsRecord ToolsRecord { get; }
         void AddGrainBag(TPlant getSeedType);
+        void DestroyGrainBagTool(ToolVisual tool);
     }
 }

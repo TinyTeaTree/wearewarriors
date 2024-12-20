@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4467559324501748805}
-  - component: {fileID: 3088499285026828010}
+  - component: {fileID: 3960038661711815826}
   - component: {fileID: 5978939270484191384}
   - component: {fileID: 4821160592316459416}
   - component: {fileID: 753247445157979754}
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 7689730074052266965}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3088499285026828010
+--- !u!114 &3960038661711815826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,14 +45,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3825249089308294191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b34b8957494582b47853ec2c9a3d49, type: 3}
+  m_Script: {fileID: 11500000, guid: 85b7886239ae4d57b32205c9f035a56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ToolID: 7
   SeedType: 3
   _outline: {fileID: 5978939270484191384}
   _rigidbody: {fileID: 4821160592316459416}
-  workPerSecond: 0.3
+  workPerSecond: 1
+  BagMaterial: {fileID: 175236570523491811}
+  PoffEffect: {fileID: 198444154703667058, guid: 02a5336cf35638b46a793e0763baac63,
+    type: 3}
+  SeedsVolume: 3
 --- !u!114 &5978939270484191384
 MonoBehaviour:
   m_ObjectHideFlags: 0
