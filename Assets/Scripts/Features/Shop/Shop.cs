@@ -13,6 +13,8 @@ namespace Game
         [Inject] public IHud Hud { get; set; }
         [Inject] public ITools Tools { get; set; }
         [Inject] public IAvatar Avatar { get; set; }
+        [Inject] public IWallet Wallet { get; set; }
+        [Inject] public IFloatingText FloatingText { get; set; }
         
         private ShopConfig config;
         public ShopConfig Config => config;
@@ -99,9 +101,28 @@ namespace Game
                 else if (shopEnterDetector.ShopType == TShops.SellCropShop)
                 {
                     var holdingTool = Tools.GetHoldingTool();
-                    if (Tools.GetHoldingTool() != null)
+                    if (holdingTool != null)
                     {
-                        
+                        if (holdingTool.ToolID == TTools.CropBox)
+                        {
+                            var plants = Avatar.PlantsGathered;
+                            int totalPrice = 0;
+                            
+                            foreach (var plant in plants)
+                            {
+                                var price = Config.Prices.First(p => p.Plant == plant).Price;
+
+                                Wallet.AddToWallet(price);
+                                totalPrice += price;
+                            }
+
+                            if (totalPrice > 0)
+                            {
+                                FloatingText.PopText(Avatar.AvatarTransform.position, $"+{totalPrice}", 1.3f);
+                            }
+
+                            Avatar.SellPlants(shopEnterDetector.SellPoint);
+                        }
                     }
                 }
             }

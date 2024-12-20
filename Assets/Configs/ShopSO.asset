@@ -23,3 +23,10 @@ MonoBehaviour:
       ItemsVisual: []
     - ShopType: 2
       ItemsVisual: []
+    Prices:
+    - Plant: 3
+      Price: 3
+    - Plant: 2
+      Price: 4
+    - Plant: 1
+      Price: 5

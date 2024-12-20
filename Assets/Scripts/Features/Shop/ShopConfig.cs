@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Core;
 
 namespace Game
@@ -6,5 +7,7 @@ namespace Game
     public class ShopConfig : BaseConfig
     {
         public ShopConfigData[] ShopConfigData;
+
+        public List<CropPrice> Prices;
     }
 }
