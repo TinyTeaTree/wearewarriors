@@ -47,14 +47,17 @@ namespace Game
             {
                 gameObject.SetActive(true);
             }
-            
-            StopAllCoroutines();
-            StartCoroutine(ShopDisplayRoutine(status));
+
+            if (gameObject.activeSelf)
+            {
+                StopAllCoroutines();
+                StartCoroutine(ShopDisplayRoutine(status));
+            }
         }
 
         private IEnumerator ShopDisplayRoutine(bool status)
         {
-            transform.localScale = status? Vector3.zero : Vector3.one;
+            transform.localScale = status ? Vector3.zero : transform.localScale;
             
             while (!Mathf.Approximately(transform.localScale.x, status ? 1f : 0f))
             {
