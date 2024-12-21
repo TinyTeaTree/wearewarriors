@@ -43,6 +43,11 @@ namespace Game
 
         public void DisplayShop(bool status)
         {
+            if (status)
+            {
+                gameObject.SetActive(true);
+            }
+            
             StopAllCoroutines();
             StartCoroutine(ShopDisplayRoutine(status));
         }
@@ -71,8 +76,6 @@ namespace Game
                itemVisual.SetFeature(Feature);
                items.Add(itemVisual);
            }
-           gameObject.SetActive(true);
-           DisplayShop(true);
         }
 
         public bool OnDisplay()
