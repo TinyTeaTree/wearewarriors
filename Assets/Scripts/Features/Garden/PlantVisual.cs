@@ -83,9 +83,9 @@ namespace Game
 
         public void SetPlantProgress(PlotData data)
         {
-            StartCoroutine(WaterEffectRoutine());
             if (data.Progress > _targetProgress + 0.01f)
             {
+                StartCoroutine(WaterEffectRoutine());
                 StartCoroutine(BounceEffect());
             }
 
