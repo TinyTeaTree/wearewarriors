@@ -94,6 +94,7 @@ namespace Game
                         if (!WasAlreadyOpen())
                         {
                             MarkShop(true);
+                            _visual.DisplayShop(true);
                             LoadItems(TShops.SeedShop);
                         }
                     }

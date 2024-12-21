@@ -43,13 +43,21 @@ namespace Game
 
         public void DisplayShop(bool status)
         {
-            StopAllCoroutines();
-            StartCoroutine(ShopDisplayRoutine(status));
+            if (status)
+            {
+                gameObject.SetActive(true);
+            }
+
+            if (gameObject.activeSelf)
+            {
+                StopAllCoroutines();
+                StartCoroutine(ShopDisplayRoutine(status));
+            }
         }
 
         private IEnumerator ShopDisplayRoutine(bool status)
         {
-            transform.localScale = status? Vector3.zero : Vector3.one;
+            transform.localScale = status ? Vector3.zero : transform.localScale;
             
             while (!Mathf.Approximately(transform.localScale.x, status ? 1f : 0f))
             {
@@ -71,8 +79,6 @@ namespace Game
                itemVisual.SetFeature(Feature);
                items.Add(itemVisual);
            }
-           gameObject.SetActive(true);
-           DisplayShop(true);
         }
 
         public bool OnDisplay()
