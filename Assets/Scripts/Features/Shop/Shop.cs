@@ -21,13 +21,25 @@ namespace Game
 
         public void PressedBuyShopItem(ShopItemVisual item)
         {
-            _visual.DisplayShop(false);
-            _visual.ClearShopItems();
+            var playerCoins = Wallet.GetWalletBalance();
 
-            if (item is SeedItemVisual seedItem)
+            if (playerCoins >= item.Price)
             {
-                Tools.AddGrainBag(seedItem.GetSeedType());
+                Wallet.Pay(item.Price);
+                _visual.DisplayShop(false);
+                _visual.ClearShopItems();
+                
+                if (item is SeedItemVisual seedItem)
+                {
+                    Tools.AddGrainBag(seedItem.GetSeedType());
+                    FloatingText.PopText(seedItem.transform.position, $"-{item.Price}", 2f);
+                }
             }
+            else
+            {
+                _visual.ShakeShop();
+            }
+            
         }
 
         public async Task LoadShop()

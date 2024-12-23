@@ -10,7 +10,9 @@ namespace Game
         [SerializeField] Image itemImage;
         [SerializeField] Button buyButton;
         [SerializeField] TextMeshProUGUI priceText;
+        [SerializeField] int price;
 
+        public int Price => price;
         protected virtual void Start()
         {
             buyButton.onClick.AddListener(PressedBuy);
