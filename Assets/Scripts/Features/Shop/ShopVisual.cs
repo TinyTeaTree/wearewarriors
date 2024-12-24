@@ -54,20 +54,10 @@ namespace Game
                 StartCoroutine(ShopDisplayRoutine(status));
             }
         }
-
-        private IEnumerator ShopDisplayRoutine(bool status)
+        
+        public void ShakeShop()
         {
-            transform.localScale = status ? Vector3.zero : transform.localScale;
-            
-            while (!Mathf.Approximately(transform.localScale.x, status ? 1f : 0f))
-            {
-                transform.localScale = Vector3.Lerp(transform.localScale, status? Vector3.one : Vector3.zero, 0.1f);
-                yield return null;
-            }
-            
-            transform.localScale = status? Vector3.one : Vector3.zero;
-            
-            gameObject.SetActive(status);
+            StartCoroutine(ShakeRoutine(0.2f, 6f));
         }
 
         public void LoadItems(TShops shopType)
@@ -95,6 +85,43 @@ namespace Game
             }
             
             WasOpen = status;
+        }
+        
+        private IEnumerator ShopDisplayRoutine(bool status)
+        {
+            transform.localScale = status ? Vector3.zero : transform.localScale;
+            
+            while (!Mathf.Approximately(transform.localScale.x, status ? 1f : 0f))
+            {
+                transform.localScale = Vector3.Lerp(transform.localScale, status? Vector3.one : Vector3.zero, 0.1f);
+                yield return null;
+            }
+            
+            transform.localScale = status? Vector3.one : Vector3.zero;
+            
+            gameObject.SetActive(status);
+        }
+        
+        private IEnumerator ShakeRoutine(float duration, float magnitude)
+        {
+            Vector3 originalPos = transform.localPosition;
+            float elapsed = 0.0f;
+        
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float x = Random.Range(-1f, 1f) * magnitude;
+                float y = Random.Range(-1f, 1f) * magnitude;
+            
+                transform.localPosition = new Vector3(
+                    originalPos.x + x,
+                    originalPos.y + y,
+                    originalPos.z
+                );
+                
+                yield return null;
+            }
+            transform.localPosition = originalPos;
         }
     }
 }

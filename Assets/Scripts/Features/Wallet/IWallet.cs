@@ -8,5 +8,7 @@ namespace Game
         Task LoadWallet();
         Task AddToWallet(int amount);
         Task Pay(int amount);
+        
+        int GetWalletBalance();
     }
 }
