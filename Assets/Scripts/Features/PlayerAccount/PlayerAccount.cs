@@ -4,10 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Agents;
 using Core;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Services;
-using Unity.Plastic.Newtonsoft.Json;
-using Unity.Plastic.Newtonsoft.Json.Linq;
-using UnityEngine;
 
 namespace Game
 {

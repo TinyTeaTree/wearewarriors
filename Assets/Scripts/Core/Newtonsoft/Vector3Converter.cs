@@ -1,6 +1,6 @@
 using UnityEngine;
 using System;
-using Unity.Plastic.Newtonsoft.Json;
+using Newtonsoft.Json;
 
 public class Vector3Converter : JsonConverter<Vector3>
 {

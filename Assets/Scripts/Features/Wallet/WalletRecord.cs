@@ -1,5 +1,4 @@
 using Core;
-using Unity.Plastic.Newtonsoft.Json;
 
 namespace Game
 {
