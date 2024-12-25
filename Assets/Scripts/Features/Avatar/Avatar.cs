@@ -291,7 +291,7 @@ namespace Game
 
         private void CheckGrainBagProgress(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual)
         {
-            if (holdingTool.ToolID != TTools.GrainBagCorn) 
+            if (holdingTool.ToolID != TTools.GrainBagCorn && holdingTool.ToolID != TTools.GrainBagStrawberry && holdingTool.ToolID != TTools.GrainBagTomato) 
                 return;
             if (gardenPlotVisual == null) 
                 return;
@@ -341,7 +341,7 @@ namespace Game
         
         private void CheckGrainBagWork(ToolVisual holdingTool, GardenPlotVisual gardenPlotVisual)
         {
-            if (holdingTool.ToolID != TTools.GrainBagCorn) 
+            if (holdingTool.ToolID != TTools.GrainBagCorn && holdingTool.ToolID != TTools.GrainBagStrawberry && holdingTool.ToolID != TTools.GrainBagTomato) 
                 return;
             
             if (gardenPlotVisual != null)

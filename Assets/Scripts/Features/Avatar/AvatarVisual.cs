@@ -212,6 +212,8 @@ namespace Game
                     _animator.SetBool("Pick", state);
                     break;
                 case TTools.GrainBagCorn:
+                case TTools.GrainBagStrawberry:
+                case TTools.GrainBagTomato:
                     _animator.SetBool("Plant", state);
                     break;
                 default:
@@ -230,7 +232,7 @@ namespace Game
             {
                 _animator.SetInteger("Tool", (int)TTools.CropBox);
             }
-            else if (closestToolToolID == TTools.GrainBagCorn)
+            else if (closestToolToolID is TTools.GrainBagCorn or TTools.GrainBagStrawberry or TTools.GrainBagTomato)
             {
                 _animator.SetInteger("Tool", (int)TTools.GrainBagCorn);
             }

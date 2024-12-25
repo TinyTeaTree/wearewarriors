@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Grain Bag Srawbarry
   m_EditorClassIdentifier: 
   prefab: {fileID: 3071302576956871032, guid: ac7217f686abf0148909509ba7755dd0, type: 3}
-  ToolID: 7
+  ToolID: 9
   GrainBagSeedType: 1
   SeedVolume: 3
