@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Grain Bag Tomato
   m_EditorClassIdentifier: 
   prefab: {fileID: -4419631417331829277, guid: e5160b617161bb74a9d61d4418b99677, type: 3}
-  ToolID: 7
+  ToolID: 8
   GrainBagSeedType: 2
   SeedVolume: 3

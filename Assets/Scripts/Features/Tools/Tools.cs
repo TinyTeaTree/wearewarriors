@@ -52,7 +52,6 @@ namespace Game
                
             var grainBag = Object.Instantiate(grainBagPrefab, grainBagSpawnPos , Quaternion.identity);
             grainBag.SetFeature(this);
-            grainBag.ToolID = TTools.GrainBag;
             grainBag.transform.SetParent(toolVisual);
             
             _visual.AddTools(new List<ToolVisual>(){grainBag});

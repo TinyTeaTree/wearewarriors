@@ -1233,6 +1233,10 @@ MonoBehaviour:
     anchorPoint: {fileID: 1093953739757539461}
   - toolID: 6
     anchorPoint: {fileID: 8003296779457245674}
+  - toolID: 8
+    anchorPoint: {fileID: 7017152752982524625}
+  - toolID: 9
+    anchorPoint: {fileID: 7017152752982524625}
   footsteps:
   - {fileID: 11400000, guid: 788bc53cc20164bec8ca8cabc188d618, type: 2}
   - {fileID: 11400000, guid: 5d52fcfdbf535468ebc36e9f9b1bf096, type: 2}
