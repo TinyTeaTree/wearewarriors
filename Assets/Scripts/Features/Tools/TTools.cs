@@ -9,6 +9,8 @@
         PesticideSpray = 4,
         ScareCrow = 5,
         CropBox = 6,
-        GrainBag = 7,
+        GrainBagCorn = 7,
+        GrainBagTomato = 8,
+        GrainBagStrawberry = 9,
     }
 }
