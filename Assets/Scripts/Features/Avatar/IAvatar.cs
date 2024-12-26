@@ -13,6 +13,6 @@ namespace Game
         void DropTool(ToolVisual tool);
         
         List<TPlant> PlantsGathered { get; }
-        void SellPlants(Transform sellPoint);
+        void SellPlants(Transform[] sellPoint);
     }
 }

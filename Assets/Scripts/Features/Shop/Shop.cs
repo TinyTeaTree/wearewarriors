@@ -48,16 +48,6 @@ namespace Game
             await CreateVisual(Hud.Canvas);
         }
 
-        public Task BuyProduct(string productName)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task SellProduct(string productName)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void LoadItems(TShops shopType)
         {
             if (!_visual)
@@ -134,7 +124,7 @@ namespace Game
                                 FloatingText.PopText(Avatar.AvatarTransform.position, $"+{totalPrice}", 1.3f);
                             }
 
-                            Avatar.SellPlants(shopEnterDetector.SellPoint);
+                            Avatar.SellPlants(shopEnterDetector.SellPoints);
                         }
                     }
                 }
