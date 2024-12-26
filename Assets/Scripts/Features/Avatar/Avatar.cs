@@ -72,6 +72,9 @@ namespace Game
         public void Update()
         {
             ScanForTool();
+            
+            Record.AvatarRecordData.Pos = _visual.transform.position;
+            Record.AvatarRecordData.Rot = _visual.transform.rotation.eulerAngles.y;
         }
 
         private void ScanForTool()

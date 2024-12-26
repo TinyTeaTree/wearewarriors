@@ -9,6 +9,8 @@ namespace Services
 {
     public class PlayerSaveService : BaseService, IPlayerSaveService
     {
+        private string FolderPath => Application.isEditor ? Application.dataPath : Application.persistentDataPath;
+        
         public void AddSaveRecord(BaseRecord record)
         {
             RecordsForSaving.Add(record);
@@ -30,7 +32,7 @@ namespace Services
 
         public Task<string> GetSavedJson(string saveId)
         {
-            var filePath = Path.Combine(Application.dataPath, "Player Data", saveId + ".json");
+            var filePath = Path.Combine(FolderPath, "Player Data", saveId + ".json");
             if (!File.Exists(filePath))
             {
                 return Task.FromResult(string.Empty);
@@ -46,7 +48,7 @@ namespace Services
         {
             var saveText = JsonConvert.SerializeObject(save, Formatting.Indented);
 
-            var userDataFolderPath = Path.Combine(Application.dataPath, "Player Data");
+            var userDataFolderPath = Path.Combine(FolderPath, "Player Data");
             if (!Directory.Exists(userDataFolderPath))
             {
                 Directory.CreateDirectory(userDataFolderPath);

@@ -27,25 +27,34 @@ namespace Game
             while (true)
             {
                 var holdingTool = Feature?.GetHoldingTool();
-                
-                    if (Input.GetMouseButtonDown(0) && holdingTool != null)
-                    {
-                        // Todo: Check If player touch the UI and if yes dont throw the tool.
-                        if (!EventSystem.current.IsPointerOverGameObject() && holdingTool.Droppable)
-                        {
-                            Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
-                            RaycastHit hit;
 
-                            if (Physics.Raycast(ray, out hit, Mathf.Infinity, floorLayerMask))
-                            {
-                                Vector3 dropPoint = hit.point;
-                                holdingTool.SetFeature(Feature);
-                                Feature.ThrowTool(holdingTool, dropPoint);
-                            }
+                if (Input.GetMouseButtonDown(0) && holdingTool != null)
+                {
+                    if (!IsPointerOverUIObject() && holdingTool.Droppable)
+                    {
+                        Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
+                        RaycastHit hit;
+
+                        if (Physics.Raycast(ray, out hit, Mathf.Infinity, floorLayerMask))
+                        {
+                            Vector3 dropPoint = hit.point;
+                            holdingTool.SetFeature(Feature);
+                            Feature.ThrowTool(holdingTool, dropPoint);
                         }
                     }
+                }
+
                 yield return null;
             }
+        }
+        
+        private bool IsPointerOverUIObject()
+        {
+            PointerEventData eventData = new PointerEventData(EventSystem.current);
+            eventData.position = Input.mousePosition;
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventData, results);
+            return results.Count > 0;
         }
     }
 }

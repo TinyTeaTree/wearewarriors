@@ -29,13 +29,19 @@ namespace Game
                 .AddNext(() => hud.Load())
                 .AddNext(() => floatingText.Load())
                 .AddNext(() => { loading.Show(true); })
+                
                 .AddNext(() => playerAccount.Login())
+                .AddNext(() => { loading.ProgressControl(0.01f); })
                 //Here we can start loading User Related Features
                
                 .AddNext(() => wallet.LoadWallet()) 
+                .AddNext(() => { loading.ProgressControl(0.02f); })
                 .AddNext(() => marks.Load())
+                .AddNext(() => { loading.ProgressControl(0.03f); })
                 .AddNext(() => world.Load())
+                .AddNext(() => { loading.ProgressControl(0.04f); })
                 .AddNext(() => garden.Load())
+                .AddNext(() => { loading.ProgressControl(0.05f); })
                 .AddNext(() => { return Task.Delay(TimeSpan.FromSeconds(0.25f)); })
                 .AddNext(() => { loading.ProgressControl(0.2f); })
                 .AddNext(() => avatar.Load())
