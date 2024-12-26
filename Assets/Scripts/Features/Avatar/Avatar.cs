@@ -6,6 +6,7 @@ using Agents;
 using Core;
 using Services;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 namespace Game
@@ -46,7 +47,7 @@ namespace Game
             Record.PlantsGathered.Clear();
         }
 
-        public void SellPlants(Transform sellPoint)
+        public void SellPlants(Transform[] sellPoints)
         {
             Record.PlantsGathered.Clear();
             Record.GatherProgress = 0f;
@@ -55,8 +56,24 @@ namespace Game
             var plants = box.Plants;
             foreach (var plant in plants)
             {
-                plant.transform.SetParent(sellPoint);
-                plant.transform.position = sellPoint.position;
+                if (sellPoints.All(sellPoint => sellPoint.childCount > 0))
+                {
+                    Object.Destroy(plant.gameObject);
+                    
+                    foreach (var point in sellPoints)
+                    {
+                        Object.Destroy(point.GetChild(0).gameObject);
+                    }
+                }
+                
+                foreach (var sellPoint in sellPoints)
+                {
+                    if (sellPoint.childCount == 0)
+                    {
+                        plant.transform.SetParent(sellPoint);
+                        plant.transform.position = sellPoint.position;
+                    }
+                }
             }
             
             box.Plants.Clear();

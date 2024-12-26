@@ -1,13 +1,14 @@
 using Core;
 using Game;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ShopEnterDetector : BaseVisual<Shop>
 {
     [SerializeField] private TShops shop;
-    [SerializeField] private Transform sellPoint;
+    [SerializeField] private Transform[] sellPoints;
     public TShops ShopType => shop;
-    public Transform SellPoint => sellPoint;
+    public Transform[] SellPoints => sellPoints;
 
     void Awake()
     {
